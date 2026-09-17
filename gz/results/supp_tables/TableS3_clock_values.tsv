@@ -1,0 +1,558 @@
+dataset	analysis	species	sample_id	gsm	srr	stage	arm	variant	reference	clock_value
+GSE225056	Gate 1	Mouse	16-cell_1	GSM7038161		16-cell		V0	oocytes of the same species	0.1075527635231514
+GSE225056	Gate 1	Mouse	16-cell_10	GSM7038170		16-cell		V0	oocytes of the same species	0.0770039167071979
+GSE225056	Gate 1	Mouse	16-cell_11	GSM7038171		16-cell		V0	oocytes of the same species	0.0162867804174856
+GSE225056	Gate 1	Mouse	16-cell_12	GSM7038172		16-cell		V0	oocytes of the same species	-0.1125386004005358
+GSE225056	Gate 1	Mouse	16-cell_2	GSM7038162		16-cell		V0	oocytes of the same species	0.0164013063212237
+GSE225056	Gate 1	Mouse	16-cell_3	GSM7038163		16-cell		V0	oocytes of the same species	0.1031364503308317
+GSE225056	Gate 1	Mouse	16-cell_4	GSM7038164		16-cell		V0	oocytes of the same species	0.0551593995114489
+GSE225056	Gate 1	Mouse	16-cell_5	GSM7038165		16-cell		V0	oocytes of the same species	0.0322768349863422
+GSE225056	Gate 1	Mouse	16-cell_6	GSM7038166		16-cell		V0	oocytes of the same species	-0.0139394529748678
+GSE225056	Gate 1	Mouse	16-cell_7	GSM7038167		16-cell		V0	oocytes of the same species	0.3006317455110477
+GSE225056	Gate 1	Mouse	16-cell_8	GSM7038168		16-cell		V0	oocytes of the same species	0.1056755154771325
+GSE225056	Gate 1	Mouse	16-cell_9	GSM7038169		16-cell		V0	oocytes of the same species	0.0036107729666853
+GSE225056	Gate 1	Mouse	4-cell_1	GSM7038138		4-cell		V0	oocytes of the same species	0.0180124641606456
+GSE225056	Gate 1	Mouse	4-cell_11	GSM7038147		4-cell		V0	oocytes of the same species	-0.1041599424900281
+GSE225056	Gate 1	Mouse	4-cell_12	GSM7038148		4-cell		V0	oocytes of the same species	0.0366231488783347
+GSE225056	Gate 1	Mouse	4-cell_2	GSM7038139		4-cell		V0	oocytes of the same species	0.0133469629494996
+GSE225056	Gate 1	Mouse	4-cell_3	GSM7038140		4-cell		V0	oocytes of the same species	-0.1002873260241992
+GSE225056	Gate 1	Mouse	4-cell_4	GSM7038141		4-cell		V0	oocytes of the same species	0.0014862537908623
+GSE225056	Gate 1	Mouse	4-cell_5	GSM7038142		4-cell		V0	oocytes of the same species	-0.0459160977216879
+GSE225056	Gate 1	Mouse	4-cell_6	GSM7038143		4-cell		V0	oocytes of the same species	-0.0508064801262761
+GSE225056	Gate 1	Mouse	4-cell_7	GSM7038144		4-cell		V0	oocytes of the same species	0.1621504194211825
+GSE225056	Gate 1	Mouse	4-cell_8	GSM7038145		4-cell		V0	oocytes of the same species	-0.0642204109263129
+GSE225056	Gate 1	Mouse	4-cell_9	GSM7038146		4-cell		V0	oocytes of the same species	-0.0659256155024216
+GSE225056	Gate 1	Mouse	8-cell_1	GSM7038149		8-cell		V0	oocytes of the same species	0.0783615833205799
+GSE225056	Gate 1	Mouse	8-cell_10	GSM7038158		8-cell		V0	oocytes of the same species	0.038586108593252
+GSE225056	Gate 1	Mouse	8-cell_12	GSM7038160		8-cell		V0	oocytes of the same species	0.0751710924105925
+GSE225056	Gate 1	Mouse	8-cell_2	GSM7038150		8-cell		V0	oocytes of the same species	0.1166424063154521
+GSE225056	Gate 1	Mouse	8-cell_3	GSM7038151		8-cell		V0	oocytes of the same species	0.0206458539386992
+GSE225056	Gate 1	Mouse	8-cell_4	GSM7038152		8-cell		V0	oocytes of the same species	0.0923097445752871
+GSE225056	Gate 1	Mouse	8-cell_5	GSM7038153		8-cell		V0	oocytes of the same species	0.1601342129835962
+GSE225056	Gate 1	Mouse	8-cell_6	GSM7038154		8-cell		V0	oocytes of the same species	0.1967731023813905
+GSE225056	Gate 1	Mouse	8-cell_7	GSM7038155		8-cell		V0	oocytes of the same species	0.0725726687960287
+GSE225056	Gate 1	Mouse	8-cell_8	GSM7038156		8-cell		V0	oocytes of the same species	0.1247222447011631
+GSE225056	Gate 1	Mouse	8-cell_9	GSM7038157		8-cell		V0	oocytes of the same species	0.1061694812274764
+GSE225056	Gate 1	Mouse	Early-2-cell_1	GSM7038119		Early-2-cell		V0	oocytes of the same species	0.2450484183202484
+GSE225056	Gate 1	Mouse	Early-2-cell_10	GSM7038125		Early-2-cell		V0	oocytes of the same species	0.1032389955913894
+GSE225056	Gate 1	Mouse	Early-2-cell_11	GSM7038126		Early-2-cell		V0	oocytes of the same species	0.0808084079631235
+GSE225056	Gate 1	Mouse	Early-2-cell_12	GSM7038127		Early-2-cell		V0	oocytes of the same species	0.1256164066087738
+GSE225056	Gate 1	Mouse	Early-2-cell_3	GSM7038120		Early-2-cell		V0	oocytes of the same species	0.0827581763615206
+GSE225056	Gate 1	Mouse	Early-2-cell_4	GSM7038121		Early-2-cell		V0	oocytes of the same species	0.1039149033681568
+GSE225056	Gate 1	Mouse	Early-2-cell_6	GSM7038122		Early-2-cell		V0	oocytes of the same species	0.0584687038117595
+GSE225056	Gate 1	Mouse	Early-2-cell_7	GSM7038123		Early-2-cell		V0	oocytes of the same species	0.118597458901336
+GSE225056	Gate 1	Mouse	Early-2-cell_9	GSM7038124		Early-2-cell		V0	oocytes of the same species	0.1229918531081244
+GSE225056	Gate 1	Mouse	Late-2-cell_1	GSM7038128		Late-2-cell		V0	oocytes of the same species	-0.0983321582942372
+GSE225056	Gate 1	Mouse	Late-2-cell_10	GSM7038137		Late-2-cell		V0	oocytes of the same species	-0.1352337622385338
+GSE225056	Gate 1	Mouse	Late-2-cell_2	GSM7038129		Late-2-cell		V0	oocytes of the same species	-0.1255387593798118
+GSE225056	Gate 1	Mouse	Late-2-cell_3	GSM7038130		Late-2-cell		V0	oocytes of the same species	-0.0343785170876853
+GSE225056	Gate 1	Mouse	Late-2-cell_4	GSM7038131		Late-2-cell		V0	oocytes of the same species	-0.2029810324596096
+GSE225056	Gate 1	Mouse	Late-2-cell_5	GSM7038132		Late-2-cell		V0	oocytes of the same species	-0.089689489187359
+GSE225056	Gate 1	Mouse	Late-2-cell_6	GSM7038133		Late-2-cell		V0	oocytes of the same species	0.0192979469991438
+GSE225056	Gate 1	Mouse	Late-2-cell_7	GSM7038134		Late-2-cell		V0	oocytes of the same species	0.0579515432246671
+GSE225056	Gate 1	Mouse	Late-2-cell_8	GSM7038135		Late-2-cell		V0	oocytes of the same species	0.0094701354470486
+GSE225056	Gate 1	Mouse	Late-2-cell_9	GSM7038136		Late-2-cell		V0	oocytes of the same species	-0.1506677230996081
+GSE225056	Gate 1	Mouse	Oocyte_1	GSM7038097		Oocyte		V0	oocytes of the same species	-0.090158523597379
+GSE225056	Gate 1	Mouse	Oocyte_10	GSM7038105		Oocyte		V0	oocytes of the same species	0.0705715266343756
+GSE225056	Gate 1	Mouse	Oocyte_11	GSM7038106		Oocyte		V0	oocytes of the same species	-0.0197099922606322
+GSE225056	Gate 1	Mouse	Oocyte_12	GSM7038107		Oocyte		V0	oocytes of the same species	0.0669219043468616
+GSE225056	Gate 1	Mouse	Oocyte_2	GSM7038098		Oocyte		V0	oocytes of the same species	0.0150179199011507
+GSE225056	Gate 1	Mouse	Oocyte_3	GSM7038099		Oocyte		V0	oocytes of the same species	0.0250885054709956
+GSE225056	Gate 1	Mouse	Oocyte_4	GSM7038100		Oocyte		V0	oocytes of the same species	-0.0193203140722543
+GSE225056	Gate 1	Mouse	Oocyte_5	GSM7038101		Oocyte		V0	oocytes of the same species	-0.0620450243983778
+GSE225056	Gate 1	Mouse	Oocyte_6	GSM7038102		Oocyte		V0	oocytes of the same species	0.0684554741866461
+GSE225056	Gate 1	Mouse	Oocyte_7	GSM7038103		Oocyte		V0	oocytes of the same species	0.0132737893791603
+GSE225056	Gate 1	Mouse	Oocyte_8	GSM7038104		Oocyte		V0	oocytes of the same species	0.0201633468657436
+GSE225056	Gate 1	Mouse	Zygote_1	GSM7038108		Zygote		V0	oocytes of the same species	0.062609543927849
+GSE225056	Gate 1	Mouse	Zygote_10	GSM7038116		Zygote		V0	oocytes of the same species	0.2189641225278108
+GSE225056	Gate 1	Mouse	Zygote_11	GSM7038117		Zygote		V0	oocytes of the same species	0.1078239725003244
+GSE225056	Gate 1	Mouse	Zygote_12	GSM7038118		Zygote		V0	oocytes of the same species	0.0950737825772955
+GSE225056	Gate 1	Mouse	Zygote_2	GSM7038109		Zygote		V0	oocytes of the same species	0.0543305292551601
+GSE225056	Gate 1	Mouse	Zygote_3	GSM7038110		Zygote		V0	oocytes of the same species	0.1192161499446554
+GSE225056	Gate 1	Mouse	Zygote_4	GSM7038111		Zygote		V0	oocytes of the same species	0.15494853623183
+GSE225056	Gate 1	Mouse	Zygote_5	GSM7038112		Zygote		V0	oocytes of the same species	0.2269675563309387
+GSE225056	Gate 1	Mouse	Zygote_6	GSM7038113		Zygote		V0	oocytes of the same species	0.179345806169341
+GSE225056	Gate 1	Mouse	Zygote_7	GSM7038114		Zygote		V0	oocytes of the same species	0.0899011280056054
+GSE225056	Gate 1	Mouse	Zygote_8	GSM7038115		Zygote		V0	oocytes of the same species	0.0913415289787143
+GSE225056	Gate 1	Cow	16-cell_1	GSM7038313		16-cell		V0	oocytes of the same species	-0.1668358702869131
+GSE225056	Gate 1	Cow	16-cell_10	GSM7038322		16-cell		V0	oocytes of the same species	-0.3319257963567437
+GSE225056	Gate 1	Cow	16-cell_11	GSM7038323		16-cell		V0	oocytes of the same species	-0.2456685717591706
+GSE225056	Gate 1	Cow	16-cell_12	GSM7038324		16-cell		V0	oocytes of the same species	-0.1992197269305156
+GSE225056	Gate 1	Cow	16-cell_2	GSM7038314		16-cell		V0	oocytes of the same species	0.0327512595133224
+GSE225056	Gate 1	Cow	16-cell_3	GSM7038315		16-cell		V0	oocytes of the same species	-0.1882627630552086
+GSE225056	Gate 1	Cow	16-cell_4	GSM7038316		16-cell		V0	oocytes of the same species	-0.3344697113409999
+GSE225056	Gate 1	Cow	16-cell_5	GSM7038317		16-cell		V0	oocytes of the same species	-0.2316351125688743
+GSE225056	Gate 1	Cow	16-cell_6	GSM7038318		16-cell		V0	oocytes of the same species	-0.1648195151458615
+GSE225056	Gate 1	Cow	16-cell_7	GSM7038319		16-cell		V0	oocytes of the same species	-0.3052864022619664
+GSE225056	Gate 1	Cow	16-cell_8	GSM7038320		16-cell		V0	oocytes of the same species	-0.4130785921952365
+GSE225056	Gate 1	Cow	16-cell_9	GSM7038321		16-cell		V0	oocytes of the same species	-0.1541691220614993
+GSE225056	Gate 1	Cow	2-cell_1	GSM7038277		2-cell		V0	oocytes of the same species	0.0674802926801251
+GSE225056	Gate 1	Cow	2-cell_10	GSM7038286		2-cell		V0	oocytes of the same species	0.1523844268623806
+GSE225056	Gate 1	Cow	2-cell_11	GSM7038287		2-cell		V0	oocytes of the same species	0.0102392082139813
+GSE225056	Gate 1	Cow	2-cell_12	GSM7038288		2-cell		V0	oocytes of the same species	-0.0525421293420353
+GSE225056	Gate 1	Cow	2-cell_2	GSM7038278		2-cell		V0	oocytes of the same species	0.0687182432041067
+GSE225056	Gate 1	Cow	2-cell_3	GSM7038279		2-cell		V0	oocytes of the same species	0.1013236747233475
+GSE225056	Gate 1	Cow	2-cell_4	GSM7038280		2-cell		V0	oocytes of the same species	0.1239336541794136
+GSE225056	Gate 1	Cow	2-cell_5	GSM7038281		2-cell		V0	oocytes of the same species	0.046406170998986
+GSE225056	Gate 1	Cow	2-cell_6	GSM7038282		2-cell		V0	oocytes of the same species	0.1250283577233876
+GSE225056	Gate 1	Cow	2-cell_7	GSM7038283		2-cell		V0	oocytes of the same species	0.0746413151843542
+GSE225056	Gate 1	Cow	2-cell_8	GSM7038284		2-cell		V0	oocytes of the same species	0.1004483642940592
+GSE225056	Gate 1	Cow	2-cell_9	GSM7038285		2-cell		V0	oocytes of the same species	0.0786941544635374
+GSE225056	Gate 1	Cow	4-cell_1	GSM7038289		4-cell		V0	oocytes of the same species	0.1342410318412972
+GSE225056	Gate 1	Cow	4-cell_10	GSM7038298		4-cell		V0	oocytes of the same species	0.1089897048554111
+GSE225056	Gate 1	Cow	4-cell_11	GSM7038299		4-cell		V0	oocytes of the same species	0.1548763903057244
+GSE225056	Gate 1	Cow	4-cell_12	GSM7038300		4-cell		V0	oocytes of the same species	0.0462233532824212
+GSE225056	Gate 1	Cow	4-cell_2	GSM7038290		4-cell		V0	oocytes of the same species	0.2281924557859963
+GSE225056	Gate 1	Cow	4-cell_3	GSM7038291		4-cell		V0	oocytes of the same species	0.1073078166911341
+GSE225056	Gate 1	Cow	4-cell_4	GSM7038292		4-cell		V0	oocytes of the same species	0.1225960393516897
+GSE225056	Gate 1	Cow	4-cell_5	GSM7038293		4-cell		V0	oocytes of the same species	0.0023628884682713
+GSE225056	Gate 1	Cow	4-cell_6	GSM7038294		4-cell		V0	oocytes of the same species	0.1371616532346263
+GSE225056	Gate 1	Cow	4-cell_7	GSM7038295		4-cell		V0	oocytes of the same species	0.2399692791885063
+GSE225056	Gate 1	Cow	4-cell_8	GSM7038296		4-cell		V0	oocytes of the same species	0.0608248355395141
+GSE225056	Gate 1	Cow	4-cell_9	GSM7038297		4-cell		V0	oocytes of the same species	0.1429386520694472
+GSE225056	Gate 1	Cow	8-cell_1	GSM7038301		8-cell		V0	oocytes of the same species	0.0627218416702988
+GSE225056	Gate 1	Cow	8-cell_10	GSM7038310		8-cell		V0	oocytes of the same species	0.0912930050437663
+GSE225056	Gate 1	Cow	8-cell_11	GSM7038311		8-cell		V0	oocytes of the same species	0.087621786871559
+GSE225056	Gate 1	Cow	8-cell_12	GSM7038312		8-cell		V0	oocytes of the same species	0.1173582197497267
+GSE225056	Gate 1	Cow	8-cell_2	GSM7038302		8-cell		V0	oocytes of the same species	0.0575799718992365
+GSE225056	Gate 1	Cow	8-cell_3	GSM7038303		8-cell		V0	oocytes of the same species	0.0902637711763781
+GSE225056	Gate 1	Cow	8-cell_4	GSM7038304		8-cell		V0	oocytes of the same species	0.1314196455260403
+GSE225056	Gate 1	Cow	8-cell_5	GSM7038305		8-cell		V0	oocytes of the same species	0.0201095378458106
+GSE225056	Gate 1	Cow	8-cell_6	GSM7038306		8-cell		V0	oocytes of the same species	0.0849848700732301
+GSE225056	Gate 1	Cow	8-cell_7	GSM7038307		8-cell		V0	oocytes of the same species	0.1330919045711285
+GSE225056	Gate 1	Cow	8-cell_8	GSM7038308		8-cell		V0	oocytes of the same species	0.1022416864316323
+GSE225056	Gate 1	Cow	8-cell_9	GSM7038309		8-cell		V0	oocytes of the same species	0.0855971863871783
+GSE225056	Gate 1	Cow	Morula_1	GSM7038325		Morula		V0	oocytes of the same species	-0.6353539333359534
+GSE225056	Gate 1	Cow	Morula_10	GSM7038334		Morula		V0	oocytes of the same species	-0.5894111497966181
+GSE225056	Gate 1	Cow	Morula_11	GSM7038335		Morula		V0	oocytes of the same species	-0.7180675633656399
+GSE225056	Gate 1	Cow	Morula_2	GSM7038326		Morula		V0	oocytes of the same species	-0.666194152786518
+GSE225056	Gate 1	Cow	Morula_3	GSM7038327		Morula		V0	oocytes of the same species	-0.6723685216033457
+GSE225056	Gate 1	Cow	Morula_4	GSM7038328		Morula		V0	oocytes of the same species	-0.6805806164387754
+GSE225056	Gate 1	Cow	Morula_5	GSM7038329		Morula		V0	oocytes of the same species	-0.5469850954114059
+GSE225056	Gate 1	Cow	Morula_6	GSM7038330		Morula		V0	oocytes of the same species	-0.4462239149727819
+GSE225056	Gate 1	Cow	Morula_7	GSM7038331		Morula		V0	oocytes of the same species	-0.6860925626091895
+GSE225056	Gate 1	Cow	Morula_8	GSM7038332		Morula		V0	oocytes of the same species	-0.4950928507365235
+GSE225056	Gate 1	Cow	Morula_9	GSM7038333		Morula		V0	oocytes of the same species	-0.6167064085436064
+GSE225056	Gate 1	Cow	Oocyte_1	GSM7038254		Oocyte		V0	oocytes of the same species	-0.0095501492614966
+GSE225056	Gate 1	Cow	Oocyte_10	GSM7038262		Oocyte		V0	oocytes of the same species	0.0180228725674471
+GSE225056	Gate 1	Cow	Oocyte_11	GSM7038263		Oocyte		V0	oocytes of the same species	0.0249186576241534
+GSE225056	Gate 1	Cow	Oocyte_12	GSM7038264		Oocyte		V0	oocytes of the same species	0.0075138954781255
+GSE225056	Gate 1	Cow	Oocyte_2	GSM7038255		Oocyte		V0	oocytes of the same species	0.0047138337641371
+GSE225056	Gate 1	Cow	Oocyte_3	GSM7038256		Oocyte		V0	oocytes of the same species	0.0206502718149596
+GSE225056	Gate 1	Cow	Oocyte_4	GSM7038257		Oocyte		V0	oocytes of the same species	-0.0571522238017678
+GSE225056	Gate 1	Cow	Oocyte_5	GSM7038258		Oocyte		V0	oocytes of the same species	0.1198453170524354
+GSE225056	Gate 1	Cow	Oocyte_6	GSM7038259		Oocyte		V0	oocytes of the same species	0.0835530576386983
+GSE225056	Gate 1	Cow	Oocyte_7	GSM7038260		Oocyte		V0	oocytes of the same species	0.0785787417212182
+GSE225056	Gate 1	Cow	Oocyte_8	GSM7038261		Oocyte		V0	oocytes of the same species	0.0948741493916691
+GSE225056	Gate 1	Cow	Zygote_1	GSM7038265		Zygote		V0	oocytes of the same species	0.0295752242927473
+GSE225056	Gate 1	Cow	Zygote_10	GSM7038274		Zygote		V0	oocytes of the same species	0.1173683599243325
+GSE225056	Gate 1	Cow	Zygote_11	GSM7038275		Zygote		V0	oocytes of the same species	-0.0603251900988811
+GSE225056	Gate 1	Cow	Zygote_12	GSM7038276		Zygote		V0	oocytes of the same species	0.0842515402610927
+GSE225056	Gate 1	Cow	Zygote_2	GSM7038266		Zygote		V0	oocytes of the same species	-0.0107852719198436
+GSE225056	Gate 1	Cow	Zygote_3	GSM7038267		Zygote		V0	oocytes of the same species	0.0095448832004468
+GSE225056	Gate 1	Cow	Zygote_4	GSM7038268		Zygote		V0	oocytes of the same species	0.0146208152112288
+GSE225056	Gate 1	Cow	Zygote_5	GSM7038269		Zygote		V0	oocytes of the same species	-0.0025024196678664
+GSE225056	Gate 1	Cow	Zygote_6	GSM7038270		Zygote		V0	oocytes of the same species	0.0014805187406668
+GSE225056	Gate 1	Cow	Zygote_7	GSM7038271		Zygote		V0	oocytes of the same species	0.1521163584518786
+GSE225056	Gate 1	Cow	Zygote_8	GSM7038272		Zygote		V0	oocytes of the same species	0.1790372068109895
+GSE225056	Gate 1	Cow	Zygote_9	GSM7038273		Zygote		V0	oocytes of the same species	0.0579151819673334
+GSE225056	Gate 1	Pig	2-cell_1	GSM7038196		2-cell		V0	oocytes of the same species	0.2438926589324865
+GSE225056	Gate 1	Pig	2-cell_10	GSM7038204		2-cell		V0	oocytes of the same species	0.1670162137439654
+GSE225056	Gate 1	Pig	2-cell_11	GSM7038205		2-cell		V0	oocytes of the same species	0.4068048174237997
+GSE225056	Gate 1	Pig	2-cell_2	GSM7038197		2-cell		V0	oocytes of the same species	0.1313669567254429
+GSE225056	Gate 1	Pig	2-cell_3	GSM7038198		2-cell		V0	oocytes of the same species	0.1119743054498529
+GSE225056	Gate 1	Pig	2-cell_4	GSM7038199		2-cell		V0	oocytes of the same species	0.3032676170770799
+GSE225056	Gate 1	Pig	2-cell_5	GSM7038200		2-cell		V0	oocytes of the same species	0.094967055239685
+GSE225056	Gate 1	Pig	2-cell_6	GSM7038201		2-cell		V0	oocytes of the same species	0.1336001163196042
+GSE225056	Gate 1	Pig	2-cell_7	GSM7038202		2-cell		V0	oocytes of the same species	0.1518422143776508
+GSE225056	Gate 1	Pig	2-cell_8	GSM7038203		2-cell		V0	oocytes of the same species	0.1265147236678962
+GSE225056	Gate 1	Pig	4-cell_1	GSM7038207		4-cell		V0	oocytes of the same species	0.1148764321172134
+GSE225056	Gate 1	Pig	4-cell_10	GSM7038216		4-cell		V0	oocytes of the same species	0.162229582260052
+GSE225056	Gate 1	Pig	4-cell_11	GSM7038217		4-cell		V0	oocytes of the same species	0.1833980024606292
+GSE225056	Gate 1	Pig	4-cell_12	GSM7038218		4-cell		V0	oocytes of the same species	0.132794813192108
+GSE225056	Gate 1	Pig	4-cell_2	GSM7038208		4-cell		V0	oocytes of the same species	0.0857493631503531
+GSE225056	Gate 1	Pig	4-cell_3	GSM7038209		4-cell		V0	oocytes of the same species	0.2351173475795022
+GSE225056	Gate 1	Pig	4-cell_4	GSM7038210		4-cell		V0	oocytes of the same species	0.0593560727841293
+GSE225056	Gate 1	Pig	4-cell_5	GSM7038211		4-cell		V0	oocytes of the same species	0.1479795952017633
+GSE225056	Gate 1	Pig	4-cell_6	GSM7038212		4-cell		V0	oocytes of the same species	0.2198601273341354
+GSE225056	Gate 1	Pig	4-cell_7	GSM7038213		4-cell		V0	oocytes of the same species	0.2403569416623746
+GSE225056	Gate 1	Pig	4-cell_8	GSM7038214		4-cell		V0	oocytes of the same species	0.2203079180387647
+GSE225056	Gate 1	Pig	4-cell_9	GSM7038215		4-cell		V0	oocytes of the same species	0.0050391383469349
+GSE225056	Gate 1	Pig	Day2_1	GSM7038219		Day2		V0	oocytes of the same species	0.1132557012493017
+GSE225056	Gate 1	Pig	Day2_10	GSM7038228		Day2		V0	oocytes of the same species	0.1541980784684944
+GSE225056	Gate 1	Pig	Day2_11	GSM7038229		Day2		V0	oocytes of the same species	-0.0123871463179645
+GSE225056	Gate 1	Pig	Day2_12	GSM7038230		Day2		V0	oocytes of the same species	0.1292373614660544
+GSE225056	Gate 1	Pig	Day2_2	GSM7038220		Day2		V0	oocytes of the same species	0.1041133828919311
+GSE225056	Gate 1	Pig	Day2_3	GSM7038221		Day2		V0	oocytes of the same species	0.1850993093257991
+GSE225056	Gate 1	Pig	Day2_4	GSM7038222		Day2		V0	oocytes of the same species	0.0111003011894233
+GSE225056	Gate 1	Pig	Day2_5	GSM7038223		Day2		V0	oocytes of the same species	0.1598930776210668
+GSE225056	Gate 1	Pig	Day2_7	GSM7038225		Day2		V0	oocytes of the same species	0.1201112122863692
+GSE225056	Gate 1	Pig	Day2_8	GSM7038226		Day2		V0	oocytes of the same species	0.0617336128458184
+GSE225056	Gate 1	Pig	Day3_1	GSM7038231		Day3		V0	oocytes of the same species	0.2222036250584428
+GSE225056	Gate 1	Pig	Day3_10	GSM7038239		Day3		V0	oocytes of the same species	0.0569418049197117
+GSE225056	Gate 1	Pig	Day3_11	GSM7038240		Day3		V0	oocytes of the same species	0.1803524135627859
+GSE225056	Gate 1	Pig	Day3_12	GSM7038241		Day3		V0	oocytes of the same species	-0.1711036359061374
+GSE225056	Gate 1	Pig	Day3_2	GSM7038232		Day3		V0	oocytes of the same species	-0.0176790987779519
+GSE225056	Gate 1	Pig	Day3_3	GSM7038233		Day3		V0	oocytes of the same species	-0.0429325212366523
+GSE225056	Gate 1	Pig	Day3_4	GSM7038234		Day3		V0	oocytes of the same species	0.0184984182095934
+GSE225056	Gate 1	Pig	Day3_5	GSM7038235		Day3		V0	oocytes of the same species	-0.0170582212181517
+GSE225056	Gate 1	Pig	Day3_6	GSM7038236		Day3		V0	oocytes of the same species	0.0125931883576311
+GSE225056	Gate 1	Pig	Day3_7	GSM7038237		Day3		V0	oocytes of the same species	0.0938662926154808
+GSE225056	Gate 1	Pig	Day3_8	GSM7038238		Day3		V0	oocytes of the same species	0.1098857348541775
+GSE225056	Gate 1	Pig	Morula_1	GSM7038242		Morula		V0	oocytes of the same species	-0.1281114267398747
+GSE225056	Gate 1	Pig	Morula_10	GSM7038251		Morula		V0	oocytes of the same species	-0.0583294784100191
+GSE225056	Gate 1	Pig	Morula_11	GSM7038252		Morula		V0	oocytes of the same species	-0.1036363156383442
+GSE225056	Gate 1	Pig	Morula_12	GSM7038253		Morula		V0	oocytes of the same species	-0.058042288171784
+GSE225056	Gate 1	Pig	Morula_2	GSM7038243		Morula		V0	oocytes of the same species	-0.1799919258533214
+GSE225056	Gate 1	Pig	Morula_3	GSM7038244		Morula		V0	oocytes of the same species	-0.0119940397193674
+GSE225056	Gate 1	Pig	Morula_4	GSM7038245		Morula		V0	oocytes of the same species	0.0262785685498179
+GSE225056	Gate 1	Pig	Morula_5	GSM7038246		Morula		V0	oocytes of the same species	-0.0919776922852417
+GSE225056	Gate 1	Pig	Morula_6	GSM7038247		Morula		V0	oocytes of the same species	-0.1911339227254052
+GSE225056	Gate 1	Pig	Morula_7	GSM7038248		Morula		V0	oocytes of the same species	0.0919136582052278
+GSE225056	Gate 1	Pig	Morula_8	GSM7038249		Morula		V0	oocytes of the same species	-0.2422713420289569
+GSE225056	Gate 1	Pig	Morula_9	GSM7038250		Morula		V0	oocytes of the same species	-0.1944936165147959
+GSE225056	Gate 1	Pig	Oocyte_1	GSM7038173		Oocyte		V0	oocytes of the same species	-0.025932438767491
+GSE225056	Gate 1	Pig	Oocyte_10	GSM7038181		Oocyte		V0	oocytes of the same species	0.0645284710613964
+GSE225056	Gate 1	Pig	Oocyte_11	GSM7038182		Oocyte		V0	oocytes of the same species	0.0021449362637117
+GSE225056	Gate 1	Pig	Oocyte_12	GSM7038183		Oocyte		V0	oocytes of the same species	0.0106087222642486
+GSE225056	Gate 1	Pig	Oocyte_3	GSM7038174		Oocyte		V0	oocytes of the same species	0.0595303023377281
+GSE225056	Gate 1	Pig	Oocyte_4	GSM7038175		Oocyte		V0	oocytes of the same species	0.1025145727242763
+GSE225056	Gate 1	Pig	Oocyte_5	GSM7038176		Oocyte		V0	oocytes of the same species	0.0660808927184949
+GSE225056	Gate 1	Pig	Oocyte_6	GSM7038177		Oocyte		V0	oocytes of the same species	-0.0365236070897975
+GSE225056	Gate 1	Pig	Oocyte_7	GSM7038178		Oocyte		V0	oocytes of the same species	-0.0421392391847061
+GSE225056	Gate 1	Pig	Oocyte_8	GSM7038179		Oocyte		V0	oocytes of the same species	-0.0514351218155877
+GSE225056	Gate 1	Pig	Oocyte_9	GSM7038180		Oocyte		V0	oocytes of the same species	0.0468435545552928
+GSE225056	Gate 1	Pig	Zygote_1	GSM7038184		Zygote		V0	oocytes of the same species	0.0559759124546962
+GSE225056	Gate 1	Pig	Zygote_10	GSM7038193		Zygote		V0	oocytes of the same species	0.0679567732870181
+GSE225056	Gate 1	Pig	Zygote_11	GSM7038194		Zygote		V0	oocytes of the same species	0.0987293625184198
+GSE225056	Gate 1	Pig	Zygote_12	GSM7038195		Zygote		V0	oocytes of the same species	0.1600151101691509
+GSE225056	Gate 1	Pig	Zygote_2	GSM7038185		Zygote		V0	oocytes of the same species	0.0818939304865041
+GSE225056	Gate 1	Pig	Zygote_3	GSM7038186		Zygote		V0	oocytes of the same species	0.1310515317043616
+GSE225056	Gate 1	Pig	Zygote_4	GSM7038187		Zygote		V0	oocytes of the same species	0.1455653023102445
+GSE225056	Gate 1	Pig	Zygote_5	GSM7038188		Zygote		V0	oocytes of the same species	0.1740196441302493
+GSE225056	Gate 1	Pig	Zygote_6	GSM7038189		Zygote		V0	oocytes of the same species	0.0975071739949186
+GSE225056	Gate 1	Pig	Zygote_7	GSM7038190		Zygote		V0	oocytes of the same species	0.1976907128498718
+GSE225056	Gate 1	Pig	Zygote_8	GSM7038191		Zygote		V0	oocytes of the same species	0.1864072404327483
+GSE225056	Gate 1	Pig	Zygote_9	GSM7038192		Zygote		V0	oocytes of the same species	0.0857630220515629
+GSE225056	Gate 1	Rabbit	16-cell_1	GSM7038395		16-cell		V0	oocytes of the same species	0.0356211970094187
+GSE225056	Gate 1	Rabbit	16-cell_10	GSM7038404		16-cell		V0	oocytes of the same species	-0.0268468518927203
+GSE225056	Gate 1	Rabbit	16-cell_11	GSM7038405		16-cell		V0	oocytes of the same species	-0.0290010751118608
+GSE225056	Gate 1	Rabbit	16-cell_12	GSM7038406		16-cell		V0	oocytes of the same species	0.0742181546865606
+GSE225056	Gate 1	Rabbit	16-cell_2	GSM7038396		16-cell		V0	oocytes of the same species	-0.0171264851764732
+GSE225056	Gate 1	Rabbit	16-cell_3	GSM7038397		16-cell		V0	oocytes of the same species	-0.1316751600937303
+GSE225056	Gate 1	Rabbit	16-cell_4	GSM7038398		16-cell		V0	oocytes of the same species	0.1086124052267284
+GSE225056	Gate 1	Rabbit	16-cell_5	GSM7038399		16-cell		V0	oocytes of the same species	-0.0992354717981533
+GSE225056	Gate 1	Rabbit	16-cell_6	GSM7038400		16-cell		V0	oocytes of the same species	0.1164639382794117
+GSE225056	Gate 1	Rabbit	16-cell_7	GSM7038401		16-cell		V0	oocytes of the same species	0.0854971959811522
+GSE225056	Gate 1	Rabbit	16-cell_8	GSM7038402		16-cell		V0	oocytes of the same species	0.0463369692321805
+GSE225056	Gate 1	Rabbit	16-cell_9	GSM7038403		16-cell		V0	oocytes of the same species	-0.1124598782619335
+GSE225056	Gate 1	Rabbit	2-cell_1	GSM7038360		2-cell		V0	oocytes of the same species	0.14960317706638
+GSE225056	Gate 1	Rabbit	2-cell_10	GSM7038369		2-cell		V0	oocytes of the same species	0.2181234388341273
+GSE225056	Gate 1	Rabbit	2-cell_12	GSM7038370		2-cell		V0	oocytes of the same species	0.1350094489806297
+GSE225056	Gate 1	Rabbit	2-cell_2	GSM7038361		2-cell		V0	oocytes of the same species	0.096120114431036
+GSE225056	Gate 1	Rabbit	2-cell_3	GSM7038362		2-cell		V0	oocytes of the same species	0.0704498784342199
+GSE225056	Gate 1	Rabbit	2-cell_4	GSM7038363		2-cell		V0	oocytes of the same species	0.0753219298471717
+GSE225056	Gate 1	Rabbit	2-cell_5	GSM7038364		2-cell		V0	oocytes of the same species	0.1110921794837697
+GSE225056	Gate 1	Rabbit	2-cell_6	GSM7038365		2-cell		V0	oocytes of the same species	0.1045019909518277
+GSE225056	Gate 1	Rabbit	2-cell_7	GSM7038366		2-cell		V0	oocytes of the same species	0.1413765099827693
+GSE225056	Gate 1	Rabbit	2-cell_8	GSM7038367		2-cell		V0	oocytes of the same species	0.050076009306312
+GSE225056	Gate 1	Rabbit	2-cell_9	GSM7038368		2-cell		V0	oocytes of the same species	0.1477829382376639
+GSE225056	Gate 1	Rabbit	4-cell_1	GSM7038371		4-cell		V0	oocytes of the same species	0.0690242293584078
+GSE225056	Gate 1	Rabbit	4-cell_10	GSM7038379		4-cell		V0	oocytes of the same species	0.0505436510397278
+GSE225056	Gate 1	Rabbit	4-cell_11	GSM7038380		4-cell		V0	oocytes of the same species	0.1283307599288335
+GSE225056	Gate 1	Rabbit	4-cell_2	GSM7038372		4-cell		V0	oocytes of the same species	0.2228854046244753
+GSE225056	Gate 1	Rabbit	4-cell_3	GSM7038373		4-cell		V0	oocytes of the same species	0.0647664669027578
+GSE225056	Gate 1	Rabbit	4-cell_4	GSM7038374		4-cell		V0	oocytes of the same species	0.0874002959901655
+GSE225056	Gate 1	Rabbit	4-cell_5	GSM7038375		4-cell		V0	oocytes of the same species	0.187665090968248
+GSE225056	Gate 1	Rabbit	4-cell_6	GSM7038376		4-cell		V0	oocytes of the same species	0.0815471202808391
+GSE225056	Gate 1	Rabbit	4-cell_8	GSM7038377		4-cell		V0	oocytes of the same species	0.0594947315193343
+GSE225056	Gate 1	Rabbit	4-cell_9	GSM7038378		4-cell		V0	oocytes of the same species	0.221822315196994
+GSE225056	Gate 1	Rabbit	8-cell_1	GSM7038381		8-cell		V0	oocytes of the same species	0.0296176263056554
+GSE225056	Gate 1	Rabbit	8-cell_11	GSM7038390		8-cell		V0	oocytes of the same species	-0.103352646871058
+GSE225056	Gate 1	Rabbit	8-cell_12	GSM7038391		8-cell		V0	oocytes of the same species	0.0908266570575014
+GSE225056	Gate 1	Rabbit	8-cell_13	GSM7038392		8-cell		V0	oocytes of the same species	-0.009212245465731
+GSE225056	Gate 1	Rabbit	8-cell_14	GSM7038393		8-cell		V0	oocytes of the same species	0.0389098040781174
+GSE225056	Gate 1	Rabbit	8-cell_2	GSM7038382		8-cell		V0	oocytes of the same species	-0.0509244357889667
+GSE225056	Gate 1	Rabbit	8-cell_3	GSM7038383		8-cell		V0	oocytes of the same species	-0.0161339541839322
+GSE225056	Gate 1	Rabbit	8-cell_4	GSM7038384		8-cell		V0	oocytes of the same species	-0.0317084300129417
+GSE225056	Gate 1	Rabbit	8-cell_5	GSM7038385		8-cell		V0	oocytes of the same species	-0.0290146543494048
+GSE225056	Gate 1	Rabbit	8-cell_6	GSM7038386		8-cell		V0	oocytes of the same species	-0.172950188622813
+GSE225056	Gate 1	Rabbit	8-cell_7	GSM7038387		8-cell		V0	oocytes of the same species	0.0016165142718507
+GSE225056	Gate 1	Rabbit	8-cell_8	GSM7038388		8-cell		V0	oocytes of the same species	0.066816555511382
+GSE225056	Gate 1	Rabbit	8-cell_9	GSM7038389		8-cell		V0	oocytes of the same species	0.0425141547131869
+GSE225056	Gate 1	Rabbit	Morula_1	GSM7038407		Morula		V0	oocytes of the same species	-0.0008126134916702
+GSE225056	Gate 1	Rabbit	Morula_11	GSM7038416		Morula		V0	oocytes of the same species	-0.00087837193567
+GSE225056	Gate 1	Rabbit	Morula_12	GSM7038417		Morula		V0	oocytes of the same species	0.0604041596181995
+GSE225056	Gate 1	Rabbit	Morula_2	GSM7038408		Morula		V0	oocytes of the same species	-0.0371787506556023
+GSE225056	Gate 1	Rabbit	Morula_3	GSM7038409		Morula		V0	oocytes of the same species	-0.1795401317309595
+GSE225056	Gate 1	Rabbit	Morula_4	GSM7038410		Morula		V0	oocytes of the same species	-0.0818941376347117
+GSE225056	Gate 1	Rabbit	Morula_5	GSM7038411		Morula		V0	oocytes of the same species	-0.0192109272445205
+GSE225056	Gate 1	Rabbit	Morula_6	GSM7038412		Morula		V0	oocytes of the same species	-0.082615153705476
+GSE225056	Gate 1	Rabbit	Morula_7	GSM7038413		Morula		V0	oocytes of the same species	-0.0815302062079211
+GSE225056	Gate 1	Rabbit	Morula_8	GSM7038414		Morula		V0	oocytes of the same species	0.04642829968371
+GSE225056	Gate 1	Rabbit	Morula_9	GSM7038415		Morula		V0	oocytes of the same species	0.027669692491789
+GSE225056	Gate 1	Rabbit	Oocyte_1	GSM7038336		Oocyte		V0	oocytes of the same species	-0.1226181540000423
+GSE225056	Gate 1	Rabbit	Oocyte_10	GSM7038345		Oocyte		V0	oocytes of the same species	0.0371517775353735
+GSE225056	Gate 1	Rabbit	Oocyte_11	GSM7038346		Oocyte		V0	oocytes of the same species	-0.0058871385126437
+GSE225056	Gate 1	Rabbit	Oocyte_12	GSM7038347		Oocyte		V0	oocytes of the same species	-0.0067463153658384
+GSE225056	Gate 1	Rabbit	Oocyte_13	GSM7038348		Oocyte		V0	oocytes of the same species	-0.0404035651923269
+GSE225056	Gate 1	Rabbit	Oocyte_2	GSM7038337		Oocyte		V0	oocytes of the same species	-0.044445714650772
+GSE225056	Gate 1	Rabbit	Oocyte_3	GSM7038338		Oocyte		V0	oocytes of the same species	0.0137881430288642
+GSE225056	Gate 1	Rabbit	Oocyte_4	GSM7038339		Oocyte		V0	oocytes of the same species	-0.0200870588166037
+GSE225056	Gate 1	Rabbit	Oocyte_5	GSM7038340		Oocyte		V0	oocytes of the same species	0.073571891568383
+GSE225056	Gate 1	Rabbit	Oocyte_6	GSM7038341		Oocyte		V0	oocytes of the same species	0.1029821397437517
+GSE225056	Gate 1	Rabbit	Oocyte_7	GSM7038342		Oocyte		V0	oocytes of the same species	0.0252582591080686
+GSE225056	Gate 1	Rabbit	Oocyte_8	GSM7038343		Oocyte		V0	oocytes of the same species	-0.0679819431041806
+GSE225056	Gate 1	Rabbit	Oocyte_9	GSM7038344		Oocyte		V0	oocytes of the same species	-0.0846280911961587
+GSE225056	Gate 1	Rabbit	Zygote_1	GSM7038349		Zygote		V0	oocytes of the same species	0.097732870760533
+GSE225056	Gate 1	Rabbit	Zygote_10	GSM7038358		Zygote		V0	oocytes of the same species	0.1672743308009521
+GSE225056	Gate 1	Rabbit	Zygote_11	GSM7038359		Zygote		V0	oocytes of the same species	0.0305395286148912
+GSE225056	Gate 1	Rabbit	Zygote_2	GSM7038350		Zygote		V0	oocytes of the same species	0.0825307272977872
+GSE225056	Gate 1	Rabbit	Zygote_3	GSM7038351		Zygote		V0	oocytes of the same species	0.1151660242956226
+GSE225056	Gate 1	Rabbit	Zygote_4	GSM7038352		Zygote		V0	oocytes of the same species	0.0903072211189707
+GSE225056	Gate 1	Rabbit	Zygote_5	GSM7038353		Zygote		V0	oocytes of the same species	0.2523626225122575
+GSE225056	Gate 1	Rabbit	Zygote_6	GSM7038354		Zygote		V0	oocytes of the same species	0.1537136643819446
+GSE225056	Gate 1	Rabbit	Zygote_7	GSM7038355		Zygote		V0	oocytes of the same species	0.0827239967690493
+GSE225056	Gate 1	Rabbit	Zygote_8	GSM7038356		Zygote		V0	oocytes of the same species	0.1745787810987458
+GSE225056	Gate 1	Rabbit	Zygote_9	GSM7038357		Zygote		V0	oocytes of the same species	0.0555612341284963
+GSE225056	Gate 1 (descriptive only)	Rhesus	16-cell_1	GSM7038434		16-cell		V0	oocytes of the same species	-0.4371048323392981
+GSE225056	Gate 1 (descriptive only)	Rhesus	16-cell_2	GSM7038435		16-cell		V0	oocytes of the same species	-0.461998063235229
+GSE225056	Gate 1 (descriptive only)	Rhesus	16-cell_3	GSM7038436		16-cell		V0	oocytes of the same species	-0.4223809179969863
+GSE225056	Gate 1 (descriptive only)	Rhesus	2-cell_1	GSM7038428		2-cell		V0	oocytes of the same species	0.0146396324763781
+GSE225056	Gate 1 (descriptive only)	Rhesus	2-cell_2	GSM7038429		2-cell		V0	oocytes of the same species	-0.0337952926546171
+GSE225056	Gate 1 (descriptive only)	Rhesus	4-cell_2	GSM7038430		4-cell		V0	oocytes of the same species	-0.3823186623111587
+GSE225056	Gate 1 (descriptive only)	Rhesus	8-cell_1	GSM7038431		8-cell		V0	oocytes of the same species	-0.1419361527966685
+GSE225056	Gate 1 (descriptive only)	Rhesus	8-cell_2	GSM7038432		8-cell		V0	oocytes of the same species	-0.0582057299577213
+GSE225056	Gate 1 (descriptive only)	Rhesus	Oocyte_1	GSM7038418		Oocyte		V0	oocytes of the same species	0.0622528851665486
+GSE225056	Gate 1 (descriptive only)	Rhesus	Oocyte_2	GSM7038419		Oocyte		V0	oocytes of the same species	0.0466924362720933
+GSE225056	Gate 1 (descriptive only)	Rhesus	Oocyte_3	GSM7038420		Oocyte		V0	oocytes of the same species	0.1017178191723419
+GSE225056	Gate 1 (descriptive only)	Rhesus	Oocyte_4	GSM7038421		Oocyte		V0	oocytes of the same species	0.0525936595510734
+GSE225056	Gate 1 (descriptive only)	Rhesus	Oocyte_5	GSM7038422		Oocyte		V0	oocytes of the same species	-0.1135794775443448
+GSE225056	Gate 1 (descriptive only)	Rhesus	Oocyte_6	GSM7038423		Oocyte		V0	oocytes of the same species	-0.0718738581444407
+GSE225056	Gate 1 (descriptive only)	Rhesus	Zygote_1	GSM7038424		Zygote		V0	oocytes of the same species	-0.403944815462004
+GSE225056	Gate 1 (descriptive only)	Rhesus	Zygote_2	GSM7038425		Zygote		V0	oocytes of the same species	-0.0362736292520477
+GSE225056	Gate 1 (descriptive only)	Rhesus	Zygote_3	GSM7038426		Zygote		V0	oocytes of the same species	0.1749875870365729
+GSE225056	Gate 1 (descriptive only)	Rhesus	Zygote_4	GSM7038427		Zygote		V0	oocytes of the same species	-0.0576045564225248
+GSE45719	Gate 2b R1	Mouse	16cell_1 (14 cells)			16C		V0	zygotes	-0.0811862290270057
+GSE45719	Gate 2b R1	Mouse	16cell_1 (14 cells)			16C		V2	zygotes	-0.1019009091087695
+GSE45719	Gate 2b R1	Mouse	16cell_4 (11 cells)			16C		V0	zygotes	-0.0618738784265588
+GSE45719	Gate 2b R1	Mouse	16cell_4 (11 cells)			16C		V2	zygotes	-0.0839103574805412
+GSE45719	Gate 2b R1	Mouse	16cell_5 (13 cells)			16C		V0	zygotes	-0.0259034996661199
+GSE45719	Gate 2b R1	Mouse	16cell_5 (13 cells)			16C		V2	zygotes	-0.1027861321489274
+GSE45719	Gate 2b R1	Mouse	16cell_6 (12 cells)			16C		V0	zygotes	0.0128468617084073
+GSE45719	Gate 2b R1	Mouse	16cell_6 (12 cells)			16C		V2	zygotes	-0.0200524087312212
+GSE45719	Gate 2b R1	Mouse	4cell_1 (3 cells)			4C		V0	zygotes	-0.044313647474784
+GSE45719	Gate 2b R1	Mouse	4cell_1 (3 cells)			4C		V2	zygotes	-0.0643798052934655
+GSE45719	Gate 2b R1	Mouse	4cell_2 (4 cells)			4C		V0	zygotes	-0.1171187085931386
+GSE45719	Gate 2b R1	Mouse	4cell_2 (4 cells)			4C		V2	zygotes	-0.0754250464636786
+GSE45719	Gate 2b R1	Mouse	4cell_3 (3 cells)			4C		V0	zygotes	-0.2699671983852456
+GSE45719	Gate 2b R1	Mouse	4cell_3 (3 cells)			4C		V2	zygotes	-0.2624142204796441
+GSE45719	Gate 2b R1	Mouse	4cell_4 (4 cells)			4C		V0	zygotes	-0.1915198163620447
+GSE45719	Gate 2b R1	Mouse	4cell_4 (4 cells)			4C		V2	zygotes	-0.2362797100136634
+GSE45719	Gate 2b R1	Mouse	8cell_1 (7 cells)			8C		V0	zygotes	0.0995757216920211
+GSE45719	Gate 2b R1	Mouse	8cell_1 (7 cells)			8C		V2	zygotes	0.1024485864654008
+GSE45719	Gate 2b R1	Mouse	8cell_2 (7 cells)			8C		V0	zygotes	0.208235819315133
+GSE45719	Gate 2b R1	Mouse	8cell_2 (7 cells)			8C		V2	zygotes	0.1212902857564453
+GSE45719	Gate 2b R1	Mouse	8cell_5 (7 cells)			8C		V0	zygotes	0.018827694584563
+GSE45719	Gate 2b R1	Mouse	8cell_5 (7 cells)			8C		V2	zygotes	-0.0105568747277672
+GSE45719	Gate 2b R1	Mouse	8cell_8 (7 cells)			8C		V0	zygotes	-0.2640148363439227
+GSE45719	Gate 2b R1	Mouse	8cell_8 (7 cells)			8C		V2	zygotes	-0.2637526835333534
+GSE45719	Gate 2b R1	Mouse	early2cell_0r (2 cells)			Early-2C		V0	zygotes	0.0328892348121878
+GSE45719	Gate 2b R1	Mouse	early2cell_0r (2 cells)			Early-2C		V2	zygotes	-0.0022387315616949
+GSE45719	Gate 2b R1	Mouse	early2cell_1 (2 cells)			Early-2C		V0	zygotes	0.076792348405164
+GSE45719	Gate 2b R1	Mouse	early2cell_1 (2 cells)			Early-2C		V2	zygotes	0.0595409688172348
+GSE45719	Gate 2b R1	Mouse	early2cell_2 (2 cells)			Early-2C		V0	zygotes	-0.0082696742544382
+GSE45719	Gate 2b R1	Mouse	early2cell_2 (2 cells)			Early-2C		V2	zygotes	0.0051173058531851
+GSE45719	Gate 2b R1	Mouse	early2cell_3 (2 cells)			Early-2C		V0	zygotes	-0.0769680882968487
+GSE45719	Gate 2b R1	Mouse	early2cell_3 (2 cells)			Early-2C		V2	zygotes	-0.0623740023887421
+GSE45719	Gate 2b R1	Mouse	earlyblast_2 (15 cells)			EarlyBl		V0	zygotes	-0.3299027447189152
+GSE45719	Gate 2b R1	Mouse	earlyblast_2 (15 cells)			EarlyBl		V2	zygotes	-0.2673302334441619
+GSE45719	Gate 2b R1	Mouse	earlyblast_3 (15 cells)			EarlyBl		V0	zygotes	-0.2664161119592377
+GSE45719	Gate 2b R1	Mouse	earlyblast_3 (15 cells)			EarlyBl		V2	zygotes	-0.2197220135450693
+GSE45719	Gate 2b R1	Mouse	earlyblast_4 (13 cells)			EarlyBl		V0	zygotes	-0.2426671815329358
+GSE45719	Gate 2b R1	Mouse	earlyblast_4 (13 cells)			EarlyBl		V2	zygotes	-0.1754099649228098
+GSE45719	Gate 2b R1	Mouse	late2cell_5 (2 cells)			Late-2C		V0	zygotes	-0.1728275204601598
+GSE45719	Gate 2b R1	Mouse	late2cell_5 (2 cells)			Late-2C		V2	zygotes	-0.2334964900438648
+GSE45719	Gate 2b R1	Mouse	late2cell_6 (2 cells)			Late-2C		V0	zygotes	-0.0997572155058049
+GSE45719	Gate 2b R1	Mouse	late2cell_6 (2 cells)			Late-2C		V2	zygotes	-0.1800580750746769
+GSE45719	Gate 2b R1	Mouse	late2cell_7 (2 cells)			Late-2C		V0	zygotes	0.0521110199678721
+GSE45719	Gate 2b R1	Mouse	late2cell_7 (2 cells)			Late-2C		V2	zygotes	-0.0445255490420987
+GSE45719	Gate 2b R1	Mouse	late2cell_8 (2 cells)			Late-2C		V0	zygotes	-0.1670830496065946
+GSE45719	Gate 2b R1	Mouse	late2cell_8 (2 cells)			Late-2C		V2	zygotes	-0.2416660597385824
+GSE45719	Gate 2b R1	Mouse	late2cell_9 (2 cells)			Late-2C		V0	zygotes	-0.2652604479032796
+GSE45719	Gate 2b R1	Mouse	late2cell_9 (2 cells)			Late-2C		V2	zygotes	-0.1855885999446048
+GSE45719	Gate 2b R1	Mouse	lateblast_1 (19 cells)			LateBl		V0	zygotes	-0.3530466779145237
+GSE45719	Gate 2b R1	Mouse	lateblast_1 (19 cells)			LateBl		V2	zygotes	-0.2899835526796066
+GSE45719	Gate 2b R1	Mouse	lateblast_2 (11 cells)			LateBl		V0	zygotes	-0.2626892926679269
+GSE45719	Gate 2b R1	Mouse	lateblast_2 (11 cells)			LateBl		V2	zygotes	-0.2878161581461151
+GSE45719	Gate 2b R1	Mouse	mid2cell_0r (2 cells)			Mid-2C		V0	zygotes	0.0516185582551443
+GSE45719	Gate 2b R1	Mouse	mid2cell_0r (2 cells)			Mid-2C		V2	zygotes	-0.0495939018809833
+GSE45719	Gate 2b R1	Mouse	mid2cell_3 (2 cells)			Mid-2C		V0	zygotes	-0.0497771099971715
+GSE45719	Gate 2b R1	Mouse	mid2cell_3 (2 cells)			Mid-2C		V2	zygotes	-0.1482374654211995
+GSE45719	Gate 2b R1	Mouse	mid2cell_4 (2 cells)			Mid-2C		V0	zygotes	0.1535510999717428
+GSE45719	Gate 2b R1	Mouse	mid2cell_4 (2 cells)			Mid-2C		V2	zygotes	0.0331498137526148
+GSE45719	Gate 2b R1	Mouse	mid2cell_5 (2 cells)			Mid-2C		V0	zygotes	0.0485368594037968
+GSE45719	Gate 2b R1	Mouse	mid2cell_5 (2 cells)			Mid-2C		V2	zygotes	-0.0315780575420405
+GSE45719	Gate 2b R1	Mouse	mid2cell_6 (2 cells)			Mid-2C		V0	zygotes	-0.0830833127232054
+GSE45719	Gate 2b R1	Mouse	mid2cell_6 (2 cells)			Mid-2C		V2	zygotes	-0.1942958463923176
+GSE45719	Gate 2b R1	Mouse	mid2cell_7 (2 cells)			Mid-2C		V0	zygotes	-0.0419667834212175
+GSE45719	Gate 2b R1	Mouse	mid2cell_7 (2 cells)			Mid-2C		V2	zygotes	-0.1398643440094559
+GSE45719	Gate 2b R1	Mouse	midblast_1 (22 cells)			MidBl		V0	zygotes	-0.2343692629674585
+GSE45719	Gate 2b R1	Mouse	midblast_1 (22 cells)			MidBl		V2	zygotes	-0.2284586879167571
+GSE45719	Gate 2b R1	Mouse	midblast_2 (20 cells)			MidBl		V0	zygotes	-0.2117378880220477
+GSE45719	Gate 2b R1	Mouse	midblast_2 (20 cells)			MidBl		V2	zygotes	-0.2337655861548935
+GSE45719	Gate 2b R1	Mouse	midblast_3 (18 cells)			MidBl		V0	zygotes	-0.4417388147683022
+GSE45719	Gate 2b R1	Mouse	midblast_3 (18 cells)			MidBl		V2	zygotes	-0.3586689312130394
+GSE45719	Gate 2b R1	Mouse	zy1 (1 cells)			Zygote		V0	zygotes	-0.0006251727502334
+GSE45719	Gate 2b R1	Mouse	zy1 (1 cells)			Zygote		V2	zygotes	-0.0192142724958756
+GSE45719	Gate 2b R1	Mouse	zy2 (1 cells)			Zygote		V0	zygotes	0.1478807760066323
+GSE45719	Gate 2b R1	Mouse	zy2 (1 cells)			Zygote		V2	zygotes	0.1601822193607064
+GSE45719	Gate 2b R1	Mouse	zy3 (1 cells)			Zygote		V0	zygotes	-0.1268017000565171
+GSE45719	Gate 2b R1	Mouse	zy3 (1 cells)			Zygote		V2	zygotes	-0.1262609215617265
+GSE45719	Gate 2b R1	Mouse	zy4 (1 cells)			Zygote		V0	zygotes	-0.055768083489233
+GSE45719	Gate 2b R1	Mouse	zy4 (1 cells)			Zygote		V2	zygotes	-0.0335842369767324
+GSE66582	Gate 2b R2	Mouse	SRR2927026	GSM1933935	SRR2927026	MII		V0	MII oocytes	-0.0041211981869266
+GSE66582	Gate 2b R2	Mouse	SRR2927026	GSM1933935	SRR2927026	MII		V2	MII oocytes	0.0018023912637209
+GSE66582	Gate 2b R2	Mouse	SRR2927027	GSM1933936	SRR2927027	MII		V0	MII oocytes	0.013321717349433
+GSE66582	Gate 2b R2	Mouse	SRR2927027	GSM1933936	SRR2927027	MII		V2	MII oocytes	0.0150406995918563
+GSE66582	Gate 2b R2	Mouse	SRR1840514	GSM1625860	SRR1840514	Zygote		V0	MII oocytes	-0.1413082559455077
+GSE66582	Gate 2b R2	Mouse	SRR1840514	GSM1625860	SRR1840514	Zygote		V2	MII oocytes	-0.0774887588883197
+GSE66582	Gate 2b R2	Mouse	SRR1840515	GSM1625861	SRR1840515	Zygote		V0	MII oocytes	-0.1047321059802879
+GSE66582	Gate 2b R2	Mouse	SRR1840515	GSM1625861	SRR1840515	Zygote		V2	MII oocytes	-0.0367892023149655
+GSE66582	Gate 2b R2	Mouse	SRR2927028	GSM1933937	SRR2927028	Early-2C		V0	MII oocytes	-0.0279014037425807
+GSE66582	Gate 2b R2	Mouse	SRR2927028	GSM1933937	SRR2927028	Early-2C		V2	MII oocytes	0.0288279008660046
+GSE66582	Gate 2b R2	Mouse	SRR2927029	GSM1933938	SRR2927029	Early-2C		V0	MII oocytes	-0.0351510052214242
+GSE66582	Gate 2b R2	Mouse	SRR2927029	GSM1933938	SRR2927029	Early-2C		V2	MII oocytes	0.0025312650753452
+GSE66582	Gate 2b R2	Mouse	SRR1840516	GSM1625862	SRR1840516	2C		V0	MII oocytes	-0.2825491769865347
+GSE66582	Gate 2b R2	Mouse	SRR1840516	GSM1625862	SRR1840516	2C		V2	MII oocytes	-0.1603231871536482
+GSE66582	Gate 2b R2	Mouse	SRR1840517	GSM1625863	SRR1840517	2C		V0	MII oocytes	-0.299662192666971
+GSE66582	Gate 2b R2	Mouse	SRR1840517	GSM1625863	SRR1840517	2C		V2	MII oocytes	-0.172151751053361
+GSE66582	Gate 2b R2	Mouse	SRR1840518	GSM1625864	SRR1840518	4C		V0	MII oocytes	-0.0482316327952101
+GSE66582	Gate 2b R2	Mouse	SRR1840518	GSM1625864	SRR1840518	4C		V2	MII oocytes	0.0563540550744943
+GSE66582	Gate 2b R2	Mouse	SRR1840519	GSM1625865	SRR1840519	4C		V0	MII oocytes	-0.2159947357676279
+GSE66582	Gate 2b R2	Mouse	SRR1840519	GSM1625865	SRR1840519	4C		V2	MII oocytes	-0.0354310687085042
+GSE66582	Gate 2b R2	Mouse	SRR1840520	GSM1625866	SRR1840520	8C		V0	MII oocytes	-0.1160149439614023
+GSE66582	Gate 2b R2	Mouse	SRR1840520	GSM1625866	SRR1840520	8C		V2	MII oocytes	0.0895117839930776
+GSE66582	Gate 2b R2	Mouse	SRR1840521	GSM1625867	SRR1840521	8C		V0	MII oocytes	-0.1570523774264593
+GSE66582	Gate 2b R2	Mouse	SRR1840521	GSM1625867	SRR1840521	8C		V2	MII oocytes	0.0566951363759964
+GSE66582	Gate 2b R2	Mouse	SRR1840522	GSM1625868	SRR1840522	ICM		V0	MII oocytes	-0.4253701702198878
+GSE66582	Gate 2b R2	Mouse	SRR1840522	GSM1625868	SRR1840522	ICM		V2	MII oocytes	-0.1703648708933731
+GSE66582	Gate 2b R2	Mouse	SRR1840523	GSM1625869	SRR1840523	ICM		V0	MII oocytes	-0.2918719530252985
+GSE66582	Gate 2b R2	Mouse	SRR1840523	GSM1625869	SRR1840523	ICM		V2	MII oocytes	-0.1164305975286251
+GSE66582	Gate 2b R2	Mouse	SRR1840526	GSM1625872	SRR1840526	ICM		V0	MII oocytes	-0.4262056809606298
+GSE66582	Gate 2b R2	Mouse	SRR1840526	GSM1625872	SRR1840526	ICM		V2	MII oocytes	-0.2301311145075856
+GSE280522	Gate 3 primary	Mouse	RNA_E2C_A485+Dux_rep2	GSM8599766	SRR30827713	E2C	A485+Dux	V0	control E2C	-0.17696294294447
+GSE280522	Gate 3 primary	Mouse	RNA_E2C_A485_rep3	GSM8599763	SRR30827730	E2C	A485	V0	control E2C	-0.0505946687352009
+GSE280522	Gate 3 primary	Mouse	RNA_E2C_A485+Dux_rep4	GSM8599768	SRR30827783	E2C	A485+Dux	V0	control E2C	-0.110107410606948
+GSE280522	Gate 3 primary	Mouse	RNA_L2C_A485_rep3	GSM8599775	SRR30827776	L2C	A485	V0	control E2C	-0.1388460113267821
+GSE280522	Gate 3 primary	Mouse	RNA_L2C_A485_rep1	GSM8599773	SRR30827778	L2C	A485	V0	control E2C	-0.1177375782833412
+GSE280522	Gate 3 primary	Mouse	RNA_L2C_A485+Dux_rep2	GSM8599778	SRR30827772	L2C	A485+Dux	V0	control E2C	-0.1338115928881621
+GSE280522	Gate 3 primary	Mouse	RNA_L2C_DMSO_rep1	GSM8599769	SRR30827782	L2C	control	V0	control E2C	-0.3255482662542783
+GSE280522	Gate 3 primary	Mouse	RNA_L2C_A485+Dux_rep4	GSM8599780	SRR30827770	L2C	A485+Dux	V0	control E2C	-0.1832747119264854
+GSE280522	Gate 3 primary	Mouse	RNA_E2C_A485_rep4	GSM8599764	SRR30827719	E2C	A485	V0	control E2C	-0.0549708214960083
+GSE280522	Gate 3 primary	Mouse	RNA_L2C_DMSO_rep4	GSM8599772	SRR30827779	L2C	control	V0	control E2C	-0.1768381102791814
+GSE280522	Gate 3 primary	Mouse	RNA_L2C_A485_rep4	GSM8599776	SRR30827775	L2C	A485	V0	control E2C	-0.1365561924557316
+GSE280522	Gate 3 primary	Mouse	RNA_E2C_DMSO_rep4	GSM8599760	SRR30827763	E2C	control	V0	control E2C	0.0173511285240197
+GSE280522	Gate 3 primary	Mouse	RNA_L2C_DMSO_rep2	GSM8599770	SRR30827781	L2C	control	V0	control E2C	-0.2472616271270143
+GSE280522	Gate 3 primary	Mouse	RNA_L2C_A485+Dux_rep3	GSM8599779	SRR30827771	L2C	A485+Dux	V0	control E2C	-0.1416407967741202
+GSE280522	Gate 3 primary	Mouse	RNA_E2C_A485_rep2	GSM8599762	SRR30827741	E2C	A485	V0	control E2C	-0.0926796030058044
+GSE280522	Gate 3 primary	Mouse	RNA_L2C_DMSO_rep3	GSM8599771	SRR30827780	L2C	control	V0	control E2C	-0.2375028637191498
+GSE280522	Gate 3 primary	Mouse	RNA_E2C_A485_rep1	GSM8599761	SRR30827752	E2C	A485	V0	control E2C	-0.0997365473780728
+GSE280522	Gate 3 primary	Mouse	RNA_E2C_A485+Dux_rep3	GSM8599767	SRR30827784	E2C	A485+Dux	V0	control E2C	-0.047035531296847
+GSE280522	Gate 3 primary	Mouse	RNA_E2C_DMSO_rep2	GSM8599758	SRR30827785	E2C	control	V0	control E2C	-0.0838436272762123
+GSE280522	Gate 3 primary	Mouse	RNA_E2C_DMSO_rep1	GSM8599757	SRR30827786	E2C	control	V0	control E2C	0.0031902585536177
+GSE280522	Gate 3 primary	Mouse	RNA_L2C_A485+Dux_rep1	GSM8599777	SRR30827773	L2C	A485+Dux	V0	control E2C	-0.1923214656513557
+GSE280522	Gate 3 primary	Mouse	RNA_E2C_A485+Dux_rep1	GSM8599765	SRR30827714	E2C	A485+Dux	V0	control E2C	-0.0622218064605502
+GSE280522	Gate 3 primary	Mouse	RNA_E2C_DMSO_rep3	GSM8599759	SRR30827774	E2C	control	V0	control E2C	0.0260847122950939
+GSE280522	Gate 3 primary	Mouse	RNA_E2C_A485+Dux_rep2	GSM8599766	SRR30827713	E2C	A485+Dux	V2	control E2C	-0.1787909196955732
+GSE280522	Gate 3 primary	Mouse	RNA_E2C_A485_rep3	GSM8599763	SRR30827730	E2C	A485	V2	control E2C	-0.0520759883331222
+GSE280522	Gate 3 primary	Mouse	RNA_E2C_A485+Dux_rep4	GSM8599768	SRR30827783	E2C	A485+Dux	V2	control E2C	-0.111566111692624
+GSE280522	Gate 3 primary	Mouse	RNA_L2C_A485_rep3	GSM8599775	SRR30827776	L2C	A485	V2	control E2C	-0.1292241681827003
+GSE280522	Gate 3 primary	Mouse	RNA_L2C_A485_rep1	GSM8599773	SRR30827778	L2C	A485	V2	control E2C	-0.108654336292919
+GSE280522	Gate 3 primary	Mouse	RNA_L2C_A485+Dux_rep2	GSM8599778	SRR30827772	L2C	A485+Dux	V2	control E2C	-0.1227223843170133
+GSE280522	Gate 3 primary	Mouse	RNA_L2C_DMSO_rep1	GSM8599769	SRR30827782	L2C	control	V2	control E2C	-0.3142240048436068
+GSE280522	Gate 3 primary	Mouse	RNA_L2C_A485+Dux_rep4	GSM8599780	SRR30827770	L2C	A485+Dux	V2	control E2C	-0.166926245510186
+GSE280522	Gate 3 primary	Mouse	RNA_E2C_A485_rep4	GSM8599764	SRR30827719	E2C	A485	V2	control E2C	-0.0560988332487221
+GSE280522	Gate 3 primary	Mouse	RNA_L2C_DMSO_rep4	GSM8599772	SRR30827779	L2C	control	V2	control E2C	-0.163142527537343
+GSE280522	Gate 3 primary	Mouse	RNA_L2C_A485_rep4	GSM8599776	SRR30827775	L2C	A485	V2	control E2C	-0.1205172134591711
+GSE280522	Gate 3 primary	Mouse	RNA_E2C_DMSO_rep4	GSM8599760	SRR30827763	E2C	control	V2	control E2C	0.0192784065938168
+GSE280522	Gate 3 primary	Mouse	RNA_L2C_DMSO_rep2	GSM8599770	SRR30827781	L2C	control	V2	control E2C	-0.2307359480750237
+GSE280522	Gate 3 primary	Mouse	RNA_L2C_A485+Dux_rep3	GSM8599779	SRR30827771	L2C	A485+Dux	V2	control E2C	-0.1299065530582321
+GSE280522	Gate 3 primary	Mouse	RNA_E2C_A485_rep2	GSM8599762	SRR30827741	E2C	A485	V2	control E2C	-0.0958308723741449
+GSE280522	Gate 3 primary	Mouse	RNA_L2C_DMSO_rep3	GSM8599771	SRR30827780	L2C	control	V2	control E2C	-0.2231837418150914
+GSE280522	Gate 3 primary	Mouse	RNA_E2C_A485_rep1	GSM8599761	SRR30827752	E2C	A485	V2	control E2C	-0.1017987365066801
+GSE280522	Gate 3 primary	Mouse	RNA_E2C_A485+Dux_rep3	GSM8599767	SRR30827784	E2C	A485+Dux	V2	control E2C	-0.0497778888097377
+GSE280522	Gate 3 primary	Mouse	RNA_E2C_DMSO_rep2	GSM8599758	SRR30827785	E2C	control	V2	control E2C	-0.0849679002473581
+GSE280522	Gate 3 primary	Mouse	RNA_E2C_DMSO_rep1	GSM8599757	SRR30827786	E2C	control	V2	control E2C	0.0039841802735115
+GSE280522	Gate 3 primary	Mouse	RNA_L2C_A485+Dux_rep1	GSM8599777	SRR30827773	L2C	A485+Dux	V2	control E2C	-0.179358630011416
+GSE280522	Gate 3 primary	Mouse	RNA_E2C_A485+Dux_rep1	GSM8599765	SRR30827714	E2C	A485+Dux	V2	control E2C	-0.0625599989526553
+GSE280522	Gate 3 primary	Mouse	RNA_E2C_DMSO_rep3	GSM8599759	SRR30827774	E2C	control	V2	control E2C	0.0263105460234239
+GSE221985	Gate 3 primary	Mouse	RNA_L2C_Ctrl_rep2	GSM6911244	SRR22944191	L2C	control	V0	control E2C	-0.0946871876566639
+GSE221985	Gate 3 primary	Mouse	RNA_L2C_KO_rep1	GSM6911245	SRR22944186	L2C	Tardbp_matKO	V0	control E2C	0.0782202922102903
+GSE221985	Gate 3 primary	Mouse	RNA_L2C_Ctrl_rep1	GSM6911243	SRR22944187	L2C	control	V0	control E2C	-0.0949688530946398
+GSE221985	Gate 3 primary	Mouse	RNA_L2C_KO_rep2	GSM6911246	SRR22944185	L2C	Tardbp_matKO	V0	control E2C	0.0575782741892315
+GSE221985	Gate 3 primary	Mouse	RNA_E2C_KO_rep2	GSM6911238	SRR22944193	E2C	Tardbp_matKO	V0	control E2C	0.157262676359838
+GSE221985	Gate 3 primary	Mouse	RNA_E2C_Ctrl_rep1	GSM6911235	SRR22944197	E2C	control	V0	control E2C	0.0697627839934171
+GSE221985	Gate 3 primary	Mouse	RNA_E2C_KO_rep1	GSM6911237	SRR22944198	E2C	Tardbp_matKO	V0	control E2C	0.0960433054558447
+GSE221985	Gate 3 primary	Mouse	RNA_E2C_Ctrl_rep2	GSM6911236	SRR22944194	E2C	control	V0	control E2C	-0.0588185196405321
+GSE221985	Gate 3 primary	Mouse	RNA_L2C_Ctrl_rep2	GSM6911244	SRR22944191	L2C	control	V2	control E2C	-0.0663973966764497
+GSE221985	Gate 3 primary	Mouse	RNA_L2C_KO_rep1	GSM6911245	SRR22944186	L2C	Tardbp_matKO	V2	control E2C	0.0678175000143152
+GSE221985	Gate 3 primary	Mouse	RNA_L2C_Ctrl_rep1	GSM6911243	SRR22944187	L2C	control	V2	control E2C	-0.0678905739127067
+GSE221985	Gate 3 primary	Mouse	RNA_L2C_KO_rep2	GSM6911246	SRR22944185	L2C	Tardbp_matKO	V2	control E2C	0.0565532208188189
+GSE221985	Gate 3 primary	Mouse	RNA_E2C_KO_rep2	GSM6911238	SRR22944193	E2C	Tardbp_matKO	V2	control E2C	0.1823550753722785
+GSE221985	Gate 3 primary	Mouse	RNA_E2C_Ctrl_rep1	GSM6911235	SRR22944197	E2C	control	V2	control E2C	0.0767560906455498
+GSE221985	Gate 3 primary	Mouse	RNA_E2C_KO_rep1	GSM6911237	SRR22944198	E2C	Tardbp_matKO	V2	control E2C	0.1161614217481183
+GSE221985	Gate 3 primary	Mouse	RNA_E2C_Ctrl_rep2	GSM6911236	SRR22944194	E2C	control	V2	control E2C	-0.066597797509801
+GSE300734	Gate 3 primary	Mouse	KO_L2C_RNA-seq_r2	GSM9067498	SRR34172921	L2C	Brg1_matKO	V0	control E2C	-0.0765186661438225
+GSE300734	Gate 3 primary	Mouse	WT_E2C_RNA-seq_r1	GSM9067488	SRR34172922	E2C	control	V0	control E2C	-0.0111814557521834
+GSE300734	Gate 3 primary	Mouse	WT_E2C_RNA-seq_r3	GSM9067490	SRR34172933	E2C	control	V0	control E2C	0.0135360851947112
+GSE300734	Gate 3 primary	Mouse	KO_L2C_RNA-seq_r3	GSM9067499	SRR34172920	L2C	Brg1_matKO	V0	control E2C	-0.0991366911078856
+GSE300734	Gate 3 primary	Mouse	WT_L2C_RNA-seq_r3	GSM9067496	SRR34172935	L2C	control	V0	control E2C	-0.0681765045745846
+GSE300734	Gate 3 primary	Mouse	WT_L2C_RNA-seq_r2	GSM9067495	SRR34172936	L2C	control	V0	control E2C	-0.2589395075291999
+GSE300734	Gate 3 primary	Mouse	WT_L2C_RNA-seq_r1	GSM9067494	SRR34172937	L2C	control	V0	control E2C	-0.1836605370237493
+GSE300734	Gate 3 primary	Mouse	KO_L2C_RNA-seq_r1	GSM9067497	SRR34172934	L2C	Brg1_matKO	V0	control E2C	-0.0866428718078059
+GSE300734	Gate 3 primary	Mouse	KO_E2C_RNA-seq_r2	GSM9067492	SRR34172939	E2C	Brg1_matKO	V0	control E2C	-0.1118050159592244
+GSE300734	Gate 3 primary	Mouse	KO_E2C_RNA-seq_r1	GSM9067491	SRR34172932	E2C	Brg1_matKO	V0	control E2C	-0.0145596993261867
+GSE300734	Gate 3 primary	Mouse	KO_E2C_RNA-seq_r3	GSM9067493	SRR34172938	E2C	Brg1_matKO	V0	control E2C	0.0510419371208949
+GSE300734	Gate 3 primary	Mouse	KO_L2C_RNA-seq_r2	GSM9067498	SRR34172921	L2C	Brg1_matKO	V2	control E2C	-0.0656462339768623
+GSE300734	Gate 3 primary	Mouse	WT_E2C_RNA-seq_r1	GSM9067488	SRR34172922	E2C	control	V2	control E2C	-0.0108338469514571
+GSE300734	Gate 3 primary	Mouse	WT_E2C_RNA-seq_r3	GSM9067490	SRR34172933	E2C	control	V2	control E2C	0.0133887983368543
+GSE300734	Gate 3 primary	Mouse	KO_L2C_RNA-seq_r3	GSM9067499	SRR34172920	L2C	Brg1_matKO	V2	control E2C	-0.086324080721033
+GSE300734	Gate 3 primary	Mouse	WT_L2C_RNA-seq_r3	GSM9067496	SRR34172935	L2C	control	V2	control E2C	-0.054569855596181
+GSE300734	Gate 3 primary	Mouse	WT_L2C_RNA-seq_r2	GSM9067495	SRR34172936	L2C	control	V2	control E2C	-0.2334770229143534
+GSE300734	Gate 3 primary	Mouse	WT_L2C_RNA-seq_r1	GSM9067494	SRR34172937	L2C	control	V2	control E2C	-0.160481971376354
+GSE300734	Gate 3 primary	Mouse	KO_L2C_RNA-seq_r1	GSM9067497	SRR34172934	L2C	Brg1_matKO	V2	control E2C	-0.0739910385233618
+GSE300734	Gate 3 primary	Mouse	KO_E2C_RNA-seq_r2	GSM9067492	SRR34172939	E2C	Brg1_matKO	V2	control E2C	-0.1175139085134073
+GSE300734	Gate 3 primary	Mouse	KO_E2C_RNA-seq_r1	GSM9067491	SRR34172932	E2C	Brg1_matKO	V2	control E2C	-0.0187298948851494
+GSE300734	Gate 3 primary	Mouse	KO_E2C_RNA-seq_r3	GSM9067493	SRR34172938	E2C	Brg1_matKO	V2	control E2C	0.0481655552112142
+GSE248499	Gate 3 secondary	Mouse	SCNT, cont, rep1	GSM7916005	SRR26923900	L2C	SCNT_control	V0	control libraries	-0.1631905335825416
+GSE248499	Gate 3 secondary	Mouse	SCNT, cont, rep2	GSM7916006	SRR26923899	L2C	SCNT_control	V0	control libraries	-0.0862034600297156
+GSE248499	Gate 3 secondary	Mouse	SCNT, Kdm3a-injected, rep2	GSM7916012	SRR26923893	L2C	SCNT_Kdm3a	V0	control libraries	-0.1530022155230412
+GSE248499	Gate 3 secondary	Mouse	SCNT, Kdm4d-injected, rep1	GSM7916013	SRR26923892	L2C	SCNT_Kdm4d	V0	control libraries	-0.2817305831116928
+GSE248499	Gate 3 secondary	Mouse	IVF, rep4	GSM7916004	SRR26923901	L2C	control	V0	control libraries	0.0208417953630864
+GSE248499	Gate 3 secondary	Mouse	SCNT, Kdm4d-injected, rep2	GSM7916014	SRR26923891	L2C	SCNT_Kdm4d	V0	control libraries	-0.1864272788627287
+GSE248499	Gate 3 secondary	Mouse	IVF, rep3	GSM7916003	SRR26923902	L2C	control	V0	control libraries	0.0338476221877288
+GSE248499	Gate 3 secondary	Mouse	IVF, rep2	GSM7916002	SRR26923903	L2C	control	V0	control libraries	-0.0186873641152868
+GSE248499	Gate 3 secondary	Mouse	SCNT, Kdm3a-injected, rep1	GSM7916011	SRR26923894	L2C	SCNT_Kdm3a	V0	control libraries	-0.1594777515114464
+GSE235547	Gate 3 secondary	Mouse	Late 2-cell siCtrl rep2	GSM7505043	SRR24991731	L2C	control_siCtrl	V0	control libraries	-0.1528757711657088
+GSE235547	Gate 3 secondary	Mouse	Late 2-cell siObox3_2 rep2	GSM7505045	SRR24991729	L2C	siObox3	V0	control libraries	0.0121302201108077
+GSE235547	Gate 3 secondary	Mouse	ICSI late 2-cell rep2	GSM7505047	SRR24991727	L2C	control_ICSI	V0	control libraries	0.0277880167231956
+GSE235547	Gate 3 secondary	Mouse	Late 2-cell siCtrl rep1	GSM7505042	SRR24991732	L2C	control_siCtrl	V0	control libraries	-0.0593602518054535
+GSE235547	Gate 3 secondary	Mouse	SCNT Obox3 late 2-cell rep2	GSM7505051	SRR24991723	L2C	SCNT_Obox3	V0	control libraries	-0.0690552282330049
+GSE235547	Gate 3 secondary	Mouse	Late 2-cell siObox3_2 rep1	GSM7505044	SRR24991730	L2C	siObox3	V0	control libraries	-0.0061254486347536
+GSE235547	Gate 3 secondary	Mouse	SCNT EGFP late 2-cell rep1	GSM7505048	SRR24991726	L2C	SCNT_EGFP	V0	control libraries	0.045994023607633
+GSE235547	Gate 3 secondary	Mouse	ICSI late 2-cell rep1	GSM7505046	SRR24991728	L2C	control_ICSI	V0	control libraries	0.0520689579978102
+GSE235547	Gate 3 secondary	Mouse	SCNT EGFP late 2-cell rep2	GSM7505049	SRR24991725	L2C	SCNT_EGFP	V0	control libraries	-0.0634996145490817
+GSE235547	Gate 3 secondary	Mouse	SCNT Obox3 late 2-cell rep1	GSM7505050	SRR24991724	L2C	SCNT_Obox3	V0	control libraries	0.0372553055715008
+GSE162345	Gate 3 secondary	Mouse	aAm_late2cell_NT1	GSM5610466	SRR16201705	NT54hpi	alpha-amanitin_54hpi	V0	control libraries	0.2055145096565689
+GSE162345	Gate 3 secondary	Mouse	aAm_late2cell_NT3	GSM5610468	SRR16201707	NT54hpi	alpha-amanitin_54hpi	V0	control libraries	0.2049006932532192
+GSE162345	Gate 3 secondary	Mouse	late2cell_NT3	GSM5610465	SRR16201704	NT54hpi	control_54hpi	V0	control libraries	0.0345843271920829
+GSE162345	Gate 3 secondary	Mouse	aAm_early2cell_NT3	GSM5610462	SRR16201701	NT45hpi	alpha-amanitin_45hpi	V0	control libraries	0.0094958148020574
+GSE162345	Gate 3 secondary	Mouse	late2cell_NT1	GSM5610463	SRR16201702	NT54hpi	control_54hpi	V0	control libraries	0.2231070456660898
+GSE162345	Gate 3 secondary	Mouse	early2cell_NT3	GSM5610459	SRR16201698	NT45hpi	control_45hpi	V0	control libraries	-0.1075159199025856
+GSE162345	Gate 3 secondary	Mouse	early2cell_NT2	GSM5610458	SRR16201697	NT45hpi	control_45hpi	V0	control libraries	-0.1116584486296474
+GSE162345	Gate 3 secondary	Mouse	early2cell_NT1	GSM5610457	SRR16201696	NT45hpi	control_45hpi	V0	control libraries	-0.0020818620963899
+GSE162345	Gate 3 secondary	Mouse	aAm_late2cell_NT2	GSM5610467	SRR16201706	NT54hpi	alpha-amanitin_54hpi	V0	control libraries	0.1007193699586909
+GSE162345	Gate 3 secondary	Mouse	aAm_early2cell_NT2	GSM5610461	SRR16201700	NT45hpi	alpha-amanitin_45hpi	V0	control libraries	0.071402517368438
+GSE162345	Gate 3 secondary	Mouse	aAm_early2cell_NT1	GSM5610460	SRR16201699	NT45hpi	alpha-amanitin_45hpi	V0	control libraries	0.1627080911793556
+GSE162345	Gate 3 secondary	Mouse	late2cell_NT2	GSM5610464	SRR16201703	NT54hpi	control_54hpi	V0	control libraries	-0.0378372066328457

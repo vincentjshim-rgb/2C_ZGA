@@ -898,3 +898,26 @@ cf5dc612af90885599526d454600d381421616fa151c63356b64353dd75296fa  gz/src/07_gate
 6671b9fc041979ffb1bb07fb3cc671da98af832deb15779fa60e88507c1fb0c2  README.md
 f4d6599148fd28b3ae8f38686dc14bd71b71e5e750af421eed66c111230060e2  .gitignore
 ```
+
+## 2026-09-18 — Supplementary Tables S3–S5 built from stored results (no analysis)
+
+`gz/src/20_supp_tables.py` reshapes stored result files into three Supporting Information tables and checks each against
+the stored summaries before writing: S3, the clock value of every scored embryo or library (557 rows: GSE225056 334 incl.
+18 rhesus scored for description only, GSE45719 39 pseudobulks × V0/V2, GSE66582 15 × V0/V2, Gate 3 115 rows), with GSM
+and SRR where they exist; S4, per-gene contributions for the 1,839 clock genes (P1 control/A485/A485+DUX, P3
+control/Brg1 matKO, coefficient, expression change, dynamic-gene class); S5, the 16 cross-fitted folds. Checks passed:
+the P1 control drop recomputed from S3 equals `gate3_arm_drops.tsv` (< 1e-12); S4 contributions sum to the same drop
+(< 1e-9) and agree with `posthoc_rescue_contributions.tsv`; S5 reproduces 14 of 16 negative interactions and 16 of 16
+positive rescue differences. Output `gz/results/supp_tables/` (three TSV plus one xlsx with a README sheet).
+Both manuscripts now cite S3 in Section 2.3, S4 in 2.4 and S5 in 2.6, carry the three table legends in the Supporting
+Information section, and name them in Data availability.
+
+```
+3e855ae98d44aacec2729a9de8764ed8f1dc2bc6b899c4c0b50e8dc846efd177  gz/src/20_supp_tables.py
+ee72e5aeb306fe3aff124edfca047ed89730dea962edb36429405c6ddbbb84d3  gz/results/supp_tables/SupplementaryTables_S3-S5.xlsx
+d9e9714014ea3447e049a71ecd0b60a72d76c7c3f4488a24146b27c0bf093d9d  gz/results/supp_tables/TableS3_clock_values.tsv
+576f962990dd0a7fde98d3358e6e07b4a04cf21d39d660472955fb3c566da32a  gz/results/supp_tables/TableS4_gene_contributions.tsv
+8d04fa628c2a94ca66b4105f9c0d9a33ddd5d9acb2e37fdb46c6592e9c5d260e  gz/results/supp_tables/TableS5_crossfit_folds.tsv
+3e630990c33a46a98ed513af92ac36024e3d2d7ec25d970d97cd4d48101961f1  gz/results/MANUSCRIPT_gz_v1_EN.md
+54c8a5a0db205d4ec64190fe4d222e130e238069b967e3c9d825c51dcc148392  gz/results/MANUSCRIPT_gz_v1_KR.md
+```
