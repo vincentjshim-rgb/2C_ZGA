@@ -963,3 +963,27 @@ and every citation is listed (checked by script). English main text incl. main f
 78bd328e7baba39b7a5edddda4059f4f6ee4c4e3578828eac9b9b2468694c26f  gz/results/MANUSCRIPT_gz_v1_EN.md
 1a06ad05959ea52b16fc614f12e4a89af13fbce8f7e799c925e74d9e9df57e65  gz/results/MANUSCRIPT_gz_v1_KR.md
 ```
+
+## 2026-09-18 — Methods shortened; cross-species precedence checked (no new analysis)
+
+**Methods.** Section 4 reduced from 1,863 to 1,585 words in both drafts by removing process detail that is in this log and
+the repository (ENA/SRA mirroring and SRA-Lite note, cross-machine index rebuild, tAge commit hash and v1.0.0 bug note,
+mortality-clock validation value, the YuGene branch sentence, unused arms of GSE248499/GSE235547) and by stating the
+reference libraries of every dataset once in Section 4.4. No reported method or number changed.
+
+**Cross-species precedence (agent-assisted, key claims re-verified here).** Europe PMC title/abstract search for rabbit
+or Oryctolagus with clock/biological-age terms returns 0 records (re-run here); the whole clock-and-embryo field is 25
+records. No published work applies an ageing clock to the preimplantation embryos of more than two species: Kerepesi 2021
+(mouse), Kerepesi & Gladyshev 2023 (human, and reports no preimplantation change), Tyshkovskiy 2026 (mouse only, no
+preimplantation stages). No study tests coincidence between a clock decrease and the ZGA interval. Three defensive
+citations added after verification: Schaetzlein & Rudolph 2005 (mouse and cow telomere lengthening at the
+morula-to-blastocyst transition, PMID 15745634), Hao et al. 2026 (bioRxiv 10.64898/2026.08.25.746714, abstract read:
+morula as the nadir of age-associated methylation entropy in human), Li et al. 2025 (Biology of Reproduction 113:541-556,
+five-species SCNT/IVF ZGA comparison without an age axis). Introduction and Discussion now state that prior clock
+analyses stayed within one species, that none tested the ZGA interval, and that rabbit had no molecular-age readout;
+the cross-species claim is framed as breadth plus a negative result. References 42 → 45. English main text 6,772 words.
+
+```
+9e3dd7c613d926f102a911503963aefe3291449e32d3fe00c527728bf03eb21b  gz/results/MANUSCRIPT_gz_v1_EN.md
+02937a99a265dd71a682495629b34cb43c844bf666fecfba58e7af2c6187c6cb  gz/results/MANUSCRIPT_gz_v1_KR.md
+```
