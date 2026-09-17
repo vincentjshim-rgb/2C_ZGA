@@ -1,0 +1,42 @@
+# Gate 3 decision
+
+OVERALL: **MIXED**
+
+{'V0': {'verdict': 'ZGA-DEPENDENT', 'informative': ['GSE280522', 'GSE221985', 'GSE300734'], 'attenuated': 3, 'not_attenuated': 0, 'rescue_restores': True}, 'V2': {'verdict': 'MIXED', 'informative': ['GSE280522', 'GSE221985', 'GSE300734'], 'attenuated': 2, 'not_attenuated': 1, 'rescue_restores': True}}
+
+      gse variant                                arm  n_E2C  n_L2C    drop   ci_lo   ci_hi
+GSE280522      V0                           A485+Dux    4.0    4.0 -0.0637 -0.1170 -0.0056
+GSE280522      V0                               A485    4.0    3.0 -0.0566 -0.0786 -0.0338
+GSE280522      V0                            control    4.0    4.0 -0.2375 -0.3054 -0.1693
+GSE280522      V0     INTERACTION A485+Dux - control    NaN    NaN  0.1738  0.0871  0.2587
+GSE280522      V0         INTERACTION A485 - control    NaN    NaN  0.1809  0.1082  0.2526
+GSE280522      V0             RESCUE A485+Dux - A485    NaN    NaN -0.0071 -0.0629  0.0572
+GSE280522      V2                           A485+Dux    4.0    4.0 -0.0491 -0.1000  0.0078
+GSE280522      V2                               A485    4.0    3.0 -0.0430 -0.0674 -0.0192
+GSE280522      V2                            control    4.0    4.0 -0.2240 -0.2898 -0.1529
+GSE280522      V2     INTERACTION A485+Dux - control    NaN    NaN  0.1749  0.0866  0.2638
+GSE280522      V2         INTERACTION A485 - control    NaN    NaN  0.1810  0.1117  0.2510
+GSE280522      V2             RESCUE A485+Dux - A485    NaN    NaN -0.0060 -0.0633  0.0583
+GSE221985      V0                            control    2.0    2.0 -0.1003 -0.1647 -0.0359
+GSE221985      V0                       Tardbp_matKO    2.0    2.0 -0.0588 -0.0997 -0.0178
+GSE221985      V0 INTERACTION Tardbp_matKO - control    NaN    NaN  0.0415 -0.0534  0.1364
+GSE221985      V2                            control    2.0    2.0 -0.0722 -0.1446  0.0002
+GSE221985      V2                       Tardbp_matKO    2.0    2.0 -0.0871 -0.1258 -0.0483
+GSE221985      V2 INTERACTION Tardbp_matKO - control    NaN    NaN -0.0148 -0.1196  0.0907
+GSE300734      V0                         Brg1_matKO    3.0    3.0 -0.0623 -0.1351  0.0211
+GSE300734      V0                            control    2.0    3.0 -0.1714 -0.2601 -0.0817
+GSE300734      V0   INTERACTION Brg1_matKO - control    NaN    NaN  0.1091 -0.0108  0.2228
+GSE300734      V2                         Brg1_matKO    3.0    3.0 -0.0460 -0.1194  0.0394
+GSE300734      V2                            control    2.0    3.0 -0.1508 -0.2348 -0.0558
+GSE300734      V2   INTERACTION Brg1_matKO - control    NaN    NaN  0.1048 -0.0110  0.2169
+
+Secondary (late 2-cell):
+      gse                  arm      reference  n  n_ref    diff   ci_lo   ci_hi
+GSE248499         SCNT_control        control  2      3 -0.1367 -0.1927 -0.0807
+GSE248499           SCNT_Kdm3a        control  2      3 -0.1682 -0.1901 -0.1376
+GSE248499           SCNT_Kdm4d        control  2      3 -0.2461 -0.3112 -0.1809
+GSE235547              siObox3 control_siCtrl  2      2  0.1091  0.0532  0.1650
+GSE235547           SCNT_Obox3   control_ICSI  2      2 -0.0558 -0.1211  0.0095
+GSE235547            SCNT_EGFP   control_ICSI  2      2 -0.0487 -0.1156  0.0182
+GSE162345 alpha-amanitin_54hpi  control_54hpi  3      3  0.0971 -0.0527  0.2190
+GSE162345 alpha-amanitin_45hpi  control_45hpi  3      3  0.1550  0.0674  0.2426

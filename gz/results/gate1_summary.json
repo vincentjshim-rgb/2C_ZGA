@@ -1,0 +1,120 @@
+{
+ "Mouse": {
+  "n_libraries": 75,
+  "n_excluded_qc": 1,
+  "feature_coverage": 0.6921903308858587,
+  "n_genes_mapped": 54838,
+  "stage_n": {
+   "16-cell": 12,
+   "4-cell": 11,
+   "8-cell": 11,
+   "Zygote": 11,
+   "Oocyte": 11,
+   "Late-2-cell": 10,
+   "Early-2-cell": 9
+  },
+  "stage_means": {
+   "Oocyte": 0.008023510223299115,
+   "Zygote": 0.12732024149541138,
+   "Early-2-cell": 0.11571592489271475,
+   "Late-2-cell": -0.07501018160759854,
+   "4-cell": -0.018154238508218287,
+   "8-cell": 0.09837168174941074,
+   "16-cell": 0.057604786031428636
+  }
+ },
+ "Cow": {
+  "n_libraries": 82,
+  "n_excluded_qc": 0,
+  "feature_coverage": 0.6630113473824736,
+  "n_genes_mapped": 14695,
+  "stage_n": {
+   "16-cell": 12,
+   "2-cell": 12,
+   "4-cell": 12,
+   "8-cell": 12,
+   "Zygote": 12,
+   "Morula": 11,
+   "Oocyte": 11
+  },
+  "stage_means": {
+   "Oocyte": 0.03508803854450724,
+   "Zygote": 0.04769143393117714,
+   "2-cell": 0.07472964443213702,
+   "4-cell": 0.1238070083845033,
+   "8-cell": 0.08869028560383217,
+   "16-cell": -0.22521832703747233,
+   "Morula": -0.613916069963669
+  }
+ },
+ "Pig": {
+  "n_libraries": 78,
+  "n_excluded_qc": 3,
+  "feature_coverage": 0.6207685706112329,
+  "n_genes_mapped": 15377,
+  "stage_n": {
+   "4-cell": 12,
+   "Zygote": 12,
+   "Morula": 12,
+   "Day3": 11,
+   "Oocyte": 11,
+   "Day2": 10,
+   "2-cell": 10
+  },
+  "stage_means": {
+   "Oocyte": 0.017838276824324237,
+   "Zygote": 0.1235479763658122,
+   "2-cell": 0.1871246678957464,
+   "4-cell": 0.15058877784399669,
+   "Day2": 0.1026354891026294,
+   "Day3": 0.04050618185808457,
+   "Morula": -0.0951491517776721
+  }
+ },
+ "Rabbit": {
+  "n_libraries": 81,
+  "n_excluded_qc": 1,
+  "feature_coverage": 0.5610756174311051,
+  "n_genes_mapped": 14052,
+  "stage_n": {
+   "8-cell": 13,
+   "Oocyte": 13,
+   "16-cell": 12,
+   "Morula": 11,
+   "2-cell": 11,
+   "Zygote": 11,
+   "4-cell": 10
+  },
+  "stage_means": {
+   "Oocyte": -0.010772751527240412,
+   "Zygote": 0.1184082728890228,
+   "2-cell": 0.11813251050508254,
+   "4-cell": 0.11734800658097835,
+   "8-cell": -0.01099963410439644,
+   "16-cell": 0.004200411506715057,
+   "Morula": -0.03174164916480301
+  }
+ },
+ "Rhesus": {
+  "n_libraries": 18,
+  "n_excluded_qc": 1,
+  "feature_coverage": 0.6363116239153237,
+  "n_genes_mapped": 13823,
+  "stage_n": {
+   "Oocyte": 6,
+   "Zygote": 4,
+   "16-cell": 3,
+   "2-cell": 2,
+   "8-cell": 2,
+   "4-cell": 1
+  },
+  "stage_means": {
+   "Oocyte": 0.012967244078878637,
+   "Zygote": -0.0807088535250009,
+   "2-cell": -0.009577830089119516,
+   "4-cell": -0.38231866231115874,
+   "8-cell": -0.10007094137719498,
+   "16-cell": -0.4404946045238378
+  }
+ }
+}

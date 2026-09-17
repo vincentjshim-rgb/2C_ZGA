@@ -1,0 +1,33 @@
+gsm	title	source_name_ch1	organism_ch1	ch:strain	ch:developmental stage	data_processing	library_strategy	supplementary_file_1
+GSM1625860	RNA-Seq zygote rep1	Preimplantation embryo	Mus musculus	C57BL/6N x DBA/2N	Zygote	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1625861	RNA-Seq zygote rep2	Preimplantation embryo	Mus musculus	C57BL/6N x DBA/2N	Zygote	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1625862	RNA-Seq 2-cell rep1	Preimplantation embryo	Mus musculus	C57BL/6N x DBA/2N	2-cell	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1625863	RNA-Seq 2-cell rep2	Preimplantation embryo	Mus musculus	C57BL/6N x DBA/2N	2-cell	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1625864	RNA-Seq 4-cell rep1	Preimplantation embryo	Mus musculus	C57BL/6N x DBA/2N	4-cell	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1625865	RNA-Seq 4-cell rep2	Preimplantation embryo	Mus musculus	C57BL/6N x DBA/2N	4-cell	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1625866	RNA-Seq 8-cell rep1	Preimplantation embryo	Mus musculus	C57BL/6N x DBA/2N	8-cell	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1625867	RNA-Seq 8-cell rep2	Preimplantation embryo	Mus musculus	C57BL/6N x DBA/2N	8-cell	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1625868	RNA-Seq ICM rep1	Inner cell mass	Mus musculus	C57BL/6N x DBA/2N	Inner cell mass	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1625869	RNA-Seq ICM rep2	Inner cell mass	Mus musculus	C57BL/6N x DBA/2N	Inner cell mass	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1625872	RNA-Seq ICM rep5	Inner cell mass	Mus musculus	C57BL/6N x DBA/2N	Inner cell mass	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1625873	RNA-Seq mESC rep1	Embryonic stem cell	Mus musculus	R1	Embryonic stem cell	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1625874	RNA-Seq mESC rep2	Embryonic stem cell	Mus musculus	R1	Embryonic stem cell	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1625875	RNA-Seq blastocyst KD control rep1	Preimplantation embryo	Mus musculus	C57BL/6N x DBA/2N	Blastocyst	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1625876	RNA-Seq blastocyst KD control rep2	Preimplantation embryo	Mus musculus	C57BL/6N x DBA/2N	Blastocyst	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1625877	RNA-Seq blastocyst KD control rep3	Preimplantation embryo	Mus musculus	C57BL/6N x DBA/2N	Blastocyst	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1625878	RNA-Seq blastocyst KD Gata4 rep1	Preimplantation embryo	Mus musculus	C57BL/6N x DBA/2N	Blastocyst	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1625879	RNA-Seq blastocyst KD Gata4 rep2	Preimplantation embryo	Mus musculus	C57BL/6N x DBA/2N	Blastocyst	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1625880	RNA-Seq blastocyst KD Gata4 rep3	Preimplantation embryo	Mus musculus	C57BL/6N x DBA/2N	Blastocyst	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1625881	RNA-Seq blastocyst KD Gata4 rep4	Preimplantation embryo	Mus musculus	C57BL/6N x DBA/2N	Blastocyst	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1933935	RNA-Seq MII oocyte rep1	Oocyte	Mus musculus	C57BL/6N	MII oocyte	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1933936	RNA-Seq MII oocyte rep2	Oocyte	Mus musculus	C57BL/6N	MII oocyte	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1933937	RNA-Seq early 2-cell rep1	Preimplantation embryo	Mus musculus	C57BL/6N x DBA/2N	early 2-cell	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1933938	RNA-Seq early 2-cell rep2	Preimplantation embryo	Mus musculus	C57BL/6N x DBA/2N	early 2-cell	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1933939	RNA-Seq 8-cell KD control rep1	Preimplantation embryo	Mus musculus	C57BL/6N x DBA/2N	8-cell	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1933940	RNA-Seq 8-cell KD control rep2	Preimplantation embryo	Mus musculus	C57BL/6N x DBA/2N	8-cell	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1933941	RNA-Seq 8-cell KD control rep3	Preimplantation embryo	Mus musculus	C57BL/6N x DBA/2N	8-cell	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1933942	RNA-Seq 8-cell KD control rep4	Preimplantation embryo	Mus musculus	C57BL/6N x DBA/2N	8-cell	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1933943	RNA-Seq 8-cell KD Nr5a2 rep1	Preimplantation embryo	Mus musculus	C57BL/6N x DBA/2N	8-cell	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1933944	RNA-Seq 8-cell KD Nr5a2 rep2	Preimplantation embryo	Mus musculus	C57BL/6N x DBA/2N	8-cell	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1933945	RNA-Seq 8-cell KD Nr5a2 rep3	Preimplantation embryo	Mus musculus	C57BL/6N x DBA/2N	8-cell	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE
+GSM1933946	RNA-Seq 8-cell KD Nr5a2 rep4	Preimplantation embryo	Mus musculus	C57BL/6N x DBA/2N	8-cell	Basecalls performed using CASAVA version 1.8	RNA-Seq	NONE

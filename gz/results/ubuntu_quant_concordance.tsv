@@ -1,0 +1,4 @@
+comparison	run	n_processed_A	n_processed_B	p_pseudoaligned_A	p_pseudoaligned_B	tx_est_counts_identical	tx_max_abs_diff_counts	tx_pearson_tpm	gene_pearson_log_counts	gene_n_expressed_ge10	gene_max_abs_log2_diff	gene_frac_abs_log2_diff_gt_0p1	eff_len_max_abs_diff
+linux_index_vs_windows_index	SRR30827777	11292332.0	11292332.0	87.8	87.8	False	3.0200000000004366	0.9999999996667867	0.9999999952254541	10291	0.00640086734814993	0.0	0.12000000000000455
+linux_index_vs_windows_index	SRR16201705	13234768.0	13234768.0	77.0	77.0	True	0.0	1.0	1.0	12898	0.0	0.0	0.0
+linux_index_vs_windows_index	SRR16201707	13291400.0	13291400.0	78.0	78.0	True	0.0	1.0	0.9999999999999998	13263	0.0	0.0	0.0

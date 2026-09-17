@@ -1,0 +1,35 @@
+
+[build] loading fasta file data/raw/mm_cdna_ncrna.fa.gz
+[build] k-mer length: 31
+[build] warning: clipped off poly-A tail (longer than 10)
+        from 869 target sequences
+[build] warning: replaced 1 non-ACGUT characters in the input sequence
+        with pseudorandom nucleotides
+KmerStream::KmerStream(): Start computing k-mer cardinality estimations (1/2)
+KmerStream::KmerStream(): Start computing k-mer cardinality estimations (1/2)
+KmerStream::KmerStream(): Finished
+CompactedDBG::build(): Estimated number of k-mers occurring at least once: 117007997
+CompactedDBG::build(): Estimated number of minimizer occurring at least once: 28815490
+CompactedDBG::filter(): Processed 239695743 k-mers in 145918 reads
+CompactedDBG::filter(): Found 116945383 unique k-mers
+CompactedDBG::filter(): Number of blocks in Bloom filter is 799861
+CompactedDBG::construct(): Extract approximate unitigs (1/2)
+CompactedDBG::construct(): Extract approximate unitigs (2/2)
+CompactedDBG::construct(): Closed all input files
+
+CompactedDBG::construct(): Splitting unitigs (1/2)
+
+CompactedDBG::construct(): Splitting unitigs (2/2)
+CompactedDBG::construct(): Before split: 810436 unitigs
+CompactedDBG::construct(): After split (1/1): 810436 unitigs
+CompactedDBG::construct(): Unitigs split: 1875
+CompactedDBG::construct(): Unitigs deleted: 0
+
+CompactedDBG::construct(): Joining unitigs
+CompactedDBG::construct(): After join: 750479 unitigs
+CompactedDBG::construct(): Joined 60324 unitigs
+[build] building MPHF
+[build] creating equivalence classes ... 
+[build] target de Bruijn graph has k-mer length 31 and minimizer length 23
+[build] target de Bruijn graph has 750479 contigs and contains 117049481 k-mers 
+

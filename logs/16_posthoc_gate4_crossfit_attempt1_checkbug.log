@@ -1,0 +1,8 @@
+reproduction check: {'control': np.float64(1.0), 'A485': np.float64(0.556809), 'Dux': np.float64(0.786949)} | events 511 (Gate 4: 511 )
+Traceback (most recent call last):
+  File "/home/shim/Downloads/embryogenesis_aging_260915/embryogenesis_Aging_transfer_20260915/embryogenesis_Aging/analysis/gz/src/16_posthoc_gate4_crossfit.py", line 105, in <module>
+    if abs(chk[k] - exact[k]) > 1e-6:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shim/anaconda3/envs/gz/lib/python3.11/site-packages/pandas/core/generic.py", line 1577, in __nonzero__
+    raise ValueError(
+ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().

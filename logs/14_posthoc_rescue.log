@@ -1,0 +1,64 @@
+zygotic set n = 13, maternal set n = 219 (control arm, Ensembl space)
+
+=== programme scores, mean log2(CPM+1) (POST HOC, descriptive) ===
+     set                      arm   n    mean   ci_lo   ci_hi
+ zygotic              control L2C 4.0  3.5650     NaN     NaN
+ zygotic                 A485 L2C 3.0  1.0963     NaN     NaN
+ zygotic             A485+Dux L2C 4.0  2.7631     NaN     NaN
+ zygotic              control E2C 4.0  0.4896     NaN     NaN
+ zygotic     A485 - control (L2C) NaN -2.4687 -2.7230 -2.2144
+ zygotic A485+Dux - control (L2C) NaN -0.8019 -1.3346 -0.3581
+ zygotic    A485+Dux - A485 (L2C) NaN  1.6668  1.1391  2.0367
+maternal              control L2C 4.0  2.8919     NaN     NaN
+maternal                 A485 L2C 3.0  3.5795     NaN     NaN
+maternal             A485+Dux L2C 4.0  3.2778     NaN     NaN
+maternal              control E2C 4.0  6.1601     NaN     NaN
+maternal     A485 - control (L2C) NaN  0.6876  0.2272  1.2280
+maternal A485+Dux - control (L2C) NaN  0.3859 -0.0113  0.7920
+maternal    A485+Dux - A485 (L2C) NaN -0.3017 -0.6948  0.0497
+
+=== 2-cell / Dux-target markers, mean log2(CPM+1) at L2C ===
+                               control   A485  A485+Dux  control_E2C
+ENSMUSG00000070828 Zscan4f       7.448  6.714     9.145        9.649
+ENSMUSG00000094328 Tdpoz9        6.664  4.559     6.524        4.862
+ENSMUSG00000095822 Tdpoz9-ps1    6.649  3.561     6.554        4.122
+ENSMUSG00000054272 Zscan4c       6.389  5.283     8.162        8.911
+ENSMUSG00000094084 Tdpoz1        6.345  4.493     6.380        4.708
+ENSMUSG00000095821 Tcstv3        6.255  4.292     5.950        6.521
+ENSMUSG00000090714 Zscan4d       6.189  5.246     7.700        8.406
+ENSMUSG00000048502 Duxbl1        5.941  3.699     4.909        4.994
+ENSMUSG00000096284 Tcstv1        5.516  4.480     5.905        7.919
+ENSMUSG00000094163 Tdpoz5        5.029  2.491     4.705        4.030
+ENSMUSG00000095251 Tdpoz7        5.029  2.491     4.705        4.030
+ENSMUSG00000095936 Zscan4e       4.510  4.343     5.861        6.814
+ENSMUSG00000096879 Tdpoz8        4.326  3.366     4.668        4.479
+ENSMUSG00000060256 Tdpoz4        2.686  1.709     3.033        2.255
+ENSMUSG00000103362 Tdpoz2        2.597  1.222     2.620        1.249
+ENSMUSG00000058005 Tdpoz3        1.563  0.535     2.020        2.524
+ENSMUSG00000095339 Zscan4b       0.908  0.562     2.036        3.780
+
+=== clock contributions of the 20 largest control down-contributors ===
+         symbol  control    A485  A485+Dux
+16601      Klf9  -0.0327 -0.0173   -0.0283
+74513     Neto2  -0.0237 -0.0028   -0.0079
+84095    Pi4k2a  -0.0182 -0.0032   -0.0120
+226830    Smyd2  -0.0180 -0.0139   -0.0130
+93695     Gpnmb  -0.0175 -0.0056   -0.0117
+66614   Gpatch4  -0.0161 -0.0036   -0.0109
+20200    S100a6  -0.0158  0.0048   -0.0019
+100515  Zfp518b  -0.0147 -0.0194   -0.0177
+108699     Chn1  -0.0133 -0.0050   -0.0100
+19173     Psmb5  -0.0132 -0.0032   -0.0102
+27060    Tcirg1  -0.0123 -0.0093   -0.0161
+108811  Ccdc122  -0.0119 -0.0123   -0.0123
+227656    Rexo4  -0.0115 -0.0062   -0.0120
+54353     Skap2  -0.0115 -0.0051   -0.0086
+54561    Nap1l3  -0.0111 -0.0024   -0.0073
+64660    Mrps24  -0.0111 -0.0036   -0.0041
+11815      Apod  -0.0109 -0.0001   -0.0061
+93689     Lmod1  -0.0107 -0.0087   -0.0076
+27276   Plekhb1  -0.0107 -0.0002   -0.0064
+11932    Atp1b2  -0.0106 -0.0133   -0.0169
+
+sum over those 20 genes: {'control': -0.2955, 'A485': -0.1304, 'A485+Dux': -0.221}
+total D per arm: {'control': -0.2375, 'A485': -0.0566, 'A485+Dux': -0.0637}

@@ -1,0 +1,6 @@
+analysis	species	verdict
+EN_Chronoage_Multispecies_Multitissue_yugenediff	Cow,Mouse,Pig,Rabbit	MIXED
+EN_Mortality_Multispecies_Multitissue_scaleddiff	Cow,Mouse,Pig,Rabbit	MIXED
+primary	Cow,Mouse,Pig,Rabbit	MIXED
+primary_residualised_depth_detected	Cow,Mouse,Pig,Rabbit	MIXED
+primary_cow_excluded (3 of 3 required)	Mouse,Pig,Rabbit	MIXED

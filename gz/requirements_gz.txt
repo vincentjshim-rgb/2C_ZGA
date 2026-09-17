@@ -1,0 +1,12 @@
+# Exact versions used on the Windows machine (2026-09-15). scikit-learn 1.5.2 matters: the tAge clock pickles
+# were validated against TACO golden values with this version (results/00_tage_py_validation.tsv).
+numpy==2.1.1
+pandas==2.2.3
+scipy==1.14.1
+scikit-learn==1.5.2
+statsmodels==0.15.0
+matplotlib==3.11.0
+joblib==1.4.2
+pyarrow==17.0.0
+openpyxl
+# external tools: kallisto 0.51.1 (bioconda), python 3.11

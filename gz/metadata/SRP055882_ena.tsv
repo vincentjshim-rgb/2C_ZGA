@@ -1,0 +1,38 @@
+run_accession	sample_title	experiment_title	library_layout	read_count	fastq_bytes
+SRR2927029	RNA-Seq early 2-cell rep2	Illumina HiSeq 1500 sequencing: GSM1933938: RNA-Seq early 2-cell rep2 Mus musculus RNA-Seq	PAIRED	14796083	1205549339;1354347241
+SRR2927034	RNA-Seq 8-cell KD control rep3	Illumina HiSeq 1500 sequencing: GSM1933941: RNA-Seq 8-cell KD control rep3 Mus musculus RNA-Seq	SINGLE	2191624	96043627
+SRR2927040	RNA-Seq 8-cell KD Nr5a2 rep4	Illumina HiSeq 1500 sequencing: GSM1933946: RNA-Seq 8-cell KD Nr5a2 rep4 Mus musculus RNA-Seq	SINGLE	7789709	339193240
+SRR1840519	RNA-Seq 4-cell rep2	Illumina HiSeq 1500 sequencing: GSM1625865: RNA-Seq 4-cell rep2 Mus musculus RNA-Seq	PAIRED	11799198	1050235081;1070605492
+SRR1840520	RNA-Seq 8-cell rep1	Illumina HiSeq 1500 sequencing: GSM1625866: RNA-Seq 8-cell rep1 Mus musculus RNA-Seq	PAIRED	9556650	845282675;862245086
+SRR1840530	RNA-Seq mESC rep2	Illumina HiSeq 1500 sequencing: GSM1625874: RNA-Seq mESC rep2 Mus musculus RNA-Seq	PAIRED	1995625	173193112;179832077
+SRR1840532	RNA-Seq blastocyst KD control rep2	Illumina HiSeq 1500 sequencing: GSM1625876: RNA-Seq blastocyte KD control rep2 Mus musculus RNA-Seq	SINGLE	10638888	475387486
+SRR2927033	RNA-Seq 8-cell KD control rep2	Illumina HiSeq 1500 sequencing: GSM1933940: RNA-Seq 8-cell KD control rep2 Mus musculus RNA-Seq	SINGLE	6817745	278342967
+SRR2927035	RNA-Seq 8-cell KD control rep3	Illumina HiSeq 1500 sequencing: GSM1933941: RNA-Seq 8-cell KD control rep3 Mus musculus RNA-Seq	SINGLE	1716792	71225554
+SRR2927037	RNA-Seq 8-cell KD Nr5a2 rep1	Illumina HiSeq 1500 sequencing: GSM1933943: RNA-Seq 8-cell KD Nr5a2 rep1 Mus musculus RNA-Seq	SINGLE	12014878	580090138
+SRR1840516	RNA-Seq 2-cell rep1	Illumina HiSeq 1500 sequencing: GSM1625862: RNA-Seq 2-cell rep1 Mus musculus RNA-Seq	PAIRED	17541869	1547945493;1630139500
+SRR1840523	RNA-Seq ICM rep2	Illumina HiSeq 1500 sequencing: GSM1625869: RNA-Seq ICM rep2 Mus musculus RNA-Seq	PAIRED	10614457	849889817;954822528
+SRR1840529	RNA-Seq mESC rep2	Illumina HiSeq 1500 sequencing: GSM1625874: RNA-Seq mESC rep2 Mus musculus RNA-Seq	PAIRED	3585080	285811310;323503467
+SRR1840534	RNA-Seq blastocyst KD Gata4 rep1	Illumina HiSeq 1500 sequencing: GSM1625878: RNA-Seq blastocyte KD Gata4 rep1 Mus musculus RNA-Seq	SINGLE	16446312	724627981
+SRR1840535	RNA-Seq blastocyst KD Gata4 rep2	Illumina HiSeq 1500 sequencing: GSM1625879: RNA-Seq blastocyte KD Gata4 rep2 Mus musculus RNA-Seq	SINGLE	8372565	371734705
+SRR1840536	RNA-Seq blastocyst KD Gata4 rep3	Illumina HiSeq 1500 sequencing: GSM1625880: RNA-Seq blastocyte KD Gata4 rep3 Mus musculus RNA-Seq	SINGLE	5755719	254014597
+SRR2927028	RNA-Seq early 2-cell rep1	Illumina HiSeq 1500 sequencing: GSM1933937: RNA-Seq early 2-cell rep1 Mus musculus RNA-Seq	PAIRED	21922986	1687563309;1845535769
+SRR1840514	RNA-Seq zygote rep1	Illumina HiSeq 1500 sequencing: GSM1625860: RNA-Seq zygote rep1 Mus musculus RNA-Seq	PAIRED	15628795	1216469462;1431596430
+SRR1840515	RNA-Seq zygote rep2	Illumina HiSeq 1500 sequencing: GSM1625861: RNA-Seq zygote rep2 Mus musculus RNA-Seq	PAIRED	10245025	850753553;1000649858
+SRR1840517	RNA-Seq 2-cell rep2	Illumina HiSeq 1500 sequencing: GSM1625863: RNA-Seq 2-cell rep2 Mus musculus RNA-Seq	PAIRED	14243624	1259549416;1319614824
+SRR1840518	RNA-Seq 4-cell rep1	Illumina HiSeq 1500 sequencing: GSM1625864: RNA-Seq 4-cell rep1 Mus musculus RNA-Seq	PAIRED	11934380	1059656421;1084505605
+SRR1840528	RNA-Seq mESC rep1	Illumina HiSeq 1500 sequencing: GSM1625873: RNA-Seq mESC rep1 Mus musculus RNA-Seq	PAIRED	2974978	252353709;261588592
+SRR1840531	RNA-Seq blastocyst KD control rep1	Illumina HiSeq 1500 sequencing: GSM1625875: RNA-Seq blastocyte KD control rep1 Mus musculus RNA-Seq	SINGLE	6782899	298605848
+SRR1840533	RNA-Seq blastocyst KD control rep3	Illumina HiSeq 1500 sequencing: GSM1625877: RNA-Seq blastocyte KD control rep3 Mus musculus RNA-Seq	SINGLE	6240615	281762285
+SRR2927032	RNA-Seq 8-cell KD control rep2	Illumina HiSeq 1500 sequencing: GSM1933940: RNA-Seq 8-cell KD control rep2 Mus musculus RNA-Seq	SINGLE	3648673	158484838
+SRR2927036	RNA-Seq 8-cell KD control rep4	Illumina HiSeq 1500 sequencing: GSM1933942: RNA-Seq 8-cell KD control rep4 Mus musculus RNA-Seq	SINGLE	5239033	226683323
+SRR2927038	RNA-Seq 8-cell KD Nr5a2 rep2	Illumina HiSeq 1500 sequencing: GSM1933944: RNA-Seq 8-cell KD Nr5a2 rep2 Mus musculus RNA-Seq	SINGLE	5875976	254164105
+SRR1840521	RNA-Seq 8-cell rep2	Illumina HiSeq 1500 sequencing: GSM1625867: RNA-Seq 8-cell rep2 Mus musculus RNA-Seq	PAIRED	27114499	2384544325;2398355622
+SRR1840522	RNA-Seq ICM rep1	Illumina HiSeq 1500 sequencing: GSM1625868: RNA-Seq ICM rep1 Mus musculus RNA-Seq	PAIRED	7272658	576996813;690606447
+SRR1840526	RNA-Seq ICM rep5	Illumina HiSeq 1500 sequencing: GSM1625872: RNA-Seq ICM rep5 Mus musculus RNA-Seq	PAIRED	7492930	583350731;703618119
+SRR1840527	RNA-Seq mESC rep1	Illumina HiSeq 1500 sequencing: GSM1625873: RNA-Seq mESC rep1 Mus musculus RNA-Seq	PAIRED	4449582	347435928;390072241
+SRR1840537	RNA-Seq blastocyst KD Gata4 rep4	Illumina HiSeq 1500 sequencing: GSM1625881: RNA-Seq blastocyte KD Gata4 rep4 Mus musculus RNA-Seq	SINGLE	4195351	187116892
+SRR2927026	RNA-Seq MII oocyte rep1	Illumina HiSeq 1500 sequencing: GSM1933935: RNA-Seq MII oocyte rep1 Mus musculus RNA-Seq	PAIRED	11873697	975486568;976200776
+SRR2927027	RNA-Seq MII oocyte rep2	Illumina HiSeq 1500 sequencing: GSM1933936: RNA-Seq MII oocyte rep2 Mus musculus RNA-Seq	PAIRED	5974676	486562162;493884113
+SRR2927030	RNA-Seq 8-cell KD control rep1	Illumina HiSeq 1500 sequencing: GSM1933939: RNA-Seq 8-cell KD control rep1 Mus musculus RNA-Seq	SINGLE	3093894	135211628
+SRR2927031	RNA-Seq 8-cell KD control rep1	Illumina HiSeq 1500 sequencing: GSM1933939: RNA-Seq 8-cell KD control rep1 Mus musculus RNA-Seq	SINGLE	3000787	123846311
+SRR2927039	RNA-Seq 8-cell KD Nr5a2 rep3	Illumina HiSeq 1500 sequencing: GSM1933945: RNA-Seq 8-cell KD Nr5a2 rep3 Mus musculus RNA-Seq	SINGLE	7128633	308531443

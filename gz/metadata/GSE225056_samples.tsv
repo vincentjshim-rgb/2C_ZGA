@@ -1,0 +1,362 @@
+gsm	title	source_name_ch1	organism_ch1	ch:tissue	ch:genotype	description	library_strategy	supplementary_file_1
+GSM7038097	Mouse_Oocyte_1	Oocyte	Mus musculus	Oocyte	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038098	Mouse_Oocyte_2	Oocyte	Mus musculus	Oocyte	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038099	Mouse_Oocyte_3	Oocyte	Mus musculus	Oocyte	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038100	Mouse_Oocyte_4	Oocyte	Mus musculus	Oocyte	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038101	Mouse_Oocyte_5	Oocyte	Mus musculus	Oocyte	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038102	Mouse_Oocyte_6	Oocyte	Mus musculus	Oocyte	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038103	Mouse_Oocyte_7	Oocyte	Mus musculus	Oocyte	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038104	Mouse_Oocyte_8	Oocyte	Mus musculus	Oocyte	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038105	Mouse_Oocyte_10	Oocyte	Mus musculus	Oocyte	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038106	Mouse_Oocyte_11	Oocyte	Mus musculus	Oocyte	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038107	Mouse_Oocyte_12	Oocyte	Mus musculus	Oocyte	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038108	Mouse_Zygote_1	Zygote	Mus musculus	Zygote	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038109	Mouse_Zygote_2	Zygote	Mus musculus	Zygote	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038110	Mouse_Zygote_3	Zygote	Mus musculus	Zygote	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038111	Mouse_Zygote_4	Zygote	Mus musculus	Zygote	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038112	Mouse_Zygote_5	Zygote	Mus musculus	Zygote	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038113	Mouse_Zygote_6	Zygote	Mus musculus	Zygote	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038114	Mouse_Zygote_7	Zygote	Mus musculus	Zygote	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038115	Mouse_Zygote_8	Zygote	Mus musculus	Zygote	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038116	Mouse_Zygote_10	Zygote	Mus musculus	Zygote	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038117	Mouse_Zygote_11	Zygote	Mus musculus	Zygote	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038118	Mouse_Zygote_12	Zygote	Mus musculus	Zygote	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038119	Mouse_Early-2-cell_1	Early 2 cell embryo	Mus musculus	Early 2 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038120	Mouse_Early-2-cell_3	Early 2 cell embryo	Mus musculus	Early 2 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038121	Mouse_Early-2-cell_4	Early 2 cell embryo	Mus musculus	Early 2 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038122	Mouse_Early-2-cell_6	Early 2 cell embryo	Mus musculus	Early 2 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038123	Mouse_Early-2-cell_7	Early 2 cell embryo	Mus musculus	Early 2 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038124	Mouse_Early-2-cell_9	Early 2 cell embryo	Mus musculus	Early 2 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038125	Mouse_Early-2-cell_10	Early 2 cell embryo	Mus musculus	Early 2 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038126	Mouse_Early-2-cell_11	Early 2 cell embryo	Mus musculus	Early 2 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038127	Mouse_Early-2-cell_12	Early 2 cell embryo	Mus musculus	Early 2 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038128	Mouse_Late-2-cell_1	Late 2 cell embryo	Mus musculus	Late 2 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038129	Mouse_Late-2-cell_2	Late 2 cell embryo	Mus musculus	Late 2 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038130	Mouse_Late-2-cell_3	Late 2 cell embryo	Mus musculus	Late 2 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038131	Mouse_Late-2-cell_4	Late 2 cell embryo	Mus musculus	Late 2 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038132	Mouse_Late-2-cell_5	Late 2 cell embryo	Mus musculus	Late 2 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038133	Mouse_Late-2-cell_6	Late 2 cell embryo	Mus musculus	Late 2 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038134	Mouse_Late-2-cell_7	Late 2 cell embryo	Mus musculus	Late 2 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038135	Mouse_Late-2-cell_8	Late 2 cell embryo	Mus musculus	Late 2 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038136	Mouse_Late-2-cell_9	Late 2 cell embryo	Mus musculus	Late 2 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038137	Mouse_Late-2-cell_10	Late 2 cell embryo	Mus musculus	Late 2 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038138	Mouse_4-cell_1	4 cell embryo	Mus musculus	4 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038139	Mouse_4-cell_2	4 cell embryo	Mus musculus	4 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038140	Mouse_4-cell_3	4 cell embryo	Mus musculus	4 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038141	Mouse_4-cell_4	4 cell embryo	Mus musculus	4 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038142	Mouse_4-cell_5	4 cell embryo	Mus musculus	4 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038143	Mouse_4-cell_6	4 cell embryo	Mus musculus	4 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038144	Mouse_4-cell_7	4 cell embryo	Mus musculus	4 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038145	Mouse_4-cell_8	4 cell embryo	Mus musculus	4 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038146	Mouse_4-cell_9	4 cell embryo	Mus musculus	4 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038147	Mouse_4-cell_11	4 cell embryo	Mus musculus	4 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038148	Mouse_4-cell_12	4 cell embryo	Mus musculus	4 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038149	Mouse_8-cell_1	8 cell embryo	Mus musculus	8 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038150	Mouse_8-cell_2	8 cell embryo	Mus musculus	8 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038151	Mouse_8-cell_3	8 cell embryo	Mus musculus	8 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038152	Mouse_8-cell_4	8 cell embryo	Mus musculus	8 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038153	Mouse_8-cell_5	8 cell embryo	Mus musculus	8 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038154	Mouse_8-cell_6	8 cell embryo	Mus musculus	8 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038155	Mouse_8-cell_7	8 cell embryo	Mus musculus	8 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038156	Mouse_8-cell_8	8 cell embryo	Mus musculus	8 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038157	Mouse_8-cell_9	8 cell embryo	Mus musculus	8 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038158	Mouse_8-cell_10	8 cell embryo	Mus musculus	8 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038159	Mouse_8-cell_11	8 cell embryo	Mus musculus	8 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038160	Mouse_8-cell_12	8 cell embryo	Mus musculus	8 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038161	Mouse_16-cell_1	16 cell embryo	Mus musculus	16 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038162	Mouse_16-cell_2	16 cell embryo	Mus musculus	16 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038163	Mouse_16-cell_3	16 cell embryo	Mus musculus	16 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038164	Mouse_16-cell_4	16 cell embryo	Mus musculus	16 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038165	Mouse_16-cell_5	16 cell embryo	Mus musculus	16 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038166	Mouse_16-cell_6	16 cell embryo	Mus musculus	16 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038167	Mouse_16-cell_7	16 cell embryo	Mus musculus	16 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038168	Mouse_16-cell_8	16 cell embryo	Mus musculus	16 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038169	Mouse_16-cell_9	16 cell embryo	Mus musculus	16 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038170	Mouse_16-cell_10	16 cell embryo	Mus musculus	16 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038171	Mouse_16-cell_11	16 cell embryo	Mus musculus	16 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038172	Mouse_16-cell_12	16 cell embryo	Mus musculus	16 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM7038173	Pig_Oocyte_1	Oocyte	Sus scrofa	Oocyte	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038174	Pig_Oocyte_3	Oocyte	Sus scrofa	Oocyte	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038175	Pig_Oocyte_4	Oocyte	Sus scrofa	Oocyte	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038176	Pig_Oocyte_5	Oocyte	Sus scrofa	Oocyte	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038177	Pig_Oocyte_6	Oocyte	Sus scrofa	Oocyte	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038178	Pig_Oocyte_7	Oocyte	Sus scrofa	Oocyte	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038179	Pig_Oocyte_8	Oocyte	Sus scrofa	Oocyte	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038180	Pig_Oocyte_9	Oocyte	Sus scrofa	Oocyte	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038181	Pig_Oocyte_10	Oocyte	Sus scrofa	Oocyte	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038182	Pig_Oocyte_11	Oocyte	Sus scrofa	Oocyte	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038183	Pig_Oocyte_12	Oocyte	Sus scrofa	Oocyte	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038184	Pig_Zygote_1	Zygote	Sus scrofa	Zygote	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038185	Pig_Zygote_2	Zygote	Sus scrofa	Zygote	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038186	Pig_Zygote_3	Zygote	Sus scrofa	Zygote	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038187	Pig_Zygote_4	Zygote	Sus scrofa	Zygote	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038188	Pig_Zygote_5	Zygote	Sus scrofa	Zygote	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038189	Pig_Zygote_6	Zygote	Sus scrofa	Zygote	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038190	Pig_Zygote_7	Zygote	Sus scrofa	Zygote	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038191	Pig_Zygote_8	Zygote	Sus scrofa	Zygote	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038192	Pig_Zygote_9	Zygote	Sus scrofa	Zygote	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038193	Pig_Zygote_10	Zygote	Sus scrofa	Zygote	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038194	Pig_Zygote_11	Zygote	Sus scrofa	Zygote	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038195	Pig_Zygote_12	Zygote	Sus scrofa	Zygote	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038196	Pig_2-cell_1	2 cell embryo	Sus scrofa	2 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038197	Pig_2-cell_2	2 cell embryo	Sus scrofa	2 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038198	Pig_2-cell_3	2 cell embryo	Sus scrofa	2 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038199	Pig_2-cell_4	2 cell embryo	Sus scrofa	2 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038200	Pig_2-cell_5	2 cell embryo	Sus scrofa	2 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038201	Pig_2-cell_6	2 cell embryo	Sus scrofa	2 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038202	Pig_2-cell_7	2 cell embryo	Sus scrofa	2 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038203	Pig_2-cell_8	2 cell embryo	Sus scrofa	2 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038204	Pig_2-cell_10	2 cell embryo	Sus scrofa	2 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038205	Pig_2-cell_11	2 cell embryo	Sus scrofa	2 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038206	Pig_2-cell_12	2 cell embryo	Sus scrofa	2 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038207	Pig_4-cell_1	4-cell embryo	Sus scrofa	4-cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038208	Pig_4-cell_2	4-cell embryo	Sus scrofa	4-cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038209	Pig_4-cell_3	4-cell embryo	Sus scrofa	4-cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038210	Pig_4-cell_4	4-cell embryo	Sus scrofa	4-cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038211	Pig_4-cell_5	4-cell embryo	Sus scrofa	4-cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038212	Pig_4-cell_6	4-cell embryo	Sus scrofa	4-cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038213	Pig_4-cell_7	4-cell embryo	Sus scrofa	4-cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038214	Pig_4-cell_8	4-cell embryo	Sus scrofa	4-cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038215	Pig_4-cell_9	4-cell embryo	Sus scrofa	4-cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038216	Pig_4-cell_10	4-cell embryo	Sus scrofa	4-cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038217	Pig_4-cell_11	4-cell embryo	Sus scrofa	4-cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038218	Pig_4-cell_12	4-cell embryo	Sus scrofa	4-cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038219	Pig_Day2_1	Day2/5-8 cell embryo	Sus scrofa	Day2/5-8 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038220	Pig_Day2_2	Day2/5-8 cell embryo	Sus scrofa	Day2/5-8 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038221	Pig_Day2_3	Day2/5-8 cell embryo	Sus scrofa	Day2/5-8 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038222	Pig_Day2_4	Day2/5-8 cell embryo	Sus scrofa	Day2/5-8 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038223	Pig_Day2_5	Day2/5-8 cell embryo	Sus scrofa	Day2/5-8 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038224	Pig_Day2_6	Day2/5-8 cell embryo	Sus scrofa	Day2/5-8 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038225	Pig_Day2_7	Day2/5-8 cell embryo	Sus scrofa	Day2/5-8 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038226	Pig_Day2_8	Day2/5-8 cell embryo	Sus scrofa	Day2/5-8 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038227	Pig_Day2_9	Day2/5-8 cell embryo	Sus scrofa	Day2/5-8 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038228	Pig_Day2_10	Day2/5-8 cell embryo	Sus scrofa	Day2/5-8 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038229	Pig_Day2_11	Day2/5-8 cell embryo	Sus scrofa	Day2/5-8 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038230	Pig_Day2_12	Day2/5-8 cell embryo	Sus scrofa	Day2/5-8 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038231	Pig_Day3_1	Day3/8-16 cell embryo	Sus scrofa	Day3/8-16 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038232	Pig_Day3_2	Day3/8-16 cell embryo	Sus scrofa	Day3/8-16 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038233	Pig_Day3_3	Day3/8-16 cell embryo	Sus scrofa	Day3/8-16 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038234	Pig_Day3_4	Day3/8-16 cell embryo	Sus scrofa	Day3/8-16 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038235	Pig_Day3_5	Day3/8-16 cell embryo	Sus scrofa	Day3/8-16 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038236	Pig_Day3_6	Day3/8-16 cell embryo	Sus scrofa	Day3/8-16 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038237	Pig_Day3_7	Day3/8-16 cell embryo	Sus scrofa	Day3/8-16 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038238	Pig_Day3_8	Day3/8-16 cell embryo	Sus scrofa	Day3/8-16 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038239	Pig_Day3_10	Day3/8-16 cell embryo	Sus scrofa	Day3/8-16 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038240	Pig_Day3_11	Day3/8-16 cell embryo	Sus scrofa	Day3/8-16 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038241	Pig_Day3_12	Day3/8-16 cell embryo	Sus scrofa	Day3/8-16 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038242	Pig_Morula_1	Morula	Sus scrofa	Morula	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038243	Pig_Morula_2	Morula	Sus scrofa	Morula	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038244	Pig_Morula_3	Morula	Sus scrofa	Morula	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038245	Pig_Morula_4	Morula	Sus scrofa	Morula	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038246	Pig_Morula_5	Morula	Sus scrofa	Morula	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038247	Pig_Morula_6	Morula	Sus scrofa	Morula	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038248	Pig_Morula_7	Morula	Sus scrofa	Morula	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038249	Pig_Morula_8	Morula	Sus scrofa	Morula	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038250	Pig_Morula_9	Morula	Sus scrofa	Morula	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038251	Pig_Morula_10	Morula	Sus scrofa	Morula	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038252	Pig_Morula_11	Morula	Sus scrofa	Morula	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038253	Pig_Morula_12	Morula	Sus scrofa	Morula	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038254	Cow_Oocyte_1	Oocyte	Bos taurus	Oocyte	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038255	Cow_Oocyte_2	Oocyte	Bos taurus	Oocyte	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038256	Cow_Oocyte_3	Oocyte	Bos taurus	Oocyte	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038257	Cow_Oocyte_4	Oocyte	Bos taurus	Oocyte	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038258	Cow_Oocyte_5	Oocyte	Bos taurus	Oocyte	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038259	Cow_Oocyte_6	Oocyte	Bos taurus	Oocyte	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038260	Cow_Oocyte_7	Oocyte	Bos taurus	Oocyte	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038261	Cow_Oocyte_8	Oocyte	Bos taurus	Oocyte	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038262	Cow_Oocyte_10	Oocyte	Bos taurus	Oocyte	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038263	Cow_Oocyte_11	Oocyte	Bos taurus	Oocyte	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038264	Cow_Oocyte_12	Oocyte	Bos taurus	Oocyte	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038265	Cow_Zygote_1	Zygote	Bos taurus	Zygote	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038266	Cow_Zygote_2	Zygote	Bos taurus	Zygote	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038267	Cow_Zygote_3	Zygote	Bos taurus	Zygote	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038268	Cow_Zygote_4	Zygote	Bos taurus	Zygote	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038269	Cow_Zygote_5	Zygote	Bos taurus	Zygote	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038270	Cow_Zygote_6	Zygote	Bos taurus	Zygote	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038271	Cow_Zygote_7	Zygote	Bos taurus	Zygote	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038272	Cow_Zygote_8	Zygote	Bos taurus	Zygote	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038273	Cow_Zygote_9	Zygote	Bos taurus	Zygote	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038274	Cow_Zygote_10	Zygote	Bos taurus	Zygote	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038275	Cow_Zygote_11	Zygote	Bos taurus	Zygote	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038276	Cow_Zygote_12	Zygote	Bos taurus	Zygote	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038277	Cow_2-cell_1	2 cell embryo	Bos taurus	2 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038278	Cow_2-cell_2	2 cell embryo	Bos taurus	2 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038279	Cow_2-cell_3	2 cell embryo	Bos taurus	2 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038280	Cow_2-cell_4	2 cell embryo	Bos taurus	2 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038281	Cow_2-cell_5	2 cell embryo	Bos taurus	2 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038282	Cow_2-cell_6	2 cell embryo	Bos taurus	2 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038283	Cow_2-cell_7	2 cell embryo	Bos taurus	2 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038284	Cow_2-cell_8	2 cell embryo	Bos taurus	2 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038285	Cow_2-cell_9	2 cell embryo	Bos taurus	2 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038286	Cow_2-cell_10	2 cell embryo	Bos taurus	2 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038287	Cow_2-cell_11	2 cell embryo	Bos taurus	2 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038288	Cow_2-cell_12	2 cell embryo	Bos taurus	2 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038289	Cow_4-cell_1	4 cell embryo	Bos taurus	4 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038290	Cow_4-cell_2	4 cell embryo	Bos taurus	4 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038291	Cow_4-cell_3	4 cell embryo	Bos taurus	4 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038292	Cow_4-cell_4	4 cell embryo	Bos taurus	4 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038293	Cow_4-cell_5	4 cell embryo	Bos taurus	4 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038294	Cow_4-cell_6	4 cell embryo	Bos taurus	4 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038295	Cow_4-cell_7	4 cell embryo	Bos taurus	4 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038296	Cow_4-cell_8	4 cell embryo	Bos taurus	4 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038297	Cow_4-cell_9	4 cell embryo	Bos taurus	4 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038298	Cow_4-cell_10	4 cell embryo	Bos taurus	4 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038299	Cow_4-cell_11	4 cell embryo	Bos taurus	4 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038300	Cow_4-cell_12	4 cell embryo	Bos taurus	4 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038301	Cow_8-cell_1	8 cell embryo	Bos taurus	8 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038302	Cow_8-cell_2	8 cell embryo	Bos taurus	8 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038303	Cow_8-cell_3	8 cell embryo	Bos taurus	8 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038304	Cow_8-cell_4	8 cell embryo	Bos taurus	8 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038305	Cow_8-cell_5	8 cell embryo	Bos taurus	8 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038306	Cow_8-cell_6	8 cell embryo	Bos taurus	8 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038307	Cow_8-cell_7	8 cell embryo	Bos taurus	8 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038308	Cow_8-cell_8	8 cell embryo	Bos taurus	8 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038309	Cow_8-cell_9	8 cell embryo	Bos taurus	8 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038310	Cow_8-cell_10	8 cell embryo	Bos taurus	8 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038311	Cow_8-cell_11	8 cell embryo	Bos taurus	8 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038312	Cow_8-cell_12	8 cell embryo	Bos taurus	8 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038313	Cow_16-cell_1	16 cell embryo	Bos taurus	16 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038314	Cow_16-cell_2	16 cell embryo	Bos taurus	16 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038315	Cow_16-cell_3	16 cell embryo	Bos taurus	16 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038316	Cow_16-cell_4	16 cell embryo	Bos taurus	16 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038317	Cow_16-cell_5	16 cell embryo	Bos taurus	16 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038318	Cow_16-cell_6	16 cell embryo	Bos taurus	16 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038319	Cow_16-cell_7	16 cell embryo	Bos taurus	16 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038320	Cow_16-cell_8	16 cell embryo	Bos taurus	16 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038321	Cow_16-cell_9	16 cell embryo	Bos taurus	16 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038322	Cow_16-cell_10	16 cell embryo	Bos taurus	16 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038323	Cow_16-cell_11	16 cell embryo	Bos taurus	16 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038324	Cow_16-cell_12	16 cell embryo	Bos taurus	16 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038325	Cow_Morula_1	Morula	Bos taurus	Morula	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038326	Cow_Morula_2	Morula	Bos taurus	Morula	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038327	Cow_Morula_3	Morula	Bos taurus	Morula	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038328	Cow_Morula_4	Morula	Bos taurus	Morula	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038329	Cow_Morula_5	Morula	Bos taurus	Morula	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038330	Cow_Morula_6	Morula	Bos taurus	Morula	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038331	Cow_Morula_7	Morula	Bos taurus	Morula	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038332	Cow_Morula_8	Morula	Bos taurus	Morula	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038333	Cow_Morula_9	Morula	Bos taurus	Morula	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038334	Cow_Morula_10	Morula	Bos taurus	Morula	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038335	Cow_Morula_11	Morula	Bos taurus	Morula	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038336	Rabbit_Oocyte_1	Oocyte	Oryctolagus cuniculus	Oocyte	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038337	Rabbit_Oocyte_2	Oocyte	Oryctolagus cuniculus	Oocyte	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038338	Rabbit_Oocyte_3	Oocyte	Oryctolagus cuniculus	Oocyte	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038339	Rabbit_Oocyte_4	Oocyte	Oryctolagus cuniculus	Oocyte	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038340	Rabbit_Oocyte_5	Oocyte	Oryctolagus cuniculus	Oocyte	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038341	Rabbit_Oocyte_6	Oocyte	Oryctolagus cuniculus	Oocyte	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038342	Rabbit_Oocyte_7	Oocyte	Oryctolagus cuniculus	Oocyte	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038343	Rabbit_Oocyte_8	Oocyte	Oryctolagus cuniculus	Oocyte	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038344	Rabbit_Oocyte_9	Oocyte	Oryctolagus cuniculus	Oocyte	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038345	Rabbit_Oocyte_10	Oocyte	Oryctolagus cuniculus	Oocyte	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038346	Rabbit_Oocyte_11	Oocyte	Oryctolagus cuniculus	Oocyte	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038347	Rabbit_Oocyte_12	Oocyte	Oryctolagus cuniculus	Oocyte	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038348	Rabbit_Oocyte_13	Oocyte	Oryctolagus cuniculus	Oocyte	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038349	Rabbit_Zygote_1	Zygote	Oryctolagus cuniculus	Zygote	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038350	Rabbit_Zygote_2	Zygote	Oryctolagus cuniculus	Zygote	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038351	Rabbit_Zygote_3	Zygote	Oryctolagus cuniculus	Zygote	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038352	Rabbit_Zygote_4	Zygote	Oryctolagus cuniculus	Zygote	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038353	Rabbit_Zygote_5	Zygote	Oryctolagus cuniculus	Zygote	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038354	Rabbit_Zygote_6	Zygote	Oryctolagus cuniculus	Zygote	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038355	Rabbit_Zygote_7	Zygote	Oryctolagus cuniculus	Zygote	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038356	Rabbit_Zygote_8	Zygote	Oryctolagus cuniculus	Zygote	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038357	Rabbit_Zygote_9	Zygote	Oryctolagus cuniculus	Zygote	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038358	Rabbit_Zygote_10	Zygote	Oryctolagus cuniculus	Zygote	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038359	Rabbit_Zygote_11	Zygote	Oryctolagus cuniculus	Zygote	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038360	Rabbit_2-cell_1	2 cell embryo	Oryctolagus cuniculus	2 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038361	Rabbit_2-cell_2	2 cell embryo	Oryctolagus cuniculus	2 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038362	Rabbit_2-cell_3	2 cell embryo	Oryctolagus cuniculus	2 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038363	Rabbit_2-cell_4	2 cell embryo	Oryctolagus cuniculus	2 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038364	Rabbit_2-cell_5	2 cell embryo	Oryctolagus cuniculus	2 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038365	Rabbit_2-cell_6	2 cell embryo	Oryctolagus cuniculus	2 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038366	Rabbit_2-cell_7	2 cell embryo	Oryctolagus cuniculus	2 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038367	Rabbit_2-cell_8	2 cell embryo	Oryctolagus cuniculus	2 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038368	Rabbit_2-cell_9	2 cell embryo	Oryctolagus cuniculus	2 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038369	Rabbit_2-cell_10	2 cell embryo	Oryctolagus cuniculus	2 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038370	Rabbit_2-cell_12	2 cell embryo	Oryctolagus cuniculus	2 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038371	Rabbit_4-cell_1	4 cell embryo	Oryctolagus cuniculus	4 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038372	Rabbit_4-cell_2	4 cell embryo	Oryctolagus cuniculus	4 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038373	Rabbit_4-cell_3	4 cell embryo	Oryctolagus cuniculus	4 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038374	Rabbit_4-cell_4	4 cell embryo	Oryctolagus cuniculus	4 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038375	Rabbit_4-cell_5	4 cell embryo	Oryctolagus cuniculus	4 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038376	Rabbit_4-cell_6	4 cell embryo	Oryctolagus cuniculus	4 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038377	Rabbit_4-cell_8	4 cell embryo	Oryctolagus cuniculus	4 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038378	Rabbit_4-cell_9	4 cell embryo	Oryctolagus cuniculus	4 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038379	Rabbit_4-cell_10	4 cell embryo	Oryctolagus cuniculus	4 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038380	Rabbit_4-cell_11	4 cell embryo	Oryctolagus cuniculus	4 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038381	Rabbit_8-cell_1	8 cell embryo	Oryctolagus cuniculus	8 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038382	Rabbit_8-cell_2	8 cell embryo	Oryctolagus cuniculus	8 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038383	Rabbit_8-cell_3	8 cell embryo	Oryctolagus cuniculus	8 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038384	Rabbit_8-cell_4	8 cell embryo	Oryctolagus cuniculus	8 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038385	Rabbit_8-cell_5	8 cell embryo	Oryctolagus cuniculus	8 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038386	Rabbit_8-cell_6	8 cell embryo	Oryctolagus cuniculus	8 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038387	Rabbit_8-cell_7	8 cell embryo	Oryctolagus cuniculus	8 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038388	Rabbit_8-cell_8	8 cell embryo	Oryctolagus cuniculus	8 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038389	Rabbit_8-cell_9	8 cell embryo	Oryctolagus cuniculus	8 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038390	Rabbit_8-cell_11	8 cell embryo	Oryctolagus cuniculus	8 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038391	Rabbit_8-cell_12	8 cell embryo	Oryctolagus cuniculus	8 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038392	Rabbit_8-cell_13	8 cell embryo	Oryctolagus cuniculus	8 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038393	Rabbit_8-cell_14	8 cell embryo	Oryctolagus cuniculus	8 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038394	Rabbit_8-cell_15	8 cell embryo	Oryctolagus cuniculus	8 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038395	Rabbit_16-cell_1	16 cell embryo	Oryctolagus cuniculus	16 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038396	Rabbit_16-cell_2	16 cell embryo	Oryctolagus cuniculus	16 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038397	Rabbit_16-cell_3	16 cell embryo	Oryctolagus cuniculus	16 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038398	Rabbit_16-cell_4	16 cell embryo	Oryctolagus cuniculus	16 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038399	Rabbit_16-cell_5	16 cell embryo	Oryctolagus cuniculus	16 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038400	Rabbit_16-cell_6	16 cell embryo	Oryctolagus cuniculus	16 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038401	Rabbit_16-cell_7	16 cell embryo	Oryctolagus cuniculus	16 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038402	Rabbit_16-cell_8	16 cell embryo	Oryctolagus cuniculus	16 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038403	Rabbit_16-cell_9	16 cell embryo	Oryctolagus cuniculus	16 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038404	Rabbit_16-cell_10	16 cell embryo	Oryctolagus cuniculus	16 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038405	Rabbit_16-cell_11	16 cell embryo	Oryctolagus cuniculus	16 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038406	Rabbit_16-cell_12	16 cell embryo	Oryctolagus cuniculus	16 cell embryo	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038407	Rabbit_Morula_1	Morula	Oryctolagus cuniculus	Morula	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038408	Rabbit_Morula_2	Morula	Oryctolagus cuniculus	Morula	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038409	Rabbit_Morula_3	Morula	Oryctolagus cuniculus	Morula	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038410	Rabbit_Morula_4	Morula	Oryctolagus cuniculus	Morula	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038411	Rabbit_Morula_5	Morula	Oryctolagus cuniculus	Morula	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038412	Rabbit_Morula_6	Morula	Oryctolagus cuniculus	Morula	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038413	Rabbit_Morula_7	Morula	Oryctolagus cuniculus	Morula	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038414	Rabbit_Morula_8	Morula	Oryctolagus cuniculus	Morula	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038415	Rabbit_Morula_9	Morula	Oryctolagus cuniculus	Morula	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038416	Rabbit_Morula_11	Morula	Oryctolagus cuniculus	Morula	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038417	Rabbit_Morula_12	Morula	Oryctolagus cuniculus	Morula	Zika	2x150bp reads	RNA-Seq	NONE
+GSM7038418	Rhesus_Oocyte_1	Oocyte	Macaca mulatta	Oocyte	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038419	Rhesus_Oocyte_2	Oocyte	Macaca mulatta	Oocyte	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038420	Rhesus_Oocyte_3	Oocyte	Macaca mulatta	Oocyte	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038421	Rhesus_Oocyte_4	Oocyte	Macaca mulatta	Oocyte	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038422	Rhesus_Oocyte_5	Oocyte	Macaca mulatta	Oocyte	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038423	Rhesus_Oocyte_6	Oocyte	Macaca mulatta	Oocyte	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038424	Rhesus_Zygote_1	Zygote	Macaca mulatta	Zygote	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038425	Rhesus_Zygote_2	Zygote	Macaca mulatta	Zygote	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038426	Rhesus_Zygote_3	Zygote	Macaca mulatta	Zygote	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038427	Rhesus_Zygote_4	Zygote	Macaca mulatta	Zygote	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038428	Rhesus_2-cell_1	2 cell embryo	Macaca mulatta	2 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038429	Rhesus_2-cell_2	2 cell embryo	Macaca mulatta	2 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038430	Rhesus_4-cell_2	4 cell embryo	Macaca mulatta	4 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038431	Rhesus_8-cell_1	8 cell embryo	Macaca mulatta	8 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038432	Rhesus_8-cell_2	8 cell embryo	Macaca mulatta	8 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038433	Rhesus_8-cell_3	8 cell embryo	Macaca mulatta	8 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038434	Rhesus_16-cell_1	16 cell embryo	Macaca mulatta	16 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038435	Rhesus_16-cell_2	16 cell embryo	Macaca mulatta	16 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM7038436	Rhesus_16-cell_3	16 cell embryo	Macaca mulatta	16 cell embryo	WT	2x150bp reads	RNA-Seq	NONE
+GSM8376753	rbESC_R1T2	rabbit embryonic stem cells	Oryctolagus cuniculus	rabbit embryonic stem cells	rbESC_AKSL20-EOS	2x150bp reads	RNA-Seq	NONE
+GSM8376754	rbESC_R1T2S2	rabbit embryonic stem cells	Oryctolagus cuniculus	rabbit embryonic stem cells	rbESC_AKSL20-EOS	2x150bp reads	RNA-Seq	NONE
+GSM8376755	rbESC_R2T1	rabbit embryonic stem cells	Oryctolagus cuniculus	rabbit embryonic stem cells	rbESC_AKSL20-EOS	2x150bp reads	RNA-Seq	NONE
+GSM8376756	rbESC_R2T1S2	rabbit embryonic stem cells	Oryctolagus cuniculus	rabbit embryonic stem cells	rbESC_AKSL20-EOS	2x150bp reads	RNA-Seq	NONE
+GSM8376757	rbESC_R2T2	rabbit embryonic stem cells	Oryctolagus cuniculus	rabbit embryonic stem cells	rbESC_AKSL20-EOS	2x150bp reads	RNA-Seq	NONE
+GSM8376758	rbESC_R2T2S2	rabbit embryonic stem cells	Oryctolagus cuniculus	rabbit embryonic stem cells	rbESC_AKSL20-EOS	2x150bp reads	RNA-Seq	NONE
+GSM8376759	rbESC_R3T1	rabbit embryonic stem cells	Oryctolagus cuniculus	rabbit embryonic stem cells	rbESC_AKSL20-EOS	2x150bp reads	RNA-Seq	NONE
+GSM8376760	rbESC_R3T1S2	rabbit embryonic stem cells	Oryctolagus cuniculus	rabbit embryonic stem cells	rbESC_AKSL20-EOS	2x150bp reads	RNA-Seq	NONE
+GSM8376761	rbESC_R3T2	rabbit embryonic stem cells	Oryctolagus cuniculus	rabbit embryonic stem cells	rbESC_AKSL20-EOS	2x150bp reads	RNA-Seq	NONE
+GSM8376762	rbESC_R3T2S2	rabbit embryonic stem cells	Oryctolagus cuniculus	rabbit embryonic stem cells	rbESC_AKSL20-EOS	2x150bp reads	RNA-Seq	NONE
+GSM8376763	mESC_R1	mouse embryonic stem cells	Mus musculus	mouse embryonic stem cells	mESC_2C-3xtbGFP	2x150bp reads	RNA-Seq	NONE
+GSM8376764	mESC_R2	mouse embryonic stem cells	Mus musculus	mouse embryonic stem cells	mESC_2C-3xtbGFP	2x150bp reads	RNA-Seq	NONE
+GSM8376765	mESC_R3	mouse embryonic stem cells	Mus musculus	mouse embryonic stem cells	mESC_2C-3xtbGFP	2x150bp reads	RNA-Seq	NONE
+GSM8376766	mESC_R4	mouse embryonic stem cells	Mus musculus	mouse embryonic stem cells	mESC_2C-3xtbGFP	2x150bp reads	RNA-Seq	NONE
+GSM8376767	mESC_R5	mouse embryonic stem cells	Mus musculus	mouse embryonic stem cells	mESC_2C-3xtbGFP	2x150bp reads	RNA-Seq	NONE
+GSM8376768	mESC_R6	mouse embryonic stem cells	Mus musculus	mouse embryonic stem cells	mESC_2C-3xtbGFP	2x150bp reads	RNA-Seq	NONE
+GSM8376769	mESC_R7	mouse embryonic stem cells	Mus musculus	mouse embryonic stem cells	mESC_2C-3xtbGFP	2x150bp reads	RNA-Seq	NONE
+GSM8376770	SS2_sample5	Late 2 cell embryo	Mus musculus	Late 2 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM8376771	SS2_sample6	Late 2 cell embryo	Mus musculus	Late 2 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM8376772	SS2_PA_sample7	Late 2 cell embryo	Mus musculus	Late 2 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE
+GSM8376773	SS2_PA_sample8	Late 2 cell embryo	Mus musculus	Late 2 cell embryo	C57BL/6J	2x150bp reads	RNA-Seq	NONE

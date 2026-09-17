@@ -1,0 +1,31 @@
+reproduction check: {'control': np.float64(1.0), 'A485': np.float64(0.556809), 'Dux': np.float64(0.786949)} | events 511 (Gate 4: 511 )
+reproduction check passed (1e-6, identical event set)
+fold 00: events  618  P_in 1.000  P_out 0.573  P_A485 0.500  I_A485 -0.073
+fold 01: events  841  P_in 1.000  P_out 0.316  P_A485 0.466  I_A485 +0.151
+fold 02: events  592  P_in 1.000  P_out 0.690  P_A485 0.537  I_A485 -0.154
+fold 03: events  586  P_in 1.000  P_out 0.709  P_A485 0.540  I_A485 -0.169
+fold 04: events  510  P_in 1.000  P_out 0.739  P_A485 0.485  I_A485 -0.254
+fold 05: events  694  P_in 1.000  P_out 0.487  P_A485 0.502  I_A485 +0.015
+fold 06: events  479  P_in 1.000  P_out 0.885  P_A485 0.512  I_A485 -0.372
+fold 07: events  476  P_in 1.000  P_out 0.889  P_A485 0.530  I_A485 -0.360
+fold 08: events  464  P_in 1.000  P_out 0.903  P_A485 0.489  I_A485 -0.415
+fold 09: events  616  P_in 1.000  P_out 0.656  P_A485 0.470  I_A485 -0.186
+fold 10: events  439  P_in 1.000  P_out 1.050  P_A485 0.524  I_A485 -0.526
+fold 11: events  423  P_in 1.000  P_out 1.084  P_A485 0.526  I_A485 -0.558
+fold 12: events  572  P_in 1.000  P_out 0.812  P_A485 0.495  I_A485 -0.318
+fold 13: events  753  P_in 1.000  P_out 0.791  P_A485 0.552  I_A485 -0.239
+fold 14: events  536  P_in 1.000  P_out 1.025  P_A485 0.563  I_A485 -0.463
+fold 15: events  539  P_in 1.000  P_out 1.034  P_A485 0.582  I_A485 -0.452
+
+=== summary over 16 folds (mean; fold spread 2.5-97.5%, not a CI) ===
+n_events             571.1250   [429.0000, 808.0000]
+overlap_with_gate4     0.7632   [  0.6012,   0.8673]
+P_ctrl_in              1.0000   [  1.0000,   1.0000]
+P_ctrl_out             0.7903   [  0.3800,   1.0716]
+P_A485                 0.5170   [  0.4679,   0.5746]
+P_Dux                  0.7340   [  0.6260,   0.8217]
+I_A485                -0.2733   [ -0.5461,   0.0998]
+I_Dux                 -0.0563   [ -0.3075,   0.2460]
+R                      0.2170   [  0.1462,   0.2512]
+I_A485 negative in 14/16 folds; inflation of in-sample control = 0.2097
+READING: ATTENUATED BUT INFLATED

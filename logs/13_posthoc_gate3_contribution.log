@@ -1,0 +1,94 @@
+=== P1 GSE280522: 25 genes contributing most to the control drop (POST HOC, descriptive) ===
+         symbol    coef  c_control  c_perturbed   delta    label  log2FC_control_L2C_vs_E2C
+16601      Klf9 -0.0199    -0.0327      -0.0173  0.0154  neither                     4.4764
+74513     Neto2 -0.0227    -0.0237      -0.0028  0.0209  neither                     2.9249
+84095    Pi4k2a -0.0159    -0.0182      -0.0032  0.0150  neither                     3.0259
+226830    Smyd2  0.0318    -0.0180      -0.0139  0.0041  neither                    -0.8696
+93695     Gpnmb  0.0208    -0.0175      -0.0056  0.0119  neither                    -1.5725
+66614   Gpatch4 -0.0135    -0.0161      -0.0036  0.0125  neither                     2.8851
+20200    S100a6  0.0244    -0.0158       0.0048  0.0206  neither                    -0.7228
+100515  Zfp518b -0.0160    -0.0147      -0.0194 -0.0046  neither                     2.0558
+108699     Chn1  0.0216    -0.0133      -0.0050  0.0083  neither                    -1.5273
+19173     Psmb5 -0.0090    -0.0132      -0.0032  0.0100  neither                     3.8127
+27060    Tcirg1 -0.0198    -0.0123      -0.0093  0.0031  neither                     1.5460
+108811  Ccdc122  0.0118    -0.0119      -0.0123 -0.0004  neither                    -2.6538
+227656    Rexo4 -0.0118    -0.0115      -0.0062  0.0053  neither                     2.4959
+54353     Skap2  0.0202    -0.0115      -0.0051  0.0064  neither                    -1.4442
+54561    Nap1l3  0.0127    -0.0111      -0.0024  0.0087  neither                    -1.4155
+64660    Mrps24 -0.0172    -0.0111      -0.0036  0.0075  neither                     1.8604
+11815      Apod  0.0169    -0.0109      -0.0001  0.0108  neither                    -1.2238
+93689     Lmod1 -0.0125    -0.0107      -0.0087  0.0019  neither                     1.0509
+27276   Plekhb1  0.0287    -0.0107      -0.0002  0.0104  neither                    -0.9100
+11932    Atp1b2 -0.0124    -0.0106      -0.0133 -0.0027  neither                     1.5866
+22371       Vwf  0.0319    -0.0100      -0.0043  0.0057  neither                    -0.6991
+381101    Dnph1 -0.0061    -0.0095      -0.0053  0.0042  neither                     2.6555
+15505     Hsph1 -0.0148    -0.0095      -0.0018  0.0077  neither                     1.9676
+20512    Slc1a3 -0.0126    -0.0093      -0.0115 -0.0022  neither                     1.3922
+16997     Ltbp2  0.0077    -0.0088      -0.0040  0.0048  neither                    -2.1736
+
+=== summary ===
+            dataset                     quantity                           key     value
+  P1_GSE280522_A485      share_of_drop_top_genes                          top1    0.1377
+  P1_GSE280522_A485      share_of_drop_top_genes                          top5    0.4635
+  P1_GSE280522_A485      share_of_drop_top_genes                         top10    0.7715
+  P1_GSE280522_A485      share_of_drop_top_genes                         top25    1.4429
+  P1_GSE280522_A485      share_of_drop_top_genes                         top50    2.1989
+  P1_GSE280522_A485      share_of_drop_top_genes                        top100    3.2900
+  P1_GSE280522_A485 genes_reaching_share_of_drop                           50%    6.0000
+  P1_GSE280522_A485 genes_reaching_share_of_drop                           80%   11.0000
+  P1_GSE280522_A485   direction_split_share_of_D              rises_x_coef_neg    3.1401
+  P1_GSE280522_A485   direction_split_share_of_I              rises_x_coef_neg    1.6335
+  P1_GSE280522_A485   direction_split_share_of_D              rises_x_coef_pos   -2.2350
+  P1_GSE280522_A485   direction_split_share_of_I              rises_x_coef_pos   -0.3863
+  P1_GSE280522_A485   direction_split_share_of_D              falls_x_coef_neg   -2.6406
+  P1_GSE280522_A485   direction_split_share_of_I              falls_x_coef_neg   -2.1156
+  P1_GSE280522_A485   direction_split_share_of_D              falls_x_coef_pos    2.7355
+  P1_GSE280522_A485   direction_split_share_of_I              falls_x_coef_pos    1.8685
+  P1_GSE280522_A485         programme_share_of_D                      maternal    0.0017
+  P1_GSE280522_A485         programme_share_of_I                      maternal    0.0022
+  P1_GSE280522_A485            programme_n_genes                      maternal    8.0000
+  P1_GSE280522_A485         programme_share_of_D                       zygotic    0.0034
+  P1_GSE280522_A485         programme_share_of_I                       zygotic    0.0011
+  P1_GSE280522_A485            programme_n_genes                       zygotic    1.0000
+  P1_GSE280522_A485         programme_share_of_D                       neither    0.9949
+  P1_GSE280522_A485         programme_share_of_I                       neither    0.9967
+  P1_GSE280522_A485            programme_n_genes                       neither 1346.0000
+  P1_GSE280522_A485         programme_share_of_D                 not_expressed   -0.0000
+  P1_GSE280522_A485         programme_share_of_I                 not_expressed    0.0000
+  P1_GSE280522_A485            programme_n_genes                 not_expressed  484.0000
+  P1_GSE280522_A485                        total                     D_control   -0.2375
+  P1_GSE280522_A485                        total                   D_perturbed   -0.0566
+  P1_GSE280522_A485                        total                             I    0.1809
+  P1_GSE280522_A485                        total n_nonzero_clock_genes_present 1355.0000
+P3_GSE300734_Brg1KO      share_of_drop_top_genes                          top1    0.1413
+P3_GSE300734_Brg1KO      share_of_drop_top_genes                          top5    0.5730
+P3_GSE300734_Brg1KO      share_of_drop_top_genes                         top10    0.9689
+P3_GSE300734_Brg1KO      share_of_drop_top_genes                         top25    1.9138
+P3_GSE300734_Brg1KO      share_of_drop_top_genes                         top50    3.0129
+P3_GSE300734_Brg1KO      share_of_drop_top_genes                        top100    4.4758
+P3_GSE300734_Brg1KO genes_reaching_share_of_drop                           50%    5.0000
+P3_GSE300734_Brg1KO genes_reaching_share_of_drop                           80%    8.0000
+P3_GSE300734_Brg1KO   direction_split_share_of_D              rises_x_coef_neg    4.2848
+P3_GSE300734_Brg1KO   direction_split_share_of_I              rises_x_coef_neg    2.6205
+P3_GSE300734_Brg1KO   direction_split_share_of_D              rises_x_coef_pos   -3.4196
+P3_GSE300734_Brg1KO   direction_split_share_of_I              rises_x_coef_pos   -2.0985
+P3_GSE300734_Brg1KO   direction_split_share_of_D              falls_x_coef_neg   -3.9669
+P3_GSE300734_Brg1KO   direction_split_share_of_I              falls_x_coef_neg   -2.0757
+P3_GSE300734_Brg1KO   direction_split_share_of_D              falls_x_coef_pos    4.1016
+P3_GSE300734_Brg1KO   direction_split_share_of_I              falls_x_coef_pos    2.5537
+P3_GSE300734_Brg1KO         programme_share_of_D                      maternal    0.0803
+P3_GSE300734_Brg1KO         programme_share_of_I                      maternal    0.0452
+P3_GSE300734_Brg1KO            programme_n_genes                      maternal    7.0000
+P3_GSE300734_Brg1KO         programme_share_of_D                       zygotic   -0.0018
+P3_GSE300734_Brg1KO         programme_share_of_I                       zygotic    0.0623
+P3_GSE300734_Brg1KO            programme_n_genes                       zygotic    6.0000
+P3_GSE300734_Brg1KO         programme_share_of_D                       neither    0.9215
+P3_GSE300734_Brg1KO         programme_share_of_I                       neither    0.8926
+P3_GSE300734_Brg1KO            programme_n_genes                       neither 1496.0000
+P3_GSE300734_Brg1KO         programme_share_of_D                 not_expressed   -0.0000
+P3_GSE300734_Brg1KO         programme_share_of_I                 not_expressed    0.0000
+P3_GSE300734_Brg1KO            programme_n_genes                 not_expressed  330.0000
+P3_GSE300734_Brg1KO                        total                     D_control   -0.1714
+P3_GSE300734_Brg1KO                        total                   D_perturbed   -0.0623
+P3_GSE300734_Brg1KO                        total                             I    0.1091
+P3_GSE300734_Brg1KO                        total n_nonzero_clock_genes_present 1509.0000

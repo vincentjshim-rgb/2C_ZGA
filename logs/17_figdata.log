@@ -1,0 +1,12 @@
+heatmap genes: 30 (zygotic 13 )
+  Klf9: log2FC (Entrez, decomposition) 4.476 vs Ensembl gene here 4.289
+  Neto2: log2FC (Entrez, decomposition) 2.925 vs Ensembl gene here 2.753
+  Pi4k2a: log2FC (Entrez, decomposition) 3.026 vs Ensembl gene here 2.860
+  Gpatch4: log2FC (Entrez, decomposition) 2.885 vs Ensembl gene here 2.676
+  Psmb5: log2FC (Entrez, decomposition) 3.813 vs Ensembl gene here 3.612
+           var_PC1  var_PC2  n_events
+gse                                  
+GSE221985    0.365    0.160     13053
+GSE280522    0.201    0.127     13715
+GSE300734    0.207    0.144      5732
+source data written to /home/shim/Downloads/embryogenesis_aging_260915/embryogenesis_Aging_transfer_20260915/embryogenesis_Aging/analysis/gz/figures/source_data

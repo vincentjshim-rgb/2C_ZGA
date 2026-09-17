@@ -1,0 +1,3 @@
+model	got	gold	max_abs_diff	tol	passed
+EN_Mortality_Multispecies_Multitissue_scaleddiff.pkl	-0.593993;-0.668232;-0.530628	-0.593993;-0.668232;-0.530628	7.165507531770032e-08	0.001	True
+EN_Chronoage_Multispecies_Multitissue_scaleddiff.pkl	-9.758081;-7.742367;-6.334816	-9.7581;-7.7424;-6.3348	3.271139925864475e-05	0.01	True

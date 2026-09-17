@@ -1,0 +1,47 @@
+# Whitelist: everything in this directory is ignored unless listed below.
+# Raw and intermediate data (~200 GB) are not tracked; see README for how to obtain them.
+/*
+!/.gitignore
+!/README.md
+
+!/src/
+/src/*
+!/src/figstyle.py
+!/src/50_tx2gene_full.py
+
+!/metadata/
+/metadata/*
+!/metadata/tx2gene_full.tsv
+
+!/logs/
+/logs/*
+!/logs/AUDIT_LOG.md
+!/logs/11_gate3_analysis.log
+!/logs/13_posthoc_gate3_contribution.log
+!/logs/14_posthoc_rescue.log
+!/logs/15_gate4_analysis.log
+!/logs/16_posthoc_gate4_crossfit.log
+!/logs/16_posthoc_gate4_crossfit_attempt1_checkbug.log
+!/logs/17_figdata.log
+!/logs/gate4_generateEvents.log
+!/logs/kallisto_index_full_ubuntu.log
+
+!/gz/
+/gz/*
+!/gz/src/
+!/gz/plan/
+!/gz/results/
+!/gz/figures/
+!/gz/metadata/
+!/gz/requirements_gz.txt
+
+# not distributed
+/gz/metadata/gene_orthologs.gz
+/gz/results/MANUSCRIPT_*
+/gz/results/SUMMARY_*
+/gz/results/FIGURE_PLAN_*
+# tAge Python port: held back pending the tAge licence share-back step (see README)
+/gz/src/tage_py.py
+
+__pycache__/
+*.pyc
