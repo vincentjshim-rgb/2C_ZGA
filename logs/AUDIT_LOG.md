@@ -921,3 +921,45 @@ d9e9714014ea3447e049a71ecd0b60a72d76c7c3f4488a24146b27c0bf093d9d  gz/results/sup
 3e630990c33a46a98ed513af92ac36024e3d2d7ec25d970d97cd4d48101961f1  gz/results/MANUSCRIPT_gz_v1_EN.md
 54c8a5a0db205d4ec64190fe4d222e130e238069b967e3c9d825c51dcc148392  gz/results/MANUSCRIPT_gz_v1_KR.md
 ```
+
+## 2026-09-18 — Source-text verification, literature check, title change (no new analysis)
+
+**Source-text verification (agent-assisted, every item re-checked here against the source or the local data).** Corrected
+in both drafts: (i) GSE225056 has no blastocysts — stages end at the 16-cell (mouse) or morula (cow, pig, rabbit),
+verified in the deposited matrices; (ii) Table 1's second library number was the number downloaded for the contrast, not
+the number deposited — series totals added (GSE221985 40, GSE300734 25, GSE235547 88, GSE248499 25, GSE162345 30,
+GSE66582 32, GSE45719 317, GSE225056 361); (iii) GSE162345 rewritten from Tomikawa 2021 STAR Methods — C2C12 nuclei fused
+into intact, non-enucleated demecolcine-arrested two-cell embryos at 21–24 or 30–33 hpi, collected 45/54 hpi, hpi = hours
+post insemination, and the libraries are host-plus-donor mixtures (now stated); (iv) Methods 4.4 no longer says the
+features passed through YuGene (the scaleddiff models use the scaled branch; checked in `src/tage_py.py`), states that
+values are in normalised-age units (fraction of species maximum lifespan; `clocks_metadata.csv` lifespan_scaled = TRUE with
+no species factor applied) and that cow/pig/rabbit lie outside the clock's training species; (v) the splicing claim
+"extends them to pharmacological and maternal perturbations" was wrong — Zhang 2024 already used α-amanitin and maternal
+Btg4/Pabpn1l loss (verified in PMC11005748); the sentence now claims only p300/CBP inhibition and maternal Brg1 loss.
+Also: GSE248499 → Matoba 2024 is correct (GEO PubMed 38729154; the paper's data-availability names the accession), and the
+SCNT arm used is the deposit's "SCNT, cont"; GSE300734 now has a matching publication (Shi et al. 2026, Fundamental
+Research, doi 10.1016/j.fmre.2026.03.007, Crossref-verified), cited with an explicit note that its text was not accessible
+and the accession could not be confirmed inside it; GSE235547 libraries used are the total RNA-seq ones.
+
+**Literature check (two agents, verdicts verified here).** The per-gene decomposition is not new: Tyshkovskiy 2026
+contains "Gene contribution analysis" (clock coefficient × effect size) and "Module contribution analysis"
+(tAge = C0 + Σ_module Σ_g w_g·expr_g), correlates contribution vectors across models, and reports anti-correlated gene
+contributions before and after the E10 minimum in mouse embryogenesis — read directly in PMC13233323. The drafts now cite
+those methods and claim only what is added: the signed budget within one comparison, the perturbed and rescued arms, and
+the preimplantation window (that paper's embryo series GSE39897 runs egg → newborn with no preimplantation stages; the
+words "2-cell", "blastocyst", "preimplantation" do not occur in it). No published work was found that applies an ageing
+clock to ZGA-blocked embryos, that dissociates a scalar clock from its restored components, or that cross-fits a
+reference-defined developmental score.
+
+**Title.** Changed on the user's decision to "Gene-level decomposition links the two-cell transcriptomic-age decrease in
+mouse embryos to minor zygotic genome activation"; the former title became the alternative title.
+
+**References.** 30 → 42. Added (all resolved through Crossref or Europe PMC on 2026-09-18): Ambroise & McLachlan 2002,
+Chernozhukov 2018, Deng 2026 NAR, Higgins-Chen 2022, Isaev & Knowles 2025 (bioRxiv), Kriukov 2024, Li 2024 Cell,
+Sehgal 2025, Tomusiak 2024, Weston 2019, Xing 2020, Zhang/Tyshkovskiy 2026 (bioRxiv). Every reference is cited in the text
+and every citation is listed (checked by script). English main text incl. main figure legends 6,902 of 7,500 words.
+
+```
+78bd328e7baba39b7a5edddda4059f4f6ee4c4e3578828eac9b9b2468694c26f  gz/results/MANUSCRIPT_gz_v1_EN.md
+1a06ad05959ea52b16fc614f12e4a89af13fbce8f7e799c925e74d9e9df57e65  gz/results/MANUSCRIPT_gz_v1_KR.md
+```
