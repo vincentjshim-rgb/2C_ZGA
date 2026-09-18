@@ -987,3 +987,39 @@ the cross-species claim is framed as breadth plus a negative result. References 
 9e3dd7c613d926f102a911503963aefe3291449e32d3fe00c527728bf03eb21b  gz/results/MANUSCRIPT_gz_v1_EN.md
 02937a99a265dd71a682495629b34cb43c844bf666fecfba58e7af2c6187c6cb  gz/results/MANUSCRIPT_gz_v1_KR.md
 ```
+
+## 2026-09-18 — Post hoc: global remodelling vs gene-specific change (plan frozen before the numbers)
+
+**Plan** `gz/plan/POSTHOC_global_remodelling_frozen.md`, written and frozen before any value was computed, with the
+reading rule and the decision about what may enter the paper. Script `gz/src/21_posthoc_global_remodelling.py`
+(seed 20260920); the script asserts that every recomputed arm drop equals `gate3_arm_drops.tsv` (< 1e-9).
+
+**Results (V0).** Split D = G + S with G = (Σ coefficients) × (mean feature change):
+P1 GSE280522 control D = −0.2375, G = +0.0072, S = −0.2447 (|S|/|G| = 34); P3 GSE300734 control D = −0.1714,
+G = +0.0122, S = −0.1836 (|S|/|G| = 15). The global component is therefore ~3–7% of the drop and of the opposite sign.
+Coefficient-reassignment null (2,000 draws, observed feature changes held fixed): null SD 0.125 (P1) and 0.133 (P3);
+the observed drop sits at the 2.6th percentile (z = −1.93) in P1 and the 8.1st percentile (z = −1.40) in P3. The A485
+interaction +0.1809 sits at the 96.8th percentile (z = +1.88); the Brg1 interaction +0.1091 at the 91.5th (z = +1.34).
+Direction-restricted partial drops: in the P1 control arm the drop comes almost entirely from genes whose feature rose
+(−0.217 of −0.238).
+
+**Verdict and a gap in the frozen rule.** The rule required, for "NOT EXPLAINED", both |S| > |G| and the observed drop
+below the 2.5th percentile of the null in both datasets. |S| > |G| holds by a wide margin in both, but the percentile
+condition fails (2.6% in P1, 8.1% in P3), and the plan's third label ("EXPLAINED" if |G| ≥ |S| in both) does not fit
+either. The rule as written therefore does not classify this outcome; recorded here rather than reinterpreted. The
+substantive reading is two-sided: the decrease is not a uniform global shift of the features, and it is also not
+exceptional relative to a random assignment of the same coefficients to genes given the spread of feature changes in
+this window.
+
+**Effect on the paper.** Following the pre-decision for anything other than "NOT EXPLAINED": no new figure, table or
+Results paragraph. One sentence was added to the Discussion (both halves of the reading) and one sentence to Methods 4.8
+describing the control. English main text 6,772 → 6,904 words.
+
+```
+e9372d167ea0065b21559c0113ae9619570a2f83f9114028fc6f1053cb8c00db  gz/plan/POSTHOC_global_remodelling_frozen.md
+0568ccc9874cecb6527ccd978562d634f768fbdafde4e43d871b90a4c1ac113c  gz/src/21_posthoc_global_remodelling.py
+69a5cfd9e0dafbd36a8b86bb8f664f0992218c4fc1a292ccf603eb227693da40  gz/results/posthoc_global_remodelling.tsv
+35481fc52b2c54d69ac49708b407428efff889f037c94075ed006fe1705bcfe2  gz/results/posthoc_global_remodelling.md
+e8f42506f0ff4efeead1396cc101920f22323efc7f23a385df0255d4bda4a3ee  gz/results/MANUSCRIPT_gz_v1_EN.md
+4651bc14a923026670944f3cdf7268b4f09e31951cb2e938287405ed2a5afade  gz/results/MANUSCRIPT_gz_v1_KR.md
+```
