@@ -1023,3 +1023,32 @@ e9372d167ea0065b21559c0113ae9619570a2f83f9114028fc6f1053cb8c00db  gz/plan/POSTHO
 e8f42506f0ff4efeead1396cc101920f22323efc7f23a385df0255d4bda4a3ee  gz/results/MANUSCRIPT_gz_v1_EN.md
 4651bc14a923026670944f3cdf7268b4f09e31951cb2e938287405ed2a5afade  gz/results/MANUSCRIPT_gz_v1_KR.md
 ```
+
+## 2026-09-18 — Submission package assembled (no analysis)
+
+Aging Cell's own format was checked empirically rather than from the guidelines page (Wiley returns 403 to automated
+requests): the reference style of a published Aging Cell article (PMC11561706) is APA 7th with full author lists,
+19 authors + ellipsis + last author beyond 20, volume(issue), pages and DOI, and its section order is Abstract,
+Introduction, Results, Discussion, Methods, Author contributions, Funding information, Conflict of interest statement,
+Acknowledgements, Data availability statement, References.
+
+`scratchpad/build_submission.py` writes `gz/results/MANUSCRIPT_gz_v1_EN_submission.md` from the working draft: title
+page with the required elements (author fields left as placeholders), references regenerated in APA 7th from Crossref
+metadata for all 45 entries (full author lists, issue numbers where Crossref has them; 39 of 45), the data and code
+availability text moved out of Methods into its own statement, and the statement sections added as templates. Main text
+6,847 words including figure legends; abstract 248 words.
+
+The availability statement now names the public repository and states that the Python port of the clock preprocessing is
+not redistributed there (source-package licence) but is available on request; the same sentence was added to the Korean
+draft. Package in `gz/results/submission/`: manuscript, cover letter and supporting information as .docx (pandoc),
+Figures 1-5 and S1-S7 as vector PDF, Table S1 as TSV, Tables S3-S5 as the xlsx workbook, plus a README listing what the
+author still has to complete. `.gitignore` extended so the submission package, the supporting-information markdown, the
+cover letter and the Korean checklist stay out of the public repository; only the code, plans, results, figures and this
+log are published there.
+
+```
+4e107fcb5ff16a5f82d6d4825b0a786c0dd3cd0b3bc500784b3497be0e2fe91a  gz/results/MANUSCRIPT_gz_v1_EN_submission.md
+a2f3df1fadd7c5d214877ba6f34e9bfce65b571481156edc25d12d1c20a4e1aa  gz/results/submission/Manuscript_AgingCell.docx
+d2bf9d9da8c918eaf97879a9d7c671cc1915b639f1306a6da9c25035baecd7a5  gz/results/submission/Supporting_Information.docx
+32a2c077619e5ddc3b7efa5b87a022a8db16d98c980bf0cc369bd1f97d5bbfe5  gz/results/COVER_LETTER_draft.md
+```

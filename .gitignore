@@ -40,6 +40,11 @@
 /gz/results/MANUSCRIPT_*
 /gz/results/SUMMARY_*
 /gz/results/FIGURE_PLAN_*
+# submission package: manuscript text, cover letter and internal checklist stay private
+/gz/results/submission/
+/gz/results/SUPPORTING_INFORMATION.md
+/gz/results/COVER_LETTER_draft.md
+/gz/results/SUBMISSION_CHECKLIST_KR.md
 # tAge Python port: held back pending the tAge licence share-back step (see README)
 /gz/src/tage_py.py
 
