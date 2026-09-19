@@ -1177,3 +1177,12 @@ has 1,839.
 f610405e60145f137ff9d254cb4e413508fbd81b8b7ee5bdbc7a5849db65941a  gz/results/MANUSCRIPT_gz_v1_KR.md
 e92ad48b8cbaa4527edfe35de608b30d58ca176600fa6f6ee6f209934ceaf759  gz/results/MANUSCRIPT_gz_v1_EN_submission.md
 ```
+
+## 2026-09-19 — Coefficient count discrepancy resolved
+
+The earlier note ("published table lists 1,840 non-zero genes; pickle has 1,839") was a miscount by the literature agent
+that included the intercept row. Checked directly against Supplementary Table 5 of Tyshkovskiy et al. 2026
+(`41586_2026_10542_MOESM7_ESM.xlsx`, sheet "(A) Composite clocks", column "Chronological Age, Multi-species,
+Multi-tissue, Scaling"): 1,839 non-zero coefficients, the same 1,839 Entrez IDs as the model file used here, maximum
+absolute difference 4.9 × 10⁻¹⁷, identical intercept 0.03212. The model used is exactly the published clock; nothing to
+check at proof stage.
