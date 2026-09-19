@@ -329,8 +329,7 @@ def figure1():
 def figure2():
     L = rd('fig2b_clock_per_library')
     A = rd('gate3_arm_drops')
-    S2 = rd('gate3_secondary_single_stage')
-    fig = newfig(190)
+    fig = newfig(124)
     # ---- (a) schematic --------------------------------------------------------------------------------
     c = canvas(fig, 0, 1, WMM, 56)
     letter(fig, 1, 1.5, 'a')
@@ -369,39 +368,33 @@ def figure2():
     c.text(137, 29.5, 'R = D(A485 + DUX) − D(A485)', fontsize=5.0, va='top', color=INK2)
     c.text(135, 41, 'Libraries per group: 2–4 after\nprespecified QC (3 of 76 excluded)', fontsize=4.8, va='center', color=MUTED)
 
-    # ---- (b) library points ---------------------------------------------------------------------------
+    # ---- (b) library points with D and I --------------------------------------------------------------
     letter(fig, 1, 60, 'b')
     fig.legend(handles=stage_handles() + arm_handles([('control', 'control'), ('A485', 'ZGA-blocking arm'), ('A485+Dux', 'A485 + DUX')]),
                loc='center', bbox_to_anchor=(0.55, 1 - 62 / fig._hmm), ncol=5, fontsize=5.1, handlelength=1.0)
     specs = [('GSE280522', ['control', 'A485', 'A485+Dux'], 17, 44), ('GSE221985', ['control', 'Tardbp_matKO'], 77, 30),
              ('GSE300734', ['control', 'Brg1_matKO'], 124, 30)]
+    IKEY = {'A485': 'INTERACTION A485 - control', 'A485+Dux': 'INTERACTION A485+Dux - control',
+            'Tardbp_matKO': 'INTERACTION Tardbp_matKO - control', 'Brg1_matKO': 'INTERACTION Brg1_matKO - control'}
     for j, (gse, arms, x0, w) in enumerate(specs):
         ax = axmm(fig, x0, 70, w, 34)
         arm_strip(ax, L[L.gse == gse], 'tAge', arms, d_text=True)
         ax.axhline(0, color=GRID, lw=0.6, zorder=0)
         ax.set_title(DS[gse], fontsize=5.6, fontweight='bold', pad=9, loc='left')
+        for i, arm in enumerate(arms):
+            if arm == 'control':
+                continue
+            r = A[(A.gse == gse) & (A.variant == 'V0') & (A.arm == IKEY[arm])].iloc[0]
+            ax.text(i, -0.2, f"I {r['drop']:+.2f}\n[{r.ci_lo:.2f}, {r.ci_hi:.2f}]", transform=ax.get_xaxis_transform(),
+                    ha='center', va='top', fontsize=4.8, color=ROLE[arm], linespacing=1.1)
         if j == 0:
             ax.set_ylabel('Transcriptomic age\n(relative to control E2C)')
         ygrid(ax)
-
-    # ---- (c) interactions ------------------------------------------------------------------------------
-    letter(fig, 1, 119, 'c')
-    ax = axmm(fig, 60, 125, 62, 52)
-    get = lambda g, v, arm: A[(A.gse == g) & (A.variant == v) & (A.arm == arm)].iloc[0]
-    rows = []
-    for g, arm, lab, col in [('GSE280522', 'INTERACTION A485 - control', 'P1 A485', AMBER),
-                             ('GSE280522', 'INTERACTION A485+Dux - control', 'P1 A485 + DUX', TEAL),
-                             ('GSE221985', 'INTERACTION Tardbp_matKO - control', 'P2 mat. Tardbp KO', AMBER),
-                             ('GSE300734', 'INTERACTION Brg1_matKO - control', 'P3 mat. Brg1 KO', AMBER),
-                             ('GSE280522', 'RESCUE A485+Dux - A485', 'P1 rescue R', TEAL)]:
-        for k, v in enumerate(['V0', 'V2']):
-            r = get(g, v, arm)
-            rows.append(dict(label=f'{lab} · {v}', est=r['drop'], lo=r.ci_lo, hi=r.ci_hi, color=col, hollow=(v == 'V2'),
-                             gap=0.7 if (k == 0 and 'RESCUE' in arm) else 0))
-    forest(ax, rows, (-0.14, 0.28), 'I or R (95% bootstrap CI)')
-    ax.text(1.0, 1.01, 'smaller decrease →', transform=ax.transAxes, ha='right', va='bottom', fontsize=4.9, color=MUTED)
-    ax.text(0.0, -0.2, 'filled V0 all genes · open V2 dynamic genes removed', transform=ax.transAxes, fontsize=4.8, color=MUTED, va='top')
-
+    rr = A[(A.gse == 'GSE280522') & (A.variant == 'V0') & (A.arm == 'RESCUE A485+Dux - A485')].iloc[0]
+    fig.text(17 / WMM, 1 - 116 / fig._hmm,
+             f"D, drop per arm (late − early two-cell mean). I, interaction against the control arm of the same dataset, with 95% bootstrap "
+             f"interval (2,000 replicates).\nR = D(A485 + DUX) − D(A485) = {rr['drop']:+.3f} [{rr.ci_lo:.3f}, {rr.ci_hi:.3f}]. "
+             f"Values with dynamic genes removed (V2) are in Table 2.", fontsize=4.8, color=MUTED, va='top', linespacing=1.3)
     fs.save(fig, 'Figure2', outdir=OUT)
 
 
@@ -409,53 +402,60 @@ def figure2():
 def figure3():
     T = rd('posthoc_gate3_contribution_genes', index_col=0)
     T3 = rd('posthoc_gate3_contribution_genes_P3', index_col=0)
-    fig = newfig(138)
-    # ---- (a) flows and categories ---------------------------------------------------------------------
+    CC = rd('fig3a_4c_cumulative_contributions')
+    fig = newfig(136)
+    # ---- (a) ranked contributions and their running sum ------------------------------------------------
     letter(fig, 1, 2, 'a')
-    ax = axmm(fig, 30, 6, 40, 56)
-    cc = T.c_control
-    up = T.log2FC_control_L2C_vs_E2C > 0
-    bars = [('Pushing the value down', cc[cc < 0].sum(), DOWNC), ('Pushing the value up', cc[cc > 0].sum(), UPC),
-            ('Net = reported drop', cc.sum(), INK), None,
-            ('expression ↑, β < 0', cc[up & (T.coef < 0)].sum(), RED), ('expression ↓, β > 0', cc[~up & (T.coef > 0)].sum(), BLUE),
-            ('expression ↑, β > 0', cc[up & (T.coef > 0)].sum(), RED), ('expression ↓, β < 0', cc[~up & (T.coef < 0)].sum(), BLUE)]
-    y, ys, labs = 0, [], []
-    for b in bars:
-        if b is None:
-            y -= 0.9
-            continue
-        lab, v, col = b
-        ax.barh(y, v, height=0.68, color=col, zorder=2)
-        ax.text(v + (0.04 if v > 0 else -0.04), y, f'{v:+.2f}', va='center', ha='left' if v > 0 else 'right', fontsize=5.2, color=INK2)
-        ys.append(y); labs.append(lab); y -= 1
-    ax.axvline(0, color=INK2, lw=0.5)
-    ax.set_yticks(ys); ax.set_yticklabels(labs); ax.tick_params(axis='y', length=0)
-    ax.set_xlim(-1.8, 1.55)
-    ax.set_xlabel('Summed contribution to the control drop')
-    ax.spines['left'].set_visible(False)
-    ax.text(-0.02, (ys[2] + ys[3]) / 2 - 0.05, 'split by expression change\nE2C → L2C and coefficient sign β', transform=ax.get_yaxis_transform(),
-            ha='right', fontsize=4.7, color=MUTED, va='center')
-    ax.text(1.0, 1.0, 'P1 GSE280522\n1,355 clock genes', transform=ax.transAxes, ha='right', va='top', fontsize=5, color=INK2)
+    d1 = CC[CC.series == 'P1_control'].reset_index(drop=True)
+    d3 = CC[CC.series == 'P3_control'].reset_index(drop=True)
+    ax0 = axmm(fig, 17, 8, 66, 13)
+    ax0.bar(d1['rank'], d1.contribution, width=1.0, color=[DOWNC if v < 0 else UPC for v in d1.contribution], lw=0)
+    ax0.axhline(0, color=INK2, lw=0.4)
+    ax0.set_xlim(0, len(d1) + 1); ax0.set_xticks([])
+    ax0.yaxis.set_major_locator(matplotlib.ticker.MaxNLocator(3))
+    ax0.set_ylabel('Contribution\nof each gene', fontsize=5.2)
+    ax0.spines['bottom'].set_visible(False)
+    ax0.text(0.99, 0.93, 'P1 GSE280522, control arm · 1,839 clock genes', transform=ax0.transAxes, ha='right', va='top',
+             fontsize=5, color=INK2)
+    ax = axmm(fig, 17, 23, 66, 45)
+    m1, e1 = d1.loc[d1.cumulative.idxmin()], d1.iloc[-1]
+    m3, e3 = d3.loc[d3.cumulative.idxmin()], d3.iloc[-1]
+    ax.plot(d1['rank'], d1.cumulative, color=INK, lw=1.3, zorder=3, label=f'P1 GSE280522 ({m1.cumulative:.2f} → {e1.cumulative:.2f})')
+    ax.plot(d3['rank'], d3.cumulative, color=MUTED, lw=1.1, ls=(0, (3, 1.5)), zorder=2, label=f'P3 GSE300734 ({m3.cumulative:.2f} → {e3.cumulative:.2f})')
+    ax.axhline(0, color=GRID, lw=0.6)
+    ax.annotate(f'{m1.cumulative:.2f}\nsum of the downward\ncontributions', (m1['rank'], m1.cumulative), xytext=(34, 14),
+                textcoords='offset points', ha='left', va='bottom', fontsize=4.9, color=INK,
+                arrowprops=dict(arrowstyle='-', lw=0.4, color=MUTED))
+    ax.annotate(f'{e1.cumulative:.2f}\nreported change', (e1['rank'], e1.cumulative), xytext=(-10, 10),
+                textcoords='offset points', ha='right', va='bottom', fontsize=4.9, color=INK,
+                arrowprops=dict(arrowstyle='-', lw=0.4, color=MUTED))
+    ax.set_xlim(0, len(d1) + 1); ax.set_ylim(-1.75, 0.3)
+    ax.set_xlabel('Clock genes, ranked from the most negative to the most positive contribution')
+    ax.set_ylabel('Running sum of contributions\n(= clock change, late − early two-cell)')
+    ax.legend(loc='upper center', bbox_to_anchor=(0.56, 0.99), fontsize=4.9, handlelength=1.6)
+    ygrid(ax)
 
-    # ---- (b) top-20 contributors ---------------------------------------------------------------------
-    letter(fig, 80, 2, 'b')
-    ax = axmm(fig, 97, 6, 66, 120)
+    # ---- (b) largest contributors, control vs A485 -----------------------------------------------------
+    letter(fig, 95, 2, 'b')
+    ax = axmm(fig, 112, 8, 44, 118)
     top = T.nsmallest(20, 'c_control').iloc[::-1]
     yy = np.arange(len(top))
-    ax.barh(yy, top.c_control, height=0.7, color=[RED if v > 0 else BLUE for v in top.log2FC_control_L2C_vs_E2C], zorder=2)
-    ax.scatter(top.c_perturbed, yy, s=9, facecolor='white', edgecolor=AMBER, lw=0.9, zorder=3)
-    ax.set_yticks(yy); ax.set_yticklabels(top.symbol, fontsize=5.2, style='italic'); ax.tick_params(axis='y', length=0)
+    ax.barh(yy + 0.19, top.c_control, height=0.36, color=INK, zorder=2, label='control')
+    ax.barh(yy - 0.19, top.c_perturbed, height=0.36, color=AMBER, zorder=2, label='A485')
+    ax.set_yticks(yy); ax.set_yticklabels(top.symbol, fontsize=5.3, style='italic'); ax.tick_params(axis='y', length=0)
     ax.axvline(0, color=INK2, lw=0.5)
-    ax.set_xlim(-0.036, 0.008)
-    ax.set_xlabel('Contribution to the control drop (β × Δ feature)')
+    ax.set_xlim(-0.036, 0.006); ax.set_ylim(-0.7, len(top) - 0.3)
+    ax.set_xlabel('Contribution to the clock change')
     ax.spines['left'].set_visible(False)
-    handles = [Rectangle((0, 0), 1, 1, color=RED, label='up-regulated E2C → L2C'), Rectangle((0, 0), 1, 1, color=BLUE, label='down-regulated'),
-               plt.Line2D([], [], marker='o', ls='', mfc='white', mec=AMBER, ms=3.6, label='same gene under A485')]
-    ax.legend(handles=handles, loc='lower left', fontsize=5.0)
+    ax.legend(loc='lower left', fontsize=5.0)
+    ax.text(0.0, 1.008, 'P1 GSE280522 · 20 largest downward contributors', transform=ax.transAxes, fontsize=5, color=INK2, va='bottom')
+    for y, v in zip(yy, top.log2FC_control_L2C_vs_E2C):
+        ax.text(1.02, y, f'{v:+.1f}', transform=ax.get_yaxis_transform(), fontsize=4.7, color=INK2, va='center')
+    ax.text(1.02, len(top) - 0.35, 'log2FC', transform=ax.get_yaxis_transform(), fontsize=4.6, color=MUTED, va='bottom')
 
     # ---- (c) P1 vs P3 ------------------------------------------------------------------------------------
     letter(fig, 1, 76, 'c')
-    ax = axmm(fig, 16, 80, 46, 46)
+    ax = axmm(fig, 17, 82, 46, 46)
     j = T[['c_control', 'symbol']].join(T3[['c_control']], rsuffix='_P3', how='inner')
     r_all = j[['c_control', 'c_control_P3']].corr().iloc[0, 1]
     j = j[(j.c_control != 0) | (j.c_control_P3 != 0)]
@@ -473,7 +473,9 @@ def figure3():
     ax.text(0.04, 0.97, f'Pearson r = {r_all:.2f}\n1,839 clock genes\n28 of the top 50 shared', transform=ax.transAxes, va='top', fontsize=5.1, color=INK2)
     ax.set_xlabel('Contribution, P1 GSE280522 (A485 study)')
     ax.set_ylabel('Contribution, P3 GSE300734 (Brg1 study)')
-
+    fig.text(68 / WMM, 1 - 94 / fig._hmm,
+             'Contribution of a gene =\nclock coefficient × change in its\npreprocessed expression between\nlate and early two-cell libraries.\nThe contributions of all genes\nadd up exactly to the clock\nchange of the arm.',
+             fontsize=4.8, color=MUTED, va='top', linespacing=1.25)
     fs.save(fig, 'Figure3', outdir=OUT)
 
 
@@ -483,6 +485,7 @@ def figure4():
     Mc = rd('fig4a_heatmap_columns')
     Zs = rd('fig4b_zygotic_score_per_library')
     RC = rd('posthoc_rescue_contributions', index_col=0)
+    CC = rd('fig3a_4c_cumulative_contributions')
     fig = newfig(184)
     # ---- (a) heat map ---------------------------------------------------------------------------------
     letter(fig, 1, 2, 'a')
@@ -538,44 +541,107 @@ def figure4():
     ax.legend(handles=stage_handles(), loc='upper right', fontsize=4.7, handlelength=0.8, borderaxespad=0.2)
     ygrid(ax)
 
-    # ---- (c) flows per arm ------------------------------------------------------------------------------
+    # ---- (c) running sums of the same genes in the three arms --------------------------------------------
     letter(fig, 80, 114, 'c')
-    ax = axmm(fig, 90, 122, 70, 44)
-    for i, (arm, lab) in enumerate([('control', 'Control'), ('A485', 'A485'), ('A485+Dux', 'A485 + DUX')]):
-        v = RC[arm]
-        dn, upv, net = v[v < 0].sum(), v[v > 0].sum(), v.sum()
-        y = -i * 1.55
-        ax.text(-1.9, y + 0.62, lab, ha='left', va='center', fontsize=5.3, fontweight='bold', color=ROLE[arm])
-        ax.barh(y + 0.12, dn, height=0.38, color=DOWNC, zorder=2)
-        ax.barh(y + 0.12, upv, height=0.38, color=UPC, zorder=2)
-        ax.plot([0, net], [y - 0.36] * 2, color=ROLE[arm], lw=1.8, solid_capstyle='butt', zorder=3)
-        ax.scatter([net], [y - 0.36], s=10, color=ROLE[arm], zorder=4)
-        ax.text(dn - 0.05, y + 0.12, f'{dn:.2f}', ha='right', va='center', fontsize=4.9, color=INK2)
-        ax.text(upv + 0.05, y + 0.12, f'+{upv:.2f}', ha='left', va='center', fontsize=4.9, color=INK2)
-        ax.text(0.08, y - 0.36, f'net {net:+.3f}', ha='left', va='center', fontsize=4.9, color=INK)
-    ax.axvline(0, color=INK2, lw=0.5)
-    ax.set_yticks([]); ax.spines['left'].set_visible(False)
-    ax.set_xlim(-1.9, 1.75); ax.set_ylim(-3.75, 1.05)
-    ax.set_xlabel('Summed contribution')
-    handles = [Rectangle((0, 0), 1, 1, color=DOWNC, label='pushing down'), Rectangle((0, 0), 1, 1, color=UPC, label='pushing up')]
-    ax.legend(handles=handles, loc='upper center', bbox_to_anchor=(0.5, -0.24), ncol=2, fontsize=4.9)
-
+    ax = axmm(fig, 92, 122, 68, 44)
+    nneg = int((RC['control'] < 0).sum())
+    offs = {'control': 0.0, 'A485': 0.09, 'A485+Dux': -0.09}
+    for series, arm, lab in [('P1_control', 'control', 'Control'), ('P1_A485_ctrlorder', 'A485', 'A485'),
+                             ('P1_A485+Dux_ctrlorder', 'A485+Dux', 'A485 + DUX')]:
+        d = CC[CC.series == series]
+        ax.plot(d['rank'], d.cumulative, color=ROLE[arm], lw=1.25, label=lab, zorder=3)
+        v = float(d[d['rank'] == nneg].cumulative.iloc[0]); e = float(d.cumulative.iloc[-1])
+        ax.text(nneg + 22, v + 0.045, f'{v:.2f}', ha='left', va='bottom', fontsize=4.9, color=ROLE[arm])
+        ax.text(len(d) + 14, e + offs[arm], f'{e:.2f}', ha='left', va='center', fontsize=4.9, color=ROLE[arm])
+    ax.axvline(nneg, color=GRID, lw=0.6, ls=(0, (2, 2)), zorder=1)
+    ax.axhline(0, color=GRID, lw=0.6, zorder=1)
+    ax.text(nneg + 18, 0.2, f'the {nneg} genes with a negative\ncontribution in the control arm', fontsize=4.8, color=MUTED, va='top')
+    ax.set_xlim(0, 1839 + 150); ax.set_ylim(-1.6, 0.3)
+    ax.set_xlabel('Clock genes in control order (most negative contribution first)')
+    ax.set_ylabel('Running sum of contributions\n(late − early two-cell)')
+    ax.legend(loc='lower right', fontsize=5.0, handlelength=1.6)
+    ygrid(ax)
     fs.save(fig, 'Figure4', outdir=OUT)
 
 
 # =====================================================================================================
 def figure5():
     G = rd('gate4_progression')
-    AP = rd('gate4_arm_progression')
     F = rd('posthoc_gate4_crossfit_folds')
+    PS = rd('fig5a_psi_zsa_events_P1', index_col=0)
+    Mc = rd('fig4a_heatmap_columns')
+    DP = rd('fig5b_dpsi_per_arm_P1')
     specs = [('GSE280522', ['control', 'A485', 'A485+Dux']), ('GSE221985', ['control', 'Tardbp_matKO']),
              ('GSE300734', ['control', 'Brg1_matKO'])]
-    fig = newfig(146)
-    # ---- (a) per-library progression ------------------------------------------------------------------
+    fig = newfig(152)
+    # ---- (a) PSI heat map of the control-defined events -----------------------------------------------
     letter(fig, 1, 2, 'a')
-    ax = axmm(fig, 17, 8, 86, 46)
+    order, groups = [], []
+    for arm in ['control', 'A485', 'A485+Dux']:
+        for st in ['E2C', 'L2C']:
+            runs = list(Mc[(Mc.arm == arm) & (Mc.stage == st)].run)
+            groups.append((arm, st, len(runs)))
+            order += runs
+    X = PS[order].values.astype(float)
+    Zm = (X - X.mean(axis=1, keepdims=True)) / X.std(axis=1, ddof=1, keepdims=True)
+    ax = axmm(fig, 26, 14, 94, 56)
+    im = ax.imshow(np.clip(Zm, -2.5, 2.5), aspect='auto', cmap=CMAP, vmin=-2.5, vmax=2.5, interpolation='nearest')
+    ax.set_xticks([]); ax.set_yticks([])
+    for s in ax.spines.values():
+        s.set_visible(False)
+    npos = int((PS.dPSI_control > 0).sum())
+    ax.axhline(npos - 0.5, color='white', lw=1.5)
+    pos = 0
+    for i, (arm, st, n) in enumerate(groups):
+        ax.text(pos + n / 2 - 0.5, -0.5 - 0.004 * len(PS), st, ha='center', va='bottom', fontsize=5.3)
+        if i < len(groups) - 1:
+            ax.axvline(pos + n - 0.5, color='white', lw=2.4 if st == 'L2C' else 0.9)
+        pos += n
+    pos = 0
+    hdr = 0.075 * len(PS)
+    for arm in ['control', 'A485', 'A485+Dux']:
+        n = int((Mc.arm == arm).sum())
+        ax.add_patch(Rectangle((pos - 0.45, -0.5 - hdr), n - 0.1, 0.42 * hdr, color=ROLE[arm], clip_on=False))
+        ax.text(pos + n / 2 - 0.5, -0.5 - 0.79 * hdr, LABEL[arm], ha='center', va='center', fontsize=5.5, color='white',
+                fontweight='bold', clip_on=False)
+        pos += n
+    ax.set_xlim(-0.5, len(order) - 0.5); ax.set_ylim(len(PS) - 0.5, -0.5)
+    c = canvas(fig, 0, 14, 25, 56)
+    c.set_xlim(0, 25)
+    for y0, y1, lab in [(0, npos - 1, f'PSI rises in\ncontrol\n(n = {npos})'), (npos, len(PS) - 1, f'PSI falls in\ncontrol\n(n = {len(PS) - npos})')]:
+        ya, yb = 56 * (y0 / len(PS)) + 0.3, 56 * ((y1 + 1) / len(PS)) - 0.3
+        c.plot([23, 23], [ya, yb], color=INK2, lw=0.8)
+        c.text(21.5, (ya + yb) / 2, lab, ha='right', va='center', fontsize=5.2, color=INK2, linespacing=1.15)
+    cax = axmm(fig, 122, 16, 2.2, 22)
+    cb = fig.colorbar(im, cax=cax); cb.ax.tick_params(labelsize=5, length=1.5); cb.outline.set_visible(False)
+    cb.set_label('PSI, z-score per event', fontsize=5.1)
+    fig.text(26 / WMM, 1 - 72 / fig._hmm, f'P1 GSE280522 · {len(PS)} splicing-activation events defined on the control arm · one column per library',
+             fontsize=4.9, color=MUTED, va='top')
+
+    # ---- (b) distribution of the per-event change per arm ------------------------------------------------
+    letter(fig, 132, 2, 'b')
+    ax = axmm(fig, 141, 14, 23, 52)
+    meds = []
+    for arm, lab in [('control', 'Control'), ('A485', 'A485'), ('A485+Dux', 'A485 + DUX')]:
+        v = np.sort(DP[DP.arm == arm].dPSI_oriented.values)
+        ax.step(v, np.arange(1, len(v) + 1) / len(v), where='post', color=ROLE[arm], lw=1.1, label=lab, zorder=3)
+        meds.append((lab, float(np.median(v)), ROLE[arm]))
+    ax.axvline(0, color=MUTED, lw=0.6, zorder=1); ax.axhline(0.5, color=GRID, lw=0.5, zorder=1)
+    ax.set_xlim(-0.6, 1.0); ax.set_ylim(0, 1.0)
+    ax.set_xticks([-0.5, 0, 0.5, 1.0])
+    ax.set_xlabel('ΔPSI, late − early two-cell\n(oriented by the control change)')
+    ax.set_ylabel('Fraction of events')
+    bb = dict(fc='white', ec='none', pad=0.6)
+    ax.text(0.05, 0.985, 'median ΔPSI', transform=ax.transAxes, fontsize=4.6, color=MUTED, va='top', bbox=bb, zorder=5)
+    for k, (lab, m, col) in enumerate(meds):
+        ax.text(0.05, 0.925 - 0.068 * k, f'{m:.2f}  {lab}', transform=ax.transAxes, fontsize=4.7, color=col, va='top', bbox=bb, zorder=5)
+    ygrid(ax)
+
+    # ---- (c) per-library progression ------------------------------------------------------------------
+    letter(fig, 1, 80, 'c')
+    ax = axmm(fig, 17, 86, 86, 44)
     fig.legend(handles=stage_handles() + arm_handles([('control', 'control'), ('A485', 'ZGA-blocking arm'), ('A485+Dux', 'A485 + DUX')]),
-               loc='center', bbox_to_anchor=(60 / WMM, 1 - 64.5 / fig._hmm), ncol=5, fontsize=5.0, handlelength=1.0)
+               loc='center', bbox_to_anchor=(60 / WMM, 1 - 141 / fig._hmm), ncol=5, fontsize=5.0, handlelength=1.0)
     x, centers = 0.0, []
     for gse, arms in specs:
         d = G[G.gse == gse]
@@ -598,9 +664,9 @@ def figure5():
     ax.set_ylabel('Splicing progression\n(control E2C = 0, L2C = 1)')
     ygrid(ax)
 
-    # ---- (b) folds -------------------------------------------------------------------
-    letter(fig, 108, 2, 'b')
-    ax = axmm(fig, 128, 8, 36, 44)
+    # ---- (d) cross-fitted folds -----------------------------------------------------------------------
+    letter(fig, 108, 80, 'd')
+    ax = axmm(fig, 128, 86, 36, 42)
     rng5 = np.random.default_rng(1)
     ylabs = []
     for yq, q, col, lab in [(1, 'I_A485', AMBER, 'I: A485 − held-out\ncontrol'), (0, 'R', TEAL, 'R: A485 + DUX\n− A485')]:
@@ -609,8 +675,8 @@ def figure5():
         ax.scatter(v, yy, s=9, facecolor=col, edgecolor=[RED if (q == 'I_A485' and x >= 0) else 'white' for x in v],
                    lw=[0.9 if (q == 'I_A485' and x >= 0) else 0.3 for x in v], zorder=3)
         ax.plot([v.mean()] * 2, [yq - 0.25, yq + 0.25], color=INK, lw=1.4, zorder=4)
-        npos, nneg = int((v > 0).sum()), int((v < 0).sum())
-        ylabs.append(f'{lab}\nmean {v.mean():+.2f}; {nneg} of 16 < 0'.replace('-', '\u2212'))
+        npos_, nneg_ = int((v > 0).sum()), int((v < 0).sum())
+        ylabs.append(f'{lab}\nmean {v.mean():+.2f}; {nneg_} of 16 < 0'.replace('-', '−'))
     ax.axvline(0, color=MUTED, lw=0.6)
     ax.set_yticks([1, 0]); ax.set_yticklabels(ylabs)
     ax.tick_params(axis='y', length=0)
@@ -620,26 +686,6 @@ def figure5():
     ax.text(-0.55, -0.3, 'one point per cross-fitted fold (n = 16); bar = mean\nred outline: folds in which A485 was not below control',
             transform=ax.transAxes, fontsize=4.7, color=MUTED, va='top')
     ax.grid(axis='x', color=GRID, lw=0.4); ax.set_axisbelow(True)
-
-    # ---- (c) forest ---------------------------------------------------------------------------------------
-    letter(fig, 1, 74, 'c')
-    ax = axmm(fig, 52, 80, 80, 50)
-    rows = []
-    for gse, arms in specs:
-        for k, arm in enumerate(arms):
-            r = AP[(AP.gse == gse) & (AP.quantity == f'P {arm}')].iloc[0]
-            rows.append(dict(label=f"{DS[gse].split(' · ')[0]} {LABEL[arm]}" + (' (in-sample)' if arm == 'control' else ''),
-                             est=r.value, lo=r.ci_lo, hi=r.ci_hi, color=ROLE[arm], hollow=(arm == 'control'),
-                             gap=0.6 if (k == 0 and rows) else 0))
-    for k, (q, lab, arm) in enumerate([('P_ctrl_out', 'held-out control', 'control'), ('P_A485', 'A485', 'A485'),
-                                       ('P_Dux', 'A485 + DUX', 'A485+Dux')]):
-        v = F[q].values
-        rows.append(dict(label=f'P1 cross-fitted · {lab}', est=v.mean(), lo=np.percentile(v, 2.5), hi=np.percentile(v, 97.5),
-                         color=ROLE[arm], marker='s', dashed=True, gap=0.9 if k == 0 else 0))
-    forest(ax, rows, (0, 1.3), 'Arm progression, late − early two-cell', zero=1.0, fmt='{:.3f}')
-    ax.text(0.0, -0.19, 'circles: 95% bootstrap CI (2,000 replicates) · open: control, in-sample by construction\n'
-            'squares: mean over 16 cross-fitted folds · dashed: 2.5–97.5% fold spread, not a CI',
-            transform=ax.transAxes, fontsize=4.8, color=MUTED, va='top')
     fs.save(fig, 'Figure5', outdir=OUT)
 
 
@@ -647,25 +693,40 @@ SUPP = f'{B}/figures/supp'
 
 
 def figureS3():
-    """Supplementary Figure S3 (was Figure 2d): secondary single-stage contrasts."""
+    """Supplementary Figure S3 (was Figure 2d): secondary single-stage contrasts, one point per library."""
+    L = rd('fig2b_clock_per_library')
     S2 = rd('gate3_secondary_single_stage')
-    fig = newfig(80)
-    # ---- (d) secondary --------------------------------------------------------------------------------
-    ax = axmm(fig, 70, 12, 62, 52)
-    lab = {('GSE162345', 'alpha-amanitin_45hpi'): 'α-amanitin · 45 hpi', ('GSE162345', 'alpha-amanitin_54hpi'): 'α-amanitin · 54 hpi',
-           ('GSE235547', 'siObox3'): 'siObox3 vs siCtrl', ('GSE235547', 'SCNT_Obox3'): 'SCNT-Obox3 vs ICSI',
-           ('GSE235547', 'SCNT_EGFP'): 'SCNT-EGFP vs ICSI', ('GSE248499', 'SCNT_control'): 'SCNT vs IVF',
-           ('GSE248499', 'SCNT_Kdm3a'): 'SCNT + Kdm3a vs IVF', ('GSE248499', 'SCNT_Kdm4d'): 'SCNT + Kdm4d vs IVF'}
-    rows, prev = [], None
-    for g, arm in lab:
-        r = S2[(S2.gse == g) & (S2.arm == arm)].iloc[0]
-        rows.append(dict(label=f'{lab[(g, arm)]} ({g})', est=r['diff'], lo=r.ci_lo, hi=r.ci_hi, color=INK,
-                         gap=0.6 if prev and prev != g else 0))
-        prev = g
-    forest(ax, rows, (-0.34, 0.27), 'Difference (95% bootstrap CI)')
-    ax.text(1.0, 1.01, 'higher clock value →', transform=ax.transAxes, ha='right', va='bottom', fontsize=4.9, color=MUTED)
-    ax.text(-0.85, -0.2, 'single-stage contrasts; α-amanitin compared with control at the same collection time',
-            transform=ax.transAxes, fontsize=4.8, color=MUTED, va='top')
+    fig = newfig(74)
+    panels = [('GSE162345', [('control_45hpi', 'control\n45 hpi'), ('alpha-amanitin_45hpi', 'α-amanitin\n45 hpi'),
+                             ('control_54hpi', 'control\n54 hpi'), ('alpha-amanitin_54hpi', 'α-amanitin\n54 hpi')], 14, 50),
+              ('GSE235547', [('control_ICSI', 'ICSI'), ('SCNT_EGFP', 'SCNT\nEGFP'), ('SCNT_Obox3', 'SCNT\nObox3'),
+                             ('control_siCtrl', 'siCtrl'), ('siObox3', 'siObox3')], 74, 46),
+              ('GSE248499', [('control', 'IVF'), ('SCNT_control', 'SCNT'), ('SCNT_Kdm3a', 'SCNT\nKdm3a'), ('SCNT_Kdm4d', 'SCNT\nKdm4d')], 128, 37)]
+    for gse, arms, x0, w in panels:
+        ax = axmm(fig, x0, 12, w, 40)
+        d = L[L.gse == gse]
+        for i, (arm, lab) in enumerate(arms):
+            v = d[d.arm == arm].tAge.values
+            ctl = arm.startswith('control')
+            ax.scatter(i + np.linspace(-0.08, 0.08, len(v)), v, s=11, facecolor='white' if ctl else INK, edgecolor=INK, lw=0.8, zorder=3)
+            ax.plot([i - 0.18, i + 0.18], [v.mean()] * 2, color=INK, lw=1.3, zorder=4)
+            r = S2[(S2.gse == gse) & (S2.arm == arm)]
+            if len(r):
+                ax.text(i, 1.01, f"{r['diff'].iloc[0]:+.2f}", transform=ax.get_xaxis_transform(), ha='center', va='bottom',
+                        fontsize=4.9, color=INK2)
+        ax.set_xticks(range(len(arms))); ax.set_xticklabels([l for _, l in arms], fontsize=4.9, linespacing=1.0)
+        ax.tick_params(axis='x', length=0)
+        ax.set_xlim(-0.6, len(arms) - 0.4)
+        ax.axhline(0, color=GRID, lw=0.6, zorder=0)
+        ax.set_title(gse, fontsize=5.6, fontweight='bold', pad=8, loc='left')
+        if gse == 'GSE162345':
+            ax.set_ylabel("Transcriptomic age\n(relative to the dataset's control libraries)")
+        ygrid(ax)
+    fig.text(14 / WMM, 1 - 64 / fig._hmm,
+             'open circles, control libraries; filled circles, perturbed libraries; bars, means. The number above each perturbed arm is its '
+             'difference from the matched control\n(α-amanitin against the control of the same collection window; SCNT-EGFP and SCNT-Obox3 '
+             'against ICSI; siObox3 against siCtrl; SCNT arms against IVF); 95% bootstrap intervals are given in Section 2.3.',
+             fontsize=4.7, color=MUTED, va='top')
     fs.save(fig, 'FigureS3', outdir=SUPP)
 
 

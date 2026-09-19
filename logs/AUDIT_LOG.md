@@ -1052,3 +1052,42 @@ a2f3df1fadd7c5d214877ba6f34e9bfce65b571481156edc25d12d1c20a4e1aa  gz/results/sub
 d2bf9d9da8c918eaf97879a9d7c671cc1915b639f1306a6da9c25035baecd7a5  gz/results/submission/Supporting_Information.docx
 32a2c077619e5ddc3b7efa5b87a022a8db16d98c980bf0cc369bd1f97d5bbfe5  gz/results/COVER_LETTER_draft.md
 ```
+
+## 2026-09-19 — Figures 2–5 and S3 redrawn in standard forms (display only; no value changed)
+
+**Why.** The author judged the forest plots (Figures 2c, 5c) and the "net" flow bars (3a, 4c) unclear and atypical, and
+asked for figure types standard in the splicing and clock literature, keeping only panels the logic chain needs.
+
+**What changed.** Figure 2: forest panel removed; D and the interaction I with its 95% bootstrap interval are printed on
+the per-library panel (2b), R in the footnote. Figure 3: (a) is now a ranked-contribution strip over a running-sum curve
+(GSEA-style) for the P1 and P3 control arms — the sum falls to −1.40 (P3 −1.48) and returns to −0.24 (−0.17); (b) paired
+bars, control vs A485, for the 20 largest downward contributors, with log2FC printed; (c) unchanged; the axis label
+"β × Δ feature" replaced by "contribution to the clock change" with the definition in the legend. Figure 4: (c) is now
+the running sum of the three arms in the control gene order, so the curves compare the same genes: at the 666th gene
+−1.40 / −0.76 / −1.19 (the 85% recovery of the text), end points −0.24 / −0.06 / −0.06. Figure 5: (a) PSI heat map of the
+511 control-defined events × 23 P1 libraries (z-scored per event); (b) cumulative distribution of the per-event oriented
+ΔPSI per arm (medians 0.32 / 0.16 / 0.25; the legend states that the control distribution is shifted by construction);
+(c) progression strip and (d) cross-fitted folds unchanged; forest panel removed. Supplementary S3: per-library points
+instead of a forest. `src/22_figdata_v2.py` writes the new source data and checks each against the stored results
+(running sums end at the Gate 3 drops; progression recomputed from the PSI matrix equals Gate 4; 85% recovery
+reproduced). Heights (mm): F2 124, F3 136, F4 184, F5 152; all 167 mm wide.
+
+**Manuscripts.** Legends of Figures 2–5 and S3 rewritten in both drafts; Results references updated (2b; 3a once; 4c on
+the 85% sentence; 5a,b new sentence on the PSI heat map and ΔPSI distribution in 2.6; progression → 5c; cross-fit → 5d);
+Methods 4.12 describes the cumulative curves. English main text incl. legends 7,088 words (legends grew by ~190 words).
+Submission package (docx, PDFs, SI) rebuilt; review page rebuilt.
+
+```
+545bfa9807a9792d16eef2bbe17ff30dc46f407c7940ed5fda39deb7c4e18579  gz/src/18_figures_publication.py
+ad84f86d16446ec3a53763ae0fd3361fa14f6b0a56f2fa7772eabac4183ded5d  gz/src/22_figdata_v2.py
+f80c183d80f573bb46c1b557afc8b5ad9e4c9919d0662f665e60acea6eb53a41  gz/figures/source_data/fig3a_4c_cumulative_contributions.tsv
+4b2bafc056790cdfd55462c9b61490f7ac1d66926fc7362073434bfe020c0fd3  gz/figures/source_data/fig5a_psi_zsa_events_P1.tsv
+80db09477dd8fd0f9cf6b901a31e89f9f6d1e6eccea7c4b2c148a2a7e00a1bb9  gz/figures/source_data/fig5b_dpsi_per_arm_P1.tsv
+b1ec41ba08134deb1a2487e3de03707dcda80b4ab637508e1164ca4a61f56672  gz/figures/pub/Figure2.png
+4411843ff260fb9e2d141a6e2be59f1b1c06e914490f7ef79c4c15cd945f4df5  gz/figures/pub/Figure3.png
+c29c766787cc06d35e4a1d81ecd779f80626e96b56a38957b4fb346c49e5d786  gz/figures/pub/Figure4.png
+bab5ef77f4f3d49248d76505369f824be71d48616ac04eb27fb815d0ea112dd7  gz/figures/pub/Figure5.png
+476d9e4759eabb8c1a023b57829f99fed76795c52de9a1bbfbd1bd35a8bed782  gz/figures/supp/FigureS3.png
+657f7fc68be39d75490418ebf0c350c2254ee7f5a5291e0a97d0ffd0876eab18  gz/results/MANUSCRIPT_gz_v1_EN.md
+6cfa8f2fe65e936ca281656e56d9f77b3106a6020592b90bdd8510f413d44715  gz/results/MANUSCRIPT_gz_v1_KR.md
+```
