@@ -1,4 +1,4 @@
-"""Publication Figures 1-5 (plan: results/FIGURE_PLAN_gz_v1_KR.md). Reads only figures/source_data/*.tsv (written by
+"""Publication Figures 1-4 (plan: results/FIGURE_PLAN_gz_v1_KR.md; Figures 3 and 4 of the plan merged into Figure 3). Reads only figures/source_data/*.tsv (written by
 src/17_figdata.py). Every figure is exactly 167 mm wide; axes are placed in millimetres (no tight bounding box).
 FreeSans (Helvetica metrics), 5-6.5 pt. Bootstrap intervals re-drawn here use the seeds of the scripts that produced
 them (Figure 1: 20260914 and 20260917), so the plotted intervals equal the stored ones.
@@ -400,49 +400,54 @@ def figure2():
 
 # =====================================================================================================
 def figure3():
+    """Figure 3: decomposition of the two-cell decrease (a-c) and the DUX rescue arm (d-f)."""
     T = rd('posthoc_gate3_contribution_genes', index_col=0)
     T3 = rd('posthoc_gate3_contribution_genes_P3', index_col=0)
     CC = rd('fig3a_4c_cumulative_contributions')
-    fig = newfig(136)
+    H = rd('fig4a_heatmap_z')
+    Mc = rd('fig4a_heatmap_columns')
+    Zs = rd('fig4b_zygotic_score_per_library')
+    RC = rd('posthoc_rescue_contributions', index_col=0)
+    fig = newfig(224)
     # ---- (a) ranked contributions and their running sum ------------------------------------------------
-    letter(fig, 1, 2, 'a')
+    letter(fig, 1, 1, 'a')
     d1 = CC[CC.series == 'P1_control'].reset_index(drop=True)
     d3 = CC[CC.series == 'P3_control'].reset_index(drop=True)
-    ax0 = axmm(fig, 17, 8, 66, 13)
+    ax0 = axmm(fig, 17, 6, 63, 9)
     ax0.bar(d1['rank'], d1.contribution, width=1.0, color=[DOWNC if v < 0 else UPC for v in d1.contribution], lw=0)
     ax0.axhline(0, color=INK2, lw=0.4)
     ax0.set_xlim(0, len(d1) + 1); ax0.set_xticks([])
-    ax0.yaxis.set_major_locator(matplotlib.ticker.MaxNLocator(3))
-    ax0.set_ylabel('Contribution\nof each gene', fontsize=5.2)
+    ax0.yaxis.set_major_locator(matplotlib.ticker.MaxNLocator(2))
+    ax0.set_ylabel('Contribution\nper gene', fontsize=5.0)
     ax0.spines['bottom'].set_visible(False)
-    ax0.text(0.99, 0.93, 'P1 GSE280522, control arm · 1,839 clock genes', transform=ax0.transAxes, ha='right', va='top',
-             fontsize=5, color=INK2)
-    ax = axmm(fig, 17, 23, 66, 45)
+    ax0.text(0.99, 0.92, 'P1 GSE280522, control arm · 1,839 clock genes', transform=ax0.transAxes, ha='right', va='top',
+             fontsize=4.9, color=INK2)
+    ax = axmm(fig, 17, 17, 63, 37)
     m1, e1 = d1.loc[d1.cumulative.idxmin()], d1.iloc[-1]
     m3, e3 = d3.loc[d3.cumulative.idxmin()], d3.iloc[-1]
     ax.plot(d1['rank'], d1.cumulative, color=INK, lw=1.3, zorder=3, label=f'P1 GSE280522 ({m1.cumulative:.2f} → {e1.cumulative:.2f})')
     ax.plot(d3['rank'], d3.cumulative, color=MUTED, lw=1.1, ls=(0, (3, 1.5)), zorder=2, label=f'P3 GSE300734 ({m3.cumulative:.2f} → {e3.cumulative:.2f})')
     ax.axhline(0, color=GRID, lw=0.6)
-    ax.annotate(f'{m1.cumulative:.2f}\nsum of the downward\ncontributions', (m1['rank'], m1.cumulative), xytext=(34, 14),
-                textcoords='offset points', ha='left', va='bottom', fontsize=4.9, color=INK,
+    ax.annotate(f'{m1.cumulative:.2f}\nsum of the downward\ncontributions', (m1['rank'], m1.cumulative), xytext=(30, 12),
+                textcoords='offset points', ha='left', va='bottom', fontsize=4.8, color=INK,
                 arrowprops=dict(arrowstyle='-', lw=0.4, color=MUTED))
-    ax.annotate(f'{e1.cumulative:.2f}\nreported change', (e1['rank'], e1.cumulative), xytext=(-10, 10),
-                textcoords='offset points', ha='right', va='bottom', fontsize=4.9, color=INK,
+    ax.annotate(f'{e1.cumulative:.2f}\nreported change', (e1['rank'], e1.cumulative), xytext=(-10, 9),
+                textcoords='offset points', ha='right', va='bottom', fontsize=4.8, color=INK,
                 arrowprops=dict(arrowstyle='-', lw=0.4, color=MUTED))
     ax.set_xlim(0, len(d1) + 1); ax.set_ylim(-1.75, 0.3)
     ax.set_xlabel('Clock genes, ranked from the most negative to the most positive contribution')
     ax.set_ylabel('Running sum of contributions\n(= clock change, late − early two-cell)')
-    ax.legend(loc='upper center', bbox_to_anchor=(0.56, 0.99), fontsize=4.9, handlelength=1.6)
+    ax.legend(loc='upper center', bbox_to_anchor=(0.56, 0.99), fontsize=4.8, handlelength=1.6)
     ygrid(ax)
 
     # ---- (b) largest contributors, control vs A485 -----------------------------------------------------
-    letter(fig, 95, 2, 'b')
-    ax = axmm(fig, 112, 8, 44, 118)
+    letter(fig, 95, 1, 'b')
+    ax = axmm(fig, 110, 6, 46, 90)
     top = T.nsmallest(20, 'c_control').iloc[::-1]
     yy = np.arange(len(top))
     ax.barh(yy + 0.19, top.c_control, height=0.36, color=INK, zorder=2, label='control')
     ax.barh(yy - 0.19, top.c_perturbed, height=0.36, color=AMBER, zorder=2, label='A485')
-    ax.set_yticks(yy); ax.set_yticklabels(top.symbol, fontsize=5.3, style='italic'); ax.tick_params(axis='y', length=0)
+    ax.set_yticks(yy); ax.set_yticklabels(top.symbol, fontsize=5.2, style='italic'); ax.tick_params(axis='y', length=0)
     ax.axvline(0, color=INK2, lw=0.5)
     ax.set_xlim(-0.036, 0.006); ax.set_ylim(-0.7, len(top) - 0.3)
     ax.set_xlabel('Contribution to the clock change')
@@ -454,51 +459,42 @@ def figure3():
     ax.text(1.02, len(top) - 0.35, 'log2FC', transform=ax.get_yaxis_transform(), fontsize=4.6, color=MUTED, va='bottom')
 
     # ---- (c) P1 vs P3 ------------------------------------------------------------------------------------
-    letter(fig, 1, 76, 'c')
-    ax = axmm(fig, 17, 82, 46, 46)
+    letter(fig, 1, 58, 'c')
+    ax = axmm(fig, 17, 63, 40, 40)
     j = T[['c_control', 'symbol']].join(T3[['c_control']], rsuffix='_P3', how='inner')
     r_all = j[['c_control', 'c_control_P3']].corr().iloc[0, 1]
     j = j[(j.c_control != 0) | (j.c_control_P3 != 0)]
-    ax.scatter(j.c_control, j.c_control_P3, s=2.6, color=MUTED, alpha=0.5, edgecolor='none', zorder=2)
+    ax.scatter(j.c_control, j.c_control_P3, s=2.4, color=MUTED, alpha=0.5, edgecolor='none', zorder=2)
     lab = j.nsmallest(4, 'c_control')
-    ax.scatter(lab.c_control, lab.c_control_P3, s=9, color=INK, edgecolor='white', lw=0.3, zorder=3)
-    offs = {'Klf9': (4, -5), 'Neto2': (-24, 2), 'Pi4k2a': (4, -8), 'Smyd2': (4, 3)}
+    ax.scatter(lab.c_control, lab.c_control_P3, s=8, color=INK, edgecolor='white', lw=0.3, zorder=3)
+    offs = {'Klf9': (4, -5), 'Neto2': (-22, 2), 'Pi4k2a': (4, -8), 'Smyd2': (4, 3)}
     for _, r in lab.iterrows():
         ax.annotate(r.symbol, (r.c_control, r.c_control_P3), xytext=offs.get(r.symbol, (4, 2)), textcoords='offset points',
-                    fontsize=5.1, style='italic', arrowprops=dict(arrowstyle='-', lw=0.4, color=MUTED))
+                    fontsize=5.0, style='italic', arrowprops=dict(arrowstyle='-', lw=0.4, color=MUTED))
     lim = 0.038
     ax.axhline(0, color=GRID, lw=0.5, zorder=1); ax.axvline(0, color=GRID, lw=0.5, zorder=1)
     ax.plot([-lim, lim], [-lim, lim], color=GRID, lw=0.5, ls='--', zorder=1)
     ax.set_xlim(-lim, lim); ax.set_ylim(-lim, lim)
-    ax.text(0.04, 0.97, f'Pearson r = {r_all:.2f}\n1,839 clock genes\n28 of the top 50 shared', transform=ax.transAxes, va='top', fontsize=5.1, color=INK2)
-    ax.set_xlabel('Contribution, P1 GSE280522 (A485 study)')
-    ax.set_ylabel('Contribution, P3 GSE300734 (Brg1 study)')
-    fig.text(68 / WMM, 1 - 94 / fig._hmm,
+    ax.set_xticks([-0.03, 0, 0.03]); ax.set_yticks([-0.03, 0, 0.03])
+    ax.text(0.04, 0.97, f'Pearson r = {r_all:.2f}\n1,839 clock genes\n28 of the top 50 shared', transform=ax.transAxes, va='top', fontsize=5.0, color=INK2)
+    ax.set_xlabel('Contribution, P1 (A485 study)')
+    ax.set_ylabel('Contribution, P3 (Brg1 study)')
+    fig.text(63 / WMM, 1 - 66 / fig._hmm,
              'Contribution of a gene =\nclock coefficient × change in its\npreprocessed expression between\nlate and early two-cell libraries.\nThe contributions of all genes\nadd up exactly to the clock\nchange of the arm.',
              fontsize=4.8, color=MUTED, va='top', linespacing=1.25)
-    fs.save(fig, 'Figure3', outdir=OUT)
 
-
-# =====================================================================================================
-def figure4():
-    H = rd('fig4a_heatmap_z')
-    Mc = rd('fig4a_heatmap_columns')
-    Zs = rd('fig4b_zygotic_score_per_library')
-    RC = rd('posthoc_rescue_contributions', index_col=0)
-    CC = rd('fig3a_4c_cumulative_contributions')
-    fig = newfig(184)
-    # ---- (a) heat map ---------------------------------------------------------------------------------
-    letter(fig, 1, 2, 'a')
+    # ---- (d) heat map of the zygotic set and 2C/DUX markers ------------------------------------------------
+    letter(fig, 1, 108, 'd')
     order, groups = [], []
     for arm in ['control', 'A485', 'A485+Dux']:
         for st in ['E2C', 'L2C']:
             runs = list(Mc[(Mc.arm == arm) & (Mc.stage == st)].run)
             groups.append((arm, st, len(runs)))
             order += runs
-    ax = axmm(fig, 52, 14, 102, 90)
+    ax = axmm(fig, 50, 118, 100, 56)
     M = H[order].values
     im = ax.imshow(np.clip(M, -2.5, 2.5), aspect='auto', cmap=CMAP, vmin=-2.5, vmax=2.5, interpolation='nearest')
-    ax.set_yticks(range(len(H))); ax.set_yticklabels([short(s) for s in H.symbol], fontsize=5.1, style='italic')
+    ax.set_yticks(range(len(H))); ax.set_yticklabels([short(s) for s in H.symbol], fontsize=4.8, style='italic')
     ax.tick_params(axis='y', length=0, pad=1.5)
     ax.set_xticks([])
     for s in ax.spines.values():
@@ -507,65 +503,66 @@ def figure4():
     ax.axhline(nz - 0.5, color='white', lw=1.8)
     pos = 0
     for i, (arm, st, n) in enumerate(groups):
-        ax.text(pos + n / 2 - 0.5, -0.8, st, ha='center', va='bottom', fontsize=5.3)
+        ax.text(pos + n / 2 - 0.5, -0.8, st, ha='center', va='bottom', fontsize=5.2)
         if i < len(groups) - 1:
             ax.axvline(pos + n - 0.5, color='white', lw=2.4 if st == 'L2C' else 0.9)
         pos += n
     pos = 0
     for arm in ['control', 'A485', 'A485+Dux']:
         n = int((Mc.arm == arm).sum())
-        ax.add_patch(Rectangle((pos - 0.45, -3.05), n - 0.1, 1.05, color=ROLE[arm], clip_on=False))
-        ax.text(pos + n / 2 - 0.5, -2.5, LABEL[arm], ha='center', va='center', fontsize=5.5, color='white', fontweight='bold', clip_on=False)
+        ax.add_patch(Rectangle((pos - 0.45, -3.3), n - 0.1, 1.15, color=ROLE[arm], clip_on=False))
+        ax.text(pos + n / 2 - 0.5, -2.7, LABEL[arm], ha='center', va='center', fontsize=5.4, color='white', fontweight='bold', clip_on=False)
         pos += n
     ax.set_xlim(-0.5, len(order) - 0.5); ax.set_ylim(len(H) - 0.5, -0.5)
-    c = canvas(fig, 0, 14, 30, 90)
+    c = canvas(fig, 0, 118, 30, 56)
     c.set_xlim(0, 30)
     for y0, y1, lab in [(0, nz - 1, f'Zygotic set\n(n = {nz}, defined\nin the control arm)'),
                         (nz, len(H) - 1, f'Two-cell and\nDUX-target genes\n(n = {len(H) - nz})')]:
-        ya, yb = 90 * (y0 / len(H)) + 0.4, 90 * ((y1 + 1) / len(H)) - 0.4
-        c.plot([27, 27], [ya, yb], color=INK2, lw=0.8)
-        c.text(25.5, (ya + yb) / 2, lab, ha='right', va='center', fontsize=5.2, color=INK2, linespacing=1.15)
-    cax = axmm(fig, 157, 16, 2.2, 26)
+        ya, yb = 56 * (y0 / len(H)) + 0.3, 56 * ((y1 + 1) / len(H)) - 0.3
+        c.plot([27.5, 27.5], [ya, yb], color=INK2, lw=0.8)
+        c.text(26, (ya + yb) / 2, lab, ha='right', va='center', fontsize=5.0, color=INK2, linespacing=1.15)
+    cax = axmm(fig, 153, 120, 2.2, 20)
     cb = fig.colorbar(im, cax=cax); cb.ax.tick_params(labelsize=5, length=1.5); cb.outline.set_visible(False)
-    cb.set_label('z-score, log2(CPM + 1)', fontsize=5.1)
-    fig.text(52 / WMM, 1 - 106 / fig._hmm, 'P1 GSE280522 · one column per library · each gene z-scored across the 23 libraries',
-             fontsize=4.9, color=MUTED, va='top')
+    cb.set_label('z-score, log2(CPM + 1)', fontsize=5.0)
+    fig.text(50 / WMM, 1 - 176 / fig._hmm, 'P1 GSE280522 · one column per library · each gene z-scored across the 23 libraries',
+             fontsize=4.8, color=MUTED, va='top')
 
-    # ---- (b) zygotic score ----------------------------------------------------------------------------
-    letter(fig, 1, 114, 'b')
-    ax = axmm(fig, 18, 122, 48, 44)
-    arm_strip(ax, Zs, 'zygotic_score', ['control', 'A485', 'A485+Dux'], ms=9)
-    ax.set_ylabel('Zygotic-set score, mean log2(CPM + 1)')
+    # ---- (e) zygotic score ----------------------------------------------------------------------------
+    letter(fig, 1, 180, 'e')
+    ax = axmm(fig, 18, 184, 44, 31)
+    arm_strip(ax, Zs, 'zygotic_score', ['control', 'A485', 'A485+Dux'], ms=8)
+    ax.set_ylabel('Zygotic-set score,\nmean log2(CPM + 1)')
     ax.set_ylim(0, 4.3)
-    ax.text(0.0, 1.03, 'A485 + DUX − A485 (L2C): +1.67 (1.14–2.04)', transform=ax.transAxes, fontsize=4.9, color=INK2, va='bottom')
-    ax.legend(handles=stage_handles(), loc='upper right', fontsize=4.7, handlelength=0.8, borderaxespad=0.2)
+    ax.text(0.0, 1.03, 'A485 + DUX − A485 (L2C): +1.67 (1.14–2.04)', transform=ax.transAxes, fontsize=4.8, color=INK2, va='bottom')
+    ax.legend(handles=stage_handles(), loc='upper right', fontsize=4.6, handlelength=0.8, borderaxespad=0.2)
     ygrid(ax)
 
-    # ---- (c) running sums of the same genes in the three arms --------------------------------------------
-    letter(fig, 80, 114, 'c')
-    ax = axmm(fig, 92, 122, 68, 44)
+    # ---- (f) running sums of the same genes in the three arms --------------------------------------------
+    letter(fig, 80, 180, 'f')
+    ax = axmm(fig, 94, 184, 66, 31)
     nneg = int((RC['control'] < 0).sum())
-    offs = {'control': 0.0, 'A485': 0.09, 'A485+Dux': -0.09}
+    offs = {'control': -0.09, 'A485': 0.13, 'A485+Dux': 0.0}
     for series, arm, lab in [('P1_control', 'control', 'Control'), ('P1_A485_ctrlorder', 'A485', 'A485'),
                              ('P1_A485+Dux_ctrlorder', 'A485+Dux', 'A485 + DUX')]:
         d = CC[CC.series == series]
-        ax.plot(d['rank'], d.cumulative, color=ROLE[arm], lw=1.25, label=lab, zorder=3)
+        ax.plot(d['rank'], d.cumulative, color=ROLE[arm], lw=1.2, label=lab, zorder=3)
         v = float(d[d['rank'] == nneg].cumulative.iloc[0]); e = float(d.cumulative.iloc[-1])
-        ax.text(nneg + 22, v + 0.045, f'{v:.2f}', ha='left', va='bottom', fontsize=4.9, color=ROLE[arm])
-        ax.text(len(d) + 14, e + offs[arm], f'{e:.2f}', ha='left', va='center', fontsize=4.9, color=ROLE[arm])
+        ax.text(nneg + 22, v + 0.05, f'{v:.2f}', ha='left', va='bottom', fontsize=4.7, color=ROLE[arm])
+        ax.text(len(d) + 14, e + offs[arm], f'{e:.2f}', ha='left', va='center', fontsize=4.7, color=ROLE[arm])
     ax.axvline(nneg, color=GRID, lw=0.6, ls=(0, (2, 2)), zorder=1)
     ax.axhline(0, color=GRID, lw=0.6, zorder=1)
-    ax.text(nneg + 18, 0.2, f'the {nneg} genes with a negative\ncontribution in the control arm', fontsize=4.8, color=MUTED, va='top')
+    ax.text(nneg + 18, 0.22, f'the {nneg} genes with a negative\ncontribution in the control arm', fontsize=4.6, color=MUTED, va='top')
     ax.set_xlim(0, 1839 + 150); ax.set_ylim(-1.6, 0.3)
     ax.set_xlabel('Clock genes in control order (most negative contribution first)')
-    ax.set_ylabel('Running sum of contributions\n(late − early two-cell)')
-    ax.legend(loc='lower right', fontsize=5.0, handlelength=1.6)
+    ax.set_ylabel('Running sum of\ncontributions')
+    ax.legend(loc='lower right', fontsize=4.8, handlelength=1.6)
     ygrid(ax)
-    fs.save(fig, 'Figure4', outdir=OUT)
+    fs.save(fig, 'Figure3', outdir=OUT)
+
 
 
 # =====================================================================================================
-def figure5():
+def figure4():
     G = rd('gate4_progression')
     F = rd('posthoc_gate4_crossfit_folds')
     PS = rd('fig5a_psi_zsa_events_P1', index_col=0)
@@ -686,7 +683,7 @@ def figure5():
     ax.text(-0.55, -0.3, 'one point per cross-fitted fold (n = 16); bar = mean\nred outline: folds in which A485 was not below control',
             transform=ax.transAxes, fontsize=4.7, color=MUTED, va='top')
     ax.grid(axis='x', color=GRID, lw=0.4); ax.set_axisbelow(True)
-    fs.save(fig, 'Figure5', outdir=OUT)
+    fs.save(fig, 'Figure4', outdir=OUT)
 
 
 SUPP = f'{B}/figures/supp'
@@ -924,6 +921,6 @@ def figureS7():
 
 
 if __name__ == '__main__':
-    for w in (sys.argv[1:] or ['1', '2', '3', '4', '5', 'S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7']):
-        {'1': figure1, '2': figure2, '3': figure3, '4': figure4, '5': figure5, 'S1': figureS1, 'S2': figureS2,
+    for w in (sys.argv[1:] or ['1', '2', '3', '4', 'S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7']):
+        {'1': figure1, '2': figure2, '3': figure3, '4': figure4, 'S1': figureS1, 'S2': figureS2,
          'S3': figureS3, 'S4': figureS4, 'S5': figureS5, 'S6': figureS6, 'S7': figureS7}[w]()

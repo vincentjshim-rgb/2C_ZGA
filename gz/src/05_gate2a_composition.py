@@ -9,7 +9,7 @@ import tage_py as tp
 
 B = f'{ANALYSIS}/gz'
 src = open(f'{B}/src/01_gate1_cross_species.py', encoding='utf-8').read().split('emb_rows, int_rows, summ')[0]
-ns = {}
+ns = {'__file__': f'{B}/src/01_gate1_cross_species.py'}       # the executed header derives ANALYSIS from __file__
 exec(src, ns)
 load, qc, ORDER, CELLNUM = ns['load'], ns['qc'], ns['ORDER'], ns['CELLNUM']
 rng = np.random.default_rng(20260916)

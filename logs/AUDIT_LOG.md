@@ -1091,3 +1091,47 @@ bab5ef77f4f3d49248d76505369f824be71d48616ac04eb27fb815d0ea112dd7  gz/figures/pub
 657f7fc68be39d75490418ebf0c350c2254ee7f5a5291e0a97d0ffd0876eab18  gz/results/MANUSCRIPT_gz_v1_EN.md
 6cfa8f2fe65e936ca281656e56d9f77b3106a6020592b90bdd8510f413d44715  gz/results/MANUSCRIPT_gz_v1_KR.md
 ```
+
+## 2026-09-19 — Figures 3 and 4 merged; verdict wording; clearance-route follow-up; exec bug fixed
+
+**Figures.** The decomposition figure (a–c) and the rescue figure (d–f) were merged into one Figure 3 (167 × 224 mm) at
+the author's request; the splicing figure is now Figure 4. No panel content changed. Both drafts renumbered (old 4a/b/c →
+3d/e/f; old 5a–d → 4a–d), legends merged, title-page count 4 figures. Submission package and local review page rebuilt.
+
+**Verdict wording.** The word "mixed" is kept where it is the frozen plan's own label (Table 2 and the rule statement in
+Methods 4.7) and replaced in prose by what happened: the abstract now says the smallest dataset failed the prespecified
+rule; 2.1 states the criterion was met in one of four species; 2.3 states that all three V0 interactions were positive
+and that the smallest dataset reversed sign in V2, so the rule requiring agreement between the two gene sets was not met
+overall; the Discussion opens with the two rules that were not met in full. Nothing was removed: every prespecified
+verdict remains in Table 2 and in the text, and the plans and this log are public.
+
+**Clearance route (post hoc; plan `gz/plan/POSTHOC_clearance_route_frozen.md` written before the number).** Mouse
+GSE225056 composition-only simulation decomposed gene by gene (`gz/src/23_posthoc_clearance_route.py`; Δ_sim = −0.1337
+equals `gate2a_simulation.tsv` to 1e-9). Of the 1,839 clock genes, 235 belong to the Gate 2a maternal set (defined from
+the oocyte across all later stages), whereas the within-window V2 definition in GSE280522 contains eight maternal clock
+genes — the two "maternal" sets differ in scope, which is why Sections 2.2 and 2.4 are not in conflict. 55% of the
+simulated change ran through the 235 maternal clock genes and 45% through the features of the other genes (shifted by
+the normalisation when abundant transcripts are removed). Output `gz/results/posthoc_clearance_route.tsv`. Not yet in
+the manuscript; candidate sentence for 2.4.
+
+**Second decrease (for the story-check gap 5).** Already in stored results: GSE45719 16-cell → early blastocyst −0.241
+(95% CI −0.296 to −0.188; `gate2b_R1_intervals.tsv`); GSE66582 8-cell → ICM −0.245 (n = 2 and 3, direction only;
+`gate2b_R2_library_tage.tsv`). Not yet in the manuscript.
+
+**Bug fixed.** After the 2026-09-18 path change, `src/01_gate1_cross_species.py` derives ANALYSIS from `__file__`; the two
+scripts that `exec` its header (`05_gate2a_composition.py`, `03_gate1alt_zga_timing.py`) passed an empty namespace and
+would have failed on re-run (found when script 23 reused the same pattern). Both now pass `__file__`. No stored result is
+affected (both were last run before the path change, and script 23 reproduces the Gate 2a simulation value exactly).
+
+```
+f4009d4e35b64eebb644a15f115eb8b6842f2a45c9be05f906a7f809fea7c9cd  gz/src/18_figures_publication.py
+cbf0e21209956822ddb7ae2f48512e7bd42bd2d151e744059226079c694543f6  gz/src/23_posthoc_clearance_route.py
+05641c83684235311b9a33ce7f0e1e61ae933455c37b0b98658a2af23c5052c8  gz/src/05_gate2a_composition.py
+963ea5d118c9f7b886e6b8f801560a81fe7cfc3d2379f19b29598bd6e3a1aa90  gz/src/03_gate1alt_zga_timing.py
+1218b9409bf8ec9b1b4d2b224712d409d50d8e42ad0d7c803730c671beef960d  gz/plan/POSTHOC_clearance_route_frozen.md
+110d13c5c9e7825ee39ca7c8c26347bd02e4854b12f1e407e32212a2544d2941  gz/results/posthoc_clearance_route.tsv
+0ea2684e4fa3f534f5518e919e97ad36981dcc3a496d399c11247ff58bf05a2e  gz/figures/pub/Figure3.png
+bab5ef77f4f3d49248d76505369f824be71d48616ac04eb27fb815d0ea112dd7  gz/figures/pub/Figure4.png
+98ba75eba5b9bd62f3190728ea873f7deed0674d1c9dd959006f35cffaf09ac2  gz/results/MANUSCRIPT_gz_v1_EN.md
+8b83e6547d2b5a7dcab370a3ec06b45363356954d240a11e2dd36458b912bf16  gz/results/MANUSCRIPT_gz_v1_KR.md
+```

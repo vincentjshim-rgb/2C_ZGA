@@ -1,0 +1,9 @@
+quantity	value
+delta_sim	-0.13368171741124724
+clearance_ratio	0.35572380298604495
+n_clock_genes	1839.0
+n_clock_genes_maternal	235.0
+n_clock_genes_with_nonzero_change	863.0
+sum_via_maternal_clock_genes	-0.073622437052214
+sum_via_other_clock_genes	-0.06005928035903326
+fraction_via_other	0.449270711972318
