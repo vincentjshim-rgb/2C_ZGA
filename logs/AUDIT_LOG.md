@@ -1153,3 +1153,27 @@ text incl. legends now as printed by the build. Submission package and local rev
 002119eef4bce0ebb7609c104603f48b7da5a1e9a281bd031fa8955b692b4a37  gz/results/MANUSCRIPT_gz_v1_KR.md
 737cebd109d83efaf7fc333452aebcd9156e2618055a9bf8dc3c4037f2303712  gz/results/MANUSCRIPT_gz_v1_EN_submission.md
 ```
+
+## 2026-09-19 — Discussion: cited context for the largest contributors and for SCNT; six references added
+
+Agent-assisted literature check, each citation re-resolved in Crossref here (51 references now). Added to the Discussion in
+both drafts: (i) the five largest downward contributors are all zygotically activated classes in DBTMEE (Park et al.
+2013 Genes Dev; Park et al. 2015 NAR), consistent with their loss under a minor-ZGA block given that minor ZGA is
+required for major ZGA (Abe et al. 2018 PNAS); in the clock paper's own multi-tissue ageing signature (Supplementary
+Table 2) Klf9, Neto2, Gpatch4 and Psmb5 decline with age and Pi4k2a rises — stated as a caution that regularised
+coefficients are model properties, not marginal age trends; (ii) the source study's embryonic GSEA (cell-cycle, MYC-target
+and mRNA-splicing programmes up, inflammatory and interferon programmes down) as the combination that lowers tAge in adult
+tissues; (iii) SCNT context: reprogramming-resistant regions and donor-transcript retention (Matoba et al. 2014 Cell),
+Kdm4d narrowing but not closing the gap (Matoba et al. 2024), and the split evidence on clone age (Lanza et al. 2000
+Science; Ogonuki et al. 2002 Nat Genet); no clock readout of SCNT embryos exists in the literature searched. Nothing
+verifiable links Klf9 to reprogramming or rejuvenation, and the five genes are not in the Hendrickson 2017 DUX-target
+list; neither claim is made. Word budget: abstract 250; main text trimmed elsewhere (summary paragraph, Oct4–Sox2
+sentence, reassignment sentence, GSE162345 description, two gap sentences) so the submission version stays under 7,500.
+Noted for proof stage: the published coefficient table lists 1,840 non-zero genes for this clock; the pickle used here
+has 1,839.
+
+```
+8c92fc0b6373319fd99aad6ad9193fa7a06700ef60e195658d6b7d2cff5e1fe4  gz/results/MANUSCRIPT_gz_v1_EN.md
+f610405e60145f137ff9d254cb4e413508fbd81b8b7ee5bdbc7a5849db65941a  gz/results/MANUSCRIPT_gz_v1_KR.md
+e92ad48b8cbaa4527edfe35de608b30d58ca176600fa6f6ee6f209934ceaf759  gz/results/MANUSCRIPT_gz_v1_EN_submission.md
+```
