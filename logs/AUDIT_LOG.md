@@ -1135,3 +1135,21 @@ bab5ef77f4f3d49248d76505369f824be71d48616ac04eb27fb815d0ea112dd7  gz/figures/pub
 98ba75eba5b9bd62f3190728ea873f7deed0674d1c9dd959006f35cffaf09ac2  gz/results/MANUSCRIPT_gz_v1_EN.md
 8b83e6547d2b5a7dcab370a3ec06b45363356954d240a11e2dd36458b912bf16  gz/results/MANUSCRIPT_gz_v1_KR.md
 ```
+
+## 2026-09-19 — Six story-check gaps closed in both drafts (text only)
+
+(1) Discussion: splicing and clock readouts agree in direction but not magnitude across perturbations (ρ = 0.00; Tardbp
++0.04) — one sentence before the recommendations. (2) Results 2.4: why 2.2 and 2.4 do not conflict — the Gate 2a maternal
+set (oocyte-defined) holds 235 clock genes, the within-window V2 set eight; 55%/45% split of the simulated clearance
+effect from `posthoc_clearance_route.tsv` (post hoc, plan frozen first); matching sentence in Methods 4.8. (3) Discussion:
+the splicing readout met its rule where the clock readout did not. (4) Discussion: the cross-species post-hoc correlation
+(ρ = 0.52) beside the A485 sentence. (5) Results 2.1: second decrease, GSE45719 16-cell → early blastocyst −0.24
+(95% CI −0.30 to −0.19) and GSE66582 ICM −0.25 below the 8-cell libraries (n = 3 and 2, direction only). (6) Abstract:
+closing sentence now names the ZGA link and the scalar's blind spot; trimmed elsewhere to stay at 250 words. English main
+text incl. legends now as printed by the build. Submission package and local review page rebuilt.
+
+```
+4bfb12619696c8f45cb390d3a3edb2d417816ba1be86f5e07aa26c85045acdb4  gz/results/MANUSCRIPT_gz_v1_EN.md
+002119eef4bce0ebb7609c104603f48b7da5a1e9a281bd031fa8955b692b4a37  gz/results/MANUSCRIPT_gz_v1_KR.md
+737cebd109d83efaf7fc333452aebcd9156e2618055a9bf8dc3c4037f2303712  gz/results/MANUSCRIPT_gz_v1_EN_submission.md
+```
