@@ -117,7 +117,16 @@ for tag in ['P1_GSE280522', 'P3_GSE300734']:
     t = verdict_bits[tag]
     ok[tag] = (abs(get(t, 'S_specific_component')) > abs(get(t, 'G_global_component'))
                and get(t, 'D_observed') < get(t, 'null_p2.5'))
-verdict = 'NOT EXPLAINED' if all(ok.values()) else ('PARTLY EXPLAINED' if any(ok.values()) else 'EXPLAINED')
+ratio_ok = {tag: abs(get(verdict_bits[tag], 'S_specific_component')) > abs(get(verdict_bits[tag], 'G_global_component'))
+            for tag in ['P1_GSE280522', 'P3_GSE300734']}
+if all(ok.values()):
+    verdict = 'NOT EXPLAINED'
+elif any(ok.values()):
+    verdict = 'PARTLY EXPLAINED'
+elif not any(ratio_ok.values()):
+    verdict = 'EXPLAINED'                       # |G| >= |S| in both datasets, as the plan defines it
+else:                                           # |S| > |G| in both, but the drop is not below the 2.5th percentile of the null
+    verdict = 'NOT CLASSIFIED BY THE FROZEN RULE (|S| > |G| in both datasets, but the observed drop lies inside the reassignment null)'
 tI = verdict_bits['P1_GSE280522_I']
 verdict_I = ('NOT EXPLAINED' if (abs(get(tI, 'S_specific_component')) > abs(get(tI, 'G_global_component'))
                                  and get(tI, 'D_observed') > get(tI, 'null_p97.5')) else 'NOT SUPPORTED')
@@ -125,7 +134,10 @@ verdict_I = ('NOT EXPLAINED' if (abs(get(tI, 'S_specific_component')) > abs(get(
 with open(f'{B}/results/posthoc_global_remodelling.md', 'w') as fh:
     fh.write('# Post hoc: global transcriptome remodelling vs gene-specific change '
              '(plan: plan/POSTHOC_global_remodelling_frozen.md)\n\n')
-    fh.write(f'VERDICT (control arms, prespecified rule): **{verdict}** by global remodelling\n\n')
+    fh.write(f'VERDICT (control arms, prespecified rule): **{verdict}**\n\n')
+    fh.write('Reading: the drop is not a uniform global shift of the features (G is a few per cent of D and of the opposite sign), '
+             'and it is also not exceptional relative to a random assignment of the same coefficients to genes (2.6th and 8.1st '
+             'percentile). The frozen rule had no label for this combination; recorded as such in the audit log (2026-09-18).\n\n')
     fh.write(f'P1 interaction (A485 - control): **{verdict_I}** by global remodelling\n\n')
     fh.write('D = G + S; G = (sum of coefficients) x (mean feature change) is the drop expected if every clock gene '
              'moved by the average amount; S is the gene-specific remainder. The null re-assigns the coefficient '

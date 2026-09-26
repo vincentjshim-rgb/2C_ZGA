@@ -1,9 +1,11 @@
-"""Supplementary Tables S3-S5 (no new analysis). Re-shapes stored results into one workbook plus TSVs.
-S3: clock value of every scored embryo or library (Gates 1, 2b, 3), with GEO/SRA identifiers where they exist.
-S4: per-gene contributions to the within-two-cell drop (post-hoc decomposition and rescue analysis).
+"""Supplementary Tables S2-S5 (no new analysis). Re-shapes stored results into one workbook plus TSVs; numbered in
+order of first citation (Table S1 is the run-to-sample accession table in metadata/perturb/).
+S2: clock value of every scored embryo or library (Gates 1, 2b, 3), with GEO/SRA identifiers where they exist.
+S3: per-gene contributions to the within-two-cell drop (post-hoc decomposition and rescue analysis).
+S4: splicing events in the control arms (Gate 4), by event type.
 S5: per-fold values of the cross-fitted Gate 4 check (post hoc).
 Each table is checked against the stored summary values before it is written.
-Output: results/supp_tables/TableS3-S5.tsv and SupplementaryTables_S3-S5.xlsx"""
+Output: results/supp_tables/TableS2-S5.tsv and SupplementaryTables_S2-S5.xlsx"""
 import os
 ANALYSIS = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # .../analysis
 import re
@@ -79,8 +81,18 @@ S5 = F.rename(columns={'heldout_E2C': 'held_out_control_E2C', 'heldout_L2C': 'he
                        'R': 'R_A485_DUX_minus_A485'})
 assert len(S5) == 16 and int((S5.I_A485_minus_held_out_control < 0).sum()) == 14 and int((S5.R_A485_DUX_minus_A485 > 0).sum()) == 16
 
+# ---- S4: splicing events by type (Gate 4) ------------------------------------------------------------------
+Z = rd('gate4_zsa_summary')
+Z = Z[Z.event_type != 'ALL'].copy() if (Z.event_type == 'ALL').any() else Z
+S4tab = Z.pivot_table(index='event_type', columns='gse', values=['n_filtered', 'n_zsa'], aggfunc='first')
+S4tab.columns = [f'{g}_{q}' for q, g in S4tab.columns]
+S4tab = S4tab.reindex(['SE', 'A5', 'A3', 'MX', 'RI', 'AF', 'AL']).reset_index()
+tot = {c: int(S4tab[c].sum()) for c in S4tab.columns if c != 'event_type'}
+S4tab = pd.concat([S4tab, pd.DataFrame([dict(event_type='ALL', **tot)])], ignore_index=True)
+assert int(S4tab.loc[S4tab.event_type == 'ALL', 'GSE280522_n_zsa'].iloc[0]) == 511
+
 # ---- write -------------------------------------------------------------------------------------------------
-README = pd.DataFrame({'sheet': ['TableS3', 'TableS4', 'TableS5'], 'content': [
+README = pd.DataFrame({'sheet': ['TableS2', 'TableS3', 'TableS4', 'TableS5'], 'content': [
     'Clock value (tAge multi-species chronological Elastic Net, scaled differences) of every scored embryo or library. '
     'Values are relative to the reference named in the row (per-gene median of the reference samples). V0 = all genes; '
     'V2 = maternal and zygotic dynamic genes removed (defined within each dataset). GSE45719 rows are embryo pseudobulks '
@@ -89,15 +101,22 @@ README = pd.DataFrame({'sheet': ['TableS3', 'TableS4', 'TableS5'], 'content': [
     'Per-gene contribution (clock coefficient x change in the preprocessed feature, late minus early two-cell) for the '
     '1,839 clock genes present in both primary datasets; contributions sum to the arm drop. P1 = GSE280522, '
     'P3 = GSE300734. Dynamic-gene class: maternal / zygotic / neither, as defined for V2 on the P1 control arm. Post hoc.',
+    'Splicing events in the control arms of the three primary datasets (Gate 4): filtered events (expression and '
+    'missingness filters) and control splicing-activation events (|dPSI| >= 0.10 between control late and early two-cell '
+    'libraries, gene-corrected empirical p < 0.05), by SUPPA2 event type.',
     'Cross-fitted splicing progression in GSE280522 (post hoc). Each fold holds out one control E2C and one control L2C '
     'library, selects events and sets the scale on the remaining controls, and scores all libraries out of sample. '
     'I = arm progression minus held-out control progression; R = A485+DUX minus A485.']})
-with pd.ExcelWriter(f'{OUT}/SupplementaryTables_S3-S5.xlsx') as xw:
+for f in os.listdir(OUT):
+    if f.startswith('TableS') or f.startswith('SupplementaryTables_'):
+        os.remove(f'{OUT}/{f}')
+with pd.ExcelWriter(f'{OUT}/SupplementaryTables_S2-S5.xlsx') as xw:
     README.to_excel(xw, sheet_name='README', index=False)
-    S3.to_excel(xw, sheet_name='TableS3', index=False)
-    S4.to_excel(xw, sheet_name='TableS4', index=False)
+    S3.to_excel(xw, sheet_name='TableS2', index=False)
+    S4.to_excel(xw, sheet_name='TableS3', index=False)
+    S4tab.to_excel(xw, sheet_name='TableS4', index=False)
     S5.to_excel(xw, sheet_name='TableS5', index=False)
-for name, df in [('TableS3_clock_values', S3), ('TableS4_gene_contributions', S4), ('TableS5_crossfit_folds', S5)]:
+for name, df in [('TableS2_clock_values', S3), ('TableS3_gene_contributions', S4), ('TableS4_splicing_events', S4tab), ('TableS5_crossfit_folds', S5)]:
     df.to_csv(f'{OUT}/{name}.tsv', sep='\t', index=False)
 print('S3', S3.shape, S3.groupby(['dataset', 'variant']).size().to_dict())
 print('S4', S4.shape, 'S5', S5.shape)

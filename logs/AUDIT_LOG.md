@@ -1186,3 +1186,465 @@ that included the intercept row. Checked directly against Supplementary Table 5 
 Multi-tissue, Scaling"): 1,839 non-zero coefficients, the same 1,839 Entrez IDs as the model file used here, maximum
 absolute difference 4.9 × 10⁻¹⁷, identical intercept 0.03212. The model used is exactly the published clock; nothing to
 check at proof stage.
+
+## 2026-09-20 — Figure canvas clipping found and fixed (all 11 figures checked)
+
+While building the plain-language review page (`gz/results/review/easy_review_KR.html`), text was seen running off the
+right edge of Figure 1d. All 11 rendered figures were then checked programmatically for ink within 3 px of the canvas
+border (a border-touching pixel means content was cut off, since every panel has a margin). Six figures failed:
+
+| Figure | What was cut | Fix in `gz/src/18_figures_publication.py` |
+|---|---|---|
+| 1d | footnote "…sim. maternal clearance only" | centred 2-line footnote → left-aligned 4-line footnote at the panel's left edge |
+| 2a | "prespecified QC (3 of 76 excluded)" | 2-line note → 3 shorter lines; definition box widened to 132.5–165 mm and its text moved to x = 135 so the R line is no longer flush with the border |
+| 3f | x-axis label "Clock genes in control order…" cut at the bottom | canvas height 224 → 228 mm |
+| 4b | x-axis label "(oriented by the control change)" | label shortened to "(oriented to control)"; panel moved 141 → 139 mm, width 23 → 24 mm (at 136 mm its y-label collided with the colour-bar label, so 139 was chosen) |
+| S1 | footnote "…95% bootstrap inte[rval]" | split into 2 lines, va='center' → 'top' at y = 111 |
+| S4 | footnote "…95% boo[tstrap]" | 2 lines → 4 lines |
+
+After re-rendering, the border check is clean for all 11 figures. No data, no analysis and no numbers changed — only text
+wrapping, three panel/box coordinates and one canvas height. The affected figures were re-exported to `figures/pub/`,
+`figures/supp/` and copied to `gz/results/submission/`. `SUBMISSION_CHECKLIST_KR.md` updated (Figure 3 is 167 × 228 mm).
+
+This class of defect is invisible in the normal workflow because the clipped text is simply absent from the rendered
+file; the border-ink check is now the way to catch it and should be re-run after any figure edit.
+
+## 2026-09-20 — External fact-check of every literature-derived statement
+
+All background claims in the Introduction and Discussion were checked against the cited papers (four parallel
+literature audits: ageing clocks, ZGA/DUX, splicing, perturbation datasets and SCNT). Twenty corrections were applied
+to `MANUSCRIPT_gz_v1_EN.md` and mirrored into the Korean version. Nine references were added, two removed, two fixed;
+the list is now 58 entries and fully alphabetical, and every in-text citation resolves.
+
+Wrong as written (now corrected):
+
+1. **DBTMEE classes.** "All five induced contributors are classified as zygotically activated (major ZGA, two-cell
+   transient or transitional)" was false. The database's own `cluster_gene_v2.tsv` (downloaded from
+   dbtmee.hgc.jp/download/data/tables.tar.gz) gives Klf9 and Neto2 = "Major ZGA", Pi4k2a and Gpatch4 =
+   "2-Cell Transient", **Psmb5 = "MGA"**. "Transitional" is not one of the ten DBTMEE classes. Each gene is now named
+   with its actual class.
+2. **"MYC-target" programme** attributed to Tyshkovskiy et al. 2026 does not occur in that paper, and the same
+   paragraph reports the cell-cycle module clock as *elevated* in early development — the opposite of what we wrote.
+   Replaced with the paper's actual statement (immune/lipid vs cell-cycle/splicing; inflammation and interferon are the
+   top contributors to the decrease).
+3. **Pig molecular-age negative claim** was false: telomere length has been measured across the morula-to-blastocyst
+   transition in pig (Dang-Nguyen et al., 2012; also Li et al., 2023 with ZGA). The related "two species" claim for
+   telomere lengthening was also wrong.
+4. **Schaetzlein & Rudolph (2005) is a review**; the primary finding is Schaetzlein et al. (2004) PNAS 101:8034-8038.
+5. **Higgins-Chen et al. (2022)** shows that individual CpG *measurements* are noisy (up to nine-year replicate
+   deviations), not that clock *weights* are noisy. Cited correctly in both places.
+6. **"Each embryonic application stayed within one species"** is false — Kerepesi et al. 2021 is itself a
+   mouse-and-human embryo study. Changed to "at most two species per study".
+7. **Kerepesi & Gladyshev (2023)** reports no change across human preimplantation and only the decrease to the
+   epiblast; "a pattern later reported for human embryos" overstated it.
+8. **GSE162345 timing.** Fusion is at single time points, 21 hpi (early two-cell) or 30 hpi (late two-cell), not
+   "21-24 or 30-33 hpi" (verified in PMC8609233). Also disclosed: in the source study the two-cell arm is a comparator
+   for a four-cell system, and at 30 hpi only 8 genes were activated from the donor genome against >1,000 at 21 hpi.
+   Tomikawa et al. (2022), whose protocol covers four-cell embryos only, was removed as support for this design.
+9. **GSE248499** was described as "nuclear transfer with histone demethylases"; the source study is a G9a-*inhibitor*
+   study (G9a is a methyltransferase). The Kdm4d/Kdm3a arms do exist and are what we use; the description now says so.
+10. **Li et al. (2025)** compares nuclear-transfer reprogramming across species, not zygotic genome activation;
+    Oomen et al. (2025) — already our Gate 1 dataset — is the correct citation for cross-species ZGA.
+11. **Hou et al. (2025)** does not mention epithelialisation and places OCT4/SOX2 function at the early inner cell
+    mass; the sentence now attributes epithelialisation timing to Chandramohan et al. (2026) alone.
+12. **A485 framing.** A-485 is a selective acetyl-CoA-competitive inhibitor of the p300/CBP HAT domain
+    (Lasko et al., 2017; embryo pharmacology in Wang et al., 2022), not a transcription inhibitor, and in Xiao et al.
+    (2025) its ZGA effect runs through failure to induce Dux and is bypassed by exogenous Dux. It is no longer
+    presented as independent confirmation of a transcription requirement. For Obox3, the source study's evidence is
+    gain-of-function and the OBOX requirement was shown for a six-gene knockout (Ji et al., 2023), so that leg was
+    softened too. Only α-amanitin inhibits Pol II directly.
+13. Smaller fixes: two-wave timing now cited to Aoki et al. (1997) and Abe et al. (2018) rather than Abe (2015,
+    one-cell only) and Xiao (2025, mechanism); Dux-loss tolerance attributed to OBOX redundancy (De Iaco et al., 2020;
+    Ji et al., 2023; Guo et al., 2024); Zscan4 restricted to the *late* two-cell embryo and a rare ES-cell
+    subpopulation; Zhang et al. (2024) marked as a re-analysis of published RNA-seq; Deng et al. (2026) qualified
+    (skipping-specific deficit; the "too much" arm is TDP43 overexpression); Jiang et al. (2026) article number added;
+    Isaev & Knowles version pinned; GSE300734's unlinked-deposit status stated in the text.
+
+Also corrected in the Korean version, which had lagged the reviewer-workflow revision: the cross-fitted fold ranges
+(0.32-1.08, -0.56 to +0.15, 0.14-0.25, re-derived from `posthoc_gate4_crossfit_folds.tsv`) and the removal of the
+r = -0.57 correlation.
+
+Checked and found correct, with no change needed: Abe 2015/2018, Hendrickson 2017, Yu 2016, Sha 2020, Zhang 2024 (all
+three perturbations, verified verbatim in the full text), Deng 2026 (including the bidirectional claim), Wyatt 2022,
+Li 2024, Matoba 2014 (184/222 RRRs reactivated; 1,212 to 475 DEGs), Lanza 2000, Ogonuki 2002, Nie 2023, Sakamoto 2024
+dataset composition, the three dataset-provenance citations, the five tool citations, and every DOI checked.
+The bioRxiv prefix 10.64898 is openRxiv's legitimate prefix for preprints posted from 1 December 2025.
+
+Still open: `MANUSCRIPT_gz_v1_EN_submission.md` and `SUPPORTING_INFORMATION.md` predate this revision and the
+reviewer-workflow revision; the Korean version still carries the pre-renumbering supplementary figure and table
+numbers; and the word budget (7,500 for Aging Cell) is exceeded and must be addressed before the package is rebuilt.
+
+## 2026-09-20 — Figure tidying, typographic minus, and a selection volcano (Supplementary Figure S7)
+
+Three kinds of change, no analysis re-run.
+
+**Occlusion and clipping.** Figure 3f's legend sat on top of the three running-sum curves; it was moved above the axes
+as a single row. Figure 4c's bottom legend was anchored at the panel centre and its first handle ran off the left edge;
+it is now anchored 2 mm from the left. Figure 1b's per-species annotation sat on the shaded ZGA band and Figure 1c's
+dataset note sat near a data point; both now carry a translucent white background. Figure 4a's footnote, extended to
+state the selection rule, was split over two lines so it no longer reaches the right edge. `24_check_figure_bounds.py`
+is clean for all 12 figures.
+
+**Typographic minus.** Python writes negative numbers with an ASCII hyphen while matplotlib's axis formatter uses
+U+2212, so annotations and tick labels disagreed throughout (for example "D -0.24" beside an axis reading "−0.25").
+`fix_minus()` now rewrites every text artist before saving, replacing a hyphen with a minus only where it precedes a
+digit and does not follow an alphanumeric, so "16-cell", "held-out" and "cross-fitted" are untouched.
+
+**Supplementary Figure S7 (new).** For each primary dataset, every event passing the Gate 4 expression and missingness
+filters is plotted as the control late-minus-early change in PSI against the gene-corrected empirical p value of that
+change, with the prespecified thresholds (|ΔPSI| ≥ 0.10, p < 0.05) drawn and the selected events marked. This adds no
+analysis: `25_figdata_volcano.py` copies the two columns from the Gate 4 outputs and asserts that the thresholds
+reproduce the stored selection flag exactly (511, 1,376 and 77 events). Its purpose is to show the effect size and p
+value behind a selection that the text previously stated only as counts. It is cited in Section 2.6 before the
+principal-component display, so under the first-citation rule the volcano is S7 and the PCA display becomes S8.
+
+Considered and not done: p values or FDR on the clock panels (Figures 1–3). Group sizes are two to four libraries, the
+frozen plans specify effect sizes, bootstrap intervals and direction across datasets rather than significance tests,
+and the central decomposition is an algebraic identity whose terms sum to the reported difference to 1e-9, so a p value
+on it would not be meaningful. The Methods continue to state that the within-species permutation test is the only p
+value used for inference.
+
+## 2026-09-20 — Text-collision audit of the figures (new check, 26 real collisions fixed)
+
+The border check of `24_check_figure_bounds.py` only sees ink at the canvas edge, so it could not detect a label
+sitting on another label or spilling out of its own panel. `26_check_figure_overlaps.py` renders each figure in
+memory and measures the bounding box of every text artist, reporting text-over-text, text-over-a-foreign-panel,
+panel-over-panel and text-past-the-canvas, with positions in millimetres. Tick labels that matplotlib creates but
+never draws (a tick outside the view, or any tick of a drawing canvas whose axis is switched off) are excluded, as is
+text carrying an opaque background, which is a deliberate overlay.
+
+First run: 26 real collisions.
+
+| Figure | Collision | Fix |
+|---|---|---|
+| S1 | the 6-7 interval labels per panel, rotated 60°, overlapped each other by up to 8.2 pt | rotated to 90° (vertical), so the horizontal footprint is the cap height rather than the string length |
+| S1 | y tick labels such as "0.0075" reached 1.2 mm into the neighbouring species panel — 22 mm panels on a 29 mm pitch leave only 7 mm | panels narrowed to 20 mm (9 mm gap) and the y locator reduced from 4 ticks to 3 |
+| 3a | the stacked panels' y labels, "Contribution per gene" and "Running sum of contributions (= clock change, late − early two-cell)", touched at the left edge | the lower label shortened to "Running sum of contributions", matching panel f; the identity it stated is in the figure legend |
+| 2 | the teal interaction label "I +0.17 [0.09, 0.26]" touched the footnote | footnote moved 2 mm down |
+
+Both checks now pass for all 12 figures: no ink at the canvas border, and no text or panel collisions. Run them after
+any figure edit; `26` is the stricter of the two and imports the figure module rather than reading the exported files,
+so it needs no render to disk.
+
+## 2026-09-20 — Panel-by-panel figure review and redesign
+
+A reviewer-style pass over every panel, of the kind the author uses on other manuscripts. Six criticisms were judged
+valid and acted on; two were judged wrong and are recorded here with the reason.
+
+Acted on:
+
+1. **Figure 2 was drawn on three different y scales** (P1 −0.33 to 0.03, P2 −0.10 to 0.16, P3 −0.26 to 0.06), so a
+   drop of −0.24 and a drop of −0.10 occupied a similar length on the page. All three panels now share one scale, with
+   tick labels on the first only. This is the most consequential change of the pass: the reader can now compare D by
+   eye. The legend says the scale is shared.
+2. **Figure 1d was the only bar chart left in the paper** after the earlier redesign. It is now points with bootstrap
+   intervals, like every other panel.
+3. **Figure 1a stated methods, not the question.** The "Readouts" box, which listed the clock, the decomposition and
+   SUPPA2, is now a "The question" box: the clock falls inside the two-cell stage where no cell divides; does the fall
+   depend on ZGA, and what is the value made of; six perturbation series and an exact decomposition under frozen
+   plans. The box was enlarged from 22 to 28 mm so the text sits inside it.
+4. **"major ZGA" and the largest-drop annotation were repeated in all four species panels of Figure 1b.** The band is
+   now labelled once, as "major ZGA (literature)", and the per-species annotation carries only the interval.
+5. **The grey explanatory paragraph beside Figure 3c** ("Contribution of a gene = clock coefficient x change in its
+   preprocessed expression...") took up as much room as a panel and repeats the figure legend. Removed.
+6. **Figures 3a and 3f are the same kind of cumulative curve** and a reader meets them twice without being told why.
+   Each panel now carries a short title saying what it answers: "What the control decrease is made of" and "What the
+   perturbed and rescued arms do to those same genes".
+
+Judged wrong, not acted on:
+
+- *"Figure 4a and 4b show the same 511 events twice."* They do not answer the same question: the heat map shows the
+  per-library pattern and the cumulative distribution shows the shift with its median. The pair is the standard
+  combination in splicing papers.
+- *"Figure 1b and 1c are both mouse clock trajectories, so merge them."* The two are scored against different
+  references (oocytes of the same species in GSE225056, zygotes in GSE45719) and cover different stages. Merging
+  would require rescoring one of them against the other's reference, which would change a frozen Gate 1 / Gate 2b
+  result after the fact. Left as two panels.
+
+Left as a flagged judgement call: Supplementary Figure S8 (principal-component display) carries little information and
+no test, and Figure 4c makes the same point quantitatively. It costs nothing in the main text and answers the
+"is there global structure?" question in one glance, so it is kept for now.
+
+Both figure checks pass for all 12 figures after the redesign.
+
+## 2026-09-20 — Supplementary figures consolidated from eight to six
+
+The author's review asked for fewer supplementary figures and for the splicing side to carry event-type detail.
+
+- **Supplementary Figures S5 and S6 merged into one two-panel figure (S5).** Panel a is the expression of the five
+  largest contributors, panel b the per-gene contribution profiles of the perturbed and rescued arms. Both are post-hoc
+  detail on the same GSE280522 arms, so they belong together; the text now cites S5a and S5b.
+- **The principal-component display was dropped.** It carried no test — the legend said so — and Figure 4c makes the
+  same point per library and quantitatively. Its two citations and the Supporting Methods sentence about it were
+  removed with it.
+- **The splicing-selection volcano moved from S7 to S6**, keeping the numbering in first-citation order:
+  S1 measured zygotic timing, S2 GSE66582, S3 quality control, S4 secondary series, S5 contributors and profiles,
+  S6 selection volcano.
+- **Figure 1a's "The question" box and Figure 2a's D / I / R definition box were removed** at the author's request;
+  both definitions are in the figure legends and the Methods, so the boxes were duplication.
+- **Figure 4 gained panel e**: for each kind of local event, the percentage of filtered events the control arm
+  activates and, among those, the percentage whose PSI rises. This is Table S4 drawn, from the same source file as the
+  volcano. Checked before the sentence was written: all seven event classes are represented in GSE280522 and
+  GSE221985 but only five of seven in GSE300734 (no retained intron, no mutually exclusive exons), and 43-47% of the
+  activated events rise in PSI. A first draft of the sentence said every class was represented in every dataset; that
+  was corrected against the data before it entered the manuscript.
+
+Both figure checks pass for the ten figures. `26_check_figure_overlaps.py` was updated to the new figure list.
+
+## 2026-09-20 — Junction-level splicing started (post hoc, plan frozen first)
+
+Limitation 3 of the manuscript — that splicing was quantified from pseudoalignment-based transcript estimates rather
+than junction reads — is testable, so it is being tested. `plan/POSTHOC_junction_psi_frozen.md` (sha256
+ad09490439c1a0101da9241e32acaf79962644722a29a73e268b54a5ab3dfead) was written and checksummed before any junction was
+counted. It fixes the dataset (GSE280522 only, the 23 libraries already scored), the event class (skipped exons, the
+only class with an unambiguous junction formula), the depth rule (>= 10 unique junction reads per library-event,
+>= 20 events per library), the three readings with their thresholds, and the rule by which the illustrated events are
+chosen. No outcome may change a gate verdict or a reported interaction.
+
+Reference: Ensembl GRCm39 release 112 primary assembly and GTF — the same release used for the kallisto index and for
+SUPPA2 event generation, so event coordinates are comparable. STAR 2.7.3a index built with `--sjdbOverhang 149`
+(26 GB). Alignment is two-pass per sample, unique junctions only.
+
+One convention hazard was handled in advance: SUPPA writes exon boundaries and STAR writes the first and last base of
+the intron, a one-base difference. The script does not assume either; it tries both offsets against the annotated
+junctions of the first library, takes whichever matches more, and records the choice. That decision does not depend on
+any result.
+
+Scale of the analysis, fixed before running: 4,076 skipped-exon events pass the Gate 4 filters in GSE280522, of which
+155 are control-activated.
+
+## 2026-09-21 — Junction-level splicing: result, and two implementation errors found on the way
+
+All 23 GSE280522 libraries aligned (STAR 2.7.3a, two-pass, unique junctions; unique mapping 42.7–68.5%,
+78k–242k junctions per library). The junction coordinate offset was chosen from the data as the plan specified:
++1 (277 of 400 annotated inclusion junctions matched at +1, none at 0), i.e. SUPPA's exon boundaries versus STAR's
+first and last intron base, as expected.
+
+**Reading 1 — agreement of the two quantifications: supports the Gate 4 quantification.** Pearson r = 0.779,
+Spearman rho = 0.783 over 59,482 library-event pairs scored by both methods, against a prespecified threshold of
+rho >= 0.6. The transcript-TPM PSI used for Gate 4 and a junction count of the same events agree.
+
+**Reading 2 — reproduction: reproduces the Gate 4 direction.** Progression on junction PSI, control = 1 by
+construction: control 1.00, A485 0.39, A485 + DUX 0.90, giving I = −0.61 and R = +0.51, against the prespecified
+rule I < 0 and R > 0. The direction of both the interaction and the rescue holds under a different aligner, a
+different statistic and a different quantification.
+
+**Two errors in my implementation, both found after seeing a result, both corrected; recorded because of that.**
+
+1. *Unbalanced event sets.* The first run scored each library on whatever events passed the depth rule in that
+   library. Junction depth differs systematically by arm (1,499 to 3,491 events per library; unique mapping 44–59%
+   in A485 late two-cell against 60–69% in control early two-cell), so libraries were being averaged over different
+   events. The score is now computed on complete cases only — events scored in all 23 libraries — which is what the
+   Gate 4 rule already required of its own quantification (PSI in >= 80% of the libraries of every arm-by-stage
+   group).
+2. *Division by a near-zero control change.* The score divides by the control arm's change. Of the 78
+   control-activated SE events complete in every library, 33 had a junction control change below 0.02 and the
+   smallest was exactly 0, so a handful of events with meaningless denominators dominated the mean. Gate 4 defined
+   its events as |dPSI| >= 0.10 *in its own quantification*; the faithful translation applies the same threshold
+   inside the junction quantification, which is now done.
+
+With the first error alone the readings were I = +0.25, R = −0.38; with the first corrected but not the second,
+I = +0.66, R = −0.47; with both corrected, I = −0.61, R = +0.51. The first two are artefacts of the two errors
+above, not properties of the data, and are recorded here so the sequence is on the record.
+
+**Limits of this test.** Only 31 events survive every restriction (skipped exons, control-activated, scored in all
+23 libraries, junction control change >= 0.10) out of 155 control-activated skipped-exon events, so the magnitude
+rests on few events. The junction score is in-sample by the same construction as the transcript score — events and
+scale are set on the control arm and the control arm is then scored — so its magnitude is inflated in the same way
+the in-sample transcript magnitude was (−0.44 against a cross-fitted −0.27) and is not cross-fitted here. The test
+is read as a test of direction and of quantification method, not of magnitude. No gate verdict and no reported
+interaction changes.
+
+Outputs: results/posthoc_junction_psi.tsv (59,482 library-event rows with junction counts, junction PSI and TPM
+PSI), results/posthoc_junction_psi.md. Events selected by rule for a read-level illustration: Camk2b-region
+ENSMUSG00000028693 (dPSI −0.57), ENSMUSG00000071533 (+0.51), ENSMUSG00000026511 (−0.50).
+
+## 2026-09-21 — Two figures added: the clock matrix (Figure 1e) and the junction validation (Supplementary Figure S7)
+
+**Figure 1e — the matrix the clock value is a weighted sum of.** The published trajectory is one number per stage;
+this panel draws the matrix behind it. `src/30_figdata_clock_matrix.py` re-runs the Gate 1 preprocessing unchanged on
+mouse GSE225056 (75 libraries after the same quality-control rule) and writes the stage mean of the preprocessed
+feature of all 1,839 clock genes, with each gene's coefficient and its contribution to the early-to-late two-cell
+change. Rows are ordered by that contribution, so the blocks carrying the decrease sit at the top and bottom and the
+middle is visibly empty.
+
+Verification: the clock pipeline centres the features before the estimator (StandardScaler with `with_std=False`), so
+a coefficient-weighted sum of uncentred features differs from the stored clock value by one constant, identical at
+every stage. Stage-to-stage differences are therefore exact, and the script asserts them against
+`results/gate1_embryo_tage.tsv`: maximum absolute difference 3.85e-16, constant offset −0.0079. The within-two-cell
+change reproduces the stored −0.1907.
+
+Worth recording as an independent observation: in GSE225056 the same interval decomposes into −1.549 over 464
+downward genes and +1.359 over 448 upward genes, a net −0.19. The residual structure the paper reports for
+GSE280522 (−1.40 and +1.17 giving −0.24) therefore also holds in the cross-species dataset, which was not part of the
+decomposition analysis.
+
+**Supplementary Figure S7 — junction-level validation.** Panel a is the density of junction PSI against the
+transcript PSI used for Gate 4 over the 58,958 library-event pairs scored by both (r = ρ = 0.78). Panel b shows the
+three events the frozen plan selects, as read coverage with junction arcs, in the late two-cell libraries of each arm.
+The read-level picture matches the summary statistics: for ENSMUSG00000026511 the two inclusion junctions average
+414 and 514 unique reads in control, 74 and 124 under A485, and 318 and 415 with DUX co-expression.
+
+Source data: `figJ_junction_vs_tpm.tsv` (binned density, so the figure ships a table rather than 59,482 points) and
+`figJ_sashimi.tsv`, written by `src/29_figdata_junction.py` from the STAR BAMs and SJ.out.tab files.
+
+Figure count is now 4 main and 7 supporting. Both figure checks pass for all 11. Three collisions introduced by the
+new panels were found by `26_check_figure_overlaps.py` and fixed: Figure 1d's footnote touching panel e's title, the
+panel e value plot's y-label reaching into the contribution sidebar, and the Supplementary Figure S7 panel-a footnote
+running into the sashimi tracks.
+
+## 2026-09-21 — Story pass: a broken sentence, an unattributed interpretation, and six digressions removed
+
+A reading of the whole manuscript for breaks in the argument, for background that rested on inference rather than a
+source, and for material that leaves the central chain (the clock falls inside the two-cell stage → does that depend on
+ZGA → what is the value made of). Fifteen changes; the reference list is now exactly at the journal's limit of 45 as a
+consequence, not as the aim.
+
+**Broken or unattributed:**
+
+1. An earlier edit had left "DNA-methylation clocks indicated that epigenetic age declines ... and examined at
+   single-cell resolution", whose subject had gone. Repaired.
+2. "This coincidence invites the interpretation that the embryonic clock decrease reflects reprogramming" asserted a
+   reading of the field without saying whose it was. It is Kerepesi et al.'s ground-zero framing, and is now
+   attributed to them.
+3. "Module- and system-resolved clocks answer this by retraining (Sehgal et al., 2025)" claimed that Systems Age
+   answers the three limitations just listed (composition, feature noise, estimate uncertainty). It does not make that
+   claim; the sentence was my inference. Replaced by a plain statement of what this paper does.
+4. The Introduction summarised the maternal knockouts as "the same direction and wider intervals in two
+   maternal-knockout datasets", which contradicts Section 2.3, where the Tardbp interaction reverses under V2. Now
+   states the Brg1 result and the near-zero interaction separately.
+5. One sentence in the Introduction carried three unrelated facts about DUX, Dux deletion and Zscan4. Split into three.
+
+**Digressions removed — each left the central chain:**
+
+6. Pan-tissue and causality-enriched methylation clocks (Lu et al., 2023; Ying et al., 2024), cited to show "how
+   differently such models can be built and read". True, but not a step in this argument.
+7. A methylation-entropy preprint placing a nadir at the human morula (Hao et al., 2026) — a different measurement,
+   never used again.
+8. Single-cell methylation age (Trapp et al., 2021), already covered by the two clock reports named beside it.
+9. Preimplantation splicing dynamics and a programmed splicing failure at ZGA (Xing et al., 2020; Wyatt et al., 2022).
+   The splicing background is carried by the two papers that describe zygotic splicing activation itself.
+10. Splicing as an axis of adult ageing (Zhang, Tyshkovskiy, et al., 2026). An adult phenomenon and a different
+    question from progression through ZGA.
+11. Cross-species comparison of nuclear-transfer reprogramming (Li et al., 2025) — a different comparison.
+12. The Oct4–Sox2 wave after the 8-cell stage and what it sets (Chandramohan et al., 2026; Hou et al., 2025). A later
+    stage and a different question (timing against capacity); the paper never tests it. The open question that rested
+    on it now asks whether the later decrease has the same structure, which is a question about our own data.
+13. Clone molecular age (Lanza et al., 2000; Ogonuki et al., 2002). Adult clone telomeres and clone lifespan do not
+    bear on a two-cell embryo clock value; reasoning from them to our SCNT result was a leap. The passage now states
+    what Matoba et al. showed and that no clock readout of nuclear-transfer embryos exists, and leaves the sign open.
+
+**Overstated link softened:**
+
+14. "Across species, the post-hoc correlation ... points the same way" placed a cross-species correlation across 24
+    intervals alongside a perturbation interaction as if they were the same kind of evidence. It now says that the
+    correlation is consistent with a link but is not a perturbation test.
+
+**Flow:**
+
+15. The second Discussion paragraph was doing five jobs in about 700 words (relation to prior clock work, the
+    cross-species negative result, A485 pharmacology, the splicing literature, the two readouts compared). Split at
+    its seams into four. A literature-search statement in the Introduction was reworded so it reads as a search
+    result rather than a claim about the field. The closing paragraph had "the same decomposition" twice.
+
+After the pass: 45 references (limit 45), abstract 248 words (limit 250), main text with legends 8,607 (limit 7,500).
+Every in-text citation resolves to an entry and every entry is cited; the list is alphabetical.
+
+## 2026-09-21 — Trimmed to the journal's limits
+
+Three passes, after the story pass had already removed the digressions.
+
+1. **Numbers moved to the tables and figures that already hold them.** The four-way direction split of the
+   decomposition (Table S3), the per-gene fold changes and loss percentages of the eight largest contributors
+   (Figure 3b), the filtered-event denominators (Table S4), the per-species library counts (Table 1) and the
+   read-length condition (Table 1) are cited rather than repeated.
+2. **Design detail moved out of the Results.** The GSE162345 nuclear-transfer design now sits in Methods 4.7, where
+   the other arm definitions are, and the Results state only why the series was moved to the secondary set.
+3. **Methods compressed again and the remainder moved to the Supporting Methods**: the reference libraries per
+   dataset, the Gate 1 library counts, the secondary-arm selection, the reassignment control's two numbers, the
+   read-length condition with its per-dataset values, and the SUPPA2 settings.
+4. **Two figure legends shortened** (Figures 1 and 3) by removing axis descriptions that the axes already carry.
+5. **Four asides in the Discussion tightened**, including the clock's ageing-signature caution, which repeated a
+   point made two sentences earlier.
+
+Final counts: 45 references (limit 45), abstract 248 words (limit 250), and the main text — Introduction, Results,
+Discussion and Methods — 7,147 words (limit 7,500). With the four main figure legends the total is 8,172.
+
+Which of those two numbers the journal applies is genuinely ambiguous and is recorded here rather than resolved. The
+live author guidelines say a research article "should be no more than 7,500 words in length, excluding Author
+Checklist, Title Page, Tables, Figures, and References"; figure legends are named as counting only in the parallel
+sentence for Reviews. The manuscript is compliant on the reading that "Figures" covers their legends and is 672 words
+over on the reading that it does not. Cutting those 672 would mean removing content rather than repetition, so it is
+left as a decision for submission.
+
+## 2026-09-23 — A white band in Figure 1e turned out to be a reporting gap, not a rendering fault
+
+The author asked why the middle of the Figure 1e heat map was white. It was not a colour-scale problem and the
+values are not small: **927 of the 1,839 weighted clock genes are not detected in GSE225056 at all.** Their rows are
+exactly zero, their contribution is exactly zero, and the sort by contribution therefore places all 927 together in
+the middle. Drawing absence as white made a technical gap read as a biological statement ("the middle contributes
+almost nothing"), which is how the panel and its footnote had been written.
+
+Three consequences, all now in the manuscript.
+
+1. **The panel.** Undetected genes are masked to grey, counted in the panel, and named in the footnote as genes the
+   dataset does not detect that the clock pipeline median-imputes. The colour limit is now the 98th percentile of the
+   detected values rather than of all values, which the zeros were dragging down. A first attempt printed the count
+   inside the grey band; that puts text on the plotting area, so the three row blocks are instead labelled with
+   brackets in a canvas to the left of the map, the convention Figure 4a already uses. The heat map moved to x 38
+   and the value plot to x 108 to make room. Masking the undetected rows to grey was then dropped as well: it was
+   honest but spent half the panel on rows carrying no data and contributing exactly zero to every value, and
+   absence of data is a sentence rather than half a heat map. The panel now plots only the 912 genes the dataset
+   detects, in two labelled blocks (464 pushing the value down, 448 up), and the 927 that are missing are stated in
+   the footnote, in Methods 4.4 and in the Supporting Methods.
+
+2. **Coverage was being reported in a way that overstates it.** The figure reported for Gate 1 — clock feature
+   coverage 0.56–0.69 — is the fraction of *all* clock input features present, computed by `tage_py.feature_coverage`
+   over the full feature list. Over the 1,839 genes that carry a non-zero coefficient, which are the genes that
+   determine the value, coverage is:
+
+   | dataset | weighted genes detected | |
+   |---|---|---|
+   | GSE225056 mouse, deposited 5′ counts | 912 / 1,839 | 0.50 |
+   | GSE280522, kallisto | 1,355 / 1,839 | 0.74 |
+   | GSE300734, kallisto | 1,509 / 1,839 | 0.82 |
+
+   Both numbers are correct for what they measure, but only the first was in the paper. Methods 4.4 now gives the
+   weighted-gene coverage and the Supporting Methods explain the difference. Absent genes are median-imputed and
+   contribute nothing to a difference, so no reported value changes; what changes is the reader's ability to see that
+   the cross-species comparison rests on half of the weighted clock. The Discussion now names this as a third reason
+   that test was the weakest of the four, alongside the cleavage-division asymmetry and the pig interval.
+
+## 2026-09-23 — Supplementary Figure S7b was not a sashimi plot
+
+The junction panel drew straight-line triangles of constant width with no gene model, which is not the convention a
+reader of a splicing paper expects. Redrawn properly: arcs are quadratic Béziers whose width scales with the square
+root of the junction count, the three arms of an event share one coverage scale so the depth difference between arms
+is real rather than normalised away, each event carries an exon/intron model with the alternative exon marked, and
+the junction counts sit at the arc apices. Figure 1 grew to 254 mm and Supplementary Figure S7 to 156 mm; both
+figure checks pass for all eleven figures.
+
+## 2026-09-23 — How the perturbation series were chosen was never stated
+
+The author asked whether there were problems with sample collection and whether there was a good reason to use these
+particular samples. The answer existed in the frozen plan, the addenda and `metadata/perturb/`, but not in the
+manuscript, which a reviewer would have asked for. Fourteen GEO series were screened against the frozen requirement
+for a primary dataset — early *and* late two-cell libraries in the same study, in a perturbed arm *and* a matched
+control arm:
+
+- **three qualified** (GSE280522, GSE221985, GSE300734) and are the primary set;
+- **two** (GSE248499, GSE235547) have a perturbation and its control at the late two-cell stage only, so they give
+  single-stage contrasts and are secondary;
+- **GSE162345** was listed as primary in the frozen plan but its deposit is not an early-to-late two-cell pair; moved
+  to secondary before any score (addendum 2, 2026-09-16);
+- **GSE195760** has both stages, but every two-cell arm is a nuclear transfer, so there is no control arm against
+  which to form an interaction; descriptive only;
+- **seven** (GSE166338, GSE196671, GSE214878, GSE229740, GSE262039, GSE269417, GSE298245) have no early/late
+  two-cell split at all, so the drop cannot be computed.
+
+Methods 4.1 now carries this in summary and the Supporting Methods carry the table. Collection problems already
+disclosed elsewhere in the paper are unchanged: the GSE162345 design mismatch, the GSE45719 exclusions, the two
+distinct SCNT controls in GSE248499, the three libraries failing prespecified quality control, GSE300734 carrying no
+linked publication, and two to four libraries per group.
+
+Body word count after these additions: 7,335 of 7,500.

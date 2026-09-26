@@ -69,7 +69,7 @@ lib['zygotic_score'] = score
 lib.reset_index().to_csv(f'{OUT}/fig4b_zygotic_score_per_library.tsv', sep='\t', index=False)
 
 # heatmap genes: zygotic set + 2-cell/DUX-target markers (fixed regex of src/14), z-scored per gene across libraries
-MARK = re.compile(r'^(Zscan4|Tcstv|Tdpoz|Dux)', re.I)
+MARK = re.compile(r'^(Zscan4|Tcstv|Tdpoz|Dux|Zfp352$)', re.I)
 mk = [g for g in lg.index if MARK.match(str(ENS2SYM.get(g, ''))) and lg.loc[g].max() > 0]
 rows = []
 for g in list(Z.index) + [g for g in mk if g not in Z.index]:

@@ -1,6 +1,8 @@
 # Post hoc: global transcriptome remodelling vs gene-specific change (plan: plan/POSTHOC_global_remodelling_frozen.md)
 
-VERDICT (control arms, prespecified rule): **EXPLAINED** by global remodelling
+VERDICT (control arms, prespecified rule): **NOT CLASSIFIED BY THE FROZEN RULE (|S| > |G| in both datasets, but the observed drop lies inside the reassignment null)**
+
+Reading: the drop is not a uniform global shift of the features (G is a few per cent of D and of the opposite sign), and it is also not exceptional relative to a random assignment of the same coefficients to genes (2.6th and 8.1st percentile). The frozen rule had no label for this combination; recorded as such in the audit log (2026-09-18).
 
 P1 interaction (A485 - control): **NOT SUPPORTED** by global remodelling
 

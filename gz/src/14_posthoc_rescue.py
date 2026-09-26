@@ -19,7 +19,7 @@ GT = pd.read_csv(f'{tp.PKG}/extdata/metadata/Gene_table_mouse.csv')
 GT = GT[GT.Entrez.notna()].drop_duplicates('Ensembl')
 ENS2SYM = dict(zip(GT.Ensembl, GT['Gene.Symbol']))
 SYM = dict(zip(GT.Entrez.astype('int64').astype(str), GT['Gene.Symbol']))
-MARKER = re.compile(r'^(Zscan4|Tcstv|Tdpoz|Dux)', re.I)
+MARKER = re.compile(r'^(Zscan4|Tcstv|Tdpoz|Dux|Zfp352$)', re.I)
 
 
 def annotate(t):

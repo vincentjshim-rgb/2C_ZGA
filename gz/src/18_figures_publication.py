@@ -9,11 +9,15 @@ Colour meaning is fixed across figures (validated for colour-vision deficiency):
 import os
 ANALYSIS = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # .../analysis
 import sys
+import re
+import matplotlib.text as mtext
 import numpy as np, pandas as pd
 import matplotlib
 from matplotlib import font_manager
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyBboxPatch, Rectangle, Polygon, Circle, Wedge
+from matplotlib.path import Path
+from matplotlib.patches import PathPatch
 from matplotlib.colors import LinearSegmentedColormap
 sys.path.insert(0, f'{ANALYSIS}/src')
 import figstyle as fs
@@ -25,7 +29,7 @@ for f in ['FreeSans.ttf', 'FreeSansBold.ttf', 'FreeSansOblique.ttf']:
     font_manager.fontManager.addfont(f'/usr/share/fonts/truetype/freefont/{f}')
 fs.use()
 plt.rcParams.update({'font.sans-serif': ['FreeSans', 'DejaVu Sans'], 'font.size': 6, 'axes.labelsize': 6,
-                     'xtick.labelsize': 5.6, 'ytick.labelsize': 5.6, 'legend.fontsize': 5.6, 'axes.titlesize': 6,
+                     'xtick.labelsize': 6, 'ytick.labelsize': 6, 'legend.fontsize': 6, 'axes.titlesize': 6,
                      'savefig.bbox': None, 'savefig.pad_inches': 0})
 MM = fs.MM
 WMM = 167
@@ -48,6 +52,22 @@ def newfig(hmm):
     fig = plt.figure(figsize=(WMM * MM, hmm * MM))
     fig._hmm = hmm
     return fig
+
+
+_MINUS = re.compile(r'(?<![A-Za-z0-9])-(?=\d)')
+
+
+def fix_minus(fig):
+    """Use a typographic minus in every text artist, matching the axis tick labels."""
+    for o in fig.findobj(mtext.Text):
+        s = o.get_text()
+        if s and '-' in s:
+            o.set_text(_MINUS.sub('\u2212', s))
+
+
+def save(fig, name, outdir):
+    fix_minus(fig)
+    fs.save(fig, name, outdir=outdir)
 
 
 def axmm(fig, x, y, w, h, **kw):
@@ -93,7 +113,7 @@ def arm_strip(ax, df, ycol, arms, ms=11, labels=True, d_text=False):
             means[st] = v.mean()
         if d_text:
             ax.text(i, 1.01, f"D {means['L2C'] - means['E2C']:+.2f}", transform=ax.get_xaxis_transform(), ha='center',
-                    va='bottom', fontsize=4.9, color=INK2)
+                    va='bottom', fontsize=6, color=INK2)
     ax.set_xticks(range(len(arms)))
     ax.set_xticklabels([SHORT[a] for a in arms] if labels else [], linespacing=1.0)
     ax.set_xlim(-0.6, len(arms) - 0.4)
@@ -109,7 +129,7 @@ def arm_handles(pairs):
     return [Rectangle((0, 0), 1, 1, color=ROLE[a], label=l) for a, l in pairs]
 
 
-def tile(c, x, y, w, h, fc, ec='white', lw=0.6, text=None, tc=INK, fs_=4.8, bold=False):
+def tile(c, x, y, w, h, fc, ec='white', lw=0.6, text=None, tc=INK, fs_=6, bold=False):
     c.add_patch(Rectangle((x - w / 2, y - h / 2), w, h, fc=fc, ec=ec, lw=lw))
     if text:
         c.text(x, y, text, ha='center', va='center', fontsize=fs_, color=tc, fontweight='bold' if bold else 'normal')
@@ -165,7 +185,7 @@ def forest(ax, rows, xlim, xlabel, zero=0.0, fmt='{:+.3f}'):
         ax.scatter([r['est']], [y], s=r.get('s', 15), marker=r.get('marker', 'o'),
                    facecolor='white' if r.get('hollow') else c, edgecolor=c, lw=0.8, zorder=4)
         ax.text(1.02, y, fmt.format(r['est']), transform=ax.get_yaxis_transform(), ha='left', va='center',
-                fontsize=5.4, color=INK2)
+                fontsize=6, color=INK2)
         ys.append(y)
         y -= 1
     ax.axvline(zero, color=MUTED, lw=0.5, zorder=1)
@@ -180,7 +200,7 @@ def forest(ax, rows, xlim, xlabel, zero=0.0, fmt='{:+.3f}'):
 
 # =====================================================================================================
 def figure1():
-    fig = newfig(176)
+    fig = newfig(254)
     # ---- (a) schematic ------------------------------------------------------------------------------
     c = canvas(fig, 0, 1, WMM, 62)
     letter(fig, 1, 1.5, 'a')
@@ -189,19 +209,19 @@ def figure1():
     xs = np.linspace(47, 121, len(kinds)); step = xs[1] - xs[0]; tw, th = step - 0.7, 3.6
     c.add_patch(FancyBboxPatch((xs[2] - 4.4, 1.2), xs[3] - xs[2] + 8.8, 17.6, boxstyle='round,pad=0,rounding_size=1.2',
                                fc='#fbe9e6', ec='none'))
-    c.text((xs[2] + xs[3]) / 2, 19.8, 'no cell division', ha='center', va='top', fontsize=4.8, color=RED, style='italic')
+    c.text((xs[2] + xs[3]) / 2, 19.8, 'no cell division', ha='center', va='top', fontsize=6, color=RED, style='italic')
     for x, k, n in zip(xs, kinds, names):
         embryo_icon(c, x, 6.2, k, r=3.3)
-        c.text(x, 10.6, n, ha='center', va='top', fontsize=5.0, linespacing=0.95)
-    c.text(5, 6.2, 'Mouse preimplantation\ndevelopment', ha='left', va='center', fontsize=5.8, fontweight='bold', linespacing=1.05)
+        c.text(x, 10.6, n, ha='center', va='top', fontsize=6, linespacing=0.95)
+    c.text(5, 6.2, 'Mouse preimplantation\ndevelopment', ha='left', va='center', fontsize=6, fontweight='bold', linespacing=1.05)
     yz, ym = 25.0, 29.6
-    c.text(5, yz, 'Zygotic genome activation', ha='left', va='center', fontsize=5.4, color=INK2)
-    c.text(5, ym, 'Maternal RNA remaining', ha='left', va='center', fontsize=5.4, color=INK2)
+    c.text(5, yz, 'Zygotic genome activation', ha='left', va='center', fontsize=6, color=INK2)
+    c.text(5, ym, 'Maternal RNA remaining', ha='left', va='center', fontsize=6, color=INK2)
     for i, x in enumerate(xs):
         if i in (1, 2):
-            tile(c, x, yz, tw, th, LRED, text='minor', fs_=4.6)
+            tile(c, x, yz, tw, th, LRED, text='minor', fs_=6)
         elif i == 3:
-            tile(c, x, yz, tw, th, RED, text='major', tc='white', fs_=4.6, bold=True)
+            tile(c, x, yz, tw, th, RED, text='major', tc='white', fs_=6, bold=True)
         else:
             tile(c, x, yz, tw, th, '#f3f3f3')
         alpha = [1.0, 0.85, 0.6, 0.32, 0.14, 0.05, 0, 0, 0][i]
@@ -209,19 +229,15 @@ def figure1():
     rows = [('Timing across species', 'Gate 1, 2a · Fig. 1b, d', range(0, 7), 'GSE225056\nmouse, pig, cow, rabbit', '#9a9a9a'),
             ('Replication', 'Gate 2b · Fig. 1c', range(1, 9), 'GSE45719 · single embryos', '#9a9a9a'),
             ('Replication', 'Gate 2b · Fig. S1', range(0, 6), 'GSE66582 · bulk', '#9a9a9a'),
-            ('Perturbation', 'Gates 3, 4 · Figs 2–5', (2, 3), 'six GEO series: A485 ± DUX,\nmaternal KOs, α-amanitin, Obox3, SCNT', INK)]
+            ('Perturbation', 'Gates 3, 4 · Figs 2–4', (2, 3), 'six GEO series: A485 ± DUX,\nmaternal KOs, α-amanitin, Obox3, SCNT', INK)]
     for r_, (role, gate, cover, name, col) in enumerate(rows):
         y = 37 + r_ * 6.4
-        c.text(5, y - 0.9, role, ha='left', va='center', fontsize=5.6, fontweight='bold')
-        c.text(5, y + 1.6, gate, ha='left', va='center', fontsize=4.8, color=MUTED)
+        c.text(5, y - 0.9, role, ha='left', va='center', fontsize=6, fontweight='bold')
+        c.text(5, y + 1.6, gate, ha='left', va='center', fontsize=6, color=MUTED)
         for i, x in enumerate(xs):
             tile(c, x, y, tw, th, col if i in cover else '#f3f3f3')
-        c.text(127, y, name, ha='left', va='center', fontsize=5.1, color=INK2, linespacing=1.0)
-    c.text(xs[0] - step / 2, 33.2, 'Datasets (shaded = stages sampled)', ha='left', va='center', fontsize=4.8, color=MUTED)
-    c.add_patch(FancyBboxPatch((127, 3), 38, 22, boxstyle='round,pad=0,rounding_size=1.2', fc='#f5f5f5', ec=GRID, lw=0.5))
-    c.text(129, 5.5, 'Readouts', ha='left', va='top', fontsize=5.6, fontweight='bold')
-    c.text(129, 9.3, '• multispecies transcriptomic clock\n  (Tyshkovskiy et al., 2026)\n• exact per-gene decomposition\n• SUPPA2 splicing (PSI)\n• plan frozen before every score',
-           ha='left', va='top', fontsize=4.9, color=INK2, linespacing=1.15)
+        c.text(127, y, name, ha='left', va='center', fontsize=6, color=INK2, linespacing=1.0)
+    c.text(xs[0] - step / 2, 33.2, 'Datasets (shaded = stages sampled)', ha='left', va='center', fontsize=6, color=MUTED)
 
     # ---- (b) four species ----------------------------------------------------------------------------
     E = rd('gate1_embryo_tage', index_col=0)
@@ -251,7 +267,7 @@ def figure1():
         ax.vlines(range(len(order)), los, his, color=INK, lw=0.9, zorder=3)
         ax.scatter(range(len(order)), means, s=9, marker='D', color=INK, zorder=4)
         ax.axhline(0, color=GRID, lw=0.6, zorder=1)
-        ax.set_xticks(range(len(order))); ax.set_xticklabels(labels, fontsize=5.1)
+        ax.set_xticks(range(len(order))); ax.set_xticklabels(labels, fontsize=6)
         ax.tick_params(axis='x', length=0)
         ax.set_xlim(-0.6, len(order) - 0.4); ax.set_ylim(-0.75, 0.42)
         if j:
@@ -260,12 +276,15 @@ def figure1():
             ax.set_ylabel('Transcriptomic age\nrelative to oocyte')
         g = I[I.species == sp]
         r = g.iloc[int(g.delta.values.argmin())]
-        ax.text(0.04, 0.04, f'{sp}\nlargest drop: {r.interval.replace("->", " → ").replace("Early-2-cell", "E2C").replace("Late-2-cell", "L2C").replace("Day3", "D3")}',
-                transform=ax.transAxes, fontsize=5, color=INK2, va='bottom')
-        ax.text((a0 + a1) / 2, 1.01, 'major ZGA', transform=ax.get_xaxis_transform(), ha='center', va='bottom', fontsize=4.8, color=INK2)
+        ax.text(0.04, 0.04, f'{sp}\n{r.interval.replace("->", " → ").replace("Early-2-cell", "E2C").replace("Late-2-cell", "L2C").replace("Day3", "D3")}',
+                bbox=dict(fc='white', ec='none', alpha=0.72, pad=1.0), zorder=6,
+                transform=ax.transAxes, fontsize=6, color=INK2, va='bottom')
+        if j == 0:
+            ax.text((a0 + a1) / 2, 1.01, 'major ZGA (literature)', transform=ax.get_xaxis_transform(),
+                    ha='center', va='bottom', fontsize=6, color=INK2)
         if j == 0:
             k = order.index('Late-2-cell')
-            ax.text(k - 0.5, 0.3, f'Δ {r.delta:+.2f}', ha='center', va='center', fontsize=5.4, color=RED, fontweight='bold')
+            ax.text(k - 0.5, 0.3, f'Δ {r.delta:+.2f}', ha='center', va='center', fontsize=6, color=RED, fontweight='bold')
         ygrid(ax)
 
     # ---- (c) GSE45719 ------------------------------------------------------------------------------------
@@ -278,7 +297,7 @@ def figure1():
     letter(fig, 1, 118, 'c')
     ax = axmm(fig, 16, 124, 80, 40)
     ax.axvspan(0.8, 3.2, color=BAND, lw=0, zorder=0)
-    ax.text(2.0, 1.01, 'two-cell stage', transform=ax.get_xaxis_transform(), ha='center', va='bottom', fontsize=4.8, color=INK2)
+    ax.text(2.0, 1.01, 'two-cell stage', transform=ax.get_xaxis_transform(), ha='center', va='bottom', fontsize=6, color=INK2)
     for col, colr, dx, lab in [('tAge_primary', INK, -0.12, 'all genes (V0)'), ('tAge_V2', BLUE, 0.12, 'maternal and zygotic genes removed (V2)')]:
         means, lo, hi = [], [], []
         for k, st in enumerate(ORDER):
@@ -292,44 +311,110 @@ def figure1():
     ax.axhline(0, color=GRID, lw=0.6)
     n = E2.groupby('stage').size().reindex(ORDER)
     ax.set_xticks(range(len(ORDER)))
-    ax.set_xticklabels([f'{l}\n{v}' for l, v in zip(LAB, n.values)], fontsize=5.1, linespacing=1.1)
+    ax.set_xticklabels([f'{l}\n{v}' for l, v in zip(LAB, n.values)], fontsize=6, linespacing=1.1)
     ax.tick_params(axis='x', length=0)
-    ax.text(-0.02, -0.075, 'n', transform=ax.transAxes, ha='right', va='top', fontsize=5.1, color=MUTED)
+    ax.text(-0.02, -0.075, 'n', transform=ax.transAxes, ha='right', va='top', fontsize=6, color=MUTED)
     ax.set_ylabel('Transcriptomic age\nrelative to zygote')
-    ax.text(0.99, 0.98, 'GSE45719 · one point per embryo', transform=ax.transAxes, ha='right', va='top', fontsize=5.2, color=INK2)
-    ax.legend(loc='lower left', fontsize=5.1)
+    ax.text(0.99, 0.98, 'GSE45719 · one point per embryo', transform=ax.transAxes, ha='right', va='top',
+            fontsize=6, color=INK2, bbox=dict(fc='white', ec='none', alpha=0.85, pad=1.0), zorder=6)
+    ax.legend(loc='lower left', fontsize=6)
     ygrid(ax)
 
     # ---- (d) composition ---------------------------------------------------------------------------------
     letter(fig, 104, 118, 'd')
     ax = axmm(fig, 118, 124, 47, 40)
     labels = ['V0', 'V1', 'V2', 'sim.']
-    for j, (sp, colr, ecol) in enumerate([('Mouse', INK, '#8c8c8c'), ('Cow', '#9a9a9a', INK)]):
+    for j, (sp, colr, mk) in enumerate([('Mouse', INK, 'D'), ('Cow', '#8c8c8c', 'o')]):
         z = R[(R.species == sp) & R.data_zga].set_index('variant')
         vals = [z.loc[v, ['delta', 'ci_lo', 'ci_hi']].values for v in ['V0_original', 'V1_drop_nonclock_dynamic', 'V2_drop_all_dynamic']]
         vals.append(S.loc[sp, ['delta_sim', 'ci_lo', 'ci_hi']].values)
-        x = np.arange(4) + (j - 0.5) * 0.34
+        x = np.arange(4) + (j - 0.5) * 0.22
         d = np.array([v[0] for v in vals]); lo_ = np.array([v[1] for v in vals]); hi_ = np.array([v[2] for v in vals])
         interval = R[(R.species == sp) & R.data_zga].interval.iloc[0].replace('->', ' → ').replace('Early-2-cell', 'E2C').replace('Late-2-cell', 'L2C')
-        ax.bar(x, d, width=0.3, color=colr, zorder=2, label=f'{sp}, {interval}')
-        ax.vlines(x, lo_, hi_, color=ecol, lw=0.7, zorder=3)
+        ax.vlines(x, lo_, hi_, color=colr, lw=0.9, zorder=3)
+        ax.scatter(x, d, s=11, marker=mk, color=colr, zorder=4, label=f'{sp}, {interval}')
     ax.axhline(0, color=INK2, lw=0.5)
-    ax.set_xticks(range(4)); ax.set_xticklabels(labels)
+    ax.set_xticks(range(4)); ax.set_xticklabels(labels); ax.set_xlim(-0.5, 3.5)
     ax.tick_params(axis='x', length=0)
     ax.set_ylim(-0.4, 0.0)
     ax.set_ylabel('Clock change in the ZGA interval')
-    ax.legend(loc='lower right', fontsize=5.0, handlelength=0.9)
-    ax.text(0.5, -0.2, 'V0 all genes · V1 non-clock dynamic genes removed\nV2 all dynamic genes removed · sim. maternal clearance only',
-            transform=ax.transAxes, ha='center', va='top', fontsize=4.8, color=MUTED)
+    ax.legend(loc='lower right', fontsize=6, handlelength=0.9)
+    ax.text(0.0, -0.10, 'V0 all genes\nV1 non-clock dynamic genes removed\nV2 all dynamic genes removed\nsim. maternal clearance only',
+            transform=ax.transAxes, ha='left', va='top', fontsize=6, color=MUTED)
     ygrid(ax)
-    fs.save(fig, 'Figure1', outdir=OUT)
+
+    # ---- (e) the matrix behind the trajectory -----------------------------------------------------------
+    letter(fig, 1, 176, 'e')
+    K = rd('figK_clock_matrix_mouse', index_col=0)
+    STG = ['Oocyte', 'Zygote', 'Early-2-cell', 'Late-2-cell', '4-cell', '8-cell', '16-cell']
+    SHORT = ['Oo', 'Zy', 'E2C', 'L2C', '4C', '8C', '16C']
+    # 927 of the 1,839 weighted genes are not detected in this dataset. Their rows are exactly zero and they
+    # contribute nothing to any value, so plotting them would spend half the panel on absent data; the count is
+    # given in the footnote and in Methods 4.4 instead. D holds the genes the dataset measures.
+    seen = ~(K[STG].values == 0).all(axis=1)
+    D = K[seen]
+    Z = D[STG].values
+    lim = float(np.nanpercentile(np.abs(Z), 98))
+    HM_X, HM_W, HM_Y, HM_H = 38, 42, 184, 42
+    ax = axmm(fig, HM_X, HM_Y, HM_W, HM_H)
+    ax.imshow(Z, aspect='auto', cmap=CMAP, vmin=-lim, vmax=lim, interpolation='nearest')
+    ax.set_xticks(range(len(STG))); ax.set_xticklabels(SHORT, fontsize=6)
+    ax.set_yticks([]); ax.tick_params(length=0)
+    for s in ax.spines.values():
+        s.set_visible(False)
+    ax.set_title(f'Preprocessed feature, mouse GSE225056 ({len(D):,} clock genes detected)',
+                 fontsize=6, pad=3, loc='left', color=INK2)
+
+    # row blocks labelled beside the map, not on it (the convention used in Figure 4a)
+    c = D.contribution_E2C_to_L2C.values
+    ndown = int((c < 0).sum())
+    blocks = [(0, ndown - 1, f'pushes the value\ndown (n = {ndown:,})'),
+              (ndown, len(D) - 1, f'pushes the value\nup (n = {len(D) - ndown:,})')]
+    cv = canvas(fig, 0, HM_Y, HM_X, HM_H)
+    cv.set_xlim(0, HM_X)
+    for r0, r1, lab in blocks:
+        ya = HM_H * (r0 / len(D)) + 0.3
+        yb = HM_H * ((r1 + 1) / len(D)) - 0.3
+        cv.plot([HM_X - 1.2, HM_X - 1.2], [ya, yb], color=INK2, lw=0.8)
+        cv.text(HM_X - 2.8, (ya + yb) / 2, lab, ha='right', va='center', fontsize=6, color=INK2,
+                linespacing=1.15)
+
+    axc = axmm(fig, HM_X + HM_W + 2, HM_Y, 12, HM_H)
+    axc.barh(np.arange(len(c)), c, height=1.0, color=[DOWNC if v < 0 else UPC for v in c], lw=0)
+    axc.axvline(0, color=INK2, lw=0.4)
+    axc.set_ylim(len(c) - 0.5, -0.5); axc.set_yticks([])
+    axc.set_xlim(-0.012, 0.012); axc.set_xticks([-0.01, 0, 0.01])
+    axc.tick_params(labelsize=6, length=1.5)
+    axc.set_xlabel('Contribution\nE2C → L2C')
+    for s in ('top', 'right', 'left'):
+        axc.spines[s].set_visible(False)
+
+    axv = axmm(fig, 108, 184, 40, 30)
+    val = (K[STG].T * K.coefficient).T.sum()
+    axv.plot(range(len(STG)), val - val.iloc[0], color=INK, lw=1.2, marker='D', ms=3.4, zorder=3)
+    axv.axhline(0, color=GRID, lw=0.6)
+    axv.axvspan(2, 3, color=BAND, lw=0, zorder=0)
+    axv.set_xticks(range(len(STG))); axv.set_xticklabels(SHORT, fontsize=6)
+    axv.set_ylabel('Clock value\n(relative to oocyte)')
+    axv.set_title('Their coefficient-weighted sum', fontsize=6, pad=3, loc='left', color=INK2)
+    ygrid(axv)
+    dn, up = c[c < 0].sum(), c[c > 0].sum()
+    fig.text(24 / WMM, 1 - 236 / fig._hmm,
+             'Each column of the heat map is a stage mean of the preprocessed feature; the clock value of that stage is that\n'
+             'column weighted by the clock coefficients and summed. Rows are ordered by their contribution to the\n'
+             f'early-to-late two-cell change, which is {val.iloc[3] - val.iloc[2]:+.2f} = {dn:.2f} (down) {up:+.2f} (up). The remaining '
+             f'{int((~seen).sum())} of the 1,839 weighted\nclock genes are not detected in this dataset; they are median-imputed '
+             'by the clock pipeline, contribute nothing to\nany difference, and are not plotted.',
+             fontsize=6, color=MUTED, va='top')
+
+    save(fig, 'Figure1', OUT)
 
 
 # =====================================================================================================
 def figure2():
     L = rd('fig2b_clock_per_library')
     A = rd('gate3_arm_drops')
-    fig = newfig(124)
+    fig = newfig(132)
     # ---- (a) schematic --------------------------------------------------------------------------------
     c = canvas(fig, 0, 1, WMM, 56)
     letter(fig, 1, 1.5, 'a')
@@ -337,15 +422,15 @@ def figure2():
     xs = [52, 66, 80, 94]; tw, th = 12.6, 3.3
     for x, (k, n) in zip(xs, cols):
         embryo_icon(c, x, 5.2, k, r=3.0)
-        c.text(x, 9.4, n, ha='center', va='top', fontsize=5.0)
+        c.text(x, 9.4, n, ha='center', va='top', fontsize=6)
     blocks = [('P1 · GSE280522', 'drug added to zygotes', [('DMSO', 'vehicle', 1), ('A485', 'A485', 1), ('A485+Dux', 'A485 + DUX', 1)]),
               ('P2 · GSE221985', 'maternal knockout', [('control', 'Control', 0), ('Tardbp_matKO', 'Maternal Tardbp KO', 0)]),
               ('P3 · GSE300734', 'maternal knockout', [('control', 'WT', 0), ('Brg1_matKO', 'Maternal Brg1 KO', 0)])]
     y = 16.5
     for name, how, arms in blocks:
         yc = y + 1.95 * (len(arms) - 1)
-        c.text(5, yc - 1.1, name, ha='left', va='center', fontsize=5.6, fontweight='bold')
-        c.text(5, yc + 1.5, how, ha='left', va='center', fontsize=4.8, color=MUTED)
+        c.text(5, yc - 1.1, name, ha='left', va='center', fontsize=6, fontweight='bold')
+        c.text(5, yc + 1.5, how, ha='left', va='center', fontsize=6, color=MUTED)
         for k, (arm, lab, start) in enumerate(arms):
             yy = y + k * 3.9
             col = '#d9d9d9' if arm in ('DMSO', 'control') else ROLE[arm]
@@ -353,49 +438,48 @@ def figure2():
                 tile(c, x, yy, tw, th, col if i >= start else '#f3f3f3')
                 if i >= 2:
                     c.plot(x, yy, 'o', ms=2.6, color='white' if col not in ('#d9d9d9', '#f3f3f3') else INK, mec=INK, mew=0.4)
-            c.text(102, yy, lab, ha='left', va='center', fontsize=5.1)
+            c.text(102, yy, lab, ha='left', va='center', fontsize=6)
         y += 3.9 * len(arms) + 2.6
     c.plot(46.5, 51.5, 'o', ms=2.6, color=INK)
-    c.text(48.3, 51.5, 'library collected', ha='left', va='center', fontsize=4.8, color=MUTED)
-    tile(c, 72, 51.5, 5, 2.4, AMBER); c.text(75.3, 51.5, 'perturbation present', ha='left', va='center', fontsize=4.8, color=MUTED)
-    tile(c, 100, 51.5, 5, 2.4, '#d9d9d9'); c.text(103.3, 51.5, 'no perturbation', ha='left', va='center', fontsize=4.8, color=MUTED)
-    c.add_patch(FancyBboxPatch((135, 5), 30, 31, boxstyle='round,pad=0,rounding_size=1.2', fc='#f5f5f5', ec=GRID, lw=0.5))
-    c.text(137, 7.5, 'Drop per arm', fontsize=5.5, fontweight='bold', va='top')
-    c.text(137, 11.2, 'D = mean(L2C) − mean(E2C)', fontsize=5.0, va='top')
-    c.text(137, 16.5, 'Interaction', fontsize=5.5, fontweight='bold', va='top')
-    c.text(137, 20.2, 'I = D(perturbed) − D(control)', fontsize=5.0, va='top')
-    c.text(137, 25.5, 'I > 0: smaller decrease', fontsize=5.0, va='top', color=INK2)
-    c.text(137, 29.5, 'R = D(A485 + DUX) − D(A485)', fontsize=5.0, va='top', color=INK2)
-    c.text(135, 41, 'Libraries per group: 2–4 after\nprespecified QC (3 of 76 excluded)', fontsize=4.8, va='center', color=MUTED)
+    c.text(48.3, 51.5, 'library collected', ha='left', va='center', fontsize=6, color=MUTED)
+    tile(c, 72, 51.5, 5, 2.4, AMBER); c.text(75.3, 51.5, 'perturbation present', ha='left', va='center', fontsize=6, color=MUTED)
+    tile(c, 100, 51.5, 5, 2.4, '#d9d9d9'); c.text(103.3, 51.5, 'no perturbation', ha='left', va='center', fontsize=6, color=MUTED)
+    c.text(133, 8, 'Libraries per group:\n2–4 after prespecified QC\n(3 of 76 excluded)', fontsize=6, va='top', color=MUTED)
 
     # ---- (b) library points with D and I --------------------------------------------------------------
     letter(fig, 1, 60, 'b')
-    fig.legend(handles=stage_handles() + arm_handles([('control', 'control'), ('A485', 'ZGA-blocking arm'), ('A485+Dux', 'A485 + DUX')]),
-               loc='center', bbox_to_anchor=(0.55, 1 - 62 / fig._hmm), ncol=5, fontsize=5.1, handlelength=1.0)
+    fig.legend(handles=stage_handles() + arm_handles([('control', 'control'), ('A485', 'perturbed arm (A485 or maternal KO)'), ('A485+Dux', 'A485 + DUX')]),
+               loc='center', bbox_to_anchor=(0.55, 1 - 62 / fig._hmm), ncol=5, fontsize=6, handlelength=1.0)
     specs = [('GSE280522', ['control', 'A485', 'A485+Dux'], 17, 44), ('GSE221985', ['control', 'Tardbp_matKO'], 77, 30),
              ('GSE300734', ['control', 'Brg1_matKO'], 124, 30)]
     IKEY = {'A485': 'INTERACTION A485 - control', 'A485+Dux': 'INTERACTION A485+Dux - control',
             'Tardbp_matKO': 'INTERACTION Tardbp_matKO - control', 'Brg1_matKO': 'INTERACTION Brg1_matKO - control'}
+    ylo = min(L[L.gse == g].tAge.min() for g, _, _, _ in specs)
+    yhi = max(L[L.gse == g].tAge.max() for g, _, _, _ in specs)
+    pad = 0.08 * (yhi - ylo)
     for j, (gse, arms, x0, w) in enumerate(specs):
         ax = axmm(fig, x0, 70, w, 34)
         arm_strip(ax, L[L.gse == gse], 'tAge', arms, d_text=True)
+        ax.set_ylim(ylo - pad, yhi + pad)
+        if j:
+            ax.set_yticklabels([])
         ax.axhline(0, color=GRID, lw=0.6, zorder=0)
-        ax.set_title(DS[gse], fontsize=5.6, fontweight='bold', pad=9, loc='left')
+        ax.set_title(DS[gse], fontsize=6, fontweight='bold', pad=9, loc='left')
         for i, arm in enumerate(arms):
             if arm == 'control':
                 continue
             r = A[(A.gse == gse) & (A.variant == 'V0') & (A.arm == IKEY[arm])].iloc[0]
-            ax.text(i, -0.2, f"I {r['drop']:+.2f}\n[{r.ci_lo:.2f}, {r.ci_hi:.2f}]", transform=ax.get_xaxis_transform(),
-                    ha='center', va='top', fontsize=4.8, color=ROLE[arm], linespacing=1.1)
+            ax.text(i, -0.2 - 0.17 * ((i - 1) % 2), f"I {r['drop']:+.2f}\n[{r.ci_lo:.2f}, {r.ci_hi:.2f}]", transform=ax.get_xaxis_transform(),
+                    ha='center', va='top', fontsize=6, color=ROLE[arm], linespacing=1.1)
         if j == 0:
             ax.set_ylabel('Transcriptomic age\n(relative to control E2C)')
         ygrid(ax)
     rr = A[(A.gse == 'GSE280522') & (A.variant == 'V0') & (A.arm == 'RESCUE A485+Dux - A485')].iloc[0]
-    fig.text(17 / WMM, 1 - 116 / fig._hmm,
+    fig.text(17 / WMM, 1 - 123 / fig._hmm,
              f"D, drop per arm (late − early two-cell mean). I, interaction against the control arm of the same dataset, with 95% bootstrap "
              f"interval (2,000 replicates).\nR = D(A485 + DUX) − D(A485) = {rr['drop']:+.3f} [{rr.ci_lo:.3f}, {rr.ci_hi:.3f}]. "
-             f"Values with dynamic genes removed (V2) are in Table 2.", fontsize=4.8, color=MUTED, va='top', linespacing=1.3)
-    fs.save(fig, 'Figure2', outdir=OUT)
+             f"Interactions with dynamic genes removed (V2) are given in Section 2.3;\nper-library V2 values are in Table S2.", fontsize=6, color=MUTED, va='top', linespacing=1.3)
+    save(fig, 'Figure2', OUT)
 
 
 # =====================================================================================================
@@ -408,7 +492,7 @@ def figure3():
     Mc = rd('fig4a_heatmap_columns')
     Zs = rd('fig4b_zygotic_score_per_library')
     RC = rd('posthoc_rescue_contributions', index_col=0)
-    fig = newfig(224)
+    fig = newfig(228)
     # ---- (a) ranked contributions and their running sum ------------------------------------------------
     letter(fig, 1, 1, 'a')
     d1 = CC[CC.series == 'P1_control'].reset_index(drop=True)
@@ -418,26 +502,27 @@ def figure3():
     ax0.axhline(0, color=INK2, lw=0.4)
     ax0.set_xlim(0, len(d1) + 1); ax0.set_xticks([])
     ax0.yaxis.set_major_locator(matplotlib.ticker.MaxNLocator(2))
-    ax0.set_ylabel('Contribution\nper gene', fontsize=5.0)
+    ax0.set_ylabel('Contribution\nper gene', fontsize=6)
     ax0.spines['bottom'].set_visible(False)
     ax0.text(0.99, 0.92, 'P1 GSE280522, control arm · 1,839 clock genes', transform=ax0.transAxes, ha='right', va='top',
-             fontsize=4.9, color=INK2)
-    ax = axmm(fig, 17, 17, 63, 37)
+             fontsize=6, color=INK2)
+    ax0.set_title('What the control decrease is made of', fontsize=6, fontweight='bold', pad=3, loc='left')
+    ax = axmm(fig, 17, 17, 63, 33)
     m1, e1 = d1.loc[d1.cumulative.idxmin()], d1.iloc[-1]
     m3, e3 = d3.loc[d3.cumulative.idxmin()], d3.iloc[-1]
     ax.plot(d1['rank'], d1.cumulative, color=INK, lw=1.3, zorder=3, label=f'P1 GSE280522 ({m1.cumulative:.2f} → {e1.cumulative:.2f})')
     ax.plot(d3['rank'], d3.cumulative, color=MUTED, lw=1.1, ls=(0, (3, 1.5)), zorder=2, label=f'P3 GSE300734 ({m3.cumulative:.2f} → {e3.cumulative:.2f})')
     ax.axhline(0, color=GRID, lw=0.6)
     ax.annotate(f'{m1.cumulative:.2f}\nsum of the downward\ncontributions', (m1['rank'], m1.cumulative), xytext=(30, 12),
-                textcoords='offset points', ha='left', va='bottom', fontsize=4.8, color=INK,
+                textcoords='offset points', ha='left', va='bottom', fontsize=6, color=INK,
                 arrowprops=dict(arrowstyle='-', lw=0.4, color=MUTED))
     ax.annotate(f'{e1.cumulative:.2f}\nreported change', (e1['rank'], e1.cumulative), xytext=(-10, 9),
-                textcoords='offset points', ha='right', va='bottom', fontsize=4.8, color=INK,
+                textcoords='offset points', ha='right', va='bottom', fontsize=6, color=INK,
                 arrowprops=dict(arrowstyle='-', lw=0.4, color=MUTED))
     ax.set_xlim(0, len(d1) + 1); ax.set_ylim(-1.75, 0.3)
     ax.set_xlabel('Clock genes, ranked from the most negative to the most positive contribution')
-    ax.set_ylabel('Running sum of contributions\n(= clock change, late − early two-cell)')
-    ax.legend(loc='upper center', bbox_to_anchor=(0.56, 0.99), fontsize=4.8, handlelength=1.6)
+    ax.set_ylabel('Running sum of\ncontributions')
+    ax.legend(loc='upper center', bbox_to_anchor=(0.42, 0.99), fontsize=6, handlelength=1.4, borderaxespad=0.2)
     ygrid(ax)
 
     # ---- (b) largest contributors, control vs A485 -----------------------------------------------------
@@ -447,20 +532,20 @@ def figure3():
     yy = np.arange(len(top))
     ax.barh(yy + 0.19, top.c_control, height=0.36, color=INK, zorder=2, label='control')
     ax.barh(yy - 0.19, top.c_perturbed, height=0.36, color=AMBER, zorder=2, label='A485')
-    ax.set_yticks(yy); ax.set_yticklabels(top.symbol, fontsize=5.2, style='italic'); ax.tick_params(axis='y', length=0)
+    ax.set_yticks(yy); ax.set_yticklabels(top.symbol, fontsize=6, style='italic'); ax.tick_params(axis='y', length=0)
     ax.axvline(0, color=INK2, lw=0.5)
     ax.set_xlim(-0.036, 0.006); ax.set_ylim(-0.7, len(top) - 0.3)
     ax.set_xlabel('Contribution to the clock change')
     ax.spines['left'].set_visible(False)
-    ax.legend(loc='lower left', fontsize=5.0)
-    ax.text(0.0, 1.008, 'P1 GSE280522 · 20 largest downward contributors', transform=ax.transAxes, fontsize=5, color=INK2, va='bottom')
+    ax.legend(loc='lower left', fontsize=6)
+    ax.text(0.0, 1.008, '20 largest downward contributors, P1', transform=ax.transAxes, fontsize=6, color=INK2, va='bottom')
     for y, v in zip(yy, top.log2FC_control_L2C_vs_E2C):
-        ax.text(1.02, y, f'{v:+.1f}', transform=ax.get_yaxis_transform(), fontsize=4.7, color=INK2, va='center')
-    ax.text(1.02, len(top) - 0.35, 'log2FC', transform=ax.get_yaxis_transform(), fontsize=4.6, color=MUTED, va='bottom')
+        ax.text(1.02, y, f'{v:+.1f}', transform=ax.get_yaxis_transform(), fontsize=6, color=INK2, va='center')
+    ax.text(1.02, len(top) - 0.35, 'log2FC', transform=ax.get_yaxis_transform(), fontsize=6, color=MUTED, va='bottom')
 
     # ---- (c) P1 vs P3 ------------------------------------------------------------------------------------
-    letter(fig, 1, 58, 'c')
-    ax = axmm(fig, 17, 63, 40, 40)
+    letter(fig, 1, 54, 'c')
+    ax = axmm(fig, 17, 59, 38, 38)
     j = T[['c_control', 'symbol']].join(T3[['c_control']], rsuffix='_P3', how='inner')
     r_all = j[['c_control', 'c_control_P3']].corr().iloc[0, 1]
     j = j[(j.c_control != 0) | (j.c_control_P3 != 0)]
@@ -470,31 +555,28 @@ def figure3():
     offs = {'Klf9': (4, -5), 'Neto2': (-22, 2), 'Pi4k2a': (4, -8), 'Smyd2': (4, 3)}
     for _, r in lab.iterrows():
         ax.annotate(r.symbol, (r.c_control, r.c_control_P3), xytext=offs.get(r.symbol, (4, 2)), textcoords='offset points',
-                    fontsize=5.0, style='italic', arrowprops=dict(arrowstyle='-', lw=0.4, color=MUTED))
+                    fontsize=6, style='italic', arrowprops=dict(arrowstyle='-', lw=0.4, color=MUTED))
     lim = 0.038
     ax.axhline(0, color=GRID, lw=0.5, zorder=1); ax.axvline(0, color=GRID, lw=0.5, zorder=1)
     ax.plot([-lim, lim], [-lim, lim], color=GRID, lw=0.5, ls='--', zorder=1)
     ax.set_xlim(-lim, lim); ax.set_ylim(-lim, lim)
     ax.set_xticks([-0.03, 0, 0.03]); ax.set_yticks([-0.03, 0, 0.03])
-    ax.text(0.04, 0.97, f'Pearson r = {r_all:.2f}\n1,839 clock genes\n28 of the top 50 shared', transform=ax.transAxes, va='top', fontsize=5.0, color=INK2)
+    ax.text(0.04, 0.97, f'Pearson r = {r_all:.2f}\n1,839 clock genes\n28 of the top 50 shared', transform=ax.transAxes, va='top', fontsize=6, color=INK2)
     ax.set_xlabel('Contribution, P1 (A485 study)')
     ax.set_ylabel('Contribution, P3 (Brg1 study)')
-    fig.text(63 / WMM, 1 - 66 / fig._hmm,
-             'Contribution of a gene =\nclock coefficient × change in its\npreprocessed expression between\nlate and early two-cell libraries.\nThe contributions of all genes\nadd up exactly to the clock\nchange of the arm.',
-             fontsize=4.8, color=MUTED, va='top', linespacing=1.25)
 
     # ---- (d) heat map of the zygotic set and 2C/DUX markers ------------------------------------------------
-    letter(fig, 1, 108, 'd')
+    letter(fig, 1, 102, 'd')
     order, groups = [], []
     for arm in ['control', 'A485', 'A485+Dux']:
         for st in ['E2C', 'L2C']:
             runs = list(Mc[(Mc.arm == arm) & (Mc.stage == st)].run)
             groups.append((arm, st, len(runs)))
             order += runs
-    ax = axmm(fig, 50, 118, 100, 56)
+    ax = axmm(fig, 50, 112, 100, 66)
     M = H[order].values
     im = ax.imshow(np.clip(M, -2.5, 2.5), aspect='auto', cmap=CMAP, vmin=-2.5, vmax=2.5, interpolation='nearest')
-    ax.set_yticks(range(len(H))); ax.set_yticklabels([short(s) for s in H.symbol], fontsize=4.8, style='italic')
+    ax.set_yticks(range(len(H))); ax.set_yticklabels([short(s) for s in H.symbol], fontsize=6, style='italic')
     ax.tick_params(axis='y', length=0, pad=1.5)
     ax.set_xticks([])
     for s in ax.spines.values():
@@ -503,7 +585,7 @@ def figure3():
     ax.axhline(nz - 0.5, color='white', lw=1.8)
     pos = 0
     for i, (arm, st, n) in enumerate(groups):
-        ax.text(pos + n / 2 - 0.5, -0.8, st, ha='center', va='bottom', fontsize=5.2)
+        ax.text(pos + n / 2 - 0.5, -0.8, st, ha='center', va='bottom', fontsize=6)
         if i < len(groups) - 1:
             ax.axvline(pos + n - 0.5, color='white', lw=2.4 if st == 'L2C' else 0.9)
         pos += n
@@ -511,35 +593,35 @@ def figure3():
     for arm in ['control', 'A485', 'A485+Dux']:
         n = int((Mc.arm == arm).sum())
         ax.add_patch(Rectangle((pos - 0.45, -3.3), n - 0.1, 1.15, color=ROLE[arm], clip_on=False))
-        ax.text(pos + n / 2 - 0.5, -2.7, LABEL[arm], ha='center', va='center', fontsize=5.4, color='white', fontweight='bold', clip_on=False)
+        ax.text(pos + n / 2 - 0.5, -2.7, LABEL[arm], ha='center', va='center', fontsize=6, color='white', fontweight='bold', clip_on=False)
         pos += n
     ax.set_xlim(-0.5, len(order) - 0.5); ax.set_ylim(len(H) - 0.5, -0.5)
-    c = canvas(fig, 0, 118, 30, 56)
+    c = canvas(fig, 0, 112, 30, 66)
     c.set_xlim(0, 30)
     for y0, y1, lab in [(0, nz - 1, f'Zygotic set\n(n = {nz}, defined\nin the control arm)'),
                         (nz, len(H) - 1, f'Two-cell and\nDUX-target genes\n(n = {len(H) - nz})')]:
-        ya, yb = 56 * (y0 / len(H)) + 0.3, 56 * ((y1 + 1) / len(H)) - 0.3
+        ya, yb = 66 * (y0 / len(H)) + 0.3, 66 * ((y1 + 1) / len(H)) - 0.3
         c.plot([27.5, 27.5], [ya, yb], color=INK2, lw=0.8)
-        c.text(26, (ya + yb) / 2, lab, ha='right', va='center', fontsize=5.0, color=INK2, linespacing=1.15)
-    cax = axmm(fig, 153, 120, 2.2, 20)
-    cb = fig.colorbar(im, cax=cax); cb.ax.tick_params(labelsize=5, length=1.5); cb.outline.set_visible(False)
-    cb.set_label('z-score, log2(CPM + 1)', fontsize=5.0)
-    fig.text(50 / WMM, 1 - 176 / fig._hmm, 'P1 GSE280522 · one column per library · each gene z-scored across the 23 libraries',
-             fontsize=4.8, color=MUTED, va='top')
+        c.text(26, (ya + yb) / 2, lab, ha='right', va='center', fontsize=6, color=INK2, linespacing=1.15)
+    cax = axmm(fig, 153, 114, 2.2, 20)
+    cb = fig.colorbar(im, cax=cax); cb.ax.tick_params(labelsize=6, length=1.5); cb.outline.set_visible(False)
+    cb.set_label('z-score, log2(CPM + 1)', fontsize=6)
+    fig.text(50 / WMM, 1 - 180 / fig._hmm, 'P1 GSE280522 · one column per library · each gene z-scored across the 23 libraries',
+             fontsize=6, color=MUTED, va='top')
 
     # ---- (e) zygotic score ----------------------------------------------------------------------------
-    letter(fig, 1, 180, 'e')
-    ax = axmm(fig, 18, 184, 44, 31)
+    letter(fig, 1, 184, 'e')
+    ax = axmm(fig, 18, 190, 44, 27)
     arm_strip(ax, Zs, 'zygotic_score', ['control', 'A485', 'A485+Dux'], ms=8)
     ax.set_ylabel('Zygotic-set score,\nmean log2(CPM + 1)')
     ax.set_ylim(0, 4.3)
-    ax.text(0.0, 1.03, 'A485 + DUX − A485 (L2C): +1.67 (1.14–2.04)', transform=ax.transAxes, fontsize=4.8, color=INK2, va='bottom')
-    ax.legend(handles=stage_handles(), loc='upper right', fontsize=4.6, handlelength=0.8, borderaxespad=0.2)
+    ax.text(0.0, 1.03, 'A485 + DUX − A485 (L2C): +1.67 (1.14–2.04)', transform=ax.transAxes, fontsize=6, color=INK2, va='bottom')
+    ax.legend(handles=stage_handles(), loc='upper right', fontsize=6, handlelength=0.8, borderaxespad=0.2)
     ygrid(ax)
 
     # ---- (f) running sums of the same genes in the three arms --------------------------------------------
-    letter(fig, 80, 180, 'f')
-    ax = axmm(fig, 94, 184, 66, 31)
+    letter(fig, 80, 184, 'f')
+    ax = axmm(fig, 94, 190, 66, 27)
     nneg = int((RC['control'] < 0).sum())
     offs = {'control': -0.09, 'A485': 0.13, 'A485+Dux': 0.0}
     for series, arm, lab in [('P1_control', 'control', 'Control'), ('P1_A485_ctrlorder', 'A485', 'A485'),
@@ -547,17 +629,20 @@ def figure3():
         d = CC[CC.series == series]
         ax.plot(d['rank'], d.cumulative, color=ROLE[arm], lw=1.2, label=lab, zorder=3)
         v = float(d[d['rank'] == nneg].cumulative.iloc[0]); e = float(d.cumulative.iloc[-1])
-        ax.text(nneg + 22, v + 0.05, f'{v:.2f}', ha='left', va='bottom', fontsize=4.7, color=ROLE[arm])
-        ax.text(len(d) + 14, e + offs[arm], f'{e:.2f}', ha='left', va='center', fontsize=4.7, color=ROLE[arm])
+        ax.text(nneg + 22, v + 0.05, f'{v:.2f}', ha='left', va='bottom', fontsize=6, color=ROLE[arm])
+        ax.text(len(d) + 14, e + offs[arm], f'{e:.2f}', ha='left', va='center', fontsize=6, color=ROLE[arm])
     ax.axvline(nneg, color=GRID, lw=0.6, ls=(0, (2, 2)), zorder=1)
     ax.axhline(0, color=GRID, lw=0.6, zorder=1)
-    ax.text(nneg + 18, 0.22, f'the {nneg} genes with a negative\ncontribution in the control arm', fontsize=4.6, color=MUTED, va='top')
+    ax.text(nneg + 18, 0.22, f'the {nneg} genes with a negative\ncontribution in the control arm', fontsize=6, color=MUTED, va='top')
+    ax.set_title('What the perturbed and rescued arms do to those same genes', fontsize=6, fontweight='bold',
+                 pad=13, loc='left')
     ax.set_xlim(0, 1839 + 150); ax.set_ylim(-1.6, 0.3)
     ax.set_xlabel('Clock genes in control order (most negative contribution first)')
     ax.set_ylabel('Running sum of\ncontributions')
-    ax.legend(loc='lower right', fontsize=4.8, handlelength=1.6)
+    ax.legend(loc='lower center', bbox_to_anchor=(0.5, 1.01), ncol=3, fontsize=6, handlelength=1.2,
+              frameon=False, columnspacing=1.4, borderaxespad=0, handletextpad=0.5)
     ygrid(ax)
-    fs.save(fig, 'Figure3', outdir=OUT)
+    save(fig, 'Figure3', OUT)
 
 
 
@@ -570,7 +655,7 @@ def figure4():
     DP = rd('fig5b_dpsi_per_arm_P1')
     specs = [('GSE280522', ['control', 'A485', 'A485+Dux']), ('GSE221985', ['control', 'Tardbp_matKO']),
              ('GSE300734', ['control', 'Brg1_matKO'])]
-    fig = newfig(152)
+    fig = newfig(186)
     # ---- (a) PSI heat map of the control-defined events -----------------------------------------------
     letter(fig, 1, 2, 'a')
     order, groups = [], []
@@ -590,7 +675,7 @@ def figure4():
     ax.axhline(npos - 0.5, color='white', lw=1.5)
     pos = 0
     for i, (arm, st, n) in enumerate(groups):
-        ax.text(pos + n / 2 - 0.5, -0.5 - 0.004 * len(PS), st, ha='center', va='bottom', fontsize=5.3)
+        ax.text(pos + n / 2 - 0.5, -0.5 - 0.004 * len(PS), st, ha='center', va='bottom', fontsize=6)
         if i < len(groups) - 1:
             ax.axvline(pos + n - 0.5, color='white', lw=2.4 if st == 'L2C' else 0.9)
         pos += n
@@ -599,7 +684,7 @@ def figure4():
     for arm in ['control', 'A485', 'A485+Dux']:
         n = int((Mc.arm == arm).sum())
         ax.add_patch(Rectangle((pos - 0.45, -0.5 - hdr), n - 0.1, 0.42 * hdr, color=ROLE[arm], clip_on=False))
-        ax.text(pos + n / 2 - 0.5, -0.5 - 0.79 * hdr, LABEL[arm], ha='center', va='center', fontsize=5.5, color='white',
+        ax.text(pos + n / 2 - 0.5, -0.5 - 0.79 * hdr, LABEL[arm], ha='center', va='center', fontsize=6, color='white',
                 fontweight='bold', clip_on=False)
         pos += n
     ax.set_xlim(-0.5, len(order) - 0.5); ax.set_ylim(len(PS) - 0.5, -0.5)
@@ -608,16 +693,17 @@ def figure4():
     for y0, y1, lab in [(0, npos - 1, f'PSI rises in\ncontrol\n(n = {npos})'), (npos, len(PS) - 1, f'PSI falls in\ncontrol\n(n = {len(PS) - npos})')]:
         ya, yb = 56 * (y0 / len(PS)) + 0.3, 56 * ((y1 + 1) / len(PS)) - 0.3
         c.plot([23, 23], [ya, yb], color=INK2, lw=0.8)
-        c.text(21.5, (ya + yb) / 2, lab, ha='right', va='center', fontsize=5.2, color=INK2, linespacing=1.15)
+        c.text(21.5, (ya + yb) / 2, lab, ha='right', va='center', fontsize=6, color=INK2, linespacing=1.15)
     cax = axmm(fig, 122, 16, 2.2, 22)
-    cb = fig.colorbar(im, cax=cax); cb.ax.tick_params(labelsize=5, length=1.5); cb.outline.set_visible(False)
-    cb.set_label('PSI, z-score per event', fontsize=5.1)
-    fig.text(26 / WMM, 1 - 72 / fig._hmm, f'P1 GSE280522 · {len(PS)} splicing-activation events defined on the control arm · one column per library',
-             fontsize=4.9, color=MUTED, va='top')
+    cb = fig.colorbar(im, cax=cax); cb.ax.tick_params(labelsize=6, length=1.5); cb.outline.set_visible(False)
+    cb.set_label('PSI, z-score per event', fontsize=6)
+    fig.text(26 / WMM, 1 - 72 / fig._hmm, f'P1 GSE280522 · {len(PS)} splicing-activation events defined on the control arm · one column per library\n'
+             f'selection: |ΔPSI| ≥ 0.10 and gene-corrected p < 0.05, control late vs early two-cell',
+             fontsize=6, color=MUTED, va='top')
 
     # ---- (b) distribution of the per-event change per arm ------------------------------------------------
     letter(fig, 132, 2, 'b')
-    ax = axmm(fig, 141, 14, 23, 52)
+    ax = axmm(fig, 139, 14, 24, 52)
     meds = []
     for arm, lab in [('control', 'Control'), ('A485', 'A485'), ('A485+Dux', 'A485 + DUX')]:
         v = np.sort(DP[DP.arm == arm].dPSI_oriented.values)
@@ -626,19 +712,20 @@ def figure4():
     ax.axvline(0, color=MUTED, lw=0.6, zorder=1); ax.axhline(0.5, color=GRID, lw=0.5, zorder=1)
     ax.set_xlim(-0.6, 1.0); ax.set_ylim(0, 1.0)
     ax.set_xticks([-0.5, 0, 0.5, 1.0])
-    ax.set_xlabel('ΔPSI, late − early two-cell\n(oriented by the control change)')
+    ax.set_xlabel('ΔPSI, late − early two-cell\n(oriented to control)')
     ax.set_ylabel('Fraction of events')
     bb = dict(fc='white', ec='none', pad=0.6)
-    ax.text(0.05, 0.985, 'median ΔPSI', transform=ax.transAxes, fontsize=4.6, color=MUTED, va='top', bbox=bb, zorder=5)
+    ax.text(0.05, 0.985, 'median ΔPSI', transform=ax.transAxes, fontsize=6, color=MUTED, va='top', bbox=bb, zorder=5)
     for k, (lab, m, col) in enumerate(meds):
-        ax.text(0.05, 0.925 - 0.068 * k, f'{m:.2f}  {lab}', transform=ax.transAxes, fontsize=4.7, color=col, va='top', bbox=bb, zorder=5)
+        ax.text(0.05, 0.925 - 0.068 * k, f'{m:.2f}  {lab}', transform=ax.transAxes, fontsize=6, color=col, va='top', bbox=bb, zorder=5)
     ygrid(ax)
 
     # ---- (c) per-library progression ------------------------------------------------------------------
     letter(fig, 1, 80, 'c')
     ax = axmm(fig, 17, 86, 86, 44)
-    fig.legend(handles=stage_handles() + arm_handles([('control', 'control'), ('A485', 'ZGA-blocking arm'), ('A485+Dux', 'A485 + DUX')]),
-               loc='center', bbox_to_anchor=(60 / WMM, 1 - 141 / fig._hmm), ncol=5, fontsize=5.0, handlelength=1.0)
+    fig.legend(handles=stage_handles() + arm_handles([('control', 'control'), ('A485', 'perturbed arm (A485 or maternal KO)'), ('A485+Dux', 'A485 + DUX')]),
+               loc='center left', bbox_to_anchor=(2 / WMM, 1 - 141 / fig._hmm), ncol=5, fontsize=6,
+               handlelength=1.0, columnspacing=1.0)
     x, centers = 0.0, []
     for gse, arms in specs:
         d = G[G.gse == gse]
@@ -680,17 +767,54 @@ def figure4():
     ax.set_ylim(-0.5, 1.5); ax.set_xlim(-0.62, 0.62)
     ax.set_xlabel('Difference in progression, per fold (P1)')
     ax.spines['left'].set_visible(False)
-    ax.text(-0.55, -0.3, 'one point per cross-fitted fold (n = 16); bar = mean\nred outline: folds in which A485 was not below control',
-            transform=ax.transAxes, fontsize=4.7, color=MUTED, va='top')
+    ax.text(-0.3, -0.3, 'one point per cross-fitted fold (n = 16); bar = mean\nred outline: folds in which A485 was not below control',
+            transform=ax.transAxes, fontsize=6, color=MUTED, va='top')
     ax.grid(axis='x', color=GRID, lw=0.4); ax.set_axisbelow(True)
-    fs.save(fig, 'Figure4', outdir=OUT)
+
+    # ---- (e) which kinds of event the control arm activates ---------------------------------------------
+    letter(fig, 1, 142, 'e')
+    ax = axmm(fig, 30, 150, 62, 28)
+    V = rd('figS8_volcano_events')
+    TYPES = [('SE', 'skipped exon'), ('AF', 'alt. first exon'), ('A5', "alt. 5′ site"), ('A3', "alt. 3′ site"),
+             ('AL', 'alt. last exon'), ('RI', 'retained intron'), ('MX', 'mutually excl.')]
+    MARK = {'P1': ('o', INK), 'P2': ('s', AMBER), 'P3': ('^', TEAL)}
+    yy = np.arange(len(TYPES))[::-1]
+    for tag, (mk, col) in MARK.items():
+        d = V[V.dataset == tag]
+        pct = [100 * d[(d.event_type == a) & d.zsa.astype(bool)].shape[0] / max(1, d[d.event_type == a].shape[0])
+               for a, _ in TYPES]
+        ax.scatter(pct, yy, s=13, marker=mk, facecolor=col, edgecolor='white', lw=0.4, zorder=3, label=tag)
+    ax.set_yticks(yy); ax.set_yticklabels([f'{a}  {b}' for a, b in TYPES], fontsize=6)
+    ax.tick_params(axis='y', length=0)
+    ax.set_ylim(-0.7, len(TYPES) - 0.3)
+    ax.set_xlim(0, 15)
+    ax.set_xlabel('Events activated in the control arm (% of filtered events of that kind)')
+    ax.spines['left'].set_visible(False)
+    ax.grid(axis='x', color=GRID, lw=0.4); ax.set_axisbelow(True)
+    ax.legend(loc='lower right', fontsize=6, handletextpad=0.2, borderaxespad=0.3, labelspacing=0.3)
+
+    ax2 = axmm(fig, 104, 150, 30, 28)
+    for tag, (mk, col) in MARK.items():
+        d = V[(V.dataset == tag) & V.zsa.astype(bool)]
+        frac = [100 * (d[d.event_type == a].dPSI_control > 0).mean() if (d.event_type == a).any() else np.nan
+                for a, _ in TYPES]
+        ax2.scatter(frac, yy, s=13, marker=mk, facecolor=col, edgecolor='white', lw=0.4, zorder=3)
+    ax2.axvline(50, color=MUTED, lw=0.6, ls=(0, (2, 2)))
+    ax2.set_yticks(yy); ax2.set_yticklabels([])
+    ax2.tick_params(axis='y', length=0)
+    ax2.set_ylim(-0.7, len(TYPES) - 0.3); ax2.set_xlim(0, 100)
+    ax2.set_xticks([0, 50, 100])
+    ax2.set_xlabel('of those, % with rising PSI')
+    ax2.spines['left'].set_visible(False)
+    ax2.grid(axis='x', color=GRID, lw=0.4); ax2.set_axisbelow(True)
+    save(fig, 'Figure4', OUT)
 
 
 SUPP = f'{B}/figures/supp'
 
 
 def figureS3():
-    """Supplementary Figure S3 (was Figure 2d): secondary single-stage contrasts, one point per library."""
+    """Supplementary Figure S4 (was Figure 2d): secondary single-stage contrasts, one point per library."""
     L = rd('fig2b_clock_per_library')
     S2 = rd('gate3_secondary_single_stage')
     fig = newfig(74)
@@ -710,105 +834,74 @@ def figureS3():
             r = S2[(S2.gse == gse) & (S2.arm == arm)]
             if len(r):
                 ax.text(i, 1.01, f"{r['diff'].iloc[0]:+.2f}", transform=ax.get_xaxis_transform(), ha='center', va='bottom',
-                        fontsize=4.9, color=INK2)
-        ax.set_xticks(range(len(arms))); ax.set_xticklabels([l for _, l in arms], fontsize=4.9, linespacing=1.0)
+                        fontsize=6, color=INK2)
+        ax.set_xticks(range(len(arms))); ax.set_xticklabels([l for _, l in arms], fontsize=6, linespacing=1.0)
         ax.tick_params(axis='x', length=0)
         ax.set_xlim(-0.6, len(arms) - 0.4)
         ax.axhline(0, color=GRID, lw=0.6, zorder=0)
-        ax.set_title(gse, fontsize=5.6, fontweight='bold', pad=8, loc='left')
+        ax.set_title(gse, fontsize=6, fontweight='bold', pad=8, loc='left')
         if gse == 'GSE162345':
             ax.set_ylabel("Transcriptomic age\n(relative to the dataset's control libraries)")
         ygrid(ax)
     fig.text(14 / WMM, 1 - 64 / fig._hmm,
-             'open circles, control libraries; filled circles, perturbed libraries; bars, means. The number above each perturbed arm is its '
-             'difference from the matched control\n(α-amanitin against the control of the same collection window; SCNT-EGFP and SCNT-Obox3 '
-             'against ICSI; siObox3 against siCtrl; SCNT arms against IVF); 95% bootstrap intervals are given in Section 2.3.',
-             fontsize=4.7, color=MUTED, va='top')
-    fs.save(fig, 'FigureS3', outdir=SUPP)
+             'open circles, control libraries; filled circles, perturbed libraries; bars, means. The number above each perturbed arm\n'
+             'is its difference from the matched control (α-amanitin against the control of the same collection window;\n'
+             'SCNT-EGFP and SCNT-Obox3 against ICSI; siObox3 against siCtrl; SCNT arms against IVF); 95% bootstrap intervals\n'
+             'are given in Section 2.3.',
+             fontsize=6, color=MUTED, va='top')
+    save(fig, 'FigureS4', SUPP)
 
 
 def figureS4():
-    """Supplementary Figure S4 (was Figure 3d): expression of the largest contributors."""
+    """Supplementary Figure S5: expression of the largest contributors (a) and per-gene contribution profiles (b)."""
     K = rd('fig3d_key_genes_per_library')
-    fig = newfig(76)
-    # ---- (d) key genes ------------------------------------------------------------------------------------
+    RC = rd('posthoc_rescue_contributions', index_col=0)
+    fig = newfig(126)
+    # ---- (a) expression of the five largest contributors -------------------------------------------------
+    letter(fig, 1, 2, 'a')
     for k, g in enumerate(['Klf9', 'Neto2', 'Pi4k2a', 'Gpatch4', 'Psmb5']):
-        ax = axmm(fig, 22 + k * 29.5, 10, 20, 46)
+        ax = axmm(fig, 22 + k * 29.5, 10, 20, 44)
         arm_strip(ax, K[K.symbol == g], 'log2cpm', ['control', 'A485', 'A485+Dux'], ms=5.5, labels=False)
-        ax.set_title(g, style='italic', fontsize=5.8, pad=2)
+        ax.set_title(g, style='italic', fontsize=6, pad=2)
         ax.yaxis.set_major_locator(matplotlib.ticker.MaxNLocator(4))
         if k == 0:
             ax.set_ylabel('log2(CPM + 1)')
         ygrid(ax)
     fig.legend(handles=stage_handles() + arm_handles([('control', 'control'), ('A485', 'A485'), ('A485+Dux', 'A485 + DUX')]),
-               loc='center', bbox_to_anchor=(85 / WMM, 1 - 70 / fig._hmm), ncol=5, fontsize=5.0, handlelength=1.0)
-    fs.save(fig, 'FigureS4', outdir=SUPP)
-
-
-def figureS5():
-    """Supplementary Figure S5 (was Figure 4d): per-gene contributions under A485 and A485 + DUX against control."""
-    RC = rd('posthoc_rescue_contributions', index_col=0)
-    fig = newfig(62)
-    # ---- (d) contribution profiles ----------------------------------------------------------------------
+               loc='center', bbox_to_anchor=(85 / WMM, 1 - 66 / fig._hmm), ncol=5, fontsize=6, handlelength=1.0)
+    # ---- (b) contribution of each clock gene, perturbed arm against control ------------------------------
+    letter(fig, 1, 74, 'b')
     for k, (arm, lab) in enumerate([('A485', 'A485'), ('A485+Dux', 'A485 + DUX')]):
-        ax = axmm(fig, 44 + k * 48, 10, 36, 36)
+        ax = axmm(fig, 44 + k * 48, 82, 36, 36)
         ax.scatter(RC['control'], RC[arm], s=1.8, color=ROLE[arm], alpha=0.55, edgecolor='none')
         lim = 0.04
         ax.plot([-lim, lim], [-lim, lim], color=GRID, lw=0.5, ls='--')
         ax.axhline(0, color=GRID, lw=0.5); ax.axvline(0, color=GRID, lw=0.5)
         ax.set_xlim(-lim, lim); ax.set_ylim(-lim, lim)
-        ax.set_title(f'{lab}\nr = {RC["control"].corr(RC[arm]):.2f}', fontsize=5.2, pad=2, color=ROLE[arm] if arm != 'A485' else INK2)
+        ax.set_title(f'{lab}\nr = {RC["control"].corr(RC[arm]):.2f}', fontsize=6, pad=2,
+                     color=ROLE[arm] if arm != 'A485' else INK2)
         ax.xaxis.set_major_locator(matplotlib.ticker.FixedLocator([-0.03, 0, 0.03]))
         ax.yaxis.set_major_locator(matplotlib.ticker.FixedLocator([-0.03, 0, 0.03]))
-        ax.tick_params(labelsize=4.8)
+        ax.tick_params(labelsize=6)
         if k:
             ax.set_yticklabels([])
         else:
             ax.set_ylabel('Perturbed arm')
-    fig.text(86 / WMM, 1 - 55 / fig._hmm, 'Contribution, control arm', ha='center', va='top', fontsize=6)
-    fs.save(fig, 'FigureS5', outdir=SUPP)
+    fig.text(86 / WMM, 1 - 123 / fig._hmm, 'Contribution, control arm', ha='center', va='top', fontsize=6)
+    save(fig, 'FigureS5', SUPP)
 
 
-def figureS6():
-    """Supplementary Figure S6 (was Figure 5a): PCA display of PSI."""
-    PCA = rd('fig5a_psi_pca')
-    specs = [('GSE280522', ['control', 'A485', 'A485+Dux']), ('GSE221985', ['control', 'Tardbp_matKO']),
-             ('GSE300734', ['control', 'Brg1_matKO'])]
-    fig = newfig(56)
-    # ---- (a) PSI PCA -------------------------------------------------------------------------------------
-    for j, (gse, arms) in enumerate(specs):
-        ax = axmm(fig, 8 + j * 33, 12, 27, 30)
-        d = PCA[PCA.gse == gse]
-        for arm in arms:
-            for st, mk in [('E2C', 'o'), ('L2C', 'o')]:
-                q = d[(d.arm == arm) & (d.stage == st)]
-                ax.scatter(q.PC1, q.PC2, s=12, marker=mk, facecolor=ROLE[arm] if st == 'L2C' else 'white',
-                           edgecolor=ROLE[arm], lw=0.8, zorder=3)
-        ax.set_xlabel(f'PC1 ({100 * d.var_PC1.iloc[0]:.0f}%)', labelpad=1)
-        ax.set_ylabel(f'PC2 ({100 * d.var_PC2.iloc[0]:.0f}%)', labelpad=1)
-        ax.set_xticks([]); ax.set_yticks([])
-        ax.set_title(f'{DS[gse]}\n{int(d.n_events.iloc[0]):,} events', fontsize=5.2, pad=2, color=INK2)
-    handles = [plt.Line2D([], [], marker='o', ls='', mfc='white', mec=INK, ms=3.6, label='early 2-cell'),
-               plt.Line2D([], [], marker='o', ls='', mfc=INK, mec=INK, ms=3.6, label='late 2-cell'),
-               Rectangle((0, 0), 1, 1, color=INK, label='control'),
-               Rectangle((0, 0), 1, 1, color=AMBER, label='ZGA-blocking arm'),
-               Rectangle((0, 0), 1, 1, color=TEAL, label='A485 + DUX')]
-    fig.legend(handles=handles, loc='upper left', bbox_to_anchor=(107 / WMM, 1 - 13 / fig._hmm), fontsize=5.2, labelspacing=0.5)
-    fig.text(107 / WMM, 1 - 40 / fig._hmm, 'PCA of per-event PSI on the Gate 4\nfiltered events; display only',
-             fontsize=4.8, color=MUTED, va='top')
-
-    fs.save(fig, 'FigureS6', outdir=SUPP)
 
 
 def figureS1():
-    """Supplementary Figure S1: GSE66582 library clock values (Gate 2b R2; direction only)."""
+    """Supplementary Figure S2 (S1 in the plan): GSE66582 library clock values (Gate 2b R2; direction only)."""
     D = rd('gate2b_R2_library_tage')
     ORDER = ['MII', 'Zygote', 'Early-2C', '2C', '4C', '8C', 'ICM']
     LAB = ['MII', 'Zy', 'E2C', '2C', '4C', '8C', 'ICM']
     fig = newfig(62)
     ax = axmm(fig, 22, 8, 92, 40)
     ax.axvspan(1.6, 3.4, color=BAND, lw=0, zorder=0)
-    ax.text(2.5, 1.01, 'two-cell stage', transform=ax.get_xaxis_transform(), ha='center', va='bottom', fontsize=4.8, color=INK2)
+    ax.text(2.5, 1.01, 'two-cell stage', transform=ax.get_xaxis_transform(), ha='center', va='bottom', fontsize=6, color=INK2)
     for col, colr, dx, lab in [('tAge_primary', INK, -0.15, 'all genes (V0)'), ('tAge_V2', BLUE, 0.15, 'maternal and zygotic genes removed (V2)')]:
         for k, st in enumerate(ORDER):
             v = D.loc[D.stage == st, col].values
@@ -818,22 +911,22 @@ def figureS1():
     ax.axhline(0, color=GRID, lw=0.6)
     n = D.groupby('stage').size().reindex(ORDER)
     ax.set_xticks(range(len(ORDER)))
-    ax.set_xticklabels([f'{l}\n{v}' for l, v in zip(LAB, n.values)], fontsize=5.1, linespacing=1.1)
+    ax.set_xticklabels([f'{l}\n{v}' for l, v in zip(LAB, n.values)], fontsize=6, linespacing=1.1)
     ax.tick_params(axis='x', length=0)
-    ax.text(-0.02, -0.075, 'n', transform=ax.transAxes, ha='right', va='top', fontsize=5.1, color=MUTED)
+    ax.text(-0.02, -0.075, 'n', transform=ax.transAxes, ha='right', va='top', fontsize=6, color=MUTED)
     ax.set_xlim(-0.6, len(ORDER) - 0.4)
     ax.set_ylabel('Transcriptomic age\nrelative to MII oocyte')
     ygrid(ax)
     fig.legend(handles=[plt.Line2D([], [], marker='o', ls='', mfc=c, mec=c, ms=3.4, label=l)
                         for c, l in [(INK, 'all genes (V0)'), (BLUE, 'maternal and zygotic\ngenes removed (V2)')]],
-               loc='upper left', bbox_to_anchor=(120 / WMM, 1 - 10 / fig._hmm), fontsize=5.1, labelspacing=0.8)
+               loc='upper left', bbox_to_anchor=(120 / WMM, 1 - 10 / fig._hmm), fontsize=6, labelspacing=0.8)
     fig.text(120 / WMM, 1 - 30 / fig._hmm, 'GSE66582 · one point per library;\nbar = mean; E2C → 2C change\n'
-             'V0 −0.26, V2 −0.18 (direction only)', fontsize=4.9, color=INK2, va='top')
-    fs.save(fig, 'FigureS1', outdir=SUPP)
+             'V0 −0.26, V2 −0.18 (direction only)', fontsize=6, color=INK2, va='top')
+    save(fig, 'FigureS2', SUPP)
 
 
 def figureS2():
-    """Supplementary Figure S2: post-hoc zygotic timing (was FigGZ_2), redrawn without bars."""
+    """Supplementary Figure S1 (S2 in the plan): post-hoc zygotic timing (was FigGZ_2), redrawn without bars."""
     I = rd('gate1alt_intervals')
     SH = {'Oocyte': 'Oo', 'Zygote': 'Zy', 'Early-2-cell': 'E2C', 'Late-2-cell': 'L2C', '2-cell': '2C', '4-cell': '4C',
           '8-cell': '8C', '16-cell': '16C', 'Morula': 'Mor', 'Day2': 'D2', 'Day3': 'D3'}
@@ -849,21 +942,21 @@ def figureS2():
         x = np.arange(len(g))
         letter(fig, 12 + j * 29 if j else 1, 2, 'abcd'[j])
         for i, (col, ylab) in enumerate(ROWS):
-            ax = axmm(fig, 21 + j * 29, 9 + i * 30, 22, 24)
+            ax = axmm(fig, 21 + j * 29, 9 + i * 30, 20, 24)
             ax.axvspan(kz - 0.45, kz + 0.45, color=BAND, lw=0, zorder=0)
             ax.axvspan(kl - 0.47, kl + 0.47, fill=False, ec=INK2, lw=0.6, ls=(0, (2, 2)), zorder=1)
             ax.vlines(x, g[col + '_lo'], g[col + '_hi'], color=INK, lw=0.8, zorder=3)
             ax.scatter(x, g[col], s=8, marker='D', color=INK, zorder=4)
             ax.axhline(0, color=MUTED, lw=0.5, zorder=1)
             ax.set_xticks(x)
-            ax.set_xticklabels(labels if i == 2 else [], rotation=60, ha='right', rotation_mode='anchor', fontsize=4.8)
+            ax.set_xticklabels(labels if i == 2 else [], rotation=90, ha='center', va='top', fontsize=6)
             ax.tick_params(axis='x', length=0)
-            ax.tick_params(axis='y', labelsize=4.8)
+            ax.tick_params(axis='y', labelsize=6)
             ax.set_xlim(-0.6, len(g) - 0.4)
-            ax.yaxis.set_major_locator(matplotlib.ticker.MaxNLocator(4))
+            ax.yaxis.set_major_locator(matplotlib.ticker.MaxNLocator(3))
             ygrid(ax)
             if j == 0:
-                ax.set_ylabel(ylab, fontsize=5.4)
+                ax.set_ylabel(ylab, fontsize=6)
             if i == 0:
                 ax.set_title(sp, fontsize=6, pad=3)
     # ---- (e) pooled ---------------------------------------------------------------------------------------
@@ -877,18 +970,18 @@ def figureS2():
     ax.set_xlabel('Zygotic-gene gain\n(rank within species)')
     ax.set_ylabel('Change in transcriptomic age')
     ax.set_xticks([0.25, 0.5, 0.75, 1.0]); ax.set_xticklabels(['.25', '.50', '.75', '1'])
-    ax.tick_params(labelsize=4.8)
+    ax.tick_params(labelsize=6)
     ygrid(ax)
-    ax.legend(loc='upper left', bbox_to_anchor=(-0.55, -0.28), fontsize=5.0, ncol=2, handletextpad=0.2, columnspacing=0.8)
+    ax.legend(loc='upper left', bbox_to_anchor=(-0.55, -0.28), fontsize=6, ncol=2, handletextpad=0.2, columnspacing=0.8)
     ax.text(-0.55, -0.62, 'pooled Spearman ρ = 0.52\nwithin-species permutation\np = 0.0034 (post hoc)', transform=ax.transAxes,
-            fontsize=4.9, color=INK2, va='top')
-    fig.text(21 / WMM, 1 - 112 / fig._hmm, 'shaded: largest measured zygotic gain in these embryos · dashed outline: ZGA interval '
-             'from the literature · diamonds and bars: change and 95% bootstrap interval', fontsize=4.8, color=MUTED, va='center')
-    fs.save(fig, 'FigureS2', outdir=SUPP)
+            fontsize=6, color=INK2, va='top')
+    fig.text(21 / WMM, 1 - 111 / fig._hmm, 'shaded: largest measured zygotic gain in these embryos · dashed outline: ZGA interval '
+             'from the literature\ndiamonds and bars: change and 95% bootstrap interval', fontsize=6, color=MUTED, va='top')
+    save(fig, 'FigureS1', SUPP)
 
 
 def figureS7():
-    """Supplementary Figure S7: library quality control of the 76 Gate 3 libraries (prespecified rule)."""
+    """Supplementary Figure S3 (S7 in the plan): library quality control of the 76 Gate 3 libraries (prespecified rule)."""
     Q = rd('figS7_library_qc')
     ORDER = [('GSE280522', 'P1'), ('GSE221985', 'P2'), ('GSE300734', 'P3'),
              ('GSE162345', 'secondary'), ('GSE248499', 'secondary'), ('GSE235547', 'secondary')]
@@ -905,8 +998,8 @@ def figureS7():
         lo, hi = d.detected_genes.min() / 1000, d.detected_genes.max() / 1000
         cut = 10 ** d.detected_cut_log10.iloc[0] / 1000
         ax.set_ylim(min(lo, cut) - 0.8, hi + 0.8)
-        ax.set_title(f'{role} · {gse}\n{int(d.qc_pass.sum())} of {len(d)} passed', fontsize=5.2, pad=2, color=INK2)
-        ax.tick_params(labelsize=4.8)
+        ax.set_title(f'{role} · {gse}\n{int(d.qc_pass.sum())} of {len(d)} passed', fontsize=6, pad=2, color=INK2)
+        ax.tick_params(labelsize=6)
         ygrid(ax)
         if k % 3 == 0:
             ax.set_ylabel('Detected genes (×1,000)')
@@ -916,11 +1009,133 @@ def figureS7():
                         plt.Line2D([], [], marker='x', ls='', mec=INK, ms=3.6, mew=0.9, label='excluded'),
                         plt.Line2D([], [], ls=(0, (2, 2)), color=MUTED, lw=0.6, label='cut-offs: 30% pseudoaligned; '
                                    'detected genes ≥ dataset median − 3 MAD (log10)')],
-               loc='center', bbox_to_anchor=(0.5, 1 - 91 / fig._hmm), ncol=3, fontsize=5.0, handlelength=1.6)
-    fs.save(fig, 'FigureS7', outdir=SUPP)
+               loc='center', bbox_to_anchor=(0.5, 1 - 91 / fig._hmm), ncol=3, fontsize=6, handlelength=1.6)
+    save(fig, 'FigureS3', SUPP)
+
+
+def figureS8():
+    """Supplementary Figure S8: control splicing-activation events, effect size against p value (selection)."""
+    V = rd('figS8_volcano_events')
+    fig = newfig(62)
+    floor = V.loc[V.p_diffsplice > 0, 'p_diffsplice'].min() / 2      # p = 0 is below the permutation resolution
+    V = V.assign(y=-np.log10(V.p_diffsplice.clip(lower=floor)))
+    ymax = float(V.y.max())
+    for k, (tag, gse) in enumerate([('P1', 'GSE280522'), ('P2', 'GSE221985'), ('P3', 'GSE300734')]):
+        ax = axmm(fig, 17 + k * 51, 10, 40, 38)
+        d = V[V.dataset == tag]
+        sel = d.zsa.astype(bool)
+        ax.scatter(d.dPSI_control[~sel], d.y[~sel], s=1.0, c='#c8c8c8', lw=0, rasterized=True, zorder=2)
+        ax.scatter(d.dPSI_control[sel], d.y[sel], s=1.6, c=INK, lw=0, rasterized=True, zorder=3)
+        for v in (-0.10, 0.10):
+            ax.axvline(v, color=MUTED, lw=0.6, ls=(0, (2, 2)), zorder=1)
+        ax.axhline(-np.log10(0.05), color=MUTED, lw=0.6, ls=(0, (2, 2)), zorder=1)
+        ax.set_xlim(-1.05, 1.05); ax.set_ylim(-0.05, ymax * 1.18)
+        ax.set_xticks([-1, -0.5, 0, 0.5, 1])
+        ax.set_title(f'{tag} · {gse}', fontsize=6, pad=3, color=INK2)
+        ax.text(0.5, 0.99, f'{int(sel.sum()):,} of {len(d):,} selected', transform=ax.transAxes, ha='center',
+                va='top', fontsize=6, color=INK)
+        ax.tick_params(labelsize=6)
+        ax.set_xlabel('ΔPSI, control late − early two-cell')
+        if k == 0:
+            ax.set_ylabel('−log10 gene-corrected\nempirical p')
+        ygrid(ax)
+    fig.text(17 / WMM, 1 - 55 / fig._hmm,
+             'Dashed lines, the prespecified selection rule (|ΔPSI| ≥ 0.10 and gene-corrected empirical p < 0.05); '
+             'black, the events it selects.\nEvents with p below the permutation resolution are drawn at the top of '
+             'the axis. Selection only: these p values were not used for inference.',
+             fontsize=6, color=MUTED, va='top')
+    save(fig, 'FigureS6', SUPP)
+
+
+def figureS9():
+    """Supplementary Figure S7 (post hoc): junction-level validation of the splicing quantification."""
+    D = rd('figJ_junction_vs_tpm')
+    S = rd('figJ_sashimi')
+    fig = newfig(156)
+    # ---- (a) the two quantifications against each other --------------------------------------------------
+    letter(fig, 1, 2, 'a')
+    ax = axmm(fig, 20, 10, 50, 50)
+    NB = int(round(1 / (D.tpm_hi - D.tpm_lo).iloc[0]))
+    G = np.full((NB, NB), np.nan)
+    ix = (D.tpm_lo * NB).round().astype(int).clip(0, NB - 1)
+    iy = (D.junction_lo * NB).round().astype(int).clip(0, NB - 1)
+    G[iy, ix] = np.log10(D.n.values)
+    im = ax.imshow(G, origin='lower', extent=(0, 1, 0, 1), aspect='auto', cmap='magma_r',
+                   interpolation='nearest')
+    ax.plot([0, 1], [0, 1], color=INK2, lw=0.6, ls=(0, (3, 2)), zorder=3)
+    ax.set_xlim(0, 1); ax.set_ylim(0, 1)
+    ax.set_xlabel('PSI from transcript estimates (Gate 4)')
+    ax.set_ylabel('PSI from junction reads')
+    ax.text(0.04, 0.97, f'{int(D.n.sum()):,} library-event pairs\nPearson r = 0.78 · Spearman ρ = 0.78',
+            transform=ax.transAxes, va='top', fontsize=6, color=INK,
+            bbox=dict(fc='white', ec='none', alpha=0.8, pad=1.2))
+    cax = axmm(fig, 72, 14, 2.0, 20)
+    cb = fig.colorbar(im, cax=cax); cb.ax.tick_params(labelsize=6, length=1.5); cb.outline.set_visible(False)
+    cb.set_label('log10 pairs per bin', fontsize=6)
+
+    # ---- (b) three events at read level, as a sashimi plot ----------------------------------------------
+    letter(fig, 76, 2, 'b')
+    events = list(dict.fromkeys(S.event))
+    for j, ev in enumerate(events):
+        d0 = S[S.event == ev]
+        e1, s2, e2, s3 = (int(d0[c].iloc[0]) for c in ('e1', 's2', 'e2', 's3'))
+        # one coverage scale and one junction scale per event, so the arms are comparable
+        top = max(1.0, float(d0.coverage.max()))
+        cmax = max(1.0, float(d0[['inc1', 'inc2', 'skip']].values.max()))
+        for k, arm in enumerate(['control', 'A485', 'A485+Dux']):
+            d = d0[d0.arm == arm]
+            ax = axmm(fig, 92, 10 + j * 46 + k * 11, 66, 10)
+            x = d.pos.values
+            ax.fill_between(x, 0, d.coverage.values, color=ROLE[arm], lw=0, alpha=0.9, zorder=2)
+            for a, b, cnt, h in [(e1, s2, d.inc1.iloc[0], 0.62), (e2, s3, d.inc2.iloc[0], 0.62),
+                                 (e1, s3, d.skip.iloc[0], 1.02)]:
+                if cnt < 1:
+                    continue
+                apex = top * h
+                path = Path([(a, 0), ((a + b) / 2, 2 * apex), (b, 0)],
+                            [Path.MOVETO, Path.CURVE3, Path.CURVE3])
+                ax.add_patch(PathPatch(path, fc='none', ec=INK2, zorder=4, capstyle='round',
+                                       lw=0.35 + 2.0 * (cnt / cmax) ** 0.5))
+                ax.text((a + b) / 2, apex, f'{cnt:.0f}', ha='center', va='bottom', fontsize=6,
+                        color=INK2, zorder=5,
+                        bbox=dict(fc='white', ec='none', alpha=0.75, pad=0.5))
+            ax.set_xlim(x.min(), x.max()); ax.set_ylim(0, top * 1.55)
+            ax.set_xticks([]); ax.set_yticks([])
+            for s in ax.spines.values():
+                s.set_visible(False)
+            ax.text(-0.01, 0.5, LABEL[arm], transform=ax.transAxes, ha='right', va='center', fontsize=6,
+                    color=ROLE[arm])
+            if k == 0:
+                ax.set_title(f'{d.gene.iloc[0]} · {d.chrom.iloc[0]}:{e1:,}–{s3:,}  ·  coverage to {top:.0f}x',
+                             fontsize=6, pad=2, loc='left', color=INK2)
+        # exon/intron model for the event, once, under its three tracks
+        gm = axmm(fig, 92, 10 + j * 46 + 34, 66, 4)
+        lo, hi = float(d0.pos.min()), float(d0.pos.max())
+        gm.plot([lo, hi], [0, 0], color=INK2, lw=0.5, zorder=2)
+        for a, b, tall in [(lo, e1, 0.55), (s2, e2, 0.9), (s3, hi, 0.55)]:
+            gm.add_patch(Rectangle((a, -tall / 2), b - a, tall, fc=INK2 if tall > 0.6 else MUTED,
+                                   ec='none', zorder=3))
+        gm.set_xlim(lo, hi); gm.set_ylim(-0.8, 0.8)
+        gm.set_xticks([]); gm.set_yticks([])
+        for s in gm.spines.values():
+            s.set_visible(False)
+        gm.text(-0.01, 0.5, 'exons', transform=gm.transAxes, ha='right', va='center', fontsize=6,
+                color=MUTED)
+        gm.annotate('alternative exon', xy=((s2 + e2) / 2, -0.45), xytext=(0, -7),
+                    textcoords='offset points', ha='center', va='top', fontsize=6, color=INK2,
+                    arrowprops=dict(arrowstyle='-', lw=0.4, color=MUTED))
+    fig.text(20 / WMM, 1 - 70 / fig._hmm,
+             '(b) Sashimi plots of the late two-cell\nlibraries. Filled area, mean read depth per\n'
+             'library of the arm, on one scale per event.\nArcs, splice junctions: the number is unique\n'
+             'junction reads averaged over the libraries of\nthe arm and the arc width scales with it.\n'
+             'The two lower arcs include the alternative\nexon, the upper arc skips it.\n\n'
+             'Events chosen by the frozen rule: the three\ncontrol-activated skipped exons with the\n'
+             'largest |ΔPSI| that pass the junction depth\nrule in every library.',
+             fontsize=6, color=MUTED, va='top')
+    save(fig, 'FigureS7', SUPP)
 
 
 if __name__ == '__main__':
-    for w in (sys.argv[1:] or ['1', '2', '3', '4', 'S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7']):
+    for w in (sys.argv[1:] or ['1', '2', '3', '4', 'S1', 'S2', 'S3', 'S4', 'S7', 'S8', 'S9']):
         {'1': figure1, '2': figure2, '3': figure3, '4': figure4, 'S1': figureS1, 'S2': figureS2,
-         'S3': figureS3, 'S4': figureS4, 'S5': figureS5, 'S6': figureS6, 'S7': figureS7}[w]()
+         'S3': figureS3, 'S4': figureS4, 'S7': figureS7, 'S8': figureS8, 'S9': figureS9}[w]()
