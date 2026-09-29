@@ -1135,7 +1135,89 @@ def figureS9():
     save(fig, 'FigureS7', SUPP)
 
 
+def figure5():
+    """Figure 5 (post hoc): the decomposition in human embryos, and whether it is the same genes."""
+    T = rd('figHa_human_tage')
+    A = rd('figHa_human_stage_means')
+    C = rd('figHb_human_cumulative')
+    J = rd('figHc_human_vs_mouse', index_col=0)
+    ORDER = ['Oocyte', 'Zygote', '2-cell', '4-cell', '8-cell', 'Morula', 'Late blastocyst']
+    SHORT = ['Oo', 'Zy', '2C', '4C', '8C', 'Mor', 'LBl']
+    fig = newfig(72)
+
+    # ---- (a) the human trajectory ------------------------------------------------------------------------
+    letter(fig, 1, 2, 'a')
+    ax = axmm(fig, 15, 10, 40, 42)
+    A = A.set_index('stage').reindex(ORDER).dropna(how='all')
+    x = np.arange(len(A))
+    i8, imo = list(A.index).index('8-cell'), list(A.index).index('Morula')
+    ax.axvspan(i8, imo, color=BAND, lw=0, zorder=0)
+    rng = np.random.default_rng(3)
+    for k, s in enumerate(A.index):
+        v = T.loc[T.stage == s, 'tAge'].values
+        ax.scatter(k + (rng.random(len(v)) - 0.5) * 0.24, v, s=4, color=MUTED, alpha=0.55,
+                   edgecolor='none', zorder=2)
+    ax.vlines(x, A.ci_lo, A.ci_hi, color=INK, lw=0.8, zorder=3)
+    ax.scatter(x, A['mean'], s=11, marker='D', color=INK, zorder=4)
+    ax.axhline(0, color=GRID, lw=0.6)
+    ax.set_xticks(x); ax.set_xticklabels([SHORT[ORDER.index(s)] for s in A.index], fontsize=6)
+    ax.set_xlim(-0.6, len(A) - 0.4)
+    ax.set_ylabel('Transcriptomic age\nrelative to oocyte')
+    ax.set_title('Human GSE36552 · one point per embryo', fontsize=6, pad=3, loc='left', color=INK2)
+    ax.text(0.5 * (i8 + imo), 0.03, 'prespecified\ninterval', transform=ax.get_xaxis_transform(),
+            ha='center', va='bottom', fontsize=6, color=INK2, linespacing=1.1)
+    nlab = ' '.join(f'{int(n)}' for n in A.n)
+    ax.text(0.0, -0.20, f'n  {nlab}', transform=ax.transAxes, fontsize=6, color=MUTED)
+    ygrid(ax)
+
+    # ---- (b) the running sum over the prespecified interval -----------------------------------------------
+    letter(fig, 60, 2, 'b')
+    ax = axmm(fig, 74, 10, 40, 42)
+    trough = float(C.cumulative.min())
+    end = float(C.cumulative.iloc[-1])
+    nneg = int((C.contribution < 0).sum())
+    ax.plot(C['rank'], C.cumulative, color=INK, lw=1.3, zorder=3)
+    ax.axhline(0, color=GRID, lw=0.6)
+    ax.annotate(f'{trough:.2f}\nsum of the downward\ncontributions',
+                (nneg, trough), xytext=(-34, 42), textcoords='offset points', ha='left', va='bottom',
+                fontsize=6, color=INK, arrowprops=dict(arrowstyle='-', lw=0.4, color=MUTED))
+    ax.annotate(f'{end:.2f}\nreported change',
+                (len(C), end), xytext=(-8, 10), textcoords='offset points', ha='right', va='bottom',
+                fontsize=6, color=INK, arrowprops=dict(arrowstyle='-', lw=0.4, color=MUTED))
+    ax.set_xlim(0, len(C) * 1.04); ax.set_ylim(-1.45, 0.35)
+    ax.set_xlabel('Clock genes, ranked by contribution')
+    ax.set_ylabel('Running sum of\ncontributions')
+    ax.set_title('8-cell → morula, human', fontsize=6, pad=3, loc='left', color=INK2)
+    ygrid(ax)
+
+    # ---- (c) is it the same genes? ------------------------------------------------------------------------
+    letter(fig, 120, 2, 'c')
+    ax = axmm(fig, 134, 16, 30, 30)
+    r = float(np.corrcoef(J.human_8cell_to_morula, J.mouse_E2C_to_L2C)[0, 1])
+    ax.scatter(J.mouse_E2C_to_L2C, J.human_8cell_to_morula, s=1.4, color=MUTED, alpha=0.5,
+               lw=0, rasterized=True, zorder=2)
+    lim = 0.035
+    ax.plot([-lim, lim], [-lim, lim], color=GRID, lw=0.5, ls='--', zorder=1)
+    ax.axhline(0, color=GRID, lw=0.5); ax.axvline(0, color=GRID, lw=0.5)
+    ax.set_xlim(-lim, lim); ax.set_ylim(-lim, lim)
+    ax.set_xticks([-0.03, 0, 0.03]); ax.set_yticks([-0.03, 0, 0.03])
+    ax.tick_params(labelsize=6)
+    ax.set_xlabel('Mouse, E2C → L2C')
+    ax.set_ylabel('Human, 8-cell → morula')
+    ax.set_title(f'r = {r:.2f}  (n = {len(J):,})', fontsize=6, pad=3, loc='left', color=INK2)
+
+    fig.text(17 / WMM, 1 - 62 / fig._hmm,
+             'Post hoc. (a) Clock value of every human embryo pseudobulk, relative to oocytes; diamonds and bars are '
+             'stage means with 95% bootstrap intervals.\n(b) The contributions of the 1,839 clock genes, ranked and '
+             'accumulated, over the interval fixed before scoring. (c) The per-gene contribution of the human\n'
+             'interval against the mouse two-cell window (GSE280522 control), for the genes with a non-zero '
+             'contribution in both; the mouse-to-mouse comparison of\nFigure 3c gave r = 0.74. The cancellation '
+             'reproduces; the genes that produce it do not.',
+             fontsize=6, color=MUTED, va='top')
+    save(fig, 'Figure5', OUT)
+
+
 if __name__ == '__main__':
-    for w in (sys.argv[1:] or ['1', '2', '3', '4', 'S1', 'S2', 'S3', 'S4', 'S7', 'S8', 'S9']):
-        {'1': figure1, '2': figure2, '3': figure3, '4': figure4, 'S1': figureS1, 'S2': figureS2,
+    for w in (sys.argv[1:] or ['1', '2', '3', '4', '5', 'S1', 'S2', 'S3', 'S4', 'S7', 'S8', 'S9']):
+        {'1': figure1, '2': figure2, '3': figure3, '4': figure4, '5': figure5, 'S1': figureS1, 'S2': figureS2,
          'S3': figureS3, 'S4': figureS4, 'S7': figureS7, 'S8': figureS8, 'S9': figureS9}[w]()

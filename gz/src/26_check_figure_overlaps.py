@@ -134,7 +134,7 @@ def audit(fig, name):
 
 figmod.save = lambda fig, name, outdir: audit(fig, name)
 
-for fn in [figmod.figure1, figmod.figure2, figmod.figure3, figmod.figure4,
+for fn in [figmod.figure1, figmod.figure2, figmod.figure3, figmod.figure4, figmod.figure5,
            figmod.figureS1, figmod.figureS2, figmod.figureS3, figmod.figureS4,
            figmod.figureS7, figmod.figureS8, figmod.figureS9]:
     fn()

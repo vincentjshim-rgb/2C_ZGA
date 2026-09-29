@@ -1648,3 +1648,127 @@ distinct SCNT controls in GSE248499, the three libraries failing prespecified qu
 linked publication, and two to four libraries per group.
 
 Body word count after these additions: 7,335 of 7,500.
+
+## 2026-09-27 — Human replication of the decomposition: the structure holds, the gene identity does not
+
+Plan `plan/POSTHOC_human_decomposition_frozen.md` (sha256 64315b27…), frozen before any human clock score, with
+`addendum1` (sha256 ad08d2d7…) written after the first run failed in preprocessing and before any score existed.
+
+**Why.** The central mouse result is that a scalar clock value is a small residual of large opposing per-gene
+contributions. That is a claim about how this clock reads early embryos. If it is a property of the clock and not of
+one mouse dataset, it should appear in human embryos at a different interval. The Discussion already named this as
+the first open question.
+
+**Data.** GSE36552 (Yan et al. 2013), 90 single cells summed to 20 embryo pseudobulks by the embryo number in the
+deposited titles; the 34 embryonic stem cell samples were excluded by the plan. The deposit carries `Uniq_reads_num`,
+unique read counts per gene symbol, alongside RPKM; the counts are used and the parse was checked against the total
+read count in each file's header. E-MTAB-3929 (Petropoulos et al. 2016) was the first choice but EBI did not respond
+from this machine; recorded in the plan.
+
+**Addendum 1, the one correction.** The frozen plan asserted that human needs no ortholog mapping because it is a
+training species. That is wrong about the data format: the clock's 10,487 features are *mouse* Entrez identifiers —
+10,487 of 10,487 are in `Gene_table_mouse.csv` and 0 of 10,487 in the human, rat or monkey tables. Human symbols are
+therefore carried symbol → human Entrez → mouse Entrez → mouse Ensembl using the tables shipped inside the clock
+package, so `preprocess` runs unchanged. This is still better placed than the cow, pig and rabbit analyses of Gate 1,
+which used one-to-one Ensembl orthologs assembled here: the human mapping is the correspondence the model was built
+with. The plan's claim that human needs no mapping is withdrawn and must not be repeated in the manuscript.
+
+**Reading 3 — how much of the clock this dataset carries.** 1,370 of the 1,839 weighted genes (0.74), against 912 in
+mouse GSE225056, 1,355 in GSE280522 and 1,509 in GSE300734. Above the plan's floor of 300, so reading 2 is read.
+
+**Reading 1 — is there a decrease?** 8-cell → morula, the interval fixed in the plan: **D = −0.098
+[−0.232, +0.036]**, from 3 and 2 embryo pseudobulks. The direction matches the human decrease reported by
+Zakar-Polyák et al. (2024) for this interval and it is the largest single drop in the trajectory here, but with two
+morula embryos the interval includes zero. Stage means relative to oocytes: oocyte +0.026, zygote +0.031, 2-cell
++0.010, 4-cell +0.146, 8-cell +0.105, morula +0.007, late blastocyst −0.039.
+
+**Reading 2 — is it a residual?** 696 genes contribute −1.243 and 674 contribute +1.145, summing to the reported
+−0.098. **Residual fraction 0.08**, against 0.17 in GSE280522 and 0.12 in mouse GSE225056, and a plan threshold of
+0.50. Prespecified reading: **same structure as mouse**. The cancellation is in fact more complete in human than in
+either mouse dataset — the one-sided sums are twelve times the net.
+
+**Follow-up, computed after the planned items and labelled as such.** It is *not* the same genes. Over the 1,098
+clock genes with a non-zero contribution in both the human interval and the mouse GSE280522 control window, the
+per-gene contributions are essentially uncorrelated (Pearson r = 0.072, Spearman rho = 0.112) and only 10 of the 50
+largest downward contributors are shared. Two mouse studies measuring the same interval in the same species agreed at
+r = 0.74. So the near-cancellation reproduces across species and intervals while the gene identity behind it does
+not — which is what the manuscript already says about reading the largest contributors as a property of this clock in
+a given window rather than as a ranking of genes, now shown rather than asserted.
+
+**Limits.** Three 8-cell and two morula embryos; the interval on D includes zero; the interval spans a cleavage, so
+it is not the division-free window the mouse result uses; single cells from 2013 Smart-seq summed to pseudobulks.
+Nothing here changes a gate verdict or any mouse number.
+
+Outputs: `results/posthoc_human_decomposition.{md,tsv}`, `results/human_embryo_tage.tsv`, `src/31_human_decomposition.py`.
+
+---
+
+## 2026-09-29 — The manuscript now leads with the near-cancellation, not with ZGA dependence
+
+**Why.** Asked whether the manuscript was at the level the target journal expects, I said no, and the reason was where
+the weight sat. The title and abstract led with ZGA dependence, and that claim rests on effectively one dataset:
+GSE280522 gives I = +0.18 with an interval excluding zero, GSE300734 gives +0.11 with an interval that includes zero,
+and GSE221985 gives +0.04 and flips sign under V2 — which is why the prespecified rule was not met. A reviewer reads
+the title first, tests the weakest load-bearing claim, and the paper falls there. The decomposition finding does not
+have that problem: it is an algebraic identity, it agrees between two independent studies at r = 0.74, and as of
+2026-09-27 it holds in a second species at a different interval. So the claim that carries the most evidence is now
+the claim in the title. Nothing was removed and no number changed; what changed is which result the paper is about.
+
+**What changed.**
+
+- Title: "Gene-level decomposition links the two-cell transcriptomic-age decrease in mouse embryos to zygotic genome
+  activation" → "A transcriptomic clock reads early mouse and human embryos as a near-cancellation of opposing gene
+  sets". Running title and alternative title follow.
+- Abstract rewritten (250/250). It now opens on what the number is made of and closes on the two-species result.
+- Introduction: the fifth question ("does the same structure appear in human embryos?") added to the list of what the
+  study asks, and to the summary of what it finds.
+- New Results 2.7, from the 2026-09-27 analysis, labelled post hoc with its plan frozen before any human score.
+- Discussion now opens on the residual in both species, and a new paragraph separates what generalises (the
+  cancellation) from what does not (the genes), with r = 0.07 against r = 0.74 as the contrast.
+- Methods 4.13 describes the human pseudobulks and the three-step identifier mapping; the availability section moved
+  to 4.14.
+- Figure 5 added (167 × 72 mm): the human trajectory, the running sum over the prespecified interval, and the
+  per-gene contributions against mouse. Five main figures now, still under the limit of six.
+- The closing paragraph of the Discussion had listed "whether the same decomposition holds in human embryos" as an
+  open question. It is no longer open; it is replaced by whether the genes differ because the species differ or
+  because the intervals do.
+
+**Trimming.** The reframing added about 620 words. Four passes took the body from 7,836 to 7,492 and the abstract
+from 262 to 250, with references already at 45/45. The cuts were made where the same thing was said twice (the
+Discussion paragraph that reopened with Section 2.6's own closing sentence), where a detail is stated elsewhere (the
+three excluded run accessions, which the Figure S3 legend names), and where the cross-species gate and the
+pharmacology of each perturbation are now setting rather than claim. In the submission draft the body is 7,357 words
+because the availability text moves into its own statement section.
+
+**Word-count ambiguity, recorded rather than resolved.** The journal excludes "Author Checklist, Title Page, Tables,
+Figures, and References" from the 7,500. Whether "Figures" covers figure legends is not stated. The title page now
+reports the two numbers separately — 7,357 body, plus 1,153 of legends and 966 of tables — so the editor can apply
+their own rule. If legends must be counted, about 1,010 further words have to go.
+
+**Rebuilt from the edited manuscript, so nothing can drift:** `MANUSCRIPT_gz_v1_EN_submission.md`,
+`SUPPORTING_INFORMATION.md`, the three .docx, the figure bundle (12 figures as PDF, 600-dpi PNG and 600-dpi LZW
+TIFF), `submission/figures/README.md`, `README_package.txt`, `SUBMISSION_CHECKLIST_KR.md`, and the two Korean review
+pages that are built from the figures (`review/public_KR.html`, `review/easy_review_KR.html`). Both figure checks
+pass: all 12 figures clear of the canvas border, no text or panel collisions.
+
+**Two new scripts,** replacing steps that had been done by hand and had therefore gone stale (the figure README said
+four main figures; `README_package.txt` still carried the old title):
+
+- `src/33_export_submission_figures.py` — exports every rendered figure into the bundle and rewrites its README from
+  the PDF page sizes and the manuscript's own legend titles. Its first version silently skipped Figure 3, whose
+  legend title wraps across two lines, so the regex now crosses newlines and the script asserts that the figure
+  numbers it found are 1..N and S1..SN with no gaps.
+- `src/34_build_submission_package.py` — builds the three .docx with pandoc and rewrites `README_package.txt` from
+  the manuscript title, the title-page counts and the contents of the bundle.
+
+`build_easy_review.py` now re-encodes its embedded figures from `figures/pub` and `figures/supp` on every build, for
+the same reason.
+
+**Cover letter** rewritten to match: it now leads with the two-species near-cancellation, and no longer says "minor
+zygotic genome activation", which the manuscript itself stopped claiming on 2026-09-19 (A485 cannot separate the two
+waves).
+
+**Not done.** The Korean manuscript (`MANUSCRIPT_gz_v1_KR.md`) is still at its 2026-09-20 state and now trails the
+English one by the story pass, the fact-check corrections, the junction analysis, the dataset-selection section, the
+coverage numbers, the supplementary renumbering, 58 → 45 references and this reframing. `review/manuscript_review_KR.html`
+renders that file and was left unrebuilt rather than reprinting a stale source in a fresher-looking page.
