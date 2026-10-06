@@ -1772,3 +1772,36 @@ waves).
 English one by the story pass, the fact-check corrections, the junction analysis, the dataset-selection section, the
 coverage numbers, the supplementary renumbering, 58 → 45 references and this reframing. `review/manuscript_review_KR.html`
 renders that file and was left unrebuilt rather than reprinting a stale source in a fresher-looking page.
+
+---
+
+## 2026-10-06 — The Korean manuscript becomes a summary, and the Korean pages become reproducible
+
+**Why.** `gz/results/MANUSCRIPT_gz_v1_KR.md` was a full parallel translation that had stopped at its 2026-09-20
+state. By today it trailed the English manuscript by the story pass, the fact-check corrections, the junction
+analysis, the dataset-selection section, the coverage numbers, the supplementary renumbering, 58 → 45 references and
+the 2026-09-29 reframing. Keeping two full manuscripts in step costs a rewrite on every edit, and the English one is
+what gets submitted — so a stale translation is a standing risk of quoting a number the paper no longer reports.
+Asked to choose, the author chose a summary.
+
+**What exists now.** `gz/results/MANUSCRIPT_SUMMARY_KR.md` — the paper in Korean, about four pages: the one-paragraph
+claim, what the introduction establishes, each Results section with its numbers, what the Discussion does and does not
+claim, the gate table, what each of the five figures is for, the five limitations, the datasets, the submission
+counts, and a file map. Every figure is stated as taken from the English submission draft, with the rule that the
+English file wins if the two disagree.
+
+`MANUSCRIPT_gz_v1_KR.md` keeps its 589 lines, with a header saying it was superseded on this date, what it is missing
+and that it is kept as provenance of the translation. It was not deleted.
+
+**`review/manuscript_review_KR.html` rebuilt** from the summary rather than from the retired file, with the five main
+figures placed after the sections that discuss them. It had been sitting at its 2026-09-19 build, rendering a source
+that was already stale.
+
+**The three Korean page builders moved into the repository** (`gz/src/35`–`38`). They had been living in the session
+scratchpad, which does not survive the session, so the pages the author actually reads were not reproducible. Paths
+are now derived from `__file__` rather than hard-coded, and their intermediates (panel crops, re-encoded figures) go
+to `gz/figures/review_assets/`, added to `.gitignore`. One crop had the wrong source height for Supplementary
+Figure S7 (150 mm against the actual 156 mm), which is fixed by the move.
+
+Pages: `public_KR.html` (general readers, nine questions), `easy_review_KR.html` (figure by figure, why each exists),
+`manuscript_review_KR.html` (the summary with figures).
