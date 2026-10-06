@@ -45,6 +45,9 @@
 /gz/results/SUPPORTING_INFORMATION.md
 /gz/results/COVER_LETTER_draft.md
 /gz/results/SUBMISSION_CHECKLIST_KR.md
+# package assembled for external feedback: contains the manuscript, stays private
+/gz/results/for_feedback_VNG/
+/gz/results/MANUSCRIPT_SUMMARY_KR.md
 # tAge Python port: held back pending the tAge licence share-back step (see README)
 /gz/src/tage_py.py
 

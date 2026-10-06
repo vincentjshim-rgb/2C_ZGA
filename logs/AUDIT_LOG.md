@@ -1805,3 +1805,67 @@ Figure S7 (150 mm against the actual 156 mm), which is fixed by the move.
 
 Pages: `public_KR.html` (general readers, nine questions), `easy_review_KR.html` (figure by figure, why each exists),
 `manuscript_review_KR.html` (the summary with figures).
+
+---
+
+## 2026-10-06 — Inside the ground-zero framework: the stage-anchored reading of ZGA is dropped
+
+**Prompt.** The author met V. N. Gladyshev, who said that ZGA may be a regulatory switch but that its relation to the age
+minimum may differ between species, and pointed to the Xenopus preprint of his group (Zhang, Tarkhov, …, Peshkin &
+Gladyshev, bioRxiv 10.1101/2022.08.02.502559, v1 posted 2022-08-04). I read the preprint in full (22 pages, figures
+included; text saved to the session scratchpad). It has appeared since only as a conference abstract (Innovation in
+Aging 7, Suppl. 1, igad104.2485, 2023) and is cited as a preprint.
+
+**What the preprint reports.** A mammalian methylation array yields 1,068 usable CpGs in Xenopus laevis; a bagged
+Elastic Net clock trained on 40 adult skin samples (185 CpGs, MAE 1.82 years) applied to embryos 5–31.5 hpf falls
+rapidly around 10–12 hpf, at the onset of gastrulation (~9.5 hpf), where it reaches its minimum and then rises slowly;
+methylation entropy is lowest at 10–12 hpf and global methylation plateaus at ~10 hpf; mean transcript abundance
+(GSE73430) is lowest at NF9, just before gastrulation, and rises sharply during it; and of 5,546 embryos followed
+individually, 104 (~2%) failed, 66 of them within 3 h of the onset of gastrulation. Ground zero is defined there by the
+convergence of those four readouts, not by one clock. For mouse the preprint restates the E4.5–E9.5 window of
+Kerepesi et al. (2021), whose own text gives E4.5–E10.5, most probably E6.5/E7.5.
+
+**What it changes here.** Nothing numerical. Two things in how the paper reads itself were wrong or weak:
+
+1. The Introduction said "the coincidence has been read as reprogramming resetting molecular age, the minimum being
+   described as a ground zero" — conflating our two-cell window with the minimum, which the ground-zero papers place at
+   gastrulation (mouse, frog), after implantation (human) and near E10 (tAge). The paper now says the two-cell decrease
+   is a feature of the descending limb, at the first wholesale remodelling of the transcriptome, and is not the minimum.
+2. Gate 1 asked whether the largest decrease coincided with a literature major-ZGA stage. Under "a switch whose position
+   differs by species" that criterion asks different questions in different species (two-cell in mouse, 2→4-cell in
+   pig, 8→16-cell in cow and rabbit). The verdict labels are untouched (1 of 4, mixed; 1-alt partial, post hoc), but
+   the Results and Discussion now read the cross-species result as: the stage did not hold, the relation did — over the
+   24 intervals the measured zygotic gain correlates with the decrease (ρ = 0.52), the pattern expected if the clock
+   responds to the remodelling rather than to a landmark.
+
+Added to the Discussion, after the human paragraph: a scalar that is a 17% or 8% residual of opposing flows moves
+whenever either flow is touched (A485, DUX), so where its minimum falls through a remodelling event depends on the
+balance of the flows as much as on the state the clock was trained to read; locating a transcriptomic ground zero
+needs the decomposition, as the Xenopus study needed four readouts. The closing open questions now include whether the
+descent into the post-implantation minimum has the same structure — testable with the same identity.
+
+**References.** Added Gladyshev (2021, Trends Mol Med) and Zhang et al. (2022, bioRxiv); dropped Schaetzlein et al.
+(2004), Dang-Nguyen et al. (2012) and Falco et al. (2007) together with the telomere and Zscan4 sentences they
+supported. 44 of 45. The reference-check note at the end of the manuscript records this.
+
+**Word budget.** The reframing added ~330 words; three passes took them back out — mainly where a point was made twice
+(the ρ = 0.52 sentence that stood in both D2 and D3; the identity's provenance in both 2.4 and D6; the GSE162345
+move in 2.3, 4.1 and 4.2), descriptive clauses nothing used (the ICM libraries of GSE66582; the eight-against-a-thousand
+genes of GSE162345, which stays in this log) and a source-study module comparison. Working file 7,482 / 7,500;
+submission draft 7,347 (availability text in its own section); abstract 250 / 250.
+
+**Not done, proposed instead.** The framework suggests one analysis the identity can do directly: decompose the
+descent into the ground-zero minimum itself — human blastocyst → post-implantation epiblast (GSE109555, Zhou et al.
+2019, 65 peri-implantation embryos; GSE136447, Xiang et al. 2020, 3D-cultured embryos to the primitive-streak anlage)
+and mouse E3.5 → E6.5 (GSE100597, Mohammed et al. 2017) — and ask whether it is also a near-cancellation. Deposited
+counts would suffice, as for GSE36552 and GSE45719. It needs a frozen plan and the author's decision first; nothing was
+downloaded.
+
+**Derived files rebuilt** from the manuscript: submission text (src/39), supporting information (src/40), the three
+.docx and README (src/34), and the three Korean pages (src/35–38). The submission-text and SI builders had been
+living in the session scratchpad with the Crossref cache; they now sit in `gz/src/` with the cache at
+`gz/metadata/refs_crossref.json`.
+
+**For external feedback.** `gz/results/for_feedback_VNG/` holds a one-page note in English (what was done, where it
+sits relative to ground zero, four questions), the two .docx files, the 12 figures as PDF and four data tables. The
+folder is excluded from the public repository because it contains the manuscript. Nothing has been sent.
