@@ -1869,3 +1869,27 @@ living in the session scratchpad with the Crossref cache; they now sit in `gz/sr
 **For external feedback.** `gz/results/for_feedback_VNG/` holds a one-page note in English (what was done, where it
 sits relative to ground zero, four questions), the two .docx files, the 12 figures as PDF and four data tables. The
 folder is excluded from the public repository because it contains the manuscript. Nothing has been sent.
+
+---
+
+## 2026-10-08 — The feedback package is cut down to the story and the solid numbers
+
+**Why.** The author wants to send V. N. Gladyshev the argument first and the full data only if asked, and wants the
+points on which his advice is sought set out separately.
+
+**What is in `gz/results/for_feedback_VNG/` now.** `send/`: a one-page note (`NOTE_for_VNG.md` — the argument in
+six steps, the reading inside the ground-zero framework, three lines on what is not yet solid, and the points for his
+view grouped as A interpretation / B method / C species and data / D positioning) and one figure (`story_figure.pdf`,
+`src/41_story_figure_for_feedback.py`: the mouse control running sum, the three arms over the same genes, the human
+running sum, and human against mouse per gene — all from the published source-data tables, nothing recomputed), plus
+Figures 2, 3 and 5 as optional attachments. `hold/`: the manuscript and SI .docx, the twelve figures, the four data
+tables and the earlier long note, to be sent on request. A Korean guide (`보내기_안내_KR.md`) says which numbers went
+into the note and why, which were left out, and lists the A–D points in Korean. The folder stays out of the
+repository. Nothing has been sent.
+
+**Numbers admitted to the note** — each either an identity, a prespecified verdict, or replicated: the within-two-cell
+decrease in three datasets; −1.40 / +1.17 / 17%; r = 0.74 between studies; I = +0.18 [0.11, 0.25]; 85% / 113% with
+the scalar unmoved; the splicing direction surviving cross-fitting; the human 8% residual and r = 0.07. The three
+weaknesses that could change his advice are stated (cross-species stage test 1 of 4; the smallest dataset's sign flip
+in one variant; human n = 5 with an interval including zero). Gene names, the secondary series, fold values, the
+dataset-selection account and the methods detail were left out.
