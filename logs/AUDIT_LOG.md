@@ -1893,3 +1893,9 @@ the scalar unmoved; the splicing direction surviving cross-fitting; the human 8%
 weaknesses that could change his advice are stated (cross-species stage test 1 of 4; the smallest dataset's sign flip
 in one variant; human n = 5 with an interval including zero). Gene names, the secondary series, fold values, the
 dataset-selection account and the methods detail were left out.
+
+**Later the same day.** The note is an opinion request only — no coauthorship, acknowledgement or reviewer matters are
+raised, at the author's instruction. Questions that exist because our own data are thin are marked ▲ in the note
+(A1 no post-implantation window of our own; B3 half-covered atlas; C1 human n = 5; C2 perturbation groups of 2–4 with
+the verdict on an n = 2 dataset; C3 the 24-interval ρ = 0.52; C4 no E3.5 → E8.5 series), and the Korean guide tabulates
+what data would resolve each.
