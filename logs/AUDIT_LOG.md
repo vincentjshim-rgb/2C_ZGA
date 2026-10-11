@@ -1899,3 +1899,37 @@ raised, at the author's instruction. Questions that exist because our own data a
 (A1 no post-implantation window of our own; B3 half-covered atlas; C1 human n = 5; C2 perturbation groups of 2–4 with
 the verdict on an n = 2 dataset; C3 the 24-interval ρ = 0.52; C4 no E3.5 → E8.5 series), and the Korean guide tabulates
 what data would resolve each.
+
+---
+
+## 2026-10-12 — Direction-finding phase opened: four exploratory analyses (A–D) before the core logic is fixed
+
+**Why.** The author's judgement: the manuscript as it stands — the two-cell near-cancellation with ZGA
+perturbation and a splicing readout — is correct but not attractive ("잘해봤자 IF 2–3"), and the priority is to decide
+the paper's core logic first and then build figures and data that carry it; perturbation detail is secondary. Four
+exploratory analyses were set: A, read the clock twice (net and gross) on the data already scored; B, decompose
+published mouse methylation clocks across embryo methylomes; C, decompose the clock's rejuvenation signal in
+reprogramming and intervention datasets; D, decompose the whole descent to the ground-zero minimum. Exploration
+means the outcome chooses a direction, not a verdict; anything that enters the paper carries its planning date.
+Reconnaissance of public data for B, C and D was delegated to three background agents (inventory only, no analysis).
+The human inputs for GSE36552 were moved from the session scratchpad into `gz/data/GSE36552/` so the pipeline no
+longer depends on session-local files.
+
+**A — plan frozen before any gross value** (`plan/EXPLORE_A_netgross_frozen.md`, sha256 f84d5afe…), script
+`src/42_explore_A_netgross.py`. Every recomputed net matched the stored Gate 1, Gate 2b, Gate 3 and human values
+before any gross number was written. Readings against the frozen rules:
+
+- P1 (gross max = literature major-ZGA stage, ≥ 3 of 4): mouse yes (E2C→L2C, P 1.00), cow yes (8C→16C, P 0.82), pig
+  no (Day2→Day3 against the plan's 2C→4C), rabbit no (4C→8C against 8C→16C) — **2 of 4, unsupported**. Secondary,
+  reported only: the gross maximum coincides with the interval of maximal *measured* zygotic gain in 3 of 4 (mouse,
+  cow, pig; rabbit no).
+- P2 (gross lower in every perturbed arm): A485 −0.32 [−0.69, +0.06], Tardbp KO −0.24 [−0.47, +0.13], Brg1 KO −0.35
+  [−0.91, +0.17] — **3 of 3 by sign, every interval including zero**; rescue G(A485+DUX) − G(A485) = +0.45 [+0.13,
+  +0.78], **excludes zero** — the rescue the scalar conceals is visible in the clock's own gross flow.
+- P3 (human gross max at 4C→8C): at 4C→8C as predicted, P_max 0.48 (Mor→LBl 0.52) — **unsupported by the 0.6 rule**.
+- P4: gross max within the two-cell stage in GSE45719 (E2C→M2C, P 0.84) and GSE66582 (E2C→2C, P 1.00).
+
+By the plan's own reading rule (P1 and P2 both needed), **A is supporting material, not a core logic.** What it does
+establish: the cancellation C = |D|/G is 0.02–0.10 in every arm and 0.01–0.10 across the human intervals; the
+perturbation and rescue register in G with the expected signs. Outputs `results/explore_A_netgross_{intervals,arms}.tsv`,
+`results/explore_A_netgross.md`, diagnostic `results/explore_A_netgross.png`.
